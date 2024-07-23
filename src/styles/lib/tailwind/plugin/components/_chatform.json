@@ -1,0 +1,27 @@
+{
+  ".chatform": {
+    "width": "100%",
+    "height": "fit-content",
+    "minWidth": "320px",
+    "maxWidth": "480px",
+    "padding": "8px 12px",
+    "display": "flex",
+    "flexDirection": "row",
+    "justifyContent": "center",
+    "gap": "8px",
+    "alignItems": "end"
+  }, 
+  ".chatform-button": {
+    "width": "32px",
+    "height": "32px",
+    "margin-bottom": "5px",
+    "boxShadow": "0px 4px 8px 0px #00000029",
+    "@apply bg-@-primary-500": true,
+    "&:hover": {
+      "@apply bg-@-primary-700": true
+    },
+    "&:disabled": {
+      "@apply bg-@-primary-100": true
+    }
+  }
+}

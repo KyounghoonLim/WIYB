@@ -1,0 +1,86 @@
+{
+  ".button-primary": {
+    "height": "62px",
+    "padding": "20px 32px",
+    "borderRadius": "16px",
+    "whiteSpace": "nowrap",
+    "@apply flex-row-center": true,
+    "@apply bg-@-primary-500": true,
+    "@apply text-@-neutral-000": true,
+    "@apply typograph-16": true,
+    "@apply font-bold": true,
+    "&:hover": {
+      "@apply bg-@-primary-700": true
+    },
+    "&:disabled": {
+      "@apply bg-@-primary-100": true
+    }
+  },
+  ".button-secondary": {
+    "height": "48px",
+    "padding": "12px 16px",
+    "borderRadius": "16px",
+    "whiteSpace": "nowrap",
+    "@apply flex-row-center": true,
+    "@apply bg-@-neutral-000": true,
+    "@apply text-@-text-grey": true,
+    "@apply typograph-15": true,
+    "@apply font-bold": true,
+    "@apply border-@-line-medium": true,
+    "@apply border-01": true,
+    "&:hover": {
+      "@apply bg-@-bg-pressed": true
+    },
+    "&:disabled": {
+      "@apply bg-@-neutral-000": true,
+      "@apply text-@-text-dimmed": true
+    }
+  },
+  ".button-circled": {
+    "width": "54px",
+    "height": "54px",
+    "borderRadius": "50%",
+    "flexShrink": "0",
+    "@apply flex-row-center": true
+  },
+  ".button-guide": {
+    "padding": "6px 10px 6px 8px",
+    "@apply flex-row-center": true,
+    "gap": "2px",
+    "@apply text-@-neutral-000": true,
+    "@apply typograph-13": true,
+    "@apply border-01": true,
+    "borderRadius": "50px",
+    "borderColor": "#FFFFFF66",
+    "boxShadow": "0px 4px 10px 0px #0000000F",
+    "&:hover": {
+      "backgroundColor": "#0000001F"
+    },
+    "&:disabled": {
+      "opacity": "40%",
+      "pointerEvents": "none"
+    },
+    "&::before": {
+      "content": "url('/static/icons/icon_help_16.svg')",
+      "width": "16px",
+      "height": "16px",
+      "display": "block",
+      "flexShrink": "0"
+    }
+  },
+  ".button-underlined": {
+    "height": "fit-content",
+    "borderRadius": "4px",
+    "opacity": "80%",
+    "@apply text-@-neutral-000": true,
+    "@apply typograph-13": true,
+    "@apply underline": true,
+    "&:hover": {
+      "@apply bg-[#0000001F]": true
+    },
+    "&:disabled": {
+      "opacity": "40%",
+      "pointerEvents": "none"
+    }
+  }
+}

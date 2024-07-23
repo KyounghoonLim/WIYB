@@ -1,0 +1,46 @@
+{
+  ".radio-group": {
+    "width": "100%",
+    "display": "flex",
+    "flexWrap": "no-wrap",
+    "justifyContent": "start",
+    "alignItems": "center",
+    "gap": "8px"
+  },
+  ".radio-item": {
+    "width": "104px",
+    "height": "48px",
+    "borderRadius": "30px",
+    "cursor": "pointer",
+    "overflow": "hidden",
+    "@apply bg-white": true,
+    "@apply typograph-15": true,
+    "@apply text-@-text-grey": true,
+    "@apply font-bold": true,
+    "@apply border-01": true,
+    "@apply border-@-line-medium": true,
+    "@apply flex-row-center": true,
+    "&:hover": {
+      "@apply bg-@-bg-pressed": true,
+      "@apply text-@-text-medium": true
+    }
+  },
+  ".radio-item-selected": {
+    "@apply !text-@-primary-500": true,
+    "@apply !border-@-primary-500": true,
+    "&::before": {
+      "content": "url('/static/icons/check/icon_check_24.svg')",
+      "width": "24px",
+      "height": "24px",
+      "display": "block",
+      "margin-right": "2px",
+      "@apply stroke-@-primary-500": true
+    }
+  },
+  ".radio-item-disabled": {
+    "cursor": "not-allowed !important",
+    "pointerEvents": "none",
+    "@apply !bg-white": true,
+    "@apply !text-@-text-dimmed": true
+  }
+}

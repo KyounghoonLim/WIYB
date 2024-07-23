@@ -1,0 +1,12 @@
+{
+  ".label": {
+    "width": "100%",
+    "display": "flex",
+    "flexDirection": "column",
+    "justifyContent": "center",
+    "alignItems": "start",
+    "gap": "8px",
+    "@apple typograph-14": true,
+    "@apply text-@-text-medium": true
+  }
+}

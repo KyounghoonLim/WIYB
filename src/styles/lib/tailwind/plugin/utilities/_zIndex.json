@@ -1,0 +1,11 @@
+{
+  ".z-backdrop": {
+    "zIndex": "-1"
+  },
+  ".z-header": {
+    "zIndex": "10"
+  },
+  ".z-overlay": {
+    "zIndex": "100"
+  }
+}

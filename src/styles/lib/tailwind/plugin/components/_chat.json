@@ -1,0 +1,58 @@
+{
+  ".chat-container": {
+    "width": "100%",
+    "height": "100%",
+    "display": "flex",
+    "flexDirection": "column",
+    "transition": "all",
+    "transition-duration": "200ms",
+    "transition-timing-function": "ease-in-out",
+    "& > section": {
+      "@apply chat-container-contents": true
+    }
+  },
+  ".chat-container-contents": {
+    "paddingTop": "52px",
+    "position": "relative"
+  },
+  ".chat-container-scrollbar": {
+    "height": "calc(100% - 52px)",
+    "top": "auto !important",
+    "bottom": "0 !important"
+  },
+  ".chat-message": {
+    "width": "100%",
+    "height": "fit-content !important",
+    "padding": "6px 0",
+    "display": "flex",
+    "alignItems": "start",
+    "gap": "6px",
+    "boxSizing": "border-box",
+    "wordBreak": "break-word"
+  },
+  ".chat-message-sender-profile-container": {
+    "width": "32px",
+    "height": "32px",
+    "flexShrink": "0"
+  },
+  ".chat-message-sender-profile-image": {
+    "width": "32px",
+    "height": "32px",
+    "borderRadius": "50%"
+  },
+  ".chat-align-assistance": {
+    "flexDirection": "row",
+    "alignItems": "start"
+  },
+  ".chat-align-user": {
+    "flexDirection": "column-reverse",
+    "alignItems": "end",
+    "gap": "8px"
+  },
+  ".chat-padding-group": {
+    "paddingTop": "17px !important" 
+  },
+  ".chat-padding-last": {
+    "paddingBottom": "32px !important"
+  }
+}
