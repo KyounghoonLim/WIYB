@@ -9,6 +9,7 @@ interface InputProps {
   className?: string;
   disabled?: boolean;
   maxLength?: number;
+  icon?: FC<SVGElement>;
   errorMessage?: string;
   onFocus?: (value: string) => any;
   onBlur?: (value: string) => any;

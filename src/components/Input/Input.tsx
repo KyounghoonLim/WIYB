@@ -18,7 +18,8 @@ function Input(
     placeholder = "",
     id,
     disabled = false,
-    maxLength = 30,
+    maxLength = 100,
+    icon,
     errorMessage,
     className,
     onChange,
@@ -86,7 +87,8 @@ function Input(
 
   return (
     <div className="flex w-full flex-col" data-prevent-close-keyboard="true">
-      <div className="relative flex items-center">
+      <div className="relative input-wrapper">
+        {icon && icon({ className: "ml-4" })}
         <input
           ref={inputRef}
           id={id}

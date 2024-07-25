@@ -12,6 +12,7 @@ import nav from "./_nav.json";
 import bubble from "./_bubble.json";
 import chat from "./_chat.json";
 import textarea from "./_textarea.json";
+import thumbnail from "./_thumbnail.json";
 
 const components = {
   ...card,
@@ -28,6 +29,7 @@ const components = {
   ...bubble,
   ...chat,
   ...textarea,
+  ...thumbnail,
 };
 
 export default components;
