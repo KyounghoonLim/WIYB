@@ -1,9 +1,7 @@
-import { Union } from 'src/interfaces/union.types'
+import { Union } from "t/union.types";
 
 export const GENDER = {
-  FEMALE: 'Female',
-  MALE: 'Male',
-  NON_BINARY: 'Non-binary',
-} as const
-
-export type GenderType = Union<typeof GENDER>
+  FEMALE: "Female",
+  MALE: "Male",
+  SECRET: "Sceret",
+} as const;

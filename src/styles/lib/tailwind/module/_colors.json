@@ -1,12 +1,7 @@
 {
   "@": {
     "primary": {
-      "100": "#E6D4FC",
-      "200": "#C8AAFA",
-      "300": "#AA7FF1",
-      "500": "#732AD1",
-      "700": "#4E1EAA",
-      "900": "#33107E"
+      "000": "#00871E"
     },
     "error": {
       "500": "#EF4614",
@@ -32,7 +27,9 @@
       "medium-mono": "#8D8B9A",
       "grey": "#3A3943",
       "black": "#111111",
-      "subtitle": "#646464"
+      "subtitle": "#646464",
+      "placeholder": "#C8C8C8",
+      "label": "#969696"
     },
     "line": {
       "light": "#EDEDF5",
@@ -44,7 +41,11 @@
       "dimmed": "#F9F9F9",
       "pressed": "#3A39431A"
     },
-    "represent": "#00871E"
+    "button": {
+      "primary": "#00871E",
+      "hover": "#00821E",
+      "disabled": "#969696"
+    }
   },
   "others": {
     "naver": "#03C75A",

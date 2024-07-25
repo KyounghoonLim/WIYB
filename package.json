@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "i18next": "^23.12.2",
     "next": "14.2.5",
+    "next-i18next": "^15.3.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18",
+    "react-i18next": "^15.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

@@ -1,28 +1,41 @@
 "use client";
 
-import React, { useCallback, useMemo } from "react";
-/// hooks ///
-import useThrottle from "s/hooks/useThrottle";
-/// types ///
-import { ButtonProps } from "s/interfaces/components/button.interface";
-/// utils ///
+import { ButtonProps } from "@/src/@types/components/button/button.interface";
+import useThrottle from "@/src/hooks/useThrottle";
+import { convertStringToTSX } from "@/src/utils/convertStringToJSX";
 import clsx from "clsx";
+import { useCallback, useMemo, useRef } from "react";
 
-export default function Button({ children, type = "button", disabled, className, onClick }: ButtonProps) {
+export default function Button({ onClick, icon, text, className = "button-primary", disabled }: ButtonProps) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const { throttle: isLoading, throttling } = useThrottle();
 
-  const renderedChildren = useMemo(() => {
-    if (!children) return <></>;
-    else return children({ disabled, isLoading });
-  }, [disabled, isLoading, children]);
+  const IconElement = useMemo(() => {
+    if (!icon) return <></>;
+    else return icon({ className: "shrink-0 grow-0" });
+  }, [icon]);
 
-  const clickHandler = useCallback(async () => {
+  const TextElement = useMemo(() => {
+    if (!text) return "";
+    else {
+      return convertStringToTSX(text, "font-black");
+    }
+  }, [text]);
+
+  const clickHandler = useCallback(() => {
     onClick && throttling(onClick);
-  }, [throttling, onClick]);
+  }, [onClick, throttling]);
 
   return (
-    <button type={type} disabled={disabled} onClick={clickHandler} className={clsx(className, disabled && "cursor-not-allowed", isLoading && "cursor-wait")}>
-      {renderedChildren}
+    <button
+      ref={buttonRef}
+      onClick={clickHandler}
+      className={clsx(className, disabled && "cursor-not-allowed", isLoading && "cursor-wait")}
+      disabled={disabled}
+    >
+      {IconElement}
+      {TextElement}
     </button>
   );
+  return <></>;
 }
