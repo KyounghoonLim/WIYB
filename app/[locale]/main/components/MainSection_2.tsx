@@ -9,7 +9,7 @@ export default function MainSection_2() {
   const [search, setSearch] = useState<string>("");
 
   return (
-    <section className="w-full h-[64px] flex-row-center">
+    <section className="w-full h-[64px] flex-row-center py-4">
       <Input value={search} onChange={setSearch} placeholder="장비, 플레이어를 검색해보세요 🧐" icon={SearchIcon} maxLength={null} />
     </section>
   );

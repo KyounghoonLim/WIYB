@@ -1,4 +1,9 @@
 {
+  ".thumbnail-primary": {
+    "aspectRatio": "1 / 1",
+    "backgroundPosition": "center",
+    "backgroundSize": "cover"
+  },
   ".thumbnail-user": {
     "borderRadius": "50%",
     "aspectRatio": "1 / 1",

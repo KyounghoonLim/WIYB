@@ -45,6 +45,9 @@
       "primary": "#00871E",
       "hover": "#00821E",
       "disabled": "#969696"
+    },
+    "grid": {
+      "secondary": "#969696"
     }
   },
   "others": {

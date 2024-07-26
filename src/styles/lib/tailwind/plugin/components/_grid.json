@@ -1,0 +1,29 @@
+{
+  ".grid-primary": {
+    "width": "100%",
+    "display": "grid",
+    "gap": "8px"
+  },
+  ".grid-item-primary": {
+    "display": "flex",
+    "flexDirection": "column",
+    "gap": "10px",
+    "borderRadius": "8px",
+    "padding": "12px",
+    "cursor": "pointer",
+    "@apply bg-@-neutral-900": true,
+    "@apply text-@-neutral-000": true
+  },
+  ".grid-item-secondary": {
+    "display": "flex",
+    "flexDirection": "column",
+    "gap": "10px",
+    "borderRadius": "8px",
+    "padding": "12px",
+    "borderWidth": "1px",
+    "borderStyle": "dashed",
+    "cursor": "pointer",
+    "@apply text-@-grid-secondary": true,
+    "@apply border-@-grid-secondary": true
+  }
+}

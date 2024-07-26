@@ -13,6 +13,7 @@ import bubble from "./_bubble.json";
 import chat from "./_chat.json";
 import textarea from "./_textarea.json";
 import thumbnail from "./_thumbnail.json";
+import grid from "./_grid.json";
 
 const components = {
   ...card,
@@ -30,6 +31,7 @@ const components = {
   ...chat,
   ...textarea,
   ...thumbnail,
+  ...grid,
 };
 
 export default components;
