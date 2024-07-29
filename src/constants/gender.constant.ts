@@ -1,7 +1,7 @@
 import { Union } from "t/union.types";
 
 export const GENDER = {
-  FEMALE: "Female",
-  MALE: "Male",
-  SECRET: "Sceret",
+  FEMALE: "FEMALE",
+  MALE: "MALE",
+  SECRET: "OTHER",
 } as const;

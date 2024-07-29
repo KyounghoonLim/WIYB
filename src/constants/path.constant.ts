@@ -1,7 +1,7 @@
 import { Union } from "s/@types/union.types";
 
 export const PATH = {
-  MAIN: "/",
+  MAIN: "/main",
   /// auth ///
   LOGIN: "/login",
   SIGN: "/sign",

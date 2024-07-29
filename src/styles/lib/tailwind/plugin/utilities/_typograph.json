@@ -1,9 +1,4 @@
 {
-  ".truncate-line": {
-    "whiteSpace": "nowrap",
-    "textOverflow": "ellipsis",
-    "overflow": "hidden"
-  },
   ".typograph-10": {
     "fontSize": "10px",
     "lineHeight": "12px"

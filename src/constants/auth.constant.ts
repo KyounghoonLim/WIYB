@@ -1,13 +1,7 @@
-export const LOGIN_TYPE = {
-  GOOGLE: 'google',
-  APPLE: 'apple',
-  NAVER: 'naver',
-  KAKAO: 'kakao',
-  ANONYMOUS: 'anonymous',
-}
+export const AUTH_PROVIDER = {
+  GOOGLE: "google",
+  NAVER: "naver",
+  KAKAO: "kakao",
+};
 
-export type LoginType = (typeof LOGIN_TYPE)[keyof typeof LOGIN_TYPE]
-
-export const ALLOWED_REFFERER = {
-  GOOGLE: 'https://accounts.google.com/',
-}
+export type AuthProviderType = (typeof AUTH_PROVIDER)[keyof typeof AUTH_PROVIDER];

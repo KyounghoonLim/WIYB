@@ -1,9 +1,9 @@
 export { InputProps };
 
-interface InputProps {
-  onChange: (value: string) => void;
+interface InputProps<T = string | number> {
+  onChange: (value: T) => void;
   type?: HTMLInputElement.type;
-  value?: string;
+  value?: T;
   placeholder?: string;
   id?: string;
   className?: string;
@@ -11,7 +11,7 @@ interface InputProps {
   maxLength?: number;
   icon?: FC<SVGElement>;
   errorMessage?: string;
-  onFocus?: (value: string) => any;
-  onBlur?: (value: string) => any;
-  preprocessor?: (value: string) => string;
+  onFocus?: (value: T) => any;
+  onBlur?: (value: T) => any;
+  preprocessor?: (value: T) => string | number;
 }

@@ -11,10 +11,10 @@ import clsx from "clsx";
 // import { isShowKeyboardState } from "store/appStore";
 import { InputProps } from "@/src/@types/components/input/input.interface";
 
-function Input(
+function Input<T = string>(
   {
     type = "text",
-    value = "",
+    value,
     placeholder = "",
     id,
     disabled = false,
@@ -26,7 +26,7 @@ function Input(
     onFocus,
     onBlur,
     preprocessor = inputPreprocessor,
-  }: InputProps,
+  }: InputProps<T>,
   ref: ForwardedRef<HTMLInputElement>
 ) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -51,7 +51,9 @@ function Input(
 
   const changeHandler = useCallback(
     (e: SyntheticEvent) => {
-      onChange(preprocessor((e.target as HTMLInputElement).value));
+      const { value } = e.target as HTMLInputElement;
+      if (type === "number") onChange(Number(value) as T);
+      else onChange(preprocessor(value as T) as T);
     },
     [preprocessor, onChange]
   );
@@ -59,7 +61,8 @@ function Input(
   const focusHandler = useCallback(
     (e: SyntheticEvent) => {
       try {
-        inputRef.current?.setSelectionRange(value?.length, value?.length);
+        const v = String(value);
+        inputRef.current?.setSelectionRange(v?.length, v?.length);
       } catch {
         /// pass ///
       } finally {
@@ -81,7 +84,7 @@ function Input(
 
   const iconClickHandler = useCallback(() => {
     if (type === "password") setIsHide(!isHide);
-    else onChange("");
+    else onChange(null);
     inputRef.current?.focus();
   }, [type, isHide]);
 
@@ -94,6 +97,7 @@ function Input(
           id={id}
           className={clsx("input-basic", errorMessage && "input-error", className)}
           type={inputType}
+          //@ts-ignore
           value={value}
           placeholder={placeholder}
           maxLength={maxLength}
@@ -123,6 +127,7 @@ function Input(
 
 export default React.memo(Input);
 
-function inputPreprocessor(text: string) {
-  return text.trim();
+function inputPreprocessor<T = string | number>(value: T) {
+  if (typeof value === "number") return value;
+  else return (value as string).trim();
 }

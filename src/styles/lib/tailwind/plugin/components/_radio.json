@@ -2,7 +2,7 @@
   ".radio-group": {
     "width": "100%",
     "height": "44px",
-    "borderRadius": "8px",
+    "borderRadius": "20px",
     "display": "flex",
     "flexWrap": "no-wrap",
     "justifyContent": "start",
@@ -14,13 +14,12 @@
     "height": "100%",
     "cursor": "pointer",
     "padding": "0 8px",
-    "borderRadius": "8px",
+    "borderRadius": "20px",
     "@apply typograph-14": true,
     "@apply text-@-text-placeholder": true,
     "@apply flex-row-center": true,
     "@apply truncate": true,
     "&:hover": {
-      "@apply bg-@-neutral-200": true,
       "@apply text-@-text-medium": true
     },
     "&:checked": {
@@ -35,7 +34,7 @@
   },
   ".radio-indicator": {
     "height": "100%",
-    "borderRadius": "8px",
+    "borderRadius": "20px",
     "padding": "0 8px",
     "position": "absolute",
     "top": "0",

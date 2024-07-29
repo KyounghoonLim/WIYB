@@ -29,10 +29,11 @@
       "black": "#111111",
       "subtitle": "#646464",
       "placeholder": "#C8C8C8",
-      "label": "#969696"
+      "label": "#969696",
+      "comment": "#286EDC"
     },
     "line": {
-      "light": "#EDEDF5",
+      "light": "#F5F5F5",
       "medium": "#D8D8E5",
       "dark": "#C2C2D8"
     },
@@ -43,11 +44,15 @@
     },
     "button": {
       "primary": "#00871E",
+      "secondary": "#FFFFFF",
       "hover": "#00821E",
       "disabled": "#969696"
     },
     "grid": {
       "secondary": "#969696"
+    },
+    "bedge": {
+      "primary": "#F5F5F5"
     }
   },
   "others": {

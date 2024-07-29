@@ -1,3 +1,4 @@
+import Footer from "@/src/components/footer/Footer";
 import Nav from "@/src/components/nav/Nav";
 import type { Metadata } from "next";
 import "s/styles/global.css";
@@ -14,11 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-@-bg-light">
-        <main className="CONTAINER">
-          <Nav />
-          {children}
-        </main>
+      <body className="CONTAINER bg-@-bg-light">
+        <Nav />
+        {children}
+        <Footer />
       </body>
     </html>
   );

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  header {
-    @apply HEADER
-  }
-
   @supports (-webkit-line-clamp: 2) {
     .truncate-line {
       overflow-wrap: break-word;

@@ -2,12 +2,16 @@
   ".thumbnail-primary": {
     "aspectRatio": "1 / 1",
     "backgroundPosition": "center",
-    "backgroundSize": "cover"
+    "backgroundSize": "cover",
+    "flexShrink": 0,
+    "flexGrow": 0
   },
   ".thumbnail-user": {
     "borderRadius": "50%",
     "aspectRatio": "1 / 1",
     "backgroundPosition": "center",
-    "backgroundSize": "cover"
+    "backgroundSize": "cover",
+    "flexShrink": 0,
+    "flexGrow": 0
   }
 }

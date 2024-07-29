@@ -2,7 +2,10 @@
   ".z-backdrop": {
     "zIndex": "-1"
   },
-  ".z-header": {
+  ".z-nav": {
+    "zIndex": "10"
+  },
+  ".z-footer": {
     "zIndex": "10"
   },
   ".z-overlay": {

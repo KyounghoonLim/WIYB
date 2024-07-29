@@ -1,0 +1,25 @@
+{
+  ".list": {
+    "width": "100%",
+    "display": "flex",
+    "flexDirection": "column",
+    "& .list-item": {
+      "cursor": "pointer",
+      "borderBottom": "1px",
+      "borderStyle": "solid",
+      "@apply border-@-line-light": true
+    },
+    "&:last-child": {
+      "borderBottom": "0px",
+      "borderStyle": "hidden",
+      "@apply border-@-line-light": true
+    }
+  },
+  ".list-item": {
+    "width": "100%",
+    "display": "flex !important",
+    "alignItems": "center",
+    "gap": "6px",
+    "padding": "12px 0px"
+  }
+}
