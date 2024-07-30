@@ -5,7 +5,7 @@ import Bedge from "../../bedge/Bedge";
 
 export default function ListItem_Community<T = any>({ item, idx }: ListItemProps<T>) {
   return (
-    <div className="list-item gap-3">
+    <div className="list-item justify-between gap-3">
       <div className="flex flex-col gap-[6px]">
         {/* title */}
         <div className="flex flex-wrap gap-1 typograph-14 text-wrap">

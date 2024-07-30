@@ -16,6 +16,7 @@ import thumbnail from "./_thumbnail.json";
 import grid from "./_grid.json";
 import bedge from "./_bedge.json";
 import list from "./_list.json";
+import fileUploader from "./_fileUploader.json";
 
 const components = {
   ...card,
@@ -36,6 +37,7 @@ const components = {
   ...grid,
   ...bedge,
   ...list,
+  ...fileUploader,
 };
 
 export default components;

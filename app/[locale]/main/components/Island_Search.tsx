@@ -10,24 +10,31 @@ import clsx from "clsx";
 import Bedge from "@/src/components/bedge/Bedge";
 import List from "@/src/components/list/List";
 import ListItem_Search from "@/src/components/list/listItem/ListItem_Search";
+import useTheme from "@/src/hooks/theme/useTheme";
+import { THEME } from "@/src/constants/theme.constant";
 
 /// 검색 섹션 ///
 export default function Island_Search() {
   const [search, setSearch] = useState<string>("");
   const [isFocus, setIsFocus] = useState<boolean>(false);
 
-  const { current: body } = useRef<HTMLBodyElement>(document.getElementsByTagName("body")[0]);
-
   const { getRecentlySearches, setRecentlySearches } = useSearch();
+  const { changeTheme } = useTheme();
 
   useLayoutEffect(() => {
-    isFocus ? body.classList.add("overflow-hidden") : body.classList.remove("overflow-hidden");
+    if (!isFocus) {
+      document.body.classList.remove("overflow-hidden");
+      changeTheme(THEME.DEFAULT);
+    } else {
+      document.body.classList.add("overflow-hidden");
+      changeTheme(THEME.WHITE);
+    }
   }, [isFocus]);
 
   return (
     <section className={clsx(isFocus ? "SEARCH-CONTAINER" : "ISLAND-CONTAINER bg-transparent px-0 pt-3")}>
-      <div className={clsx(isFocus && "CONTENT-CONTAINER pt-2")}>
-        <article className="flex gap-1">
+      <div className={clsx(isFocus && "CONTENT-CONTAINER pt-2 px-2")}>
+        <article className="w-full flex gap-1 pr-2">
           {isFocus && <CloseIconBold width={44} height={44} className="shrink-0 grow-0 cursor-pointer fill-@-neutral-900" onClick={() => setIsFocus(false)} />}
           <Input
             value={search}
@@ -41,7 +48,7 @@ export default function Island_Search() {
         </article>
         {isFocus && (
           <>
-            <section className="flex flex-col px-4 py-6 pb-4 gap-6">
+            <section className="flex flex-col px-2 py-6 pb-4 gap-6">
               <h3 className="typograph-16">
                 지금 <strong className="font-semibold">인기 검색어</strong>에요
               </h3>
@@ -51,7 +58,7 @@ export default function Island_Search() {
                 <Bedge text="120 S400" />
               </div>
             </section>
-            <section className="flex flex-col px-4 py-6 pb-4">
+            <section className="flex flex-col px-2 py-6 pb-4">
               <div className="w-full flex justify-between items-center">
                 <h3 className="typograph-16">
                   <strong className="font-semibold">최근 검색</strong>

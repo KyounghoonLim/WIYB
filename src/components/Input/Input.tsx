@@ -11,7 +11,7 @@ import clsx from "clsx";
 // import { isShowKeyboardState } from "store/appStore";
 import { InputProps } from "@/src/@types/components/input/input.interface";
 
-function Input<T = string>(
+function Input(
   {
     type = "text",
     value,
@@ -22,11 +22,12 @@ function Input<T = string>(
     icon,
     errorMessage,
     className,
+    unit,
     onChange,
     onFocus,
     onBlur,
-    preprocessor = inputPreprocessor,
-  }: InputProps<T>,
+    preprocessor,
+  }: InputProps,
   ref: ForwardedRef<HTMLInputElement>
 ) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -52,8 +53,8 @@ function Input<T = string>(
   const changeHandler = useCallback(
     (e: SyntheticEvent) => {
       const { value } = e.target as HTMLInputElement;
-      if (type === "number") onChange(Number(value) as T);
-      else onChange(preprocessor(value as T) as T);
+      if (!preprocessor) onChange(value);
+      else onChange(preprocessor(value));
     },
     [preprocessor, onChange]
   );
@@ -126,8 +127,3 @@ function Input<T = string>(
 }
 
 export default React.memo(Input);
-
-function inputPreprocessor<T = string | number>(value: T) {
-  if (typeof value === "number") return value;
-  else return (value as string).trim();
-}

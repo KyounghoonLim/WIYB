@@ -36,7 +36,8 @@ export default function SignForm() {
       </label>
       <label htmlFor="sign-birth" className="label">
         생년월일
-        <InputDate id="sign-birth" value={birth} onChange={setBirth} />
+        {/* <InputDate id="sign-birth" value={birth} onChange={setBirth} /> */}
+        <input type="date" name="sign-birth" id="" />
       </label>
       <Button type="submit" text="회원가입 완료하기" className="button-primary mt-8" disabled={!nickname || !gender || !birth} />
     </Form>

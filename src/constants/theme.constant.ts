@@ -1,8 +1,8 @@
-import { Union } from "src/interfaces/union.types";
+import { Union } from "../@types/union.types";
 
 export const THEME = {
-  DEFAULT: 0,
-  DARK: 1,
+  DEFAULT: "#FAFAFA",
+  WHITE: "#FFFFFF",
 } as const;
 
 export type ThemeType = Union<typeof THEME>;

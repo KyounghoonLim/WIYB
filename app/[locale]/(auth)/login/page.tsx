@@ -6,7 +6,7 @@ import LoginSection_2 from "./(components)/LoginSection_2";
 export default function LoginPage() {
   return (
     <main className="CONTENT-CONTAINER">
-      <LoginNav />
+      {/* <LoginNav /> */}
       <LoginSection_1 />
       <LoginSection_2 />
       <LoginFooter />

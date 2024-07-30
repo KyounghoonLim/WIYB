@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { localeList } from "s/constants/locale.constant";
-import paths from "s/constants/paths.json";
+import { PATH } from "s/constants/path.constant";
 
 export function localeMiddleware(req: NextRequest) {
   const { nextUrl } = req;
 
-  if (!Object.keys(paths).some((path) => nextUrl.pathname.startsWith(path))) return NextResponse.next();
+  if (!Object.values(PATH).some((path) => nextUrl.pathname.startsWith(path))) return NextResponse.next();
   if (localeList.some((locale) => locale === nextUrl.pathname.split("/")[1])) return NextResponse.next();
   else {
     const acceptLanguages = (req.headers.get("Accept-Language") as string).split(";").join(",").split(",");
