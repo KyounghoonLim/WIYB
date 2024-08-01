@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 import Input from "@/src/components/Input/Input";
 import SearchIcon from "i/icon_search.svg";
 import useSearch from "@/src/hooks/search/useSearch";
-import CloseIcon from "i/icon_close.svg";
 import CloseIconBold from "i/icon_close_bold.svg";
 import clsx from "clsx";
 import Bedge from "@/src/components/bedge/Bedge";
@@ -20,7 +19,7 @@ export default function Island_Search() {
   const [search, setSearch] = useState<string>("");
   const [isFocus, setIsFocus] = useState<boolean>(false);
 
-  const { getRecentlySearches, setRecentlySearches } = useSearch();
+  const { getRecentlySearches, setRecentlySearches, removeRecentlySearch, removeAllRecentlySearch } = useSearch();
   const { changeTheme } = useTheme();
 
   const submitHandler = useCallback(() => {
@@ -28,7 +27,7 @@ export default function Island_Search() {
     else {
       setRecentlySearches(search);
     }
-  }, [search, isFocus]);
+  }, [search, isFocus, setRecentlySearches]);
 
   useLayoutEffect(() => {
     if (!isFocus) {
@@ -38,7 +37,7 @@ export default function Island_Search() {
       document.body.classList.add("overflow-hidden");
       changeTheme(THEME.WHITE);
     }
-  }, [isFocus]);
+  }, [isFocus, changeTheme]);
 
   return (
     <section className={clsx(isFocus ? "SEARCH-CONTAINER" : "ISLAND-CONTAINER bg-transparent px-0 pt-3")}>
@@ -74,15 +73,24 @@ export default function Island_Search() {
                 <Bedge text="120 S400" />
               </div>
             </section>
-            <section className="flex flex-col px-2 py-6 pb-4">
-              <div className="w-full flex justify-between items-center">
-                <h3 className="typograph-16">
-                  <strong className="font-semibold">최근 검색</strong>
-                </h3>
-                <span className="typograph-12 text-@-text-label cursor-pointer">전체 삭제</span>
-              </div>
-              <List items={getRecentlySearches().search} renderFunction={ListItem_Search} onClick={null} />
-            </section>
+            {getRecentlySearches.search.length ? (
+              <section className="flex flex-col px-2 py-6 pb-4">
+                <div className="w-full flex justify-between items-center">
+                  <h3 className="typograph-16">
+                    <strong className="font-semibold">최근 검색</strong>
+                  </h3>
+                  <span className="typograph-12 text-@-text-label cursor-pointer" onClick={removeAllRecentlySearch}>
+                    전체 삭제
+                  </span>
+                </div>
+                <List
+                  items={getRecentlySearches.search}
+                  renderFunction={({ item, idx }) => ListItem_Search({ item, idx, callback: () => removeRecentlySearch(item) })}
+                />
+              </section>
+            ) : (
+              <></>
+            )}
           </>
         )}
       </div>

@@ -4,12 +4,12 @@ export { ListProps, ListItemProps };
 
 interface ListProps<T = any> {
   items: T[];
-  onClick: (item: T, idx: number) => any | Promise<any>;
-  renderFunction: FC;
+  renderFunction: FC<{ item; idx }>;
   className?: string;
 }
 
 interface ListItemProps<T> {
   item: T;
   idx: number;
+  [key: string]: any;
 }

@@ -16,6 +16,6 @@ function setCookie(key: string, value: string, options: CookieSerializeOptions =
 }
 
 function removeCookie(key: string) {
-  const cookie = Cookie.serialize(key, "", { expires: getDateBefore(new Date()) });
+  const cookie = Cookie.serialize(key, getCookie(key), { expires: new Date(Date.now()) });
   document.cookie = cookie;
 }
