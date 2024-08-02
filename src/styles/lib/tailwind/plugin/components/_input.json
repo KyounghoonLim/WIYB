@@ -25,6 +25,33 @@
     "&:focus": {
       "outline": "none",
       "@apply caret-@-neutral-700": true
+    },
+    "&[type='date']": {
+      "cursor": "pointer",
+      "&:not(:focus):invalid": {
+        "&::-webkit-datetime-edit-text, &::-webkit-datetime-edit-month-field, &::-webkit-datetime-edit-day-field, &::-webkit-datetime-edit-year-field": {
+          "-webkit-appearance": "none",
+          "display": "none"
+        }
+      },
+      "&:before": {
+        "content": "attr(data-placeholder)",
+        "width": "100%",
+        "@apply text-@-text-placeholder": true
+      },
+      "&:valid::before": {
+        "display": "none"
+      },
+      "&::-webkit-calendar-picker-indicator": {
+        "position": "absolute",
+        "left": 0,
+        "top": 0,
+        "width": "100%",
+        "height": "100%",
+        "background": "transparent",
+        "color": "transparent",
+        "cursor": "pointer"
+      }
     }
   },
   ".input-error": {

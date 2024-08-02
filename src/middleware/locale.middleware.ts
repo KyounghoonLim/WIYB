@@ -1,22 +1,18 @@
-import { NextRequest, NextResponse } from "next/server";
-import { localeList } from "s/constants/locale.constant";
-import { PATH } from "s/constants/path.constant";
+import { getSupportedLocale, isPathnameHasLocale } from "./utils/localeUtils";
+import { MiddlewareModule } from "../@types/middlewareModule.types";
 
-export function localeMiddleware(req: NextRequest) {
-  const { nextUrl } = req;
-
-  if (!Object.values(PATH).some((path) => nextUrl.pathname.startsWith(path))) return NextResponse.next();
-  if (localeList.some((locale) => locale === nextUrl.pathname.split("/")[1])) return NextResponse.next();
+export const localeMiddleware: MiddlewareModule = (req, res) => {
+  const { url, cookie } = res;
+  /// 앞선 모듈에서 받은 응답 url 에 locale 정보가 있는지 판단, 추가 ///
+  if (isPathnameHasLocale(url.path)) return res;
   else {
-    const acceptLanguages = (req.headers.get("Accept-Language") as string).split(";").join(",").split(",");
-    const supportedLanguage =
-      localeList.find((locale) => {
-        return acceptLanguages.find((lang) => {
-          return locale === lang;
-        });
-      }) || "ko";
-
-    nextUrl.pathname = `/${supportedLanguage}` + req.nextUrl.pathname;
-    return NextResponse.redirect(nextUrl);
+    const locale = getSupportedLocale(req);
+    return {
+      url: {
+        path: `/${locale}${url.path}`,
+        redirect: true,
+      },
+      cookie,
+    };
   }
-}
+};

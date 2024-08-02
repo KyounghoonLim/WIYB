@@ -3,6 +3,7 @@ import Button from "@/src/components/button/Button";
 import Form from "@/src/components/form/Form";
 import Input from "@/src/components/Input/Input";
 import InputDate from "@/src/components/Input/InputDate";
+import InputDate_System from "@/src/components/Input/InputDate_System";
 import Radio from "@/src/components/radio/Radio";
 import { GENDER } from "@/src/constants/gender.constant";
 import { setUserProfileApi } from "@/src/services/userApi";
@@ -37,7 +38,7 @@ export default function SignForm() {
       <label htmlFor="sign-birth" className="label">
         생년월일
         {/* <InputDate id="sign-birth" value={birth} onChange={setBirth} /> */}
-        <input type="date" name="sign-birth" id="" />
+        <InputDate_System id="sign-birth" value={birth} onChange={setBirth} />
       </label>
       <Button type="submit" text="회원가입 완료하기" className="button-primary mt-8" disabled={!nickname || !gender || !birth} />
     </Form>

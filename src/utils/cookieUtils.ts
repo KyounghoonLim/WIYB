@@ -1,21 +1,23 @@
 "use client";
 
 import Cookie, { CookieSerializeOptions } from "cookie";
-import { getDateBefore } from "./dateUtils";
 
 export { getCookie, setCookie, removeCookie };
 
 function getCookie(key: string) {
-  const cookies = Cookie.parse(document.cookie);
-  return cookies[key];
+  if (!globalThis["window"]) return;
+  else {
+    const cookies = Cookie.parse(document.cookie);
+    return cookies[key];
+  }
 }
 
-function setCookie(key: string, value: string, options: CookieSerializeOptions = { path: "/", expires: new Date(Date.now() + 3600000) }) {
+function setCookie(key: string, value: string, options: CookieSerializeOptions = { path: "/" }) {
   const cookie = Cookie.serialize(key, value, options);
   document.cookie = cookie;
 }
 
 function removeCookie(key: string) {
-  const cookie = Cookie.serialize(key, getCookie(key), { expires: new Date(Date.now()) });
+  const cookie = Cookie.serialize(key, getCookie(key), { maxAge: 0 });
   document.cookie = cookie;
 }

@@ -292,7 +292,7 @@ export default function InputDate({ onChange, id, value, placeholder, errorMessa
           onBlur={blurHandler}
           onKeyDown={keydownHandler}
           onSelect={selectHandler}
-          onChange={() => null}
+          // onChange={() => null}
           autoComplete={"off"}
           inputMode="decimal"
           // readOnly
