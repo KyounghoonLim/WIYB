@@ -8,4 +8,6 @@ const COOKIE_OPTIONS = {
 const COOKIE_KEYS = {
   RECENTLY_SEARCHES: "rs",
   USER: "us",
+  ACCESS_TOKEN: "access",
+  REFRESH_TOKEN: "refresh",
 } as const;
