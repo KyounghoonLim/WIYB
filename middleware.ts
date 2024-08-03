@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { localeMiddleware } from "./src/middleware/locale.middleware";
 import { navigationGuardMiddleware } from "./src/middleware/navigationGuard.middleware";
+import { COOKIE_KEYS } from "./src/constants/cookie.constant";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
@@ -19,6 +20,7 @@ export async function middleware(request: NextRequest) {
     const { key, value, options } = cookie;
     response.cookies.set(key, value, options);
   }
+  response.cookies.set(COOKIE_KEYS.REQUEST_TIME, String(Date.now()));
 
   return response;
 }

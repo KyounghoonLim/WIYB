@@ -2,9 +2,10 @@ import Footer from "@/src/components/footer/Footer";
 import Nav from "@/src/components/nav/Nav";
 import { THEME } from "@/src/constants/theme.constant";
 import type { Metadata, Viewport } from "next";
-import Head from "next/head";
 import "s/styles/global.css";
-import ThemeProvider from "./(providers)/ThemeProvider";
+import ThemeProvider from "../src/providers/ThemeProvider";
+import RecoilContainer from "@/src/components/containers/RecoilContainer";
+import RequestTimeProvider from "@/src/providers/RequestKeyProvider";
 
 export const metadata: Metadata = {
   title: "WIYB",
@@ -25,13 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider>
-        <body className="CONTAINER bg-@-bg-light">
-          <Nav />
-          {children}
-          <Footer />
-        </body>
-      </ThemeProvider>
+      <RequestTimeProvider>
+        <ThemeProvider>
+          <body className="CONTAINER bg-@-bg-light">
+            <Nav />
+            <RecoilContainer>{children}</RecoilContainer>
+            <Footer />
+          </body>
+        </ThemeProvider>
+      </RequestTimeProvider>
     </html>
   );
 }

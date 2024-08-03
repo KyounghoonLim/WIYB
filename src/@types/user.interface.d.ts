@@ -8,6 +8,9 @@ interface User {
   nickname: string;
   gender: GenderType;
   birth: DateFormatType;
-  image_url: string;
-  created_at: DateFormatType;
+  createdAt: DateFormatType;
+  imageUrl?: string;
+  handy?: number;
+  height?: number;
+  weight?: number;
 }

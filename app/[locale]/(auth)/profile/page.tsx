@@ -6,7 +6,7 @@ export default function ProfilePage() {
   return (
     <main className="CONTENT-CONTAINER">
       <ProfileNav />
-      <ProfileForm user={{}} />
+      <ProfileForm />
     </main>
   );
 }

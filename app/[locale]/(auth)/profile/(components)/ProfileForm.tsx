@@ -1,32 +1,57 @@
 "use client";
 
 import Button from "@/src/components/button/Button";
-import FileUploader from "@/src/components/fileUploader/fileUploader";
+import FileUploader from "@/src/components/fileUploader/FileUploader";
 import Form from "@/src/components/form/Form";
 import Input from "@/src/components/Input/Input";
+import { PATH } from "@/src/constants/path.constant";
+import useUser from "@/src/hooks/user/useUser";
 import { editUserProfile } from "@/src/services/userApi";
-import React, { useCallback, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
 
-export default function ProfileForm({ user }) {
-  const [profileImage, setProfileImage] = useState<File>();
-  const [nickname, setNickname] = useState<string>("");
-  const [handy, setHandy] = useState<string>("");
-  const [height, setHeight] = useState<string>("");
-  const [weight, setWeight] = useState<string>("");
+export default function ProfileForm() {
+  const { user, setUser } = useUser();
+
+  const [profileImage, setProfileImage] = useState<File | string>(user?.imageUrl);
+  const [nickname, setNickname] = useState<string>(user?.nickname || "");
+  const [handy, setHandy] = useState<string>(String(user?.handy) || "");
+  const [height, setHeight] = useState<string>(String(user?.height) || "");
+  const [weight, setWeight] = useState<string>(String(user?.weight) || "");
+
+  const { replace } = useRouter();
 
   const submitHandler = useCallback(async () => {
-    const imageUrl = URL.createObjectURL(profileImage);
-    await editUserProfile(imageUrl, Number(handy), Number(height), Number(weight));
-    URL.revokeObjectURL(imageUrl);
-  }, [profileImage, handy, height, weight]);
+    console.log("submit");
+    // try {
+    //   const imageUrl = typeof profileImage === "string" ? profileImage : URL.createObjectURL(profileImage);
+    //   const newUser = await editUserProfile(imageUrl, nickname, Number(handy), Number(height), Number(weight));
+    //   setUser(newUser);
+    //   URL.revokeObjectURL(imageUrl);
+    //   replace(PATH.MAIN);
+    // } catch {
+    //   /// pass ///
+    // }
+  }, [profileImage, nickname, handy, height, weight]);
 
   const numTypePreprocessor = useCallback((value: string) => {
     return Number(value) <= 0 ? "" : value;
   }, []);
 
+  useLayoutEffect(() => {
+    if (!user) return;
+    else {
+      setProfileImage(user.imageUrl);
+      setNickname(user.nickname);
+      setHandy(String(user.handy));
+      setHeight(String(user.height));
+      setWeight(String(user.weight));
+    }
+  }, [user]);
+
   return (
     <Form onSubmit={submitHandler} className="my-4 gap-8">
-      <label htmlFor="sign-profileImage" className="label">
+      <label htmlFor="" className="label">
         프로필 사진
         <FileUploader id="sign-profileImage" file={profileImage} onUpload={setProfileImage} />
       </label>

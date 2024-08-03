@@ -6,7 +6,7 @@ import { convertStringToTSX } from "@/src/utils/convertStringToJSX";
 import clsx from "clsx";
 import { useCallback, useMemo, useRef } from "react";
 
-export default function Button({ onClick, icon, text, className = "button-primary", disabled }: ButtonProps) {
+export default function Button({ onClick, type = "button", icon, text, className = "button-primary", disabled }: ButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { throttle: isLoading, throttling } = useThrottle();
 
@@ -29,6 +29,7 @@ export default function Button({ onClick, icon, text, className = "button-primar
   return (
     <button
       ref={buttonRef}
+      type={type}
       onClick={clickHandler}
       className={clsx(className, disabled && "cursor-not-allowed", isLoading && "cursor-wait")}
       disabled={disabled}

@@ -3,6 +3,7 @@ import { RequestCookies } from "next/dist/compiled/@edge-runtime/cookies";
 import { NextURL } from "next/dist/server/web/next-url";
 import { COOKIE_KEYS } from "@/src/constants/cookie.constant";
 import { jwtDecode } from "jwt-decode";
+import { TOKEN_ROLE } from "@/src/constants/tokenRole.constant";
 
 export { isRequiredAuth, isAuthorized };
 
@@ -20,6 +21,7 @@ function isAuthorized(cookie: RequestCookies) {
     const accDecoded = jwtDecode(accessToken);
     const refDecoded = jwtDecode(refreshToken);
 
+    const accRole = accDecoded["role"] || undefined;
     const accSid = accDecoded["sid"] || 0;
     const refSid = refDecoded["sid"] || 1;
     const refExp = refDecoded.exp || 0;
@@ -28,7 +30,8 @@ function isAuthorized(cookie: RequestCookies) {
 
     console.log("sid test: ", accSid === refSid);
     console.log("exp test: ", refExp > currTimeStamp);
-    if (accSid !== refSid) return false;
+    if (accRole === TOKEN_ROLE.GUEST) return false;
+    else if (accSid !== refSid) return false;
     else if (refExp <= currTimeStamp) return false;
     else return true;
   }

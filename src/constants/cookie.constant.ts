@@ -10,4 +10,6 @@ const COOKIE_KEYS = {
   USER: "us",
   ACCESS_TOKEN: "access",
   REFRESH_TOKEN: "refresh",
+  /// REQUEST ID ///
+  REQUEST_TIME: "rtime",
 } as const;

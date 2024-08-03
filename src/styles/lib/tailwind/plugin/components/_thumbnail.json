@@ -12,6 +12,7 @@
     "backgroundPosition": "center",
     "backgroundSize": "cover",
     "flexShrink": 0,
-    "flexGrow": 0
+    "flexGrow": 0,
+    "@apply bg-@-neutral-100": true
   }
 }
