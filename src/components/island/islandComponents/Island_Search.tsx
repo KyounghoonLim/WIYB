@@ -15,6 +15,7 @@ import { SearchResult } from "@/src/@types/search.types";
 import { SEARCH_PROGRESS } from "@/src/constants/search.constant";
 import LoadingSpinner from "@/src/components/loading/LoadingSpinner";
 import SearchSection_After from "@/src/components/search/SearchSection_After";
+import Island from "@/src/components/island/Island";
 
 /// 검색 섹션 ///
 export default function Island_Search() {
@@ -71,7 +72,7 @@ export default function Island_Search() {
   }, [isFocus, changeTheme]);
 
   return (
-    <section className={clsx(isFocus ? "SEARCH-CONTAINER" : "ISLAND-CONTAINER bg-transparent px-0 pt-3")}>
+    <Island className={clsx(isFocus ? "!SEARCH-CONTAINER" : "bg-transparent px-0 pt-3")}>
       <div className={clsx(isFocus && "CONTENT-CONTAINER pt-2 px-2")}>
         <article className="w-full">
           <Form onSubmit={() => search(searchKeyword)} className="w-full flex gap-1 pr-2 flex-row">
@@ -104,6 +105,6 @@ export default function Island_Search() {
           )}
         </article>
       </div>
-    </section>
+    </Island>
   );
 }

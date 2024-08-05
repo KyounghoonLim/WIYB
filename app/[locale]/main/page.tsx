@@ -1,11 +1,11 @@
-import Island_Profile from "./components/Island_Profile";
-import Island_Search from "./components/Island_Search";
-import Island_Equipments from "./components/Island_Equipments";
-import Island_SimilarPlayers from "./components/Island_SimilarPlayers";
-import Island_PopularEquipments from "./components/Island_PopularEquipments";
-import Island_MyAgePlayers from "./components/Island_MyAgePlayers";
-import Island_Community from "./components/Island_Community";
-import MainNav from "./components/MainNav";
+import Island_Profile from "comp/island/islandComponents/Island_Profile";
+import Island_Search from "comp/island/islandComponents/Island_Search";
+import Island_Equipments from "comp/island/islandComponents/Island_Equipments";
+import Island_SimilarPlayers from "comp/island/islandComponents/Island_SimilarPlayers";
+import Island_PopularEquipments from "comp/island/islandComponents/Island_PopularEquipments";
+import Island_MyAgePlayers from "comp/island/islandComponents/Island_MyAgePlayers";
+import Island_Community from "comp/island/islandComponents/Island_Community";
+import MainNav from "./(components)/MainNav";
 
 export default function MainPage() {
   return (

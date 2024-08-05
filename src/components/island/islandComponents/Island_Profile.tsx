@@ -1,6 +1,7 @@
 "use client";
 
 import UserCardPrimary from "@/src/components/card/UserCardPrimary";
+import Island from "@/src/components/island/Island";
 import useUser from "@/src/hooks/user/useUser";
 import React from "react";
 
@@ -9,8 +10,8 @@ export default function Island_Profile() {
   const { user } = useUser();
 
   return (
-    <section className="ISLAND-CONTAINER bg-transparent px-0 py-4">
+    <Island className="bg-transparent px-0 py-4">
       <UserCardPrimary user={user} />
-    </section>
+    </Island>
   );
 }

@@ -9,6 +9,9 @@ export const PATH = {
   AUTH_FAIL: "/sign/fail",
   /// user ///
   PROFILE: "/profile",
+  /// equipment ///
+  EQUIPMENT: "/equipment",
+  EQUIPMENT_DETAIL: "/equipment/detail",
 } as const;
 
 export const AUTH_REQUIRED_PATH = Object.values(PATH).reduce((prev, curr) => {

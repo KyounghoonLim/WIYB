@@ -25,6 +25,7 @@
       "t/*": ["src/@types/*"],
       "u/*": ["src/utils/*"],
       "c/*": ["src/constants/*"],
+      "comp/*": ["src/components/*"],
       "p/*": ["public/*"],
       "i/*": ["public/icons/*"],
       "images/*": ["public/images/*"]

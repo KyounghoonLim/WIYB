@@ -1,4 +1,5 @@
 import EquipGrid from "@/src/components/grid/myEquipment/EquipGrid";
+import Island from "@/src/components/island/Island";
 import { equipmentLabels } from "@/src/constants/equipment.constant";
 import React, { useMemo } from "react";
 
@@ -14,7 +15,7 @@ export default function Island_Equipments() {
   }, []);
 
   return (
-    <section className="ISLAND-CONTAINER">
+    <Island>
       <div className="w-full flex justify-between items-center">
         <h3 className="typograph-16">
           내가 <strong className="font-semibold">등록한 주전 장비</strong>들이에요 ⛳️
@@ -24,6 +25,6 @@ export default function Island_Equipments() {
       <div className="w-full mt-4">
         <EquipGrid items={items} />
       </div>
-    </section>
+    </Island>
   );
 }
