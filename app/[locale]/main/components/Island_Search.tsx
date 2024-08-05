@@ -1,33 +1,64 @@
 "use client";
 
-import React, { useCallback, useLayoutEffect, useState } from "react";
+import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import Input from "@/src/components/Input/Input";
 import SearchIcon from "i/icon_search.svg";
 import useSearch from "@/src/hooks/search/useSearch";
 import CloseIconBold from "i/icon_close_bold.svg";
 import clsx from "clsx";
-import Bedge from "@/src/components/bedge/Bedge";
-import List from "@/src/components/list/List";
-import ListItem_Search from "@/src/components/list/listItem/ListItem_Search";
 import useTheme from "@/src/hooks/theme/useTheme";
 import { THEME } from "@/src/constants/theme.constant";
 import Form from "@/src/components/form/Form";
 import Button from "@/src/components/button/Button";
+import SearchSection_Before from "@/src/components/search/SearchSection_Before";
+import { SearchResult } from "@/src/@types/search.types";
+import { SEARCH_PROGRESS } from "@/src/constants/search.constant";
+import LoadingSpinner from "@/src/components/loading/LoadingSpinner";
+import SearchSection_After from "@/src/components/search/SearchSection_After";
 
 /// 검색 섹션 ///
 export default function Island_Search() {
-  const [search, setSearch] = useState<string>("");
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
   const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const { getRecentlySearches, setRecentlySearches, removeRecentlySearch, removeAllRecentlySearch } = useSearch();
+  const [searchResult, setSearchResult] = useState<SearchResult>();
+
+  const { searchHistory, removeSearchHistory, removeAllSearchHistory, getSearchResult } = useSearch();
   const { changeTheme } = useTheme();
 
-  const submitHandler = useCallback(() => {
-    if (!isFocus || !search) return;
-    else {
-      setRecentlySearches(search);
-    }
-  }, [search, isFocus, setRecentlySearches]);
+  const searchProgress = useMemo(() => {
+    if (isLoading) return SEARCH_PROGRESS.LOADING;
+    else if (!isFocus) return SEARCH_PROGRESS.HIDDEN;
+    else if (!searchResult) return SEARCH_PROGRESS.BEFORE_SEARCH;
+    else return SEARCH_PROGRESS.AFTER_SEARCH;
+  }, [isFocus, isLoading, searchResult]);
+
+  const closeSearchIsland = useCallback(() => {
+    setIsFocus(false);
+    setIsLoading(false);
+    setSearchKeyword("");
+    setSearchResult(null);
+  }, []);
+
+  const search = useCallback(
+    async (searchKeyword: string) => {
+      if (isLoading) return;
+      else {
+        try {
+          setSearchKeyword(searchKeyword);
+          setIsLoading(true);
+          const searchResult = await getSearchResult(searchKeyword);
+          setSearchResult(searchResult);
+        } catch {
+          /// pass
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    },
+    [isLoading, getSearchResult]
+  );
 
   useLayoutEffect(() => {
     if (!isFocus) {
@@ -43,16 +74,16 @@ export default function Island_Search() {
     <section className={clsx(isFocus ? "SEARCH-CONTAINER" : "ISLAND-CONTAINER bg-transparent px-0 pt-3")}>
       <div className={clsx(isFocus && "CONTENT-CONTAINER pt-2 px-2")}>
         <article className="w-full">
-          <Form onSubmit={submitHandler} className="w-full flex gap-1 pr-2 flex-row">
+          <Form onSubmit={() => search(searchKeyword)} className="w-full flex gap-1 pr-2 flex-row">
             {isFocus && (
               <>
-                <CloseIconBold width={44} height={44} className="shrink-0 grow-0 cursor-pointer fill-@-neutral-900" onClick={() => setIsFocus(false)} />
+                <CloseIconBold width={44} height={44} className="shrink-0 grow-0 cursor-pointer fill-@-neutral-900" onClick={closeSearchIsland} />
                 <Button type="submit" className="hidden" />
               </>
             )}
             <Input
-              value={search}
-              onChange={setSearch}
+              value={searchKeyword}
+              onChange={setSearchKeyword}
               placeholder="장비, 플레이어를 검색해보세요 🧐"
               className={isFocus && "bg-@-bg-light"}
               icon={!isFocus && SearchIcon}
@@ -61,38 +92,17 @@ export default function Island_Search() {
             />
           </Form>
         </article>
-        {isFocus && (
-          <>
-            <section className="flex flex-col px-2 py-6 pb-4 gap-6">
-              <h3 className="typograph-16">
-                지금 <strong className="font-semibold">인기 검색어</strong>에요
-              </h3>
-              <div className="flex gap-2">
-                <Bedge text="TSR2" />
-                <Bedge text="T100" />
-                <Bedge text="120 S400" />
-              </div>
-            </section>
-            {getRecentlySearches.search.length ? (
-              <section className="flex flex-col px-2 py-6 pb-4">
-                <div className="w-full flex justify-between items-center">
-                  <h3 className="typograph-16">
-                    <strong className="font-semibold">최근 검색</strong>
-                  </h3>
-                  <span className="typograph-12 text-@-text-label cursor-pointer" onClick={removeAllRecentlySearch}>
-                    전체 삭제
-                  </span>
-                </div>
-                <List
-                  items={getRecentlySearches.search}
-                  renderFunction={({ item, idx }) => ListItem_Search({ item, idx, callback: () => removeRecentlySearch(item) })}
-                />
-              </section>
-            ) : (
-              <></>
-            )}
-          </>
-        )}
+        <article>
+          {searchProgress === SEARCH_PROGRESS.HIDDEN ? (
+            <></>
+          ) : searchProgress === SEARCH_PROGRESS.LOADING ? (
+            <LoadingSpinner />
+          ) : searchProgress === SEARCH_PROGRESS.BEFORE_SEARCH ? (
+            <SearchSection_Before {...{ searchHistory, removeSearchHistory, removeAllSearchHistory, search }} />
+          ) : (
+            <SearchSection_After searchKeyword={searchKeyword} searchResult={searchResult} />
+          )}
+        </article>
       </div>
     </section>
   );

@@ -3,14 +3,16 @@
     "padding": "7.5px 16px",
     "gap": "8px",
     "borderRadius": "16px",
-    "@apply flex-row-center": true,
+    "maxWidth": "150px",
     "@apply typograph-14": true,
     "@apply text-@-neutral-900": true,
-    "@apply bg-@-bedge-primary": true
+    "@apply bg-@-bedge-primary": true,
+    "@apply truncate": true
   },
   ".bedge-sm": {
     "@apply bedge": true,
     "@apply typograph-10": true,
-    "padding": "4px 8px"
+    "padding": "4px 8px",
+    "maxWidth": "70px"
   }
 }

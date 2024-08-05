@@ -23,16 +23,34 @@ export default function ProfileForm() {
 
   const submitHandler = useCallback(async () => {
     console.log("submit");
-    // try {
-    //   const imageUrl = typeof profileImage === "string" ? profileImage : URL.createObjectURL(profileImage);
-    //   const newUser = await editUserProfile(imageUrl, nickname, Number(handy), Number(height), Number(weight));
-    //   setUser(newUser);
-    //   URL.revokeObjectURL(imageUrl);
-    //   replace(PATH.MAIN);
-    // } catch {
-    //   /// pass ///
-    // }
+    try {
+      const imageUrl = profileImage ? (typeof profileImage === "string" ? profileImage : URL.createObjectURL(new Blob([profileImage]))) : null;
+      const newUser = await editUserProfile(imageUrl, nickname, Number(handy), Number(height), Number(weight));
+      setUser(newUser);
+      typeof profileImage !== "string" && URL.revokeObjectURL(imageUrl);
+      replace(PATH.MAIN);
+    } catch (err) {
+      console.log(err);
+    }
   }, [profileImage, nickname, handy, height, weight]);
+
+  useLayoutEffect(() => {
+    if (typeof profileImage === "string" || !profileImage) return;
+    else {
+      console.log(profileImage);
+      profileImage
+        .arrayBuffer()
+        .then((a) => {
+          console.log(a);
+          return new Blob([a]);
+        })
+        .then((b) => {
+          console.log(b);
+          const u = URL.createObjectURL(b);
+          console.log(u);
+        });
+    }
+  }, [profileImage]);
 
   const numTypePreprocessor = useCallback((value: string) => {
     return Number(value) <= 0 ? "" : value;

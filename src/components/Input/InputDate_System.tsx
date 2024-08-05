@@ -9,7 +9,7 @@ export default function InputDate_System({ onChange, id, value, placeholder, err
   const { locale } = useContext(localeContext);
 
   const inputRef = useRef<HTMLInputElement>();
-  const { current: maxDate } = useRef<string>(new Date(Date.now()).toDateString());
+  const { current: maxDate } = useRef<string>(new Date(Date.now()).toISOString().split("T")[0]);
 
   const dateFormat = useMemo(() => getDateFormat(locale), [locale]);
 

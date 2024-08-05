@@ -3,17 +3,21 @@
 import React from "react";
 import UserThumbnail from "../thumbnail/UserThumbnail";
 import Bedge from "../bedge/Bedge";
+import { UserCardProps } from "@/src/@types/components/card/userCard.interface";
 
-export default function UserCardSecondary({ user }) {
+export default function UserCardSecondary({ user }: UserCardProps) {
   return (
     <article className="card-user-secondary">
       <div className="flex w-full gap-[6px]">
-        <UserThumbnail src="/images/1200x1200.png" width={40} />
+        <UserThumbnail src="/images/image_dummy_profile.png" width={40} />
         <div className="flex flex-col typograph-14 gap-1">
-          <h3 className="font-bold">제나토리</h3>
+          <h3 className="font-bold">{user?.nickname || "제나토리"}</h3>
           <div className="flex gap-1">
-            <Bedge text="80+" className="!bedge-sm" />
-            <Bedge text="180cm/70kg" className="!bedge-sm" />
+            <Bedge text={user?.handy ? `${user.handy}${user.handy > 0 ? "+" : ""}` : "핸디 정보가 없습니다."} className="bedge-sm" />
+            <Bedge
+              text={user?.height || user?.weight ? `${user?.height || "???"}cm/${user?.weight || "???"}kg` : "체형 정보가 없습니다."}
+              className="bedge-sm"
+            />
           </div>
         </div>
       </div>

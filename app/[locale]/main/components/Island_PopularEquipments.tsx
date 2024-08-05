@@ -14,7 +14,7 @@ export default function Island_PopularEquipments() {
         </h3>
       </div>
       <div className="w-full mt-4">
-        <List items={[1, 2, 3, 4, 5]} renderFunction={ListItem_Equipment} />
+        <List items={[1, 2, 3, 4, 5]} Component={({ item, idx }) => ListItem_Equipment({ item, idx, listing: true })} />
       </div>
       <Button text="장비 더 보러 가기" className="mt-2 button-secondary" />
     </section>

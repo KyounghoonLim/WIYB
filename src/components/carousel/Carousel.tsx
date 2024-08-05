@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -20,7 +19,6 @@ export default function Carousel<T>({ name, items, renderFunction, onClick, clas
       className={clsx("w-full !py-4", className)}
       spaceBetween={16}
       {...swiperProps}
-      modules={[Mousewheel]}
     >
       {(items as T[]).map((item, idx) => (
         <SwiperSlide className="!w-auto" key={name + "-" + idx} id={name + "-" + idx} onClick={() => onClick(item)}>

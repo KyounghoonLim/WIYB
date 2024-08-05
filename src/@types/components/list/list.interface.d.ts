@@ -4,7 +4,7 @@ export { ListProps, ListItemProps };
 
 interface ListProps<T = any> {
   items: T[];
-  renderFunction: FC<{ item; idx }>;
+  Component: FC<ListItemProps>;
   className?: string;
 }
 

@@ -14,6 +14,7 @@ export default function Form({ children, onSubmit, className }: FormProps) {
   const submitHander = useCallback(
     async (e: SyntheticEvent) => {
       e.preventDefault();
+      e.stopPropagation();
       if (throttleRef.current) return;
       else {
         try {

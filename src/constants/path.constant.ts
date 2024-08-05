@@ -27,7 +27,7 @@ export const SERVICE_PATH = {
    */
   LOGIN: "/oauth2/authorization",
   LOGOUT: "/logout",
-  TOKEN_REFRESH: "/token/refresh",
+  TOKEN_REFRESH: "/auth/token",
   /// user ///
   /**
    * 회원가입 API (POST)
@@ -50,4 +50,6 @@ export const SERVICE_PATH = {
    * ** 테스트용 **
    */
   DELETE_USER: "/user",
+  /// search ///
+  SEARCH: "/search",
 } as const;

@@ -24,15 +24,16 @@ function isAuthorized(cookie: RequestCookies) {
     const accRole = accDecoded["role"] || undefined;
     const accSid = accDecoded["sid"] || 0;
     const refSid = refDecoded["sid"] || 1;
+    const accExp = accDecoded.exp || 0;
     const refExp = refDecoded.exp || 0;
 
     const currTimeStamp = Date.now() / 1000;
 
     console.log("sid test: ", accSid === refSid);
     console.log("exp test: ", refExp > currTimeStamp);
-    if (accRole === TOKEN_ROLE.GUEST) return false;
-    else if (accSid !== refSid) return false;
+    if (accSid !== refSid) return false;
     else if (refExp <= currTimeStamp) return false;
+    else if (accRole === TOKEN_ROLE.GUEST) return false;
     else return true;
   }
 }

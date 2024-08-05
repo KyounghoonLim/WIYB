@@ -25,7 +25,9 @@
       "t/*": ["src/@types/*"],
       "u/*": ["src/utils/*"],
       "c/*": ["src/constants/*"],
-      "i/*": ["public/icons/*"]
+      "p/*": ["public/*"],
+      "i/*": ["public/icons/*"],
+      "images/*": ["public/images/*"]
     }
   },
   "include": ["custom-next-env.d.ts", "svgr.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "*.d.ts"],

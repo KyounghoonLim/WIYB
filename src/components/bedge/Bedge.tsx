@@ -12,7 +12,7 @@ export default function Bedge({ text, icon, className }: BedgeProps) {
   const TextElement = useMemo(() => {
     if (!text) return "";
     else {
-      return convertStringToTSX(text, "font-black");
+      return convertStringToTSX(String(text), "font-black");
     }
   }, [text]);
 
