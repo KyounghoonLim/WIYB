@@ -23,7 +23,7 @@
     "width": "100%",
     "maxWidth": "1024px",
     "margin": "0 auto",
-    "padding": "44px 16px 77px 16px",
+    "padding": "44px 16px 16px",
     "position": "relative",
     "display": "flex",
     "flexDirection": "column"
@@ -39,6 +39,7 @@
     "height": "100%",
     "display": "flex",
     "flexDirection": "column",
+    "padding": "0px",
     "position": "fixed",
     "top": "0px",
     "left": "0px",

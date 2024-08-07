@@ -4,9 +4,8 @@ import { GenderType } from "@/src/@types/gender.types";
 import Button from "@/src/components/button/Button";
 import Form from "@/src/components/form/Form";
 import Input from "@/src/components/Input/Input";
-import InputDate from "@/src/components/Input/InputDate";
 import InputDate_System from "@/src/components/Input/InputDate_System";
-import Radio from "@/src/components/radio/Radio";
+import RadioSlide from "@/src/components/radio/RadioSlide";
 import { GENDER } from "@/src/constants/gender.constant";
 import { PATH } from "@/src/constants/path.constant";
 import { setUserProfileApi } from "@/src/services/userApi";
@@ -44,7 +43,7 @@ export default function SignForm() {
       </label>
       <label htmlFor="sign-gender" className="label">
         성별
-        <Radio id="sign-gender" options={genderOptions} value={gender} name="sign-gender" onChange={setGender} />
+        <RadioSlide id="sign-gender" options={genderOptions} value={gender} name="sign-gender" onChange={setGender} />
       </label>
       <label htmlFor="sign-birth" className="label">
         생년월일

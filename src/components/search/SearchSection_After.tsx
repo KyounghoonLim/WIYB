@@ -26,7 +26,7 @@ export default function SearchSection_After({ searchKeyword, searchResult }: Sea
   return (
     <>
       <Category value={category} items={Object.values(SEARCH_CATEGORY)} onChange={(value) => setCategory(value as SearchCategoryType)} className="px-2" />
-      <section className="flex flex-col px-2 mt-6">
+      <section className="h-full flex flex-col px-2 mt-6">
         {
           <span className="flex typograph-16">
             <h3 className="font-bold">{searchKeyword}</h3>

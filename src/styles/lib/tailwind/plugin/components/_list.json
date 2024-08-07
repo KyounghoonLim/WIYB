@@ -3,6 +3,8 @@
     "width": "100%",
     "display": "flex",
     "flexDirection": "column",
+    "maxHeight": "100%",
+    "overflow": "auto",
     "& .list-item": {
       "cursor": "pointer",
       "borderBottom": "1px",

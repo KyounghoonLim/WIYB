@@ -6,7 +6,7 @@ import Form from "@/src/components/form/Form";
 import Input from "@/src/components/Input/Input";
 import { PATH } from "@/src/constants/path.constant";
 import useUser from "@/src/hooks/user/useUser";
-import { editUserProfile } from "@/src/services/userApi";
+import { editUserProfileApi } from "@/src/services/userApi";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
 
@@ -25,7 +25,7 @@ export default function ProfileForm() {
     console.log("submit");
     try {
       const imageUrl = profileImage ? (typeof profileImage === "string" ? profileImage : URL.createObjectURL(new Blob([profileImage]))) : null;
-      const newUser = await editUserProfile(imageUrl, nickname, Number(handy), Number(height), Number(weight));
+      const newUser = await editUserProfileApi(imageUrl, nickname, Number(handy), Number(height), Number(weight));
       setUser(newUser);
       typeof profileImage !== "string" && URL.revokeObjectURL(imageUrl);
       replace(PATH.MAIN);

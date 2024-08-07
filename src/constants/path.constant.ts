@@ -10,8 +10,8 @@ export const PATH = {
   /// user ///
   PROFILE: "/profile",
   /// equipment ///
-  EQUIPMENT: "/equipment",
   EQUIPMENT_DETAIL: "/equipment/detail",
+  EQUIPMENT_REVIEW: "/equipment/review",
 } as const;
 
 export const AUTH_REQUIRED_PATH = Object.values(PATH).reduce((prev, curr) => {
@@ -55,4 +55,9 @@ export const SERVICE_PATH = {
   DELETE_USER: "/user",
   /// search ///
   SEARCH: "/search",
+  /// equipments ///
+  EQUIPMENT_DETAIL: "/product/[param1]",
+  EQUIPMENT_REVIEW: "/product/[param1]/review",
+  /// common ///
+  UPLOAD_IMAGE: "/image",
 } as const;

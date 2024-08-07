@@ -1,6 +1,6 @@
 export { RadioProps, RadioOption };
 
-interface RadioProps<T = string> {
+interface RadioProps<T> {
   options: RadioOption<T>[];
   value: T;
   name: string;

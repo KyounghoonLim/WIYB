@@ -1,5 +1,38 @@
 {
-  ".radio-group": {
+  ".radio": {
+    "width": "100%",
+    "display": "flex",
+    "flexWrap": "no-wrap",
+    "justifyContent": "space-between",
+    "alignItems": "center",
+    "position": "relative",
+    "overflow": "hidden"
+  },
+  ".radio-item": {
+    "width": "50px",
+    "height": "50px",
+    "borderRadius": "50%",
+    "cursor": "pointer",
+    "flexShrink": "0",
+    "@apply bg-@-bg-light": true,
+    "@apply typograph-16": true,
+    "@apply text-@-neutral-900": true,
+    "@apply flex-row-center": true,
+    "@apply truncate": true,
+    "&:hover": {
+      "@apply bg-@-neutral-100": true
+    },
+    "&:disabled": {
+      "cursor": "not-allowed !important",
+      "pointerEvents": "none"
+    },
+    "&.radio-selected": {
+      "fontWeight": "700",
+      "@apply text-@-neutral-000": true,
+      "@apply bg-@-button-primary": true
+    }
+  },
+  ".radio-slide": {
     "width": "100%",
     "height": "44px",
     "borderRadius": "20px",
@@ -8,42 +41,39 @@
     "justifyContent": "start",
     "alignItems": "center",
     "position": "relative",
-    "@apply bg-@-neutral-200": true
-  },
-  ".radio-item": {
-    "height": "100%",
-    "cursor": "pointer",
-    "padding": "0 8px",
-    "borderRadius": "20px",
-    "@apply typograph-14": true,
-    "@apply text-@-text-placeholder": true,
-    "@apply flex-row-center": true,
-    "@apply truncate": true,
-    "&:hover": {
-      "@apply text-@-text-medium": true
+    "@apply bg-@-neutral-200": true,
+    "& radio-item": {
+      "height": "100%",
+      "cursor": "pointer",
+      "padding": "0 8px",
+      "borderRadius": "20px",
+      "@apply typograph-14": true,
+      "@apply text-@-text-placeholder": true,
+      "@apply flex-row-center": true,
+      "@apply truncate": true,
+      "&:hover": {
+        "@apply text-@-text-medium": true
+      },
+      "&:disabled": {
+        "cursor": "not-allowed !important",
+        "pointerEvents": "none",
+        "@apply !bg-white": true,
+        "@apply !text-@-text-dimmed": true
+      }
     },
-    "&:checked": {
-      "@apply text-@-neutral-900": true
-    },
-    "&:disabled": {
-      "cursor": "not-allowed !important",
-      "pointerEvents": "none",
-      "@apply !bg-white": true,
-      "@apply !text-@-text-dimmed": true
+    "& radio-indicator": {
+      "height": "100%",
+      "borderRadius": "20px",
+      "padding": "0 8px",
+      "position": "absolute",
+      "top": "0",
+      "left": "0",
+      "transition": "transform 0.3s ease-in-out",
+      "@apply typograph-14": true,
+      "@apply bg-@-neutral-000": true,
+      "@apply text-@-neutral-900": true,
+      "@apply flex-row-center": true,
+      "@apply truncate": true
     }
-  },
-  ".radio-indicator": {
-    "height": "100%",
-    "borderRadius": "20px",
-    "padding": "0 8px",
-    "position": "absolute",
-    "top": "0",
-    "left": "0",
-    "transition": "transform 0.3s ease-in-out",
-    "@apply typograph-14": true,
-    "@apply bg-@-neutral-000": true,
-    "@apply text-@-neutral-900": true,
-    "@apply flex-row-center": true,
-    "@apply truncate": true
   }
 }

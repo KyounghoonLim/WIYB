@@ -69,11 +69,23 @@ export default function Island_Search() {
       document.body.classList.add("overflow-hidden");
       changeTheme(THEME.WHITE);
     }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      changeTheme(THEME.DEFAULT);
+    };
   }, [isFocus, changeTheme]);
 
+  useLayoutEffect(() => {
+    if (!searchResult) return;
+    else {
+      return () => setSearchResult(null);
+    }
+  }, [searchKeyword, searchResult]);
+
   return (
-    <Island className={clsx(isFocus ? "!SEARCH-CONTAINER" : "bg-transparent px-0 pt-3")}>
-      <div className={clsx(isFocus && "CONTENT-CONTAINER pt-2 px-2")}>
+    <Island className={clsx(isFocus ? "SEARCH-CONTAINER" : "bg-transparent px-0 pt-3")}>
+      <div className={clsx(isFocus && "CONTENT-CONTAINER h-full pt-2 px-2")}>
         <article className="w-full">
           <Form onSubmit={() => search(searchKeyword)} className="w-full flex gap-1 pr-2 flex-row">
             {isFocus && (
@@ -93,7 +105,7 @@ export default function Island_Search() {
             />
           </Form>
         </article>
-        <article>
+        <article className="h-full">
           {searchProgress === SEARCH_PROGRESS.HIDDEN ? (
             <></>
           ) : searchProgress === SEARCH_PROGRESS.LOADING ? (

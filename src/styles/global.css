@@ -12,6 +12,10 @@
   white-space: pre-wrap;
 }
 
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
 html,
 body {
   margin: 0;
