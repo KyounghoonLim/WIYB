@@ -4,8 +4,10 @@ import { COOKIE_KEYS, COOKIE_OPTIONS } from "@/src/constants/cookie.constant";
 import { searchApi } from "@/src/services/searchApi";
 import { getCookie, removeCookie, setCookie } from "@/src/utils/cookieUtils";
 import { useCallback, useMemo, useReducer } from "react";
+import usePopularSearchKeywords from "./usePopularSearchKeyword";
 
 export default function useSearch() {
+  const { popularSearchKeywords } = usePopularSearchKeywords();
   const [flag, refresh] = useReducer((x) => !x, false);
 
   /// search histories ///
@@ -30,10 +32,7 @@ export default function useSearch() {
 
       /// 이미 검색어 리스트에 있으면, 삭제하고 최신으로 올림 ///
       if (_searchHistory.includes(searchKeyword)) {
-        _searchHistory = _searchHistory.reduce((prev, curr) => {
-          if (curr === searchKeyword) return prev;
-          else return [...prev, curr];
-        }, []);
+        _searchHistory = _searchHistory.filter((keyword) => keyword !== searchKeyword).reverse();
       }
       /// 검색어 리스트에 없는 경우 최대 검색어 저장갯수 (default: 15) 에 맞추어서 최신으로 올림 ///
       else {
@@ -95,5 +94,5 @@ export default function useSearch() {
     [setSearchHistory]
   );
 
-  return { searchHistory, setSearchHistory, removeSearchHistory, removeAllSearchHistory, getSearchResult };
+  return { popularSearchKeywords, searchHistory, setSearchHistory, removeSearchHistory, removeAllSearchHistory, getSearchResult };
 }

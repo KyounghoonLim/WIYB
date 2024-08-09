@@ -1,35 +1,35 @@
-import { ReviewScoreType } from "@/src/constants/review.constnat";
-import React, { useCallback, useContext } from "react";
-import { equipmentReviewFormContext } from "./EquipmentReviewForm";
-import Radio from "@/src/components/radio/Radio";
-import { convertStringToTSX } from "@/src/utils/convertStringToJSX";
+import { ReviewScoreType } from '@/src/constants/review.constnat'
+import React, { useCallback, useContext } from 'react'
+import { equipmentReviewFormContext } from './EquipmentReviewForm'
+import Radio from '@/src/components/radio/Radio'
+import { convertStringToTSX } from '@/src/utils/convertStringToJSX'
 
-export default function EquipmentReviewFormArticle({
+export default function EquipmentReviewFormRadio({
   name,
   title,
   idx,
   measureMessage,
 }: {
-  name: string;
-  title: string;
-  idx: number;
-  measureMessage: string[];
+  name: string
+  title: string
+  idx: number
+  measureMessage: string[]
 }) {
   const {
     reviewScoreOptions,
     state: [value, setter],
-  } = useContext(equipmentReviewFormContext);
+  } = useContext(equipmentReviewFormContext)
 
   const changeHandler = useCallback(
     (value) => {
       setter((temp) => {
-        const temp2 = [...temp];
-        temp2[idx] = value;
-        return temp2;
-      });
+        const temp2 = [...temp]
+        temp2[idx] = value
+        return temp2
+      })
     },
     [idx]
-  );
+  )
 
   return (
     <article className="flex flex-col w-full gap-3 py-4">
@@ -41,5 +41,5 @@ export default function EquipmentReviewFormArticle({
         ))}
       </span>
     </article>
-  );
+  )
 }

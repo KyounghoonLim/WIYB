@@ -31,12 +31,11 @@ export default function Button({ onClick, type = "button", icon, text, className
       ref={buttonRef}
       type={type}
       onClick={clickHandler}
-      className={clsx("button-primary", className, disabled && "cursor-not-allowed", isLoading && "cursor-wait")}
+      className={clsx("button-primary test", className, disabled && "cursor-not-allowed", isLoading && "cursor-wait")}
       disabled={disabled}
     >
       {IconElement}
       {TextElement}
     </button>
   );
-  return <></>;
 }

@@ -1,9 +1,9 @@
-import { EquipmentDetail, EquipmentEvaluationMetric } from "../@types/equipment.types";
+import { Equipment, EquipmentDetail, EquipmentEvaluationMetric } from "../@types/equipment.types";
 import { Review } from "../@types/review.types";
 import { SERVICE_PATH } from "../constants/path.constant";
 import myAxios from "../utils/axios/myAxios";
 
-export { getEquipmentDetailApi, getEquipmentReviewsApi, setEquipmentReviewApi };
+export { getEquipmentDetailApi, getEquipmentReviewsApi, setEquipmentReviewApi, getPopularEquipmentApi };
 
 function getEquipmentDetailApi(productId: string): Promise<EquipmentDetail> {
   return myAxios.get(SERVICE_PATH.EQUIPMENT_DETAIL.replace("[param1]", productId));
@@ -19,4 +19,8 @@ function setEquipmentReviewApi(productId: string, content: string, imageUrls: st
     imageUrls,
     evaluationMetric,
   });
+}
+
+function getPopularEquipmentApi(): Promise<Equipment> {
+  return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS);
 }

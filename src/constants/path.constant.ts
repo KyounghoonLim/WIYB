@@ -55,9 +55,11 @@ export const SERVICE_PATH = {
   DELETE_USER: "/user",
   /// search ///
   SEARCH: "/search",
+  POPULAR_SEARCH_KEYWORDS: "/search/popular",
   /// equipments ///
   EQUIPMENT_DETAIL: "/product/[param1]",
   EQUIPMENT_REVIEW: "/product/[param1]/review",
+  POPULAR_EQUIPMENTS: "/product/most/view/simple",
   /// common ///
   UPLOAD_IMAGE: "/image",
 } as const;

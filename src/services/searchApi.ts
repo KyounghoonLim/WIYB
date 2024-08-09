@@ -2,7 +2,7 @@ import { SearchResult } from "../@types/search.types";
 import { SERVICE_PATH } from "../constants/path.constant";
 import myAxios from "../utils/axios/myAxios";
 
-export { searchApi };
+export { searchApi, getPopularKeywordsApi };
 
 function searchApi(keyword: string): Promise<SearchResult> {
   return myAxios.get(SERVICE_PATH.SEARCH, {
@@ -10,4 +10,8 @@ function searchApi(keyword: string): Promise<SearchResult> {
       keyword,
     },
   });
+}
+
+function getPopularKeywordsApi(): Promise<string[]> {
+  return myAxios.get(SERVICE_PATH.POPULAR_SEARCH_KEYWORDS);
 }

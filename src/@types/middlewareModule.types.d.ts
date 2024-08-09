@@ -8,6 +8,7 @@ type MiddlewareModule = (req: NextRequest, res?: MiddlewareModuleResult) => Midd
 type MiddlewareModuleResult = {
   url?: {
     path: string;
+    search?: string;
     redirect?: boolean;
   };
   cookie?: {

@@ -1,15 +1,15 @@
-import { FC } from "react";
+import { FC } from 'react'
 
-export { ListProps, ListItemProps };
+export { ListProps, ListItemProps }
 
 interface ListProps<T = any> {
-  items: T[];
-  Component: FC<ListItemProps>;
-  className?: string;
+  items: T[]
+  Component: FC<ListItemProps>
+  className?: string
 }
 
 interface ListItemProps<T> {
-  item: T;
-  idx: number;
-  [key: string]: any;
+  item: T
+  index: number
+  [key: string]: any
 }

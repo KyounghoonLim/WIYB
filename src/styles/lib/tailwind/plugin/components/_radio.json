@@ -42,11 +42,12 @@
     "alignItems": "center",
     "position": "relative",
     "@apply bg-@-neutral-200": true,
-    "& radio-item": {
+    "& .radio-item": {
       "height": "100%",
       "cursor": "pointer",
       "padding": "0 8px",
       "borderRadius": "20px",
+      "backgroundColor": "transparent",
       "@apply typograph-14": true,
       "@apply text-@-text-placeholder": true,
       "@apply flex-row-center": true,
@@ -61,7 +62,7 @@
         "@apply !text-@-text-dimmed": true
       }
     },
-    "& radio-indicator": {
+    "& .radio-indicator": {
       "height": "100%",
       "borderRadius": "20px",
       "padding": "0 8px",

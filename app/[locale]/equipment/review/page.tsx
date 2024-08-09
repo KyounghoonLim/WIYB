@@ -1,25 +1,29 @@
-"use client";
+'use client'
 
-import { PATH } from "@/src/constants/path.constant";
-import { getEquipmentDetail } from "@/src/services/equipmentApi";
-import { useRouter } from "next/navigation";
-import React, { useLayoutEffect, useState } from "react";
-import useSWR from "swr";
-import EquipmentReviewNav from "./(components)/EquipmentReviewNav";
-import EquipmentReviewSection_1 from "./(components)/EquipmentReviewSection_1";
-import EquipmentReviewSection_2 from "./(components)/EquipmentReviewSection_2";
-import EquipmentReviewFooter from "./(components)/EquipmentReviewFooter";
-import EquipmentReviewForm from "./(components)/form/EquipmentReviewForm";
+import { PATH } from '@/src/constants/path.constant'
+import { getEquipmentDetailApi } from '@/src/services/equipmentApi'
+import { useRouter } from 'next/navigation'
+import React, { useLayoutEffect, useState } from 'react'
+import useSWR from 'swr'
+import EquipmentReviewNav from './(components)/EquipmentReviewNav'
+import EquipmentReviewSection_1 from './(components)/EquipmentReviewSection_1'
+import EquipmentReviewSection_2 from './(components)/EquipmentReviewSection_2'
+import EquipmentReviewFooter from './(components)/EquipmentReviewFooter'
+import EquipmentReviewForm from './(components)/form/EquipmentReviewForm'
 
-export default function EquipmentReviewPage({ searchParams: { id, form } }: { searchParams: { id: string; form: string } }) {
-  const [flag, setFlag] = useState<boolean>(Boolean(form));
-  const { data: equip, error } = useSWR(id, getEquipmentDetail);
-  const { replace } = useRouter();
+export default function EquipmentReviewPage({
+  searchParams: { id, form },
+}: {
+  searchParams: { id: string; form: string }
+}) {
+  const [flag, setFlag] = useState<boolean>(Boolean(form))
+  const { data: equip, error } = useSWR(id, getEquipmentDetailApi)
+  const { replace } = useRouter()
 
   useLayoutEffect(() => {
-    if (!error) return;
-    else replace(PATH.LOGIN);
-  }, [error]);
+    if (!error) return
+    else replace(PATH.LOGIN)
+  }, [error])
 
   return (
     <main className="SCROLLABLE-CONTAINER px-0">
@@ -27,7 +31,11 @@ export default function EquipmentReviewPage({ searchParams: { id, form } }: { se
       <EquipmentReviewSection_1 equip={equip} />
       {flag ? (
         <>
-          <EquipmentReviewForm />
+          <EquipmentReviewForm
+            id={id}
+            // onSucceed={() => setFlag(false)}
+            // onFailed={() => setFlag(false)}
+          />
         </>
       ) : (
         <>
@@ -37,5 +45,5 @@ export default function EquipmentReviewPage({ searchParams: { id, form } }: { se
         </>
       )}
     </main>
-  );
+  )
 }

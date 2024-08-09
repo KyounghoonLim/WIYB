@@ -1,9 +1,11 @@
-import { ListItemProps, ListProps } from "@/src/@types/components/list/list.interface";
-import React from "react";
-import Thumbnail from "../../thumbnail/Thumbnail";
-import Bedge from "../../bedge/Bedge";
+'use client'
 
-export default function ListItem_Community<T = any>({ item, idx }: ListItemProps<T>) {
+import { ListItemProps, ListProps } from '@/src/@types/components/list/list.interface'
+import React from 'react'
+import Thumbnail from '../../thumbnail/Thumbnail'
+import Bedge from '../../bedge/Bedge'
+
+export default function ListItem_Community<T = any>({ item, index }: ListItemProps<T>) {
   return (
     <div className="list-item justify-between gap-3">
       <div className="flex flex-col gap-[6px]">
@@ -18,7 +20,7 @@ export default function ListItem_Community<T = any>({ item, idx }: ListItemProps
           <span className="typograph-10 text-@-text-label">제나토리</span>
         </div>
       </div>
-      <Thumbnail src={"/images/driver_dummy.png"} width={64} className="rounded-sm" />
+      <Thumbnail src={null} width={64} className="rounded-sm" />
     </div>
-  );
+  )
 }

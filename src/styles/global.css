@@ -16,6 +16,10 @@
   display: none;
 }
 
+img {
+  height: unset !important;
+}
+
 html,
 body {
   margin: 0;

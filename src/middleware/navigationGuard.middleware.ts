@@ -12,7 +12,7 @@ export const navigationGuardMiddleware: MiddlewareModule = async (req) => {
   if (isRequiredAuth(nextUrl)) {
     if (authFlag) {
       return {
-        url: { path: nextUrl.pathname },
+        url: { path: nextUrl.pathname, search: nextUrl.search },
       };
     } else {
       console.log("token expired!");
@@ -20,32 +20,29 @@ export const navigationGuardMiddleware: MiddlewareModule = async (req) => {
         /// 로그인 페이지로 리다이렉트 ///
         url: {
           path: PATH.LOGIN,
+          search: "",
           redirect: true,
         },
       };
     }
   } else {
     /// authorization 이 필요 없는데 로그인 된 유저인 경우 메인페이지로 이동 ///
-    return {
-      /// 바로 이동 ///
-      url: {
-        path: nextUrl.pathname,
-      },
-    };
-    // if (authFlag) {
-    //   return {
-    //     url: {
-    //       path: PATH.MAIN,
-    //       redirect: true,
-    //     },
-    //   };
-    // } else {
-    //   return {
-    //     /// 바로 이동 ///
-    //     url: {
-    //       path: nextUrl.pathname,
-    //     },
-    //   };
-    // }
+    if (authFlag) {
+      return {
+        url: {
+          path: PATH.MAIN,
+          search: "",
+          redirect: true,
+        },
+      };
+    } else {
+      return {
+        /// 바로 이동 ///
+        url: {
+          path: nextUrl.pathname,
+          search: nextUrl.search,
+        },
+      };
+    }
   }
 };

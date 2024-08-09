@@ -1,25 +1,47 @@
-"use client";
+'use client'
 
-import { RadioOption } from "@/src/@types/components/radio/radio.types";
-import Form from "@/src/components/form/Form";
-import { REVIEW_SCORE, ReviewScoreType } from "@/src/constants/review.constnat";
-import React, { createContext, Dispatch, SetStateAction, useCallback, useMemo, useState } from "react";
-import EquipmentReviewFormArticle from "./EquipmentReviewFormArticle";
-import Textarea from "@/src/components/textarea/Textarea";
-import Button from "@/src/components/button/Button";
-import FileListUploader from "@/src/components/fileUploader/FileListUploader";
-import { setEquipmentReviewApi } from "@/src/services/equipmentApi";
-import { uploadImageApi } from "@/src/services/commonApi";
+import { RadioOption } from '@/src/@types/components/radio/radio.types'
+import Form from '@/src/components/form/Form'
+import { REVIEW_SCORE, ReviewScoreType } from '@/src/constants/review.constnat'
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react'
+import EquipmentReviewFormRadio from './EquipmentReviewFormRadio'
+import Textarea from '@/src/components/textarea/Textarea'
+import Button from '@/src/components/button/Button'
+import FileListUploader from '@/src/components/fileUploader/FileListUploader'
+import { setEquipmentReviewApi } from '@/src/services/equipmentApi'
+import { uploadImageApi } from '@/src/services/commonApi'
+import { EquipmentEvaluationMetric } from '@/src/@types/equipment.types'
+import { PATH } from '@/src/constants/path.constant'
 
 export const equipmentReviewFormContext = createContext<{
-  reviewScoreOptions: RadioOption<ReviewScoreType>[];
-  state: [value: ReviewScoreType[], setter: Dispatch<SetStateAction<ReviewScoreType[]>>];
-}>(null);
+  reviewScoreOptions: RadioOption<ReviewScoreType>[]
+  state: [
+    value: EquipmentEvaluationMetric,
+    setter: Dispatch<SetStateAction<EquipmentEvaluationMetric>>
+  ]
+}>(null)
 
-export default function EquipmentReviewForm({ id }: { id: string }) {
-  const [reviewScoreMetric, setReviewScoreMetric] = useState<ReviewScoreType[]>(Array(6).fill(undefined));
-  const [reviewContent, setReviewContent] = useState<string>("");
-  const [reviewImageList, setReviewImageList] = useState<File[]>([]);
+export default function EquipmentReviewForm({
+  id,
+  onSucceed,
+  onFailed,
+}: {
+  id: string
+  onSucceed?: () => any
+  onFailed?: () => any
+}) {
+  const [reviewScoreMetric, setReviewScoreMetric] = useState<EquipmentEvaluationMetric>(
+    Array(6).fill(undefined)
+  )
+  const [reviewContent, setReviewContent] = useState<string>('')
+  const [reviewImageList, setReviewImageList] = useState<File[]>([])
 
   const reviewScoreOptions: RadioOption<ReviewScoreType>[] = useMemo(
     () =>
@@ -28,19 +50,40 @@ export default function EquipmentReviewForm({ id }: { id: string }) {
         value: score,
       })),
     []
-  );
+  )
+
+  const isDisabled = useMemo(() => {
+    return reviewScoreMetric.some((score) => !score)
+  }, [reviewScoreMetric])
 
   const submitHandler = useCallback(async () => {
-    if (reviewImageList.length) {
-      const formData = new FormData();
-      reviewImageList.forEach((reviewImage) => {
-        formData.append(reviewImage.name, reviewImage);
-      });
-      const res = uploadImageApi(formData);
-      console.log(res);
+    try {
+      let uploadedUrl
+      console.log(reviewImageList)
+      if (reviewImageList.length) {
+        const formData = new FormData()
+        // const blob = new Blob(reviewImageList)
+        // formData.append('images', blob)
+        reviewImageList.forEach((file) => {
+          formData.append('images', file)
+        })
+        uploadedUrl = await uploadImageApi(formData)
+      }
+      await setEquipmentReviewApi(
+        id,
+        reviewContent,
+        uploadedUrl && [uploadedUrl],
+        reviewScoreMetric.map((score) => Number(score))
+      )
+      window.alert('리뷰가 작성이 되었습니다.')
+      onSucceed?.()
+    } catch {
+      window.alert('리뷰 작성에 실패했습니다.')
+      onFailed?.()
+    } finally {
+      location.replace(PATH.EQUIPMENT_REVIEW + `?id=${id}`)
     }
-    // setEquipmentReviewApi(id, reviewContent, reviewImageList, reviewScoreMetric);
-  }, [reviewScoreMetric, reviewContent, reviewImageList]);
+  }, [id, reviewScoreMetric, reviewContent, reviewImageList, onSucceed, onFailed])
 
   return (
     <equipmentReviewFormContext.Provider
@@ -51,22 +94,57 @@ export default function EquipmentReviewForm({ id }: { id: string }) {
     >
       <Form onSubmit={submitHandler} className="px-4 py-6 gap-6">
         {/* 비거리 */}
-        <EquipmentReviewFormArticle name="range" title="<strong>비거리</strong>가 얼마나 나가나요?" idx={0} measureMessage={["짧게", "멀리"]} />
+        <EquipmentReviewFormRadio
+          name="range"
+          title="<strong>비거리</strong>가 얼마나 나가나요?"
+          idx={0}
+          measureMessage={['짧게', '멀리']}
+        />
         {/* 난이도 */}
-        <EquipmentReviewFormArticle name="difficulty" title="<strong>난이도</strong>가 어렵나요?" idx={1} measureMessage={["어려움", "쉬움"]} />
+        <EquipmentReviewFormRadio
+          name="difficulty"
+          title="<strong>난이도</strong>가 어렵나요?"
+          idx={1}
+          measureMessage={['어려움', '쉬움']}
+        />
         {/* 디자인 */}
-        <EquipmentReviewFormArticle name="design" title="<strong>디자인</strong>이 멋진가요?" idx={2} measureMessage={["안 멋짐", "멋짐"]} />
+        <EquipmentReviewFormRadio
+          name="design"
+          title="<strong>디자인</strong>이 멋진가요?"
+          idx={2}
+          measureMessage={['안 멋짐', '멋짐']}
+        />
         {/* 정확도 */}
-        <EquipmentReviewFormArticle name="accuracy" title="<strong>정확도</strong>가 좋은가요?" idx={3} measureMessage={["안 좋음", "좋음"]} />
+        <EquipmentReviewFormRadio
+          name="accuracy"
+          title="<strong>정확도</strong>가 좋은가요?"
+          idx={3}
+          measureMessage={['안 좋음', '좋음']}
+        />
         {/* 가격 */}
-        <EquipmentReviewFormArticle name="price" title="<strong>가격</strong>은 저렴한가요?" idx={4} measureMessage={["비쌈", "저렴"]} />
+        <EquipmentReviewFormRadio
+          name="price"
+          title="<strong>가격</strong>은 저렴한가요?"
+          idx={4}
+          measureMessage={['비쌈', '저렴']}
+        />
         {/* 관용성 */}
-        <EquipmentReviewFormArticle name="generality" title="<strong>관용성</strong>이 좋은가요?" idx={5} measureMessage={["안 좋음", "좋음"]} />
+        <EquipmentReviewFormRadio
+          name="generality"
+          title="<strong>관용성</strong>이 좋은가요?"
+          idx={5}
+          measureMessage={['안 좋음', '좋음']}
+        />
         {/* 리뷰 콘텐츠 */}
-        <Textarea value={reviewContent} onChange={setReviewContent} placeholder="상세한 리뷰를 적어주세요 (300자 이하)" maxLength={300} />
+        <Textarea
+          value={reviewContent}
+          onChange={setReviewContent}
+          placeholder="상세한 리뷰를 적어주세요 (300자 이하)"
+          maxLength={300}
+        />
         <FileListUploader fileList={reviewImageList} onUpload={setReviewImageList} />
-        <Button type="submit" text="리뷰/평가 등록하기" />
+        <Button type="submit" text="리뷰/평가 등록하기" disabled={isDisabled} />
       </Form>
     </equipmentReviewFormContext.Provider>
-  );
+  )
 }

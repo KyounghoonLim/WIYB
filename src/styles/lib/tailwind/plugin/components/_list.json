@@ -3,8 +3,6 @@
     "width": "100%",
     "display": "flex",
     "flexDirection": "column",
-    "maxHeight": "100%",
-    "overflow": "auto",
     "& .list-item": {
       "cursor": "pointer",
       "borderBottom": "1px",
@@ -15,6 +13,9 @@
       "borderBottom": "0px",
       "borderStyle": "hidden",
       "@apply border-@-line-light": true
+    },
+    "& li": {
+      "listStyleType": "none"
     }
   },
   ".list-item": {

@@ -1,13 +1,16 @@
-import { EquipmentDetail } from "@/src/@types/equipment.types";
-import Button from "@/src/components/button/Button";
-import Graph from "@/src/components/graph/Graph";
-import Island from "@/src/components/island/Island";
-import { PATH } from "@/src/constants/path.constant";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { EquipmentDetail } from '@/src/@types/equipment.types'
+import Button from '@/src/components/button/Button'
+import Graph from '@/src/components/graph/Graph'
+import Island from '@/src/components/island/Island'
+import { PATH } from '@/src/constants/path.constant'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-export default function Island_EquipGraph({ id, evaluationMetricAverage }: Pick<EquipmentDetail, "id" | "evaluationMetricAverage">) {
+export default function Island_EquipGraph({
+  id,
+  evaluationMetricAverage,
+}: Pick<EquipmentDetail, 'id' | 'evaluationMetricAverage'>) {
   return (
     <Island className="flex flex-col gap-4">
       <div className="flex flex-col gap-6">
@@ -16,13 +19,15 @@ export default function Island_EquipGraph({ id, evaluationMetricAverage }: Pick<
           {evaluationMetricAverage ? (
             <Graph evaluationMetric={evaluationMetricAverage} />
           ) : (
-            <Image src={"/images/image_loading_spinner.webp"} width={300} height={300} alt="" />
+            <Image src={'/images/image_loading_spinner.webp'} width={300} height={300} alt="" />
           )}
         </div>
       </div>
-      <Link href={PATH.EQUIPMENT_REVIEW + `?id=${id}&form=true`}>
-        <Button text="리뷰/평가 등록하기" />
-      </Link>
+      {evaluationMetricAverage && (
+        <Link href={PATH.EQUIPMENT_REVIEW + `?id=${id}&form=true`}>
+          <Button text="리뷰/평가 등록하기" />
+        </Link>
+      )}
     </Island>
-  );
+  )
 }

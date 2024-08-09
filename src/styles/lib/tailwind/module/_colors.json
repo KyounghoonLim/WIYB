@@ -45,7 +45,7 @@
     "button": {
       "primary": "#46AA5A",
       "secondary": "#FFFFFF",
-      "hover": "#00821E",
+      "hover": "#469A5E",
       "disabled": "#969696"
     },
     "grid": {

@@ -4,15 +4,12 @@
     "backgroundPosition": "center",
     "backgroundSize": "cover",
     "flexShrink": 0,
-    "flexGrow": 0
+    "flexGrow": 0,
+    "borderRadius": "12px",
+    "@apply bg-@-neutral-100": true
   },
   ".thumbnail-user": {
-    "borderRadius": "50%",
-    "aspectRatio": "1 / 1",
-    "backgroundPosition": "center",
-    "backgroundSize": "cover",
-    "flexShrink": 0,
-    "flexGrow": 0,
-    "@apply bg-@-neutral-100": true
+    "@apply thumbnail-primary": true,
+    "borderRadius": "50%"
   }
 }

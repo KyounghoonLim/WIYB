@@ -1,16 +1,21 @@
-"use client";
+'use client'
 
-import { createContext, useReducer } from "react";
-import { LocaleType } from "@/src/@types/locale.types";
-import { createDummies } from "@/src/services/testApi";
+import { createContext } from 'react'
+import { LocaleType } from '@/src/@types/locale.types'
+import { createDummies } from '@/src/services/testApi'
 
-export const localeContext = createContext<{ locale: LocaleType }>({ locale: null });
+export const localeContext = createContext<{ locale: LocaleType }>({ locale: null })
 
-export default function LocaleProvider({ params: { locale }, children }: { params: { locale: LocaleType }; children: React.ReactNode }) {
-  const [_, f] = useReducer((x) => !x, true);
+export default function LocaleProvider({
+  params: { locale },
+  children,
+}: {
+  params: { locale: LocaleType }
+  children: React.ReactNode
+}) {
   return (
     <localeContext.Provider value={{ locale }}>
-      {_ && (
+      {/* {_ && (
         <button
           className="absolute top-0 right-0 z-overlay"
           onClick={() => {
@@ -24,8 +29,8 @@ export default function LocaleProvider({ params: { locale }, children }: { param
         >
           create dummy
         </button>
-      )}
+      )} */}
       {children}
     </localeContext.Provider>
-  );
+  )
 }

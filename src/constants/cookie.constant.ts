@@ -7,6 +7,8 @@ const COOKIE_OPTIONS = {
 
 const COOKIE_KEYS = {
   RECENTLY_SEARCHES: "rs",
+  POPULAR_SEARCH_KEYWORDS: "psk",
+  POPULAR_EQUIPMENTS: "pe",
   USER: "us",
   ACCESS_TOKEN: "access",
   REFRESH_TOKEN: "refresh",

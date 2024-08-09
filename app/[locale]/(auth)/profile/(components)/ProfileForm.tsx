@@ -6,6 +6,7 @@ import Form from "@/src/components/form/Form";
 import Input from "@/src/components/Input/Input";
 import { PATH } from "@/src/constants/path.constant";
 import useUser from "@/src/hooks/user/useUser";
+import { uploadImageApi } from "@/src/services/commonApi";
 import { editUserProfileApi } from "@/src/services/userApi";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
@@ -19,37 +20,29 @@ export default function ProfileForm() {
   const [height, setHeight] = useState<string>(String(user?.height) || "");
   const [weight, setWeight] = useState<string>(String(user?.weight) || "");
 
+  const [isImageChanged, SetIsImageChanged] = useState<boolean>(false);
+
   const { replace } = useRouter();
 
   const submitHandler = useCallback(async () => {
-    console.log("submit");
+    let uploadedImageUrl;
     try {
-      const imageUrl = profileImage ? (typeof profileImage === "string" ? profileImage : URL.createObjectURL(new Blob([profileImage]))) : null;
-      const newUser = await editUserProfileApi(imageUrl, nickname, Number(handy), Number(height), Number(weight));
+      if (profileImage && isImageChanged) {
+        const formData = new FormData();
+        formData.append("images", new Blob([profileImage]));
+        uploadedImageUrl = await uploadImageApi(formData);
+      }
+      const newUser = await editUserProfileApi(uploadedImageUrl || profileImage, nickname, Number(handy), Number(height), Number(weight));
       setUser(newUser);
-      typeof profileImage !== "string" && URL.revokeObjectURL(imageUrl);
       replace(PATH.MAIN);
     } catch (err) {
       console.log(err);
     }
-  }, [profileImage, nickname, handy, height, weight]);
+  }, [profileImage, nickname, handy, height, weight, isImageChanged]);
 
   useLayoutEffect(() => {
     if (typeof profileImage === "string" || !profileImage) return;
-    else {
-      console.log(profileImage);
-      profileImage
-        .arrayBuffer()
-        .then((a) => {
-          console.log(a);
-          return new Blob([a]);
-        })
-        .then((b) => {
-          console.log(b);
-          const u = URL.createObjectURL(b);
-          console.log(u);
-        });
-    }
+    else SetIsImageChanged(true);
   }, [profileImage]);
 
   const numTypePreprocessor = useCallback((value: string) => {

@@ -14,13 +14,14 @@
     "minHeight": "100%",
     "maxWidth": "1024px",
     "margin": "0 auto",
-    "padding": "44px 16px 77px 16px",
+    "padding": "44px 16px 16px",
     "position": "relative",
     "display": "flex",
     "flexDirection": "column"
   },
   ".SCROLLABLE-CONTAINER": {
     "width": "100%",
+    "minHeight": "100%",
     "maxWidth": "1024px",
     "margin": "0 auto",
     "padding": "44px 16px 16px",

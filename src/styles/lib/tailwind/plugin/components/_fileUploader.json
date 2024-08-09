@@ -38,7 +38,7 @@
       "flexShrink": 0,
       "flexGrow": 0,
       "cursor": "pointer",
-      "@apply bg-@-bg-light": true
+      "@apply bg-@-neutral-100": true
     },
     "& input": {
       "display": "none"
@@ -53,7 +53,7 @@
     "borderRadius": "20px",
     "& img": {
       "&:hover": {
-        "@apply bg-@-neutral-100": true
+        "@apply bg-@-neutral-200": true
       }
     }
   },
@@ -62,6 +62,7 @@
     "height": "56px",
     "position": "relative",
     "borderRadius": "20px",
+    "display": "flex",
     "&::after": {
       "content": "",
       "position": "absolute",

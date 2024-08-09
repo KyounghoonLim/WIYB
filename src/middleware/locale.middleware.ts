@@ -10,6 +10,7 @@ export const localeMiddleware: MiddlewareModule = (req, res) => {
     return {
       url: {
         path: `/${locale}${url.path}`,
+        search: res.url.search,
         redirect: true,
       },
       cookie,
