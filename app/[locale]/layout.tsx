@@ -1,10 +1,7 @@
 'use client'
 
-import { createContext } from 'react'
 import { LocaleType } from '@/src/@types/locale.types'
-import { createDummies } from '@/src/services/testApi'
-
-export const localeContext = createContext<{ locale: LocaleType }>({ locale: null })
+import { localeContext } from 's/contexts/localeContext'
 
 export default function LocaleProvider({
   params: { locale },
