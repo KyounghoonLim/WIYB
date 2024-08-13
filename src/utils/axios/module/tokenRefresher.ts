@@ -36,7 +36,7 @@ export class TokenRefresher {
   /**
    * 토큰 갱신 task 를 추가할 수 있는지 여부 판단
    */
-  private isTaskAddable() {
+  private isTaskAddible() {
     if (this.task) return false
     else if (
       this.lastTaskState?.timestamp &&
@@ -47,7 +47,7 @@ export class TokenRefresher {
   }
 
   queueing(callback: () => any) {
-    if (this.isTaskAddable()) this.addTask()
+    if (this.isTaskAddible()) this.addTask()
     const self = this
 
     return new Promise((resolve, reject) => {

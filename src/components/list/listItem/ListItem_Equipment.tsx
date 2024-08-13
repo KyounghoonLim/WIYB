@@ -14,7 +14,7 @@ export default function ListItem_Equipment({
   listing,
 }: ListItemProps<Equipment>) {
   const detailPageUrl = useMemo(
-    () => (equip?.id ? PATH.EQUIPMENT_DETAIL + `?id=${equip?.id}` : '#'),
+    () => (equip?.id ? PATH.EQUIPMENT_DETAIL + `?id=${equip?.id}&type=${equip?.type}` : '#'),
     [equip]
   )
 

@@ -10,8 +10,10 @@ export {
   getPopularEquipmentApi,
 }
 
-function getEquipmentDetailApi(productId: string): Promise<EquipmentDetail> {
-  return myAxios.get(SERVICE_PATH.EQUIPMENT_DETAIL.replace('[param1]', productId))
+function getEquipmentDetailApi(productId: string, productType: string): Promise<EquipmentDetail> {
+  return myAxios.get(
+    SERVICE_PATH.EQUIPMENT_DETAIL.replace('[param1]', productId).replace('[param2]', productType)
+  )
 }
 
 function getEquipmentReviewsApi(productId: string): Promise<Review[]> {

@@ -3,7 +3,7 @@
 import { PATH } from '@/src/constants/path.constant'
 import { getEquipmentDetailApi } from '@/src/services/equipmentApi'
 import { useRouter } from 'next/navigation'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 import EquipmentReviewNav from './(components)/EquipmentReviewNav'
 import EquipmentReviewSection_1 from './(components)/EquipmentReviewSection_1'
 import EquipmentReviewSection_2 from './(components)/EquipmentReviewSection_2'

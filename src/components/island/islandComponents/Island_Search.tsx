@@ -16,6 +16,7 @@ import { SEARCH_PROGRESS } from '@/src/constants/search.constant'
 import LoadingSpinner from '@/src/components/loading/LoadingSpinner'
 import SearchSection_After from '@/src/components/search/SearchSection_After'
 import Island from '@/src/components/island/Island'
+import useCaptureHistoryBack from '@/src/hooks/useCaptureHistoryBack'
 
 /// 검색 섹션 ///
 export default function Island_Search() {
@@ -24,6 +25,8 @@ export default function Island_Search() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const [searchResult, setSearchResult] = useState<SearchResult>()
+
+  useCaptureHistoryBack(() => setIsFocus(false), isFocus)
 
   const {
     popularSearchKeywords,
