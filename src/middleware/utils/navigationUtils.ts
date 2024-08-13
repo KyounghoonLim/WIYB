@@ -4,12 +4,13 @@ import { NextURL } from 'next/dist/server/web/next-url'
 import { COOKIE_KEYS } from '@/src/constants/cookie.constant'
 import { jwtDecode } from 'jwt-decode'
 import { TOKEN_ROLE } from '@/src/constants/tokenRole.constant'
+import { removeLocalePath } from './localeUtils'
 
 export { isRequiredAuth, isAuthorized }
 
 function isRequiredAuth(url: NextURL | string) {
-  const pathname = typeof url === 'string' ? url : url.pathname
-  return AUTH_REQUIRED_PATH.some((path) => pathname.includes(path))
+  const pathname = removeLocalePath(url)
+  return AUTH_REQUIRED_PATH.some((path) => pathname.includes(path) || path.includes(pathname))
 }
 
 function isAuthorized(cookie: RequestCookies) {

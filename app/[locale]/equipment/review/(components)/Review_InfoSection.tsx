@@ -2,7 +2,7 @@ import { EquipmentDetail } from '@/src/@types/equipment.types'
 import Thumbnail from '@/src/components/thumbnail/Thumbnail'
 import React from 'react'
 
-export default function EquipmentReviewSection_1({ equip }: { equip: EquipmentDetail }) {
+export default function Review_InfoSection({ equip }: { equip: EquipmentDetail }) {
   return (
     <section className="w-full h-[88px] flex-row-start gap-[10px] px-4 shrink-0">
       <Thumbnail src={equip?.imageUrls[0]} width={56} />

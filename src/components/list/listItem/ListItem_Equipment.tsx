@@ -14,7 +14,10 @@ export default function ListItem_Equipment({
   listing,
 }: ListItemProps<Equipment>) {
   const detailPageUrl = useMemo(
-    () => (equip?.id ? PATH.EQUIPMENT_DETAIL + `?id=${equip?.id}&type=${equip?.type}` : '#'),
+    () =>
+      equip?.id
+        ? PATH.EQUIPMENT_DETAIL.replace('[param1]', equip?.id).replace('[param2]', equip?.type)
+        : '#',
     [equip]
   )
 

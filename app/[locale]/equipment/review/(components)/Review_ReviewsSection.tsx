@@ -4,21 +4,14 @@ import ListItem_Review from '@/src/components/list/listItem/ListItem_Review'
 import ListWindow from '@/src/components/list/ListWindow'
 import React from 'react'
 
-export default function EquipmentReviewSection_2({
-  reviewCount,
-  reviews,
-}: {
-  reviewCount: number
-  reviews: Review[]
-}) {
+export default function Review_ReviewsSection({ reviews }: { reviews: Review[] }) {
   return (
     <section className="h-full flex flex-col p-4 pb-0">
-      {reviewCount > 0 ? (
+      {reviews?.length > 0 ? (
         <>
           <div className="flex justify-between items-center h-11">
             <span className="flex typograph-16">
-              리뷰
-              <p className="font-bold">{reviewCount}</p>개
+              리뷰 <p className="font-bold">{reviews?.length}</p>개
             </span>
             <Bedge text={'최신순'} />
           </div>

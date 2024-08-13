@@ -7,6 +7,7 @@ export const navigationGuardMiddleware: MiddlewareModule = async (req) => {
   const { nextUrl } = req
 
   console.log(nextUrl)
+  console.log(isRequiredAuth(nextUrl))
   /// Authorization 이 필요한 경우 ///
   const authFlag = isAuthorized(req.cookies)
   if (isRequiredAuth(nextUrl)) {

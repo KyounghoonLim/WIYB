@@ -21,9 +21,12 @@ export default function Island_EquipReviews({
     <>
       {reviews && (
         <Island>
+          <span className="typograph-14 flex">
+            리뷰 <p className="font-bold">{reviewCount}</p>개
+          </span>
           <ListPrimary items={reviews?.slice(0, 3)} Component={ListItem_Review} />
           {reviewCount > 3 && (
-            <Link href={PATH.EQUIPMENT_REVIEW + `?id=${id}`}>
+            <Link href={PATH.EQUIPMENT_REVIEW.replace('[param1]', id)}>
               <Button text="리뷰 더 보러 가기" className="mt-4" />
             </Link>
           )}

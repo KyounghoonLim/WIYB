@@ -1,10 +1,10 @@
 import { ReviewScoreType } from '@/src/constants/review.constnat'
 import React, { useCallback, useContext } from 'react'
-import { equipmentReviewFormContext } from './EquipmentReviewForm'
+import { reviewFormContext } from './Review_Form'
 import Radio from '@/src/components/radio/Radio'
 import { convertStringToTSX } from '@/src/utils/convertStringToJSX'
 
-export default function EquipmentReviewFormRadio({
+export default function Review_Radio({
   name,
   title,
   idx,
@@ -18,7 +18,7 @@ export default function EquipmentReviewFormRadio({
   const {
     reviewScoreOptions,
     state: [value, setter],
-  } = useContext(equipmentReviewFormContext)
+  } = useContext(reviewFormContext)
 
   const changeHandler = useCallback(
     (value) => {
