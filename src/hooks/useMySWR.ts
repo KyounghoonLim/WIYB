@@ -5,11 +5,18 @@ import useSWRImmutable from 'swr/immutable'
 
 export default function useMySWR(
   key: string | string[] | object,
-  fetcher: any,
+  fetcher: (...params) => any | Promise<any>,
   onSucceed?,
   onFailed?
 ) {
-  const { data, error } = useSWRImmutable(key, fetcher, { shouldRetryOnError: false })
+  const { data, error } = useSWRImmutable(
+    key,
+    (key) => {
+      if (typeof key === 'string') return fetcher(key)
+      else return fetcher(...Object.values(key))
+    },
+    { shouldRetryOnError: false }
+  )
 
   useLayoutEffect(() => {
     if (!data) return

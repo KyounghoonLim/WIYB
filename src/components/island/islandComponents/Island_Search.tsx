@@ -94,8 +94,8 @@ export default function Island_Search() {
 
   return (
     <Island className={clsx(isFocus ? 'SEARCH-CONTAINER' : 'bg-transparent px-0 pt-3')}>
-      <div className={clsx(isFocus && 'CONTENT-CONTAINER h-full pt-2 px-2')}>
-        <article className="w-full">
+      <div className={clsx(isFocus && 'CONTENT-CONTAINER h-full p-0')}>
+        <article className="w-full px-2">
           <Form onSubmit={() => search(searchKeyword)} className="w-full flex gap-1 pr-2 flex-row">
             {isFocus && (
               <>
@@ -112,14 +112,14 @@ export default function Island_Search() {
               value={searchKeyword}
               onChange={setSearchKeyword}
               placeholder="장비, 플레이어를 검색해보세요 🧐"
-              className={isFocus && 'bg-@-bg-light'}
+              className={isFocus && 'bg-@-bg-light h-9'}
               icon={!isFocus && SearchIcon}
               maxLength={null}
               onFocus={() => setIsFocus(true)}
             />
           </Form>
         </article>
-        <article className="h-full">
+        <article className="h-full px-4">
           {searchProgress === SEARCH_PROGRESS.HIDDEN ? (
             <></>
           ) : searchProgress === SEARCH_PROGRESS.LOADING ? (
