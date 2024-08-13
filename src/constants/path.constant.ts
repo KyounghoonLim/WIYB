@@ -9,6 +9,8 @@ export const PATH = {
   AUTH_FAIL: '/sign/fail',
   /// user ///
   PROFILE: '/profile',
+  /// search ///
+  SEARCH: '/search',
   /// equipment ///
   EQUIPMENT_DETAIL: '/equipment/detail',
   EQUIPMENT_REVIEW: '/equipment/review',

@@ -6,5 +6,9 @@
     "top": "0",
     "left": "0",
     "@apply z-overlay": true
+  },
+  ".loading-overlay": {
+    "@apply overlay": true,
+    "cursor": "wait"
   }
 }

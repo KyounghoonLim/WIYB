@@ -29,7 +29,7 @@ export default function Island_PopularEquipments() {
           items={listItems}
           Component={({ item, index }) => ListItem_Equipment({ item, index, listing: true })}
         />
-        <Button text="장비 더 보러 가기" className="mt-2 button-secondary" />
+        <Button text="장비 더 보러 가기" className="mt-2" />
       </Island>
     )
 }

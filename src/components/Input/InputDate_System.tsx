@@ -1,4 +1,4 @@
-import { localeContext } from 's/providers/localeProvider'
+import { localeContext } from 's/providers/LocaleProvider'
 import { InputDateProps } from '@/src/@types/components/input/inputDate.interface'
 import { dateToString, getDateFormat } from '@/src/utils/dateUtils'
 import clsx from 'clsx'

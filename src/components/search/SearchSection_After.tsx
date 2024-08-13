@@ -31,14 +31,14 @@ export default function SearchSection_After({
         onChange={(value) => setCategory(value as SearchCategoryType)}
         className="px-2"
       />
-      <section className="h-full flex flex-col px-2 pt-6 pb-4 gap-3">
+      <section className="h-full flex flex-col px-2 pt-6 gap-3">
         {
           <span className="flex typograph-16">
             <h3 className="font-bold">{searchKeyword}</h3>
             {searchResult[category].length ? ' 검색결과' : ' 에 대한 검색 결과가 없습니다.'}
           </span>
         }
-        <div className="h-full pb-4">{searchListSwitch}</div>
+        <div className="h-full">{searchListSwitch}</div>
       </section>
     </>
   )

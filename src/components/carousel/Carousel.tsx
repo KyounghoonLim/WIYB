@@ -24,7 +24,7 @@ export default function Carousel<T>({
       initialSlide={0}
       threshold={20}
       slidesPerView={'auto'}
-      className={clsx('w-full !py-4', className)}
+      className={clsx('w-full !pt-4', className)}
       spaceBetween={16}
       {...swiperProps}
     >

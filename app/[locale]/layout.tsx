@@ -1,7 +1,7 @@
 'use client'
 
 import { LocaleType } from '@/src/@types/locale.types'
-import LocaleProvider from '@/src/providers/localeProvider'
+import LocaleProvider from '@/src/providers/LocaleProvider'
 
 export default function LocaleLayout({
   params: { locale },

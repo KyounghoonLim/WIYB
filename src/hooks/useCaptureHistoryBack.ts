@@ -7,7 +7,6 @@ export default function useCaptureHistoryBack(callback: () => any, condition?: b
   useLayoutEffect(() => {
     if (!callback || (!isNull(condition) && !condition)) return
     else {
-      console.log('hello')
       const popStateHandler = () => {
         history.pushState(null, '', location.href)
         callback()

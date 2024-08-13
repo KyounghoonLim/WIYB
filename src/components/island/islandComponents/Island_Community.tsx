@@ -13,7 +13,7 @@ export default function Island_Community() {
         </h3>
       </div>
       <ListPrimary items={[1, 2, 3, 4, 5]} Component={ListItem_Community} className="mt-4" />
-      <Button text="커뮤니티 더 보러 가기" className="mt-2 button-secondary" />
+      <Button text="커뮤니티 더 보러 가기" className="mt-2" />
     </Island>
   )
 }

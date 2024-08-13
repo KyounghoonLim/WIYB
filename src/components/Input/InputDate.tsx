@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React, { useCallback, useContext, useMemo, useRef } from 'react'
 import InputError from './InputError'
-import { localeContext } from 's/providers/localeProvider'
+import { localeContext } from 's/providers/LocaleProvider'
 import { InputDateProps } from 't/components/input/inputDate.interface'
 import { LOCALE } from 'c/locale.constant'
 import { dateToString, getDateFormat } from 'u/dateUtils'

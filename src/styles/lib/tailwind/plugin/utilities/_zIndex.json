@@ -8,6 +8,9 @@
   ".z-footer": {
     "zIndex": "10"
   },
+  ".z-search": {
+    "zIndex": "20"
+  },
   ".z-overlay": {
     "zIndex": "100"
   }

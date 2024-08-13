@@ -8,15 +8,15 @@ import { ListItemProps } from '@/src/@types/components/list/list.interface'
 export default function ListItem_SearchHistory({
   item,
   index,
-  search,
+  goToSearch,
   removeSearchHistory,
 }: ListItemProps<string>) {
   const itemClickHandler = useCallback(
     (e: SyntheticEvent) => {
       if ((e.target as HTMLElement).tagName === 'BUTTON') return
-      else search(item)
+      else goToSearch(item)
     },
-    [item, search]
+    [item, goToSearch]
   )
 
   const removeClickHandler = useCallback(
