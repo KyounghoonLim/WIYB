@@ -89,8 +89,6 @@ export default function Island_Search() {
     }
   }, [searchKeyword, searchResult])
 
-  console.log(searchProgress)
-
   return (
     <Island className={clsx(isFocus ? 'SEARCH-CONTAINER' : 'bg-transparent px-0 pt-3')}>
       <div className={clsx(isFocus && 'CONTENT-CONTAINER h-full pt-2 px-2')}>

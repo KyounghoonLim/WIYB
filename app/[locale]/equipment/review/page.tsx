@@ -4,26 +4,22 @@ import { PATH } from '@/src/constants/path.constant'
 import { getEquipmentDetailApi } from '@/src/services/equipmentApi'
 import { useRouter } from 'next/navigation'
 import React, { useLayoutEffect, useState } from 'react'
-import useSWR from 'swr'
 import EquipmentReviewNav from './(components)/EquipmentReviewNav'
 import EquipmentReviewSection_1 from './(components)/EquipmentReviewSection_1'
 import EquipmentReviewSection_2 from './(components)/EquipmentReviewSection_2'
 import EquipmentReviewFooter from './(components)/EquipmentReviewFooter'
 import EquipmentReviewForm from './(components)/form/EquipmentReviewForm'
+import useMySWR from '@/src/hooks/useMySWR'
 
 export default function EquipmentReviewPage({
   searchParams: { id, form },
 }: {
   searchParams: { id: string; form: string }
 }) {
-  const [flag, setFlag] = useState<boolean>(Boolean(form))
-  const { data: equip, error } = useSWR(id, getEquipmentDetailApi)
   const { replace } = useRouter()
+  const { data: equip } = useMySWR(id, getEquipmentDetailApi, undefined, () => replace(PATH.LOGIN))
 
-  useLayoutEffect(() => {
-    if (!error) return
-    else replace(PATH.LOGIN)
-  }, [error])
+  const [flag, setFlag] = useState<boolean>(Boolean(form))
 
   return (
     <main className="SCROLLABLE-CONTAINER px-0">

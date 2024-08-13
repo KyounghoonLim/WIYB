@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useContext, useLayoutEffect } from 'react'
+import React, { useContext } from 'react'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../stores/userStore'
 import { requestTimeContext } from '../../providers/RequestKeyProvider'
 import { getUserProfileApi } from '../../services/userApi'
 import { useRouter } from 'next/navigation'
 import { PATH } from '@/src/constants/path.constant'
-import useSWRImmutable from 'swr/immutable'
+import useMySWR from '../useMySWR'
 
 export default function useUser() {
   const { requestTime } = useContext(requestTimeContext)
@@ -15,23 +15,12 @@ export default function useUser() {
 
   const { replace } = useRouter()
 
-  const { data, error } = useSWRImmutable(
+  useMySWR(
     !user && requestTime,
-    () => {
-      return getUserProfileApi()
-    },
-    {
-      shouldRetryOnError: false,
-    }
+    () => getUserProfileApi(),
+    setUser,
+    () => replace(PATH.LOGIN)
   )
 
-  useLayoutEffect(() => {
-    if (error) {
-      console.log('에러발생!')
-      replace(PATH.LOGIN)
-    } else if (!data) return
-    else setUser(data)
-  }, [data, error, replace, setUser])
-
-  return { user, setUser, error }
+  return { user, setUser }
 }

@@ -31,6 +31,6 @@
       "images/*": ["public/images/*"]
     }
   },
-  "include": ["custom-next-env.d.ts", "svgr.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "*.d.ts"],
+  "include": ["custom-next-env.d.ts", "svgr.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "*.d.ts", "src/utils/axios/module/tokenRefresher.ts"],
   "exclude": ["next-env.d.ts", "node_modules"]
 }
