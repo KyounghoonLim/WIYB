@@ -6,19 +6,16 @@ import Form from '../form/Form'
 import Input from '../Input/Input'
 import Button from '../button/Button'
 import { searchContext } from '@/src/providers/SearchProvider'
-import { useRouter } from 'next/navigation'
 import { PATH } from '@/src/constants/path.constant'
 
 export default function SearchForm() {
-  const { searchKeyword, setSearchKeyword, setSearchHistory } = useContext(searchContext)
+  const { goToSearch, searchKeyword, setSearchKeyword, setSearchHistory } =
+    useContext(searchContext)
   const inputRef = useRef<HTMLInputElement>()
 
-  const { replace } = useRouter()
-
   const submitHandler = useCallback(() => {
-    setSearchHistory(searchKeyword)
-    replace(PATH.SEARCH + `?search={searchKeyword}`)
-  }, [searchKeyword, setSearchHistory, replace])
+    goToSearch(searchKeyword)
+  }, [searchKeyword, setSearchHistory])
 
   useLayoutEffect(() => {
     inputRef?.current && inputRef.current.focus()
