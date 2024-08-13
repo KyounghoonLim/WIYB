@@ -19,6 +19,7 @@ import { setEquipmentReviewApi } from '@/src/services/equipmentApi'
 import { uploadImageApi } from '@/src/services/commonApi'
 import { EquipmentEvaluationMetric } from '@/src/@types/equipment.types'
 import { PATH } from '@/src/constants/path.constant'
+import { EquipmentType } from '@/src/constants/equipment.constant'
 
 export const reviewFormContext = createContext<{
   reviewScoreOptions: RadioOption<ReviewScoreType>[]
@@ -30,10 +31,12 @@ export const reviewFormContext = createContext<{
 
 export default function Review_Form({
   id,
+  type,
   onSucceed,
   onFailed,
 }: {
   id: string
+  type: EquipmentType
   onSucceed?: () => any
   onFailed?: () => any
 }) {
@@ -81,7 +84,7 @@ export default function Review_Form({
       window.alert('리뷰 작성에 실패했습니다.')
       onFailed?.()
     } finally {
-      location.replace(PATH.EQUIPMENT_REVIEW.replace('[param1]', id))
+      location.replace(PATH.EQUIPMENT_REVIEW.replace('[param1]', id).replace('[param2]', type))
     }
   }, [id, reviewScoreMetric, reviewContent, reviewImageList, onSucceed, onFailed])
 

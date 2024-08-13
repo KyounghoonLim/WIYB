@@ -9,8 +9,9 @@ import React from 'react'
 
 export default function Island_EquipGraph({
   id,
+  type,
   evaluationMetricAverage,
-}: Pick<EquipmentDetail, 'id' | 'evaluationMetricAverage'>) {
+}: Pick<EquipmentDetail, 'id' | 'type' | 'evaluationMetricAverage'>) {
   return (
     <Island className="flex flex-col gap-4">
       <div className="flex flex-col gap-6">
@@ -24,7 +25,7 @@ export default function Island_EquipGraph({
         </div>
       </div>
       {evaluationMetricAverage && (
-        <Link href={PATH.EQUIPMENT_REVIEW_FORM.replace('[param1]', id)}>
+        <Link href={PATH.EQUIPMENT_REVIEW_FORM.replace('[param1]', id).replace('[param2]', type)}>
           <Button text="리뷰/평가 등록하기" />
         </Link>
       )}
