@@ -12,9 +12,7 @@ import SearchProvider, { searchContext } from '@/src/providers/SearchProvider'
 export default function Island_Search() {
   return (
     <Island className="bg-transparent px-0 pt-3">
-      <SearchProvider>
-        <Island_Search_Input />
-      </SearchProvider>
+      <Island_Search_Input />
     </Island>
   )
 }

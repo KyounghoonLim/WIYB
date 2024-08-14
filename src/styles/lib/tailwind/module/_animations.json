@@ -16,6 +16,5 @@
   "drop-options-reverse": "drop-options-reverse 0.15s linear forwards",
   "bottomsheet-open": "bottomsheet-open 0.2s ease-in-out forwards",
   "bottomsheet-close": "bottomsheet-close 0.2s ease-in-out forwards",
-  "chat-enter": "chat-enter 0.2s ease-in-out forwards",
   "shimmer": "shimmer 3s infinite"
 }

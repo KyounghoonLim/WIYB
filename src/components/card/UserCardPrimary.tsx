@@ -2,15 +2,15 @@ import React, { useMemo } from 'react'
 import UserThumbnail from '../thumbnail/UserThumbnail'
 import Bedge from '../bedge/Bedge'
 import { PATH } from '@/src/constants/path.constant'
-import Link from 'next/link'
 import { UserCardProps } from '@/src/@types/components/card/userCard.interface'
 import clsx from 'clsx'
+import MyLink from '../link/MyLink'
 
 export default function UserCardPrimary({ user }: UserCardProps) {
   const userProfileUrl = useMemo(() => (user ? PATH.PROFILE : '#'), [user])
 
   return (
-    <Link href={userProfileUrl}>
+    <MyLink href={userProfileUrl}>
       <article className="card-user-primary">
         <div className="flex w-full gap-3">
           <UserThumbnail src={user?.imageUrl} />
@@ -53,6 +53,6 @@ export default function UserCardPrimary({ user }: UserCardProps) {
           )}
         </div>
       </article>
-    </Link>
+    </MyLink>
   )
 }

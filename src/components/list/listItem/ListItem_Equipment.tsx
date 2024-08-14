@@ -6,7 +6,7 @@ import Thumbnail from '../../thumbnail/Thumbnail'
 import Bedge from '../../bedge/Bedge'
 import { Equipment } from '@/src/@types/equipment.types'
 import { PATH } from '@/src/constants/path.constant'
-import Link from 'next/link'
+import MyLink from '../../link/MyLink'
 
 export default function ListItem_Equipment({
   item: equip,
@@ -22,7 +22,7 @@ export default function ListItem_Equipment({
   )
 
   return (
-    <Link href={detailPageUrl} className="list-item">
+    <MyLink href={detailPageUrl} className="list-item">
       {equip && listing && <span className="typograph-16 text-neutral-900">{index + 1 + '.'}</span>}
       <Thumbnail src={equip?.imageUrls?.[0]} width={40} />
       <div className="w-full flex flex-col gap-1">
@@ -42,6 +42,6 @@ export default function ListItem_Equipment({
           </>
         )}
       </div>
-    </Link>
+    </MyLink>
   )
 }

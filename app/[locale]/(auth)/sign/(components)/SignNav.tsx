@@ -1,15 +1,15 @@
-import Portal from "@/src/components/portal/Portal";
-import React from "react";
-import CloseIcon from "i/icon_close_bold.svg";
-import Link from "next/link";
-import { PATH } from "@/src/constants/path.constant";
+import Portal from '@/src/components/portal/Portal'
+import React from 'react'
+import CloseIcon from 'i/icon_close_bold.svg'
+import { PATH } from '@/src/constants/path.constant'
+import MyLink from '@/src/components/link/MyLink'
 
 export default function SignNav() {
   return (
     <Portal target="nav">
-      <Link href={PATH.LOGIN}>
+      <MyLink href={PATH.LOGIN}>
         <CloseIcon />
-      </Link>
+      </MyLink>
     </Portal>
-  );
+  )
 }

@@ -45,6 +45,7 @@
     "button": {
       "primary": "#46AA5A",
       "secondary": "#FFFFFF",
+      "tertiary": "#5bc771",
       "hover": "#469A5E",
       "disabled": "#969696"
     },

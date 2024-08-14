@@ -13,7 +13,9 @@ export default function useCaptureHistoryBack(callback: () => any, condition?: b
       }
       history.pushState(null, '', location.href)
       window.addEventListener('popstate', popStateHandler)
-      return () => window.removeEventListener('popstate', popStateHandler)
+      return () => {
+        window.removeEventListener('popstate', popStateHandler)
+      }
     }
   }, [callback, condition])
 }

@@ -11,6 +11,9 @@
   ".z-search": {
     "zIndex": "20"
   },
+  ".z-bottom-sheet": {
+    "zIndex": "30"
+  },
   ".z-overlay": {
     "zIndex": "100"
   }

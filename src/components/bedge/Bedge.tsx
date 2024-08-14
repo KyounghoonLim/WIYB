@@ -3,7 +3,7 @@ import { convertStringToTSX } from '@/src/utils/convertStringToJSX'
 import clsx from 'clsx'
 import React, { useCallback, useMemo } from 'react'
 
-export default function Bedge({ text, icon, onClick, className }: BedgeProps) {
+export default function Bedge({ text, icon, children, onClick, className }: BedgeProps) {
   const IconElement = useMemo(() => {
     if (!icon) return <></>
     else return icon({ className: 'shrink-0 grow-0' })
@@ -24,6 +24,7 @@ export default function Bedge({ text, icon, onClick, className }: BedgeProps) {
     <span className={clsx('bedge', className)} onClick={clickHandler}>
       {IconElement}
       {TextElement}
+      {children}
     </span>
   )
 }

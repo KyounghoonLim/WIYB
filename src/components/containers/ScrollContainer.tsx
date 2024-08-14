@@ -7,7 +7,7 @@ import SimpleBarCore from 'simplebar-core'
 import 'simplebar-react/dist/simplebar.min.css'
 import clsx from 'clsx'
 
-interface ScrollWrapperProps {
+interface ScrollContainerProps {
   children: ({ scrollableNodeRef, contentNodeRef, width, height }) => React.ReactNode
   style?: (w, h) => { width: number; height: number }
   className?: string
@@ -23,7 +23,7 @@ export default function ScrollContainer({
   allowTransition = true,
   onScroll,
   onResize,
-}: ScrollWrapperProps) {
+}: ScrollContainerProps) {
   const simplebarRef = useRef<SimpleBarCore>(null)
   const scrollDebounceRef = useRef<NodeJS.Timeout>(null)
   const resizeDebounceRef = useRef<NodeJS.Timeout>(null)

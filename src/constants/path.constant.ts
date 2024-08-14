@@ -57,10 +57,13 @@ export const SERVICE_PATH = {
   /// search ///
   SEARCH: '/search',
   POPULAR_SEARCH_KEYWORDS: '/search/popular',
-  /// equipments ///
+  /// equipment ///
   EQUIPMENT_DETAIL: '/product/[id]/[type]',
   EQUIPMENT_REVIEW: '/product/[id]/review',
   POPULAR_EQUIPMENTS: '/product/most/view/simple',
   /// common ///
   UPLOAD_IMAGE: '/image',
+  /// constant ///
+  CONSTANT_BRAND: '/static/brand',
+  CONSTANT_EQUIPMENT_TYPE: '/static/equipment/type',
 } as const

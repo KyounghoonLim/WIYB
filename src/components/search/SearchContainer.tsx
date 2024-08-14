@@ -1,7 +1,7 @@
 'use client'
 
 /// hooks ///
-import { useLayoutEffect } from 'react'
+import { useContext, useLayoutEffect } from 'react'
 import useTheme from '@/src/hooks/theme/useTheme'
 /// components ///
 import Portal from '../portal/Portal'
@@ -10,9 +10,11 @@ import { THEME } from '@/src/constants/theme.constant'
 import SearchPopularKeywords from './SearchPopularKeywords'
 import SearchHistoryList from './SearchHistoryList'
 import SearchHeader from './SearchHeader'
+import { searchContext } from '@/src/providers/SearchProvider'
 
 export default function SearchContainer() {
   const { changeTheme } = useTheme()
+  const { resetSearchOptions } = useContext(searchContext)
 
   useLayoutEffect(() => {
     document.body.classList.add('overflow-hidden')
@@ -20,6 +22,7 @@ export default function SearchContainer() {
 
     return () => {
       document.body.classList.remove('overflow-hidden')
+      resetSearchOptions()
       changeTheme(THEME.DEFAULT)
     }
   }, [changeTheme])

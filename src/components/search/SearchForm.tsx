@@ -15,14 +15,14 @@ export default function SearchForm() {
 
   const submitHandler = useCallback(() => {
     goToSearch(searchKeyword)
-  }, [searchKeyword, setSearchHistory])
+  }, [searchKeyword, setSearchHistory, goToSearch])
 
   useLayoutEffect(() => {
     inputRef?.current && inputRef.current.focus()
   }, [inputRef])
 
   return (
-    <Form onSubmit={submitHandler} className="w-full flex gap-1 pr-2 flex-row">
+    <Form onSubmit={submitHandler}>
       <Input
         ref={inputRef}
         value={searchKeyword}

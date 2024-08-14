@@ -21,7 +21,7 @@ export default function SWRProvider({ children }) {
   }, [])
 
   const defaultErrorHandler = useCallback((err: AxiosError, requestIndex: number) => {
-    if (err.response.data['status'] !== 401) return
+    if (err?.response?.data?.['status'] !== 401) return
     else {
       if (getItem(requestIndex) - lastErrorHandledTime.current < 100) return
       else {

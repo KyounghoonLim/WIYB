@@ -69,10 +69,6 @@
     "from": { "transform": "translateY(0)" },
     "to": { "transform": "translateY(100%)" }
   },
-  "chat-enter": {
-    "from": { "transform": "translateY(clamp(10px,25%,20px))", "opacity": 0 },
-    "to": { "transform": "translateY(0)", "opacity": 1 }
-  },
   "shimmer": {
     "100%": {
       "transform": "translateX(100%)"

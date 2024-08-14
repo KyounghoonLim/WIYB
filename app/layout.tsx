@@ -4,11 +4,14 @@ import { THEME } from '@/src/constants/theme.constant'
 import type { Metadata, Viewport } from 'next'
 import 's/styles/global.css'
 import ThemeProvider from '../src/providers/ThemeProvider'
-import RecoilContainer from '@/src/components/containers/RecoilContainer'
 import RequestTimeProvider from '@/src/providers/RequestKeyProvider'
 import SearchPortal from '@/src/components/search/SearchPortal'
 import OverlayPortal from '@/src/components/overlay/OverlayPortal'
 import SWRProvider from '@/src/providers/SWRProvider'
+import BottomSheetPortal from '@/src/components/bottomSheet/BottomSheetPortal'
+import UserProvider from '@/src/providers/UserProvider'
+import BottomSheetProvider from '@/src/providers/BottomSheetProvider'
+import SearchProvider from '@/src/providers/SearchProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -32,13 +35,20 @@ export default function RootLayout({
       <RequestTimeProvider>
         <ThemeProvider>
           <SWRProvider>
-            <body className="CONTAINER bg-@-bg-light">
-              <Nav />
-              <RecoilContainer>{children}</RecoilContainer>
-              <SearchPortal />
-              <OverlayPortal />
-              <Footer />
-            </body>
+            <UserProvider>
+              <SearchProvider>
+                <BottomSheetProvider>
+                  <body className="CONTAINER bg-@-bg-light">
+                    <Nav />
+                    {children}
+                    <SearchPortal />
+                    <BottomSheetPortal />
+                    <OverlayPortal />
+                    <Footer />
+                  </body>
+                </BottomSheetProvider>
+              </SearchProvider>
+            </UserProvider>
           </SWRProvider>
         </ThemeProvider>
       </RequestTimeProvider>
