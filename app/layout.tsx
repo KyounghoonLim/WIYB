@@ -8,6 +8,7 @@ import RecoilContainer from '@/src/components/containers/RecoilContainer'
 import RequestTimeProvider from '@/src/providers/RequestKeyProvider'
 import SearchPortal from '@/src/components/search/SearchPortal'
 import OverlayPortal from '@/src/components/overlay/OverlayPortal'
+import SWRProvider from '@/src/providers/SWRProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -30,13 +31,15 @@ export default function RootLayout({
     <html lang="en">
       <RequestTimeProvider>
         <ThemeProvider>
-          <body className="CONTAINER bg-@-bg-light">
-            <Nav />
-            <RecoilContainer>{children}</RecoilContainer>
-            <SearchPortal />
-            <OverlayPortal />
-            <Footer />
-          </body>
+          <SWRProvider>
+            <body className="CONTAINER bg-@-bg-light">
+              <Nav />
+              <RecoilContainer>{children}</RecoilContainer>
+              <SearchPortal />
+              <OverlayPortal />
+              <Footer />
+            </body>
+          </SWRProvider>
         </ThemeProvider>
       </RequestTimeProvider>
     </html>

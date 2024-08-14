@@ -6,7 +6,9 @@ import { TokenRefresher } from './tokenRefresher'
 const tokenRefrehser = new TokenRefresher()
 
 export async function onError(err: AxiosError) {
-  if (err.response.data['status'] === 401) {
+  if (err.response.data['status'] !== 401) {
+    throw err
+  } else {
     if (err.config?.url === SERVICE_PATH.TOKEN_REFRESH) {
       throw err
     } else {

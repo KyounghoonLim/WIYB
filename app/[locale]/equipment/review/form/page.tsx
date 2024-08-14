@@ -16,7 +16,7 @@ export default function EquipmentReviewFormPage({
   searchParams: { id: string; type: EquipmentType }
 }) {
   const { replace } = useRouter()
-  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi, undefined, () => replace(PATH.LOGIN))
+  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi)
 
   return (
     <main className="CONTENT-CONTAINER px-0">

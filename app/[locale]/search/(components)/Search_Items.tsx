@@ -22,7 +22,7 @@ export default function Search_Items({ search }: { search?: string }) {
   const [category, setCategory] = useState<SearchCategoryType>(SEARCH_CATEGORY.EQUIP)
   const [isEdited, setIsEdited] = useState<boolean>(false)
 
-  const { data: searchResult } = useMySWR(search, searchApi)
+  const { data: searchResult, isLoading } = useMySWR(search, searchApi)
 
   const searchListSwitch = useMemo(() => {
     if (!searchResult) return <></>
@@ -49,32 +49,35 @@ export default function Search_Items({ search }: { search?: string }) {
       setIsEdited(true)
     }
   }, [search, searchKeyword, isEdited])
-
+  console.log(isLoading)
   return (
     <>
-      {Boolean(searchResult) ? (
+      <SearchHeader />
+      <section className="w-full h-full flex flex-col px-4 pb-4 gap-6">
+        <Category
+          value={category}
+          items={Object.values(SEARCH_CATEGORY)}
+          onChange={(value) => setCategory(value as SearchCategoryType)}
+        />
         <>
-          <SearchHeader />
-          <section className="w-full h-full flex flex-col px-4 pb-4 gap-6">
-            <Category
-              value={category}
-              items={Object.values(SEARCH_CATEGORY)}
-              onChange={(value) => setCategory(value as SearchCategoryType)}
-            />
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
             <div className="h-full flex flex-col gap-3">
-              {
+              {Boolean(searchResult) ? (
+                <div className="h-full">{searchListSwitch}</div>
+              ) : (
                 <span className="flex typograph-16">
                   <h3 className="font-bold">{searchKeyword}</h3>
-                  {searchResult[category].length ? ' 검색결과' : ' 에 대한 검색 결과가 없습니다.'}
+                  {searchResult?.[category]?.length
+                    ? ' 검색결과'
+                    : ' 에 대한 검색 결과가 없습니다.'}
                 </span>
-              }
-              <div className="h-full">{searchListSwitch}</div>
+              )}
             </div>
-          </section>
+          )}
         </>
-      ) : (
-        <LoadingSpinner />
-      )}
+      </section>
       {isEdited && <SearchContainer />}
     </>
   )

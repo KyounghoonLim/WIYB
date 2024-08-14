@@ -52,7 +52,7 @@ export class TokenRefresher {
 
     return new Promise((resolve, reject) => {
       const interval = setInterval(async () => {
-        if (self.task || !self.lastTaskState) return /// 아직 task 가 끝나지 않음, 계속 대기
+        if (self.task || !self.lastTaskState?.state) return /// 아직 task 가 끝나지 않음, 계속 대기
         else {
           clearInterval(interval)
           try {
@@ -63,6 +63,12 @@ export class TokenRefresher {
           }
         }
       }, 500)
+      /// timeout ///
+      setTimeout(() => {
+        console.log('time over')
+        clearInterval(interval)
+        reject()
+      }, 5000)
     })
   }
 }

@@ -34,6 +34,5 @@ function setEquipmentReviewApi(
 }
 
 function getPopularEquipmentApi(): Promise<Equipment> {
-  console.log('popular')
   return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS)
 }

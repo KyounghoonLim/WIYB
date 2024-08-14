@@ -17,9 +17,7 @@ export default function EquipmentDetailPage({
   searchParams: { id: string; type: string }
 }) {
   const { replace } = useRouter()
-  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi, undefined, () =>
-    replace(PATH.LOGIN)
-  )
+  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi)
 
   return (
     <main className="SCROLLABLE-CONTAINER gap-4">

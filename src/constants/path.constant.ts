@@ -5,8 +5,6 @@ export const PATH = {
   /// auth ///
   LOGIN: '/login',
   SIGN: '/sign',
-  AUTH_SUCCESS: '/sign/success',
-  AUTH_FAIL: '/sign/fail',
   /// user ///
   PROFILE: '/profile',
   /// search ///
