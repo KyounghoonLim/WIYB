@@ -1,0 +1,33 @@
+{
+  ".textarea-container": {
+    "width": "100%",
+    "height": "auto",
+    "position": "relative",
+    "display": "flex",
+    "justifyContent": "space-between",
+    "alignItems": "center",
+    "gap": "4px",
+    "padding": "16px",
+    "borderRadius": "20px",
+    "overflow": "hidden",
+    "@apply typograph-15": true,
+    "@apply font-normal": true,
+    "@apply hide-scrollbar": true,
+    "@apply bg-@-neutral-100": true
+  },
+  ".textarea": {
+    "width": "100%",
+    "backgroundColor": "transparent",
+    "@apply resize-none": true,
+    "@apply hide-scrollbar": true,
+    "&:focus": {
+      "outline": "none"
+    }
+  },
+  ".textarea-error": {
+    "@apply border-@-error-500": true,
+    "&:hover": {
+      "@apply border-@-error-500": true
+    }
+  }
+}

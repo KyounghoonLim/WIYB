@@ -1,0 +1,65 @@
+{
+  "@": {
+    "primary": {
+      "000": "#00871E"
+    },
+    "error": {
+      "500": "#EF4614",
+      "700": "#BD2113",
+      "900": "#910810"
+    },
+    "neutral": {
+      "000": "#FFFFFF",
+      "100": "#0000000D",
+      "200": "#00000014",
+      "300": "#0000001F",
+      "400": "#00000033",
+      "500": "#0000004D",
+      "600": "#00000080",
+      "700": "#000000B2",
+      "800": "#000000CC",
+      "900": "#000000"
+    },
+    "text": {
+      "dimmed": "#3A39434D",
+      "light": "#B2AFC2",
+      "medium": "#575564",
+      "medium-mono": "#8D8B9A",
+      "grey": "#3A3943",
+      "black": "#111111",
+      "subtitle": "#646464",
+      "placeholder": "#C8C8C8",
+      "label": "#969696",
+      "comment": "#286EDC"
+    },
+    "line": {
+      "light": "#F5F5F5",
+      "medium": "#D8D8E5",
+      "dark": "#C2C2D8"
+    },
+    "bg": {
+      "light": "#FAFAFA",
+      "dimmed": "#F9F9F9",
+      "pressed": "#3A39431A"
+    },
+    "button": {
+      "primary": "#46AA5A",
+      "secondary": "#FFFFFF",
+      "tertiary": "#5bc771",
+      "hover": "#469A5E",
+      "disabled": "#969696"
+    },
+    "grid": {
+      "secondary": "#969696"
+    },
+    "bedge": {
+      "primary": "#F5F5F5"
+    }
+  },
+  "others": {
+    "naver": "#03C75A",
+    "kakao": "#F9E000",
+    "apple": "#000000",
+    "google": "#0000000D"
+  }
+}

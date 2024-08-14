@@ -1,0 +1,20 @@
+{
+  "fade-in": "fade-in 0.5s ease-in-out forwards",
+  "fade-out": "fade-out 0.5s ease-in-out forwards",
+  "fade-in-out": "fade-in-out 2.5s ease-in-out forwards",
+  "slide-in-horizontal-ltr": "slide-in-horizontal-ltr 0.2s ease-in-out forwards",
+  "slide-out-horizontal-ltr": "slide-out-horizontal-ltr 0.2s ease-in-out forwards",
+  "slide-in-horizontal-rtl": "slide-in-horizontal-rtl 0.2s ease-in-out forwards",
+  "slide-out-horizontal-rtl": "slide-out-horizontal-rtl 0.2s ease-in-out forwards",
+  "slide-in-vertical-ltr": "slide-in-vertical-ltr 0.2s ease-in-out forwards",
+  "slide-out-vertical-ltr": "slide-out-vertical-ltr 0.2s ease-in-out forwards",
+  "slide-in-vertical-rtl": "slide-in-vertical-rtl 0.2s ease-in-out forwards",
+  "slide-out-vertical-rtl": "slide-out-vertical-rtl 0.2s ease-in-out forwards",
+  "spin-arrow": "spin-arrow 0.15s linear forwards",
+  "spin-arrow-reverse": "spin-arrow-reverse 0.15s linear forwards",
+  "drop-options": "drop-options 0.15s linear forwards",
+  "drop-options-reverse": "drop-options-reverse 0.15s linear forwards",
+  "bottomsheet-open": "bottomsheet-open 0.2s ease-in-out forwards",
+  "bottomsheet-close": "bottomsheet-close 0.2s ease-in-out forwards",
+  "shimmer": "shimmer 3s infinite"
+}

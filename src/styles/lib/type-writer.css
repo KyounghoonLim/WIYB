@@ -1,0 +1,9 @@
+.Typewriter {
+  width: 100%;
+  position: absolute;
+}
+
+.Typewriter__wrapper {
+  width: 100%;
+  word-break: break-word;
+}

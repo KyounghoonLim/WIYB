@@ -1,0 +1,12 @@
+{
+  ".form": {
+    "width": "100%",
+    "gap": "16px",
+    "position": "relative",
+    "@apply flex-col-center": true
+  },
+  ".form-loading": {
+    "cursor": "wait",
+    "pointerEvents": "none"
+  }
+}
