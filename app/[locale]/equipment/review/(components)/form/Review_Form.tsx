@@ -44,7 +44,7 @@ export default function Review_Form({
     Array(6).fill(undefined)
   )
   const [reviewContent, setReviewContent] = useState<string>('')
-  const [reviewImageList, setReviewImageList] = useState<File[]>([])
+  const [reviewImageList, setReviewImageList] = useState<Array<File | string>>([])
 
   const reviewScoreOptions: RadioOption<ReviewScoreType>[] = useMemo(
     () =>
