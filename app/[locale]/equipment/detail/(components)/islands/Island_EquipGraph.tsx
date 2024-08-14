@@ -25,7 +25,7 @@ export default function Island_EquipGraph({
         </div>
       </div>
       {evaluationMetricAverage && (
-        <Link href={PATH.EQUIPMENT_REVIEW_FORM.replace('[param1]', id).replace('[param2]', type)}>
+        <Link href={PATH.EQUIPMENT_REVIEW_FORM.replace('[id]', id).replace('[type]', type)}>
           <Button text="리뷰/평가 등록하기" />
         </Link>
       )}

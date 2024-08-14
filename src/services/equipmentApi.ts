@@ -12,12 +12,12 @@ export {
 
 function getEquipmentDetailApi(productId: string, productType: string): Promise<EquipmentDetail> {
   return myAxios.get(
-    SERVICE_PATH.EQUIPMENT_DETAIL.replace('[param1]', productId).replace('[param2]', productType)
+    SERVICE_PATH.EQUIPMENT_DETAIL.replace('[id]', productId).replace('[type]', productType)
   )
 }
 
 function getEquipmentReviewsApi(productId: string): Promise<Review[]> {
-  return myAxios.get(SERVICE_PATH.EQUIPMENT_REVIEW.replace('[param1]', productId))
+  return myAxios.get(SERVICE_PATH.EQUIPMENT_REVIEW.replace('[id]', productId))
 }
 
 function setEquipmentReviewApi(
@@ -26,7 +26,7 @@ function setEquipmentReviewApi(
   imageUrls: string[],
   evaluationMetric: EquipmentEvaluationMetric
 ): Promise<void> {
-  return myAxios.post(SERVICE_PATH.EQUIPMENT_REVIEW.replace('[param1]', productId), {
+  return myAxios.post(SERVICE_PATH.EQUIPMENT_REVIEW.replace('[id]', productId), {
     content,
     imageUrls,
     evaluationMetric,

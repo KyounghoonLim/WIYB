@@ -14,7 +14,7 @@ export default function Review_Footer({ id, type }: { id: string; type: Equipmen
         text="리뷰/평가 등록하기"
         className="w-[343px] bottom-0"
         onClick={() =>
-          replace(PATH.EQUIPMENT_REVIEW_FORM.replace('[param1]', id).replace('[param2]', type))
+          replace(PATH.EQUIPMENT_REVIEW_FORM.replace('[id]', id).replace('[type]', type))
         }
       />
     </Portal>

@@ -29,7 +29,7 @@ export default function Island_EquipReviews({
           </span>
           <ListPrimary items={reviews?.slice(0, 3)} Component={ListItem_Review} />
           {reviewCount > 3 && (
-            <Link href={PATH.EQUIPMENT_REVIEW.replace('[param1]', id).replace('[param2]', type)}>
+            <Link href={PATH.EQUIPMENT_REVIEW.replace('[id]', id).replace('[type]', type)}>
               <Button text="리뷰 더 보러 가기" className="mt-4" />
             </Link>
           )}

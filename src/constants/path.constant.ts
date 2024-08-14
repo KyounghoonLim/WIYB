@@ -10,9 +10,9 @@ export const PATH = {
   /// search ///
   SEARCH: '/search',
   /// equipment ///
-  EQUIPMENT_DETAIL: '/equipment/detail?id=[param1]&type=[param2]',
-  EQUIPMENT_REVIEW: '/equipment/review?id=[param1]&type=[param2]',
-  EQUIPMENT_REVIEW_FORM: '/equipment/review/form?id=[param1]&type=[param2]',
+  EQUIPMENT_DETAIL: '/equipment/detail?id=[id]&type=[type]',
+  EQUIPMENT_REVIEW: '/equipment/review?id=[id]&type=[type]',
+  EQUIPMENT_REVIEW_FORM: '/equipment/review/form?id=[id]&type=[type]',
 } as const
 
 export const AUTH_REQUIRED_PATH = Object.values(PATH).reduce((prev, curr) => {
@@ -58,8 +58,8 @@ export const SERVICE_PATH = {
   SEARCH: '/search',
   POPULAR_SEARCH_KEYWORDS: '/search/popular',
   /// equipments ///
-  EQUIPMENT_DETAIL: '/product/[param1]/[param2]',
-  EQUIPMENT_REVIEW: '/product/[param1]/review',
+  EQUIPMENT_DETAIL: '/product/[id]/[type]',
+  EQUIPMENT_REVIEW: '/product/[id]/review',
   POPULAR_EQUIPMENTS: '/product/most/view/simple',
   /// common ///
   UPLOAD_IMAGE: '/image',

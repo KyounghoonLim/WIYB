@@ -84,7 +84,7 @@ export default function Review_Form({
       window.alert('리뷰 작성에 실패했습니다.')
       onFailed?.()
     } finally {
-      location.replace(PATH.EQUIPMENT_REVIEW.replace('[param1]', id).replace('[param2]', type))
+      location.replace(PATH.EQUIPMENT_REVIEW.replace('[id]', id).replace('[type]', type))
     }
   }, [id, reviewScoreMetric, reviewContent, reviewImageList, onSucceed, onFailed])
 
