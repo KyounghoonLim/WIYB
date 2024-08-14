@@ -1,9 +1,0 @@
-{
-  "desktop": {},
-  "mobile": {
-    "minWidth": 320,
-    "minHeight": 480,
-    "maxWidth": 1080,
-    "maxHeight": 1920
-  }
-}
