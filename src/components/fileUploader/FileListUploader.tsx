@@ -1,6 +1,7 @@
 'use client'
 
 import { FileListUploaderProps } from '@/src/@types/components/fileUploader/fileUploader.interface'
+import { isFileExist } from '@/src/utils/fileUtils'
 import clsx from 'clsx'
 import Image from 'next/image'
 import React, { ChangeEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
@@ -22,15 +23,19 @@ export default function FileListUploader({
 
   const changeHandler = useCallback(
     (e: ChangeEvent) => {
-      const fileList = (e.target as HTMLInputElement).files
-      if (!fileList.length) return
+      const _fileList = (e.target as HTMLInputElement).files
+      if (!_fileList.length) return
       else {
-        const preservedFileList = Array.from(fileList)
-        const uploadedFileList = preservedFileList.filter((file) => file.size <= limitFileSize)
+        const preservedFileList = Array.from(_fileList)
+        const allowedFileList = preservedFileList.filter((file) => file.size <= limitFileSize)
+        const uploadedFileList = [
+          ...fileList,
+          ...preservedFileList.filter((file) => !isFileExist(fileList as File[], file)),
+        ]
 
-        if (uploadedFileList.length !== fileList.length) {
+        if (allowedFileList.length !== preservedFileList.length) {
           const exceptedFileNameList = preservedFileList
-            .filter((file) => !preservedFileList.includes(file))
+            .filter((file) => file.size >= limitFileSize)
             .map((file) => file.name)
           window.alert(
             `아래 이미지들은 허용 사이즈를 초과해 제외되었습니다.\n${exceptedFileNameList.join(
@@ -38,16 +43,22 @@ export default function FileListUploader({
             )}`
           )
         }
+
         if (!uploadedFileList.length) return
         else onUpload(uploadedFileList)
       }
     },
-    [onUpload]
+    [fileList, onUpload]
   )
 
-  const removeClickHandler = useCallback(() => {
-    onUpload(null)
-  }, [])
+  const removeClickHandler = useCallback(
+    (file: File | string) => {
+      const newFileList = fileList.filter((_file) => _file !== file)
+      inputRef.current.value = null
+      onUpload(newFileList)
+    },
+    [fileList]
+  )
 
   useLayoutEffect(() => {
     if (!fileList.length) {
@@ -90,7 +101,11 @@ export default function FileListUploader({
       </label>
       {isUploaded &&
         fileList.map((file, idx) => (
-          <article key={file?.name || file} className="file-list-item">
+          <article
+            key={(file as File)?.name || (file as string)}
+            className="file-list-item"
+            onClick={() => removeClickHandler(file)}
+          >
             <Image
               src={imageUrlList[idx] || defaultImage}
               alt=""
