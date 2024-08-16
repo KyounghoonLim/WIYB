@@ -35,7 +35,7 @@ export default function ListWindow({ items, Component, className }: ListProps) {
           width={width}
           height={height}
           itemCount={items?.length}
-          className={clsx('list no-overscroll', className)}
+          className={clsx('list no-overscroll hide-scrollbar', className)}
           initialScrollOffset={0}
         >
           {({ index, style }) => (

@@ -12,11 +12,17 @@ export default function BottomSheet_SearchOptions_BrandFilter() {
 
   const { brandList } = useSearchResources()
 
+  const isExist = useCallback(
+    (item: Resource_Brand) => {
+      return searchFilters.includes(item.name) || searchFilters.includes(item.nameKo)
+    },
+    [searchFilters]
+  )
+
   const clickHandler = useCallback((brand: Resource_Brand) => {
     setSearchFilters((temp) => {
-      if (temp.includes(brand.nameKo || brand.name))
-        return temp.filter((ele) => ele !== (brand.nameKo || brand.name))
-      else return [...temp, brand.nameKo || brand.name]
+      if (temp.includes(brand.name)) return temp.filter((ele) => ele !== brand.name)
+      else return [...temp, brand.name]
     })
   }, [])
 
@@ -32,8 +38,7 @@ export default function BottomSheet_SearchOptions_BrandFilter() {
                 text={brand.nameKo || brand.name}
                 className={clsx(
                   'cursor-pointer',
-                  searchFilters.includes(brand.nameKo || brand.name) &&
-                    'bg-@-button-primary hover:bg-@-button-hover text-white'
+                  isExist(brand) && 'bg-@-button-primary hover:bg-@-button-hover text-white'
                 )}
                 onClick={() => clickHandler(brand)}
               />

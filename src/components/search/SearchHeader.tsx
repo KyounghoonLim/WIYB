@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import SearchForm from './SearchForm'
 import CloseIcon from 'i/icon_close_bold.svg'
-import SettingIcon from 'i/icon_setting.svg'
+import AdjustIcon from 'i/icon_adjust.svg'
 import Button from '../button/Button'
 import { useCallback, useContext } from 'react'
 import { bottomSheetContext } from '@/src/providers/BottomSheetProvider'
@@ -26,7 +26,7 @@ export default function SearchHeader() {
         <CloseIcon className="shrink-0 grow-0 cursor-pointer fill-@-neutral-900" onClick={back} />
         <SearchForm />
         <Button
-          icon={() => SettingIcon({ className: 'fill-@-neutral-400' })}
+          icon={() => AdjustIcon({ className: 'fill-@-neutral-400' })}
           className="button-secondary w-auto h-9 typograph-14 p-2"
           onClick={openSearchFilterBottomSheet}
         />

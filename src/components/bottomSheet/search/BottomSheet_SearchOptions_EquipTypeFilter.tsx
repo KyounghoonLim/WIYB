@@ -12,11 +12,17 @@ export default function BottomSheet_SearchOptions_EquipTypeFilter() {
 
   const { equipTypeList } = useSearchResources()
 
+  const isExist = useCallback(
+    (item: Resource_EquipmentType) => {
+      return searchFilters.includes(item.name) || searchFilters.includes(item.nameKo)
+    },
+    [searchFilters]
+  )
+
   const clickHandler = useCallback((equipType: Resource_EquipmentType) => {
     setSearchFilters((temp) => {
-      if (temp.includes(equipType.nameKo || equipType.name))
-        return temp.filter((ele) => ele !== (equipType.nameKo || equipType.name))
-      else return [...temp, equipType.nameKo || equipType.name]
+      if (temp.includes(equipType.name)) return temp.filter((ele) => ele !== equipType.name)
+      else return [...temp, equipType.name]
     })
   }, [])
 
@@ -32,8 +38,7 @@ export default function BottomSheet_SearchOptions_EquipTypeFilter() {
                 text={equipType.nameKo || equipType.name}
                 className={clsx(
                   'cursor-pointer',
-                  searchFilters.includes(equipType.nameKo || equipType.name) &&
-                    'bg-@-button-primary hover:bg-@-button-hover text-white'
+                  isExist(equipType) && 'bg-@-button-primary hover:bg-@-button-hover text-white'
                 )}
                 onClick={() => clickHandler(equipType)}
               />

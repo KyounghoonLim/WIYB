@@ -11,13 +11,14 @@ import {
   SearchEngineType,
   SearchSortType,
 } from '../constants/search.constant'
+import { useSearchParams } from 'next/navigation'
 
 export const searchContext = createContext<{
   /**
    * 검색 페이지로 이동
    * @param keyword 검색 키워드
    */
-  goToSearch: (keyword: string) => void
+  goToSearch: (keyword?: string) => void
   /**
    * 검색 컴포넌트 언마운트 시 검색 옵션 초기화
    */
@@ -53,7 +54,9 @@ export const searchContext = createContext<{
 }>(null)
 
 export default function SearchProvider({ children }) {
-  const [searchKeyword, setSearchKeyword] = useState<string>('')
+  const searchParams = useSearchParams()
+
+  const [searchKeyword, setSearchKeyword] = useState<string>(searchParams.get('keyword') || '')
   const [searchFilters, setSearchFilters] = useState<string[]>([])
   const [searchSort, setSearchSort] = useState<SearchSortType>(SEARCH_SORT.DESC_REVIEW)
   const [searchEngine, setSearchEngine] = useState<SearchEngineType>(SEARCH_ENGINE.V2)
@@ -65,7 +68,8 @@ export default function SearchProvider({ children }) {
   const { throttling } = useThrottle(true)
 
   const goToSearch = useCallback(
-    (keyword: string) => {
+    (keyword?: string) => {
+      keyword = keyword || searchKeyword
       if (keyword.length < 2) {
         window.alert('검색은 두 글자 이상부터 가능합니다.')
       } else {
@@ -83,7 +87,7 @@ export default function SearchProvider({ children }) {
         })
       }
     },
-    [searchFilters, searchSort, searchEngine]
+    [searchKeyword, searchFilters, searchSort, searchEngine]
   )
 
   const resetSearchOptions = useCallback(() => {
