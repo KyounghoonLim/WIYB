@@ -1,11 +1,11 @@
 {
   ".bottom-sheet-background": {
     "width": "100vw",
-    "height": "100vh",
     "position": "fixed",
     "top": "0px",
     "left": "0px",
-    "backgroundColor": "#00000080"
+    "backgroundColor": "#00000080",
+    "@apply h-dscreen": true
   }, 
   ".bottom-sheet-container": {
     "width": "100%",
