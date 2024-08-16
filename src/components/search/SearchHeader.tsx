@@ -21,13 +21,13 @@ export default function SearchHeader() {
   }, [])
 
   return (
-    <section className="w-full flex flex-col gap-1 pl-2 pr-4">
+    <section className="w-full flex flex-col gap-1 px-2">
       <div className="w-full flex items-center gap-1">
         <CloseIcon className="shrink-0 grow-0 cursor-pointer fill-@-neutral-900" onClick={back} />
         <SearchForm />
         <Button
           icon={() => SettingIcon({ className: 'fill-@-neutral-400' })}
-          className="button-secondary w-auto h-auto typograph-14 p-2"
+          className="button-secondary w-auto h-9 typograph-14 p-2"
           onClick={openSearchFilterBottomSheet}
         />
       </div>

@@ -12,6 +12,7 @@ import UserProvider from '@/src/providers/UserProvider'
 import BottomSheetProvider from '@/src/providers/BottomSheetProvider'
 import SearchProvider from '@/src/providers/SearchProvider'
 import QueryProvider from '@/src/providers/QueryProvider'
+import AppSizeController from '@/src/controllers/AppSizeController'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -32,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AppSizeController />
       <RequestTimeProvider>
         <ThemeProvider>
           <QueryProvider>

@@ -86,8 +86,8 @@ export default function Search_Container({
               {Boolean(searchResult?.[category]?.length) ? (
                 <div className="h-full">{searchListSwitch}</div>
               ) : (
-                <span className="flex typograph-16">
-                  <h3 className="font-bold">{searchKeyword}</h3>
+                <span className="typograph-16">
+                  <h3 className="font-bold inline-block">{searchKeyword}</h3>
                   {Boolean(searchResult?.[category]?.length)
                     ? ' 검색결과'
                     : ' 에 대한 검색 결과가 없습니다.'}
