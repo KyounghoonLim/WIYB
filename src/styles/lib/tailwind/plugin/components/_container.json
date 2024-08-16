@@ -44,7 +44,6 @@
     "top": "0px",
     "left": "0px",
     "overscrollBehavior": "none",
-    "@apply h-dscreen": true,
     "@apply bg-@-neutral-000": true
   }
 }

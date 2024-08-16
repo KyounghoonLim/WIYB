@@ -21,7 +21,7 @@ export default function UserCardPrimary() {
                 <h3 className="font-bold">{user.nickname}</h3>
               </div>
             </div>
-            <div className="flex gap-3 py-[6px]">
+            <div className="flex gap-3 py-[6px] overflow-auto hide-scrollbar">
               <Bedge
                 text={
                   user?.handy

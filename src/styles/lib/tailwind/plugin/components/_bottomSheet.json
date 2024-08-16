@@ -9,10 +9,10 @@
   }, 
   ".bottom-sheet-container": {
     "width": "100%",
-    "maxHeight": "90vh",
+    "maxHeight": "75vh",
     "display": "flex",
     "flexDirection": "column",
-    "padding": "16px",
+    "padding": "16px 16px 0px",
     "position": "absolute",
     "bottom": "0",
     "backgroundColor": "white",
