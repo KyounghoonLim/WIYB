@@ -6,14 +6,15 @@ import Thumbnail from '../../thumbnail/Thumbnail'
 import Bedge from '../../bedge/Bedge'
 import { ListItemProps } from '@/src/@types/components/list/list.interface'
 import UserThumbnail from '../../thumbnail/UserThumbnail'
+import clsx from 'clsx'
 
-export default function ListItem_Review({ item: review, index }: ListItemProps<Review>) {
+export default function ListItem_Review({ item: review, index, isLast }: ListItemProps<Review>) {
   const user = useMemo(() => {
     return review?.user
   }, [review])
 
   return (
-    <div className="list-item flex-col items-start gap-5">
+    <div className={clsx('list-item flex-col items-start gap-5', isLast && 'list-item-last')}>
       <div className="w-full flex-row-start gap-[6px]">
         <UserThumbnail src={user?.imageUrl} width={40} />
         <div className="w-full flex flex-col gap-1">
@@ -27,7 +28,7 @@ export default function ListItem_Review({ item: review, index }: ListItemProps<R
                       ? `${user?.handy}${user?.handy > 0 ? '+' : ''}`
                       : '핸디 정보가 없습니다.'
                   }
-                  className="bedge-sm"
+                  className="bedge-md"
                 />
                 <Bedge
                   text={
@@ -35,7 +36,7 @@ export default function ListItem_Review({ item: review, index }: ListItemProps<R
                       ? `${user?.height || '???'}cm/${user?.weight || '???'}kg`
                       : '체형 정보가 없습니다.'
                   }
-                  className="bedge-sm"
+                  className="bedge-md"
                 />
               </div>
             </>

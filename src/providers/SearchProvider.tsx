@@ -56,7 +56,7 @@ export default function SearchProvider({ children }) {
   const [searchKeyword, setSearchKeyword] = useState<string>('')
   const [searchFilters, setSearchFilters] = useState<string[]>([])
   const [searchSort, setSearchSort] = useState<SearchSortType>(SEARCH_SORT.DESC_REVIEW)
-  const [searchEngine, setSearchEngine] = useState<SearchEngineType>(SEARCH_ENGINE.V1)
+  const [searchEngine, setSearchEngine] = useState<SearchEngineType>(SEARCH_ENGINE.V2)
 
   const { searchHistory, setSearchHistory, removeSearchHistory, removeAllSearchHistory } =
     useSearchHistory()
@@ -77,9 +77,9 @@ export default function SearchProvider({ children }) {
         ].filter((ele) => ele)
 
         throttling(() => {
-          setSearchKeyword(keyword)
-          keyword && setSearchHistory(keyword)
           location.replace(PATH.SEARCH + '?' + searchParams.join('&'))
+          keyword && setSearchHistory(keyword)
+          setSearchKeyword(keyword)
         })
       }
     },

@@ -4,10 +4,11 @@ import { ListItemProps, ListProps } from '@/src/@types/components/list/list.inte
 import React from 'react'
 import Thumbnail from '../../thumbnail/Thumbnail'
 import Bedge from '../../bedge/Bedge'
+import clsx from 'clsx'
 
-export default function ListItem_Community<T = any>({ item, index }: ListItemProps<T>) {
+export default function ListItem_Community<T = any>({ item, index, isLast }: ListItemProps<T>) {
   return (
-    <div className="list-item justify-between gap-3">
+    <div className={clsx('list-item justify-between gap-3', isLast && 'list-item-last')}>
       <div className="flex flex-col gap-[6px]">
         {/* title */}
         <div className="flex flex-wrap gap-1 typograph-14 text-wrap">

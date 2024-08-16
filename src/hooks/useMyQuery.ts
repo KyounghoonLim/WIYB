@@ -17,8 +17,9 @@ export default function useMyQuery<T = any>(
 
   const { data, error, isPending } = useQuery<T, AxiosError>({
     queryKey: key,
-    queryFn: (key) => fetcher(...Object.values(key)),
+    queryFn: (key) => fetcher(...key.queryKey),
     retry: false,
+    retryOnMount: false,
     ...options,
   })
 

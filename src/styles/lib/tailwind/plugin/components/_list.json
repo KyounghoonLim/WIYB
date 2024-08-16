@@ -24,5 +24,8 @@
     "alignItems": "center",
     "gap": "6px",
     "padding": "12px 0px"
+  },
+  ".list-item-last": {
+    "borderBottom": "0px !important"
   }
 }

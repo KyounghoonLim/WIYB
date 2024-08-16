@@ -7,10 +7,12 @@ import Bedge from '../../bedge/Bedge'
 import { Equipment } from '@/src/@types/equipment.types'
 import { PATH } from '@/src/constants/path.constant'
 import MyLink from '../../link/MyLink'
+import clsx from 'clsx'
 
 export default function ListItem_Equipment({
   item: equip,
   index,
+  isLast,
   listing,
 }: ListItemProps<Equipment>) {
   const detailPageUrl = useMemo(
@@ -22,8 +24,10 @@ export default function ListItem_Equipment({
   )
 
   return (
-    <MyLink href={detailPageUrl} className="list-item">
-      {equip && listing && <span className="typograph-16 text-neutral-900">{index + 1 + '.'}</span>}
+    <MyLink href={detailPageUrl} className={clsx('list-item', isLast && 'list-item-last')}>
+      {equip && listing && (
+        <span className="typograph-16 text-neutral-900 italic">{index + 1 + '.'}</span>
+      )}
       <Thumbnail src={equip?.imageUrls?.[0]} width={40} />
       <div className="w-full flex flex-col gap-1">
         {equip ? (

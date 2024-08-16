@@ -39,7 +39,7 @@ export default function Search_Container({
   const [category, setCategory] = useState<SearchCategoryType>(SEARCH_CATEGORY.EQUIP)
   const [isEdited, setIsEdited] = useState<boolean>(false)
 
-  const { data: searchResult, isLoading } = useMyQuery([keyword, sort, engine, filters], searchApi)
+  const { data: searchResult, isPending } = useMyQuery([keyword, sort, engine, filters], searchApi)
 
   const searchListSwitch = useMemo(() => {
     if (!searchResult) return <></>
@@ -79,7 +79,7 @@ export default function Search_Container({
           onChange={(value) => setCategory(value as SearchCategoryType)}
         />
         <>
-          {isLoading ? (
+          {isPending ? (
             <LoadingSpinner />
           ) : (
             <div className="h-full flex flex-col gap-3">

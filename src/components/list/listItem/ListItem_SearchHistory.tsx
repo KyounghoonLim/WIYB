@@ -4,10 +4,12 @@ import React, { SyntheticEvent, useCallback } from 'react'
 import RecentIcon from '@/public/icons/icon_recent.svg'
 import CloseIcon from '@/public/icons/icon_close.svg'
 import { ListItemProps } from '@/src/@types/components/list/list.interface'
+import clsx from 'clsx'
 
 export default function ListItem_SearchHistory({
   item,
   index,
+  isLast,
   goToSearch,
   removeSearchHistory,
 }: ListItemProps<string>) {
@@ -28,7 +30,7 @@ export default function ListItem_SearchHistory({
   )
 
   return (
-    <div className="list-item gap-2" onClick={itemClickHandler}>
+    <div className={clsx('list-item gap-2', isLast && 'list-item-last')} onClick={itemClickHandler}>
       <RecentIcon />
       <p className="typograph-14">{item}</p>
       <button

@@ -17,8 +17,9 @@ export default function useMyQuery_Suspense<T = any>(
 
   const { data, error, isPending } = useSuspenseQuery<T, AxiosError>({
     queryKey: key,
-    queryFn: (key) => fetcher(...Object.values(key)),
+    queryFn: (key) => fetcher(...key.queryKey),
     retry: false,
+    retryOnMount: false,
     ...options,
   })
 

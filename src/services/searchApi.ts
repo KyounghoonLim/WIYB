@@ -24,6 +24,7 @@ function searchApi(
   engine: SearchEngineType,
   filters?: string[]
 ): Promise<SearchResult> {
+  console.log(keyword, sort, engine, filters)
   const params = {
     keyword: keyword,
     filters: filters?.join(',') || null,

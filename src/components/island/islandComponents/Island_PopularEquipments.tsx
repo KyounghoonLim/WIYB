@@ -9,13 +9,17 @@ import { getPopularEquipmentApi } from '@/src/services/equipmentApi'
 import useMyQuery from '@/src/hooks/useMyQuery'
 
 export default function Island_PopularEquipments() {
-  const { data: popularEquipments } = useMyQuery(['popularEquipments'], getPopularEquipmentApi, {
-    initialData: Array(5).fill(undefined),
-  })
+  const { data: popularEquipments, error } = useMyQuery(
+    ['popularEquipments'],
+    getPopularEquipmentApi,
+    {
+      initialData: Array(5).fill(undefined),
+    }
+  )
 
   return (
     <>
-      {popularEquipments && (
+      {popularEquipments && !error && (
         <Island>
           <div className="w-full">
             <h3 className="typograph-16">

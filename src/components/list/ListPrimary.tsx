@@ -7,7 +7,7 @@ export default function ListPrimary({ items, Component, className }: ListProps) 
     <ul className={clsx('list', className)}>
       {items.map((item, index) => (
         <li key={index}>
-          <Component {...{ item, index }} />
+          <Component {...{ item, index, isLast: items.length - 1 === index }} />
         </li>
       ))}
     </ul>

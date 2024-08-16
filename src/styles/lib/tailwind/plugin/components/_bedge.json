@@ -6,7 +6,6 @@
     "maxWidth": "150px",
     "flexShrink": 0,
     "flexGrow": 0,
-    "gap": "4px",
     "@apply typograph-14": true,
     "@apply text-@-neutral-900": true,
     "@apply bg-@-bedge-primary": true,
@@ -18,5 +17,11 @@
     "@apply typograph-10": true,
     "padding": "4px 8px",
     "maxWidth": "70px"
+  },
+  ".bedge-md": {
+    "@apply bedge": true,
+    "@apply typograph-10": true,
+    "padding": "4px 8px",
+    "maxWidth": "125px"
   }
 }

@@ -40,7 +40,9 @@ export default function ListWindow({ items, Component, className }: ListProps) {
         >
           {({ index, style }) => (
             <li ref={listItemRef} style={style} data-index={index}>
-              <Component {...{ item: items[index], index, setItem }} />
+              <Component
+                {...{ item: items[index], index, isLast: items.length - 1 === index, setItem }}
+              />
             </li>
           )}
         </VariableSizeList>

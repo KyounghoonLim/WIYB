@@ -11,5 +11,6 @@ interface ListProps<T = any> {
 interface ListItemProps<T> {
   item: T
   index: number
+  isLast?: boolean
   [key: string]: any
 }
