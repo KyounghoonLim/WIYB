@@ -7,14 +7,10 @@ export default function useCaptureHistoryBack(callback: () => any, condition?: b
   useLayoutEffect(() => {
     if (!callback || (!isNull(condition) && !condition)) return
     else {
-      const popStateHandler = () => {
-        history.pushState(null, '', location.href)
-        callback()
-      }
       history.pushState(null, '', location.href)
-      window.addEventListener('popstate', popStateHandler)
+      window.addEventListener('popstate', callback)
       return () => {
-        window.removeEventListener('popstate', popStateHandler)
+        window.removeEventListener('popstate', callback)
       }
     }
   }, [callback, condition])

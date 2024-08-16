@@ -8,6 +8,7 @@ import useCaptureHistoryBack from '@/src/hooks/useCaptureHistoryBack'
 import SearchContainer from '../../search/SearchContainer'
 import SearchProvider, { searchContext } from '@/src/providers/SearchProvider'
 import clsx from 'clsx'
+import { bottomSheetContext } from '@/src/providers/BottomSheetProvider'
 
 /// 검색 섹션 ///
 export default function Island_Search() {
@@ -20,9 +21,10 @@ export default function Island_Search() {
 
 function Island_Search_Input() {
   const { searchKeyword, setSearchKeyword } = useContext(searchContext)
+  const { bottomSheetType: isBottomSheetRendered } = useContext(bottomSheetContext)
   const [isFocus, setIsFocus] = useState<boolean>(false)
 
-  useCaptureHistoryBack(() => setIsFocus(false), isFocus)
+  useCaptureHistoryBack(() => setIsFocus(false), isFocus && !isBottomSheetRendered)
 
   return (
     <>

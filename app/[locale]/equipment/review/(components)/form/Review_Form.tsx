@@ -145,7 +145,11 @@ export default function Review_Form({
           placeholder="상세한 리뷰를 적어주세요 (300자 이하)"
           maxLength={300}
         />
-        <FileListUploader fileList={reviewImageList} onUpload={setReviewImageList} />
+        <FileListUploader
+          fileList={reviewImageList}
+          onUpload={setReviewImageList}
+          className="mb-2"
+        />
         <Button type="submit" text="리뷰/평가 등록하기" disabled={isDisabled} />
       </Form>
     </reviewFormContext.Provider>

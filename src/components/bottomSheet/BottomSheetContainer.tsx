@@ -30,7 +30,7 @@ export default function BottomSheetContainer({ children, title }: BottomSheetCon
     <Portal target="bottom-sheet-portal">
       <div
         id="bottom-sheet-background"
-        className="bottom-sheet-background"
+        className="bottom-sheet-background safe-vertical landscape:safe-horizontal"
         onMouseDown={backgroundClickHandler}
       >
         <dialog className={clsx('bottom-sheet-container', bottomSheetAnimation)}>
