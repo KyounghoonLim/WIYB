@@ -31,7 +31,6 @@ export const SERVICE_PATH = {
    */
   LOGIN: '/oauth2/authorization',
   LOGOUT: '/logout',
-  TOKEN_REFRESH: '/auth/token',
   /// user ///
   /**
    * 회원가입 API (POST)
@@ -66,4 +65,7 @@ export const SERVICE_PATH = {
   /// constant ///
   CONSTANT_BRAND: '/static/brand',
   CONSTANT_EQUIPMENT_TYPE: '/static/equipment/type',
+  /// token ///
+  TOKEN_REFRESH: '/auth/token',
+  TOKEN_VALIDATION: '/auth/token',
 } as const
