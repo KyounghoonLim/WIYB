@@ -10,7 +10,7 @@ export default function useUser() {
   const { requestTime } = useContext(requestTimeContext)
   const { user, setUser } = useContext(userContext)
 
-  useMySWR(!user && requestTime, () => getUserProfileApi(), setUser)
+  useMySWR(!user && requestTime, () => getUserProfileApi(), setUser, console.log)
 
   return { user, setUser }
 }

@@ -7,6 +7,7 @@ import {
   SearchSortType,
 } from '../constants/search.constant'
 import myAxios from '../utils/axios/myAxios'
+import { isNull } from '../utils/nullUtils'
 
 export { searchApi, getPopularKeywordsApi }
 
@@ -23,12 +24,13 @@ function searchApi(
   engine: SearchEngineType,
   filters?: string[]
 ): Promise<SearchResult> {
-  console.log(keyword, sort, engine, filters)
   const params = {
-    keyword,
+    keyword: keyword,
     filters: filters?.join(',') || null,
     sort,
   }
+
+  console.log(params)
 
   const pathname = SERVICE_PATH.SEARCH + (engine === SEARCH_ENGINE.V1 ? '' : '/v2')
 

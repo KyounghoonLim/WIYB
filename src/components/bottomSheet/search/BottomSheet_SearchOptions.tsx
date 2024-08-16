@@ -32,7 +32,11 @@ export default function BottomSheet_SearchOptions() {
         <BottomSheet_SearchOptions_Sort />
         <BottomSheet_SearchOptions_BrandFilter />
         <BottomSheet_SearchOptions_EquipTypeFilter />
-        <Button text="완료" onClick={closeBottomSheet} className="mt-4" />
+        <Button
+          text="완료"
+          onClick={closeBottomSheet}
+          className="sticky bottom-0 shadow-lg shadow-[#00000033]"
+        />
       </div>
     </BottomSheetContainer>
   )

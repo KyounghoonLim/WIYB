@@ -1,18 +1,18 @@
-import EquipGrid from "@/src/components/grid/myEquipment/EquipGrid";
-import Island from "@/src/components/island/Island";
-import { equipmentLabels } from "@/src/constants/equipment.constant";
-import React, { useMemo } from "react";
+import EquipGrid from '@/src/components/grid/myEquipment/EquipGrid'
+import Island from '@/src/components/island/Island'
+import { equipmentLabels } from '@/src/constants/equipment.constant'
+import React, { useMemo } from 'react'
 
 /// 유저 장비 섹션 ///
-export default function Island_Equipments() {
+export default function Island_MyEquipments() {
   const items = useMemo(() => {
-    return equipmentLabels.map((label) => ({
+    return equipmentLabels.map((label, index) => ({
       label: label,
-      image: "",
-      brandImage: "",
-      name: "",
-    }));
-  }, []);
+      image: '',
+      brandImage: '',
+      name: '',
+    }))
+  }, [])
 
   return (
     <Island>
@@ -26,5 +26,5 @@ export default function Island_Equipments() {
         <EquipGrid items={items} />
       </div>
     </Island>
-  );
+  )
 }

@@ -19,7 +19,7 @@
     "@apply bg-@-neutral-000": true,
     "@apply text-@-text-black": true,
     "@apply typograph-14": true,
-    "&:placeholder": {
+    "&::placeholder": {
       "@apply text-@-text-placeholder": true
     },
     "&:focus": {

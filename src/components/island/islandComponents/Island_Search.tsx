@@ -7,6 +7,7 @@ import Island from '@/src/components/island/Island'
 import useCaptureHistoryBack from '@/src/hooks/useCaptureHistoryBack'
 import SearchContainer from '../../search/SearchContainer'
 import SearchProvider, { searchContext } from '@/src/providers/SearchProvider'
+import clsx from 'clsx'
 
 /// 검색 섹션 ///
 export default function Island_Search() {
@@ -29,7 +30,10 @@ function Island_Search_Input() {
         value={searchKeyword}
         onChange={setSearchKeyword}
         placeholder="장비, 플레이어를 검색해보세요 🧐"
-        className={isFocus && 'bg-@-bg-light h-9'}
+        className={clsx(
+          'placeholder:text-@-text-placeholder-secondary',
+          isFocus && 'bg-@-bg-light h-9'
+        )}
         icon={SearchIcon}
         maxLength={null}
         onFocus={() => setIsFocus(true)}

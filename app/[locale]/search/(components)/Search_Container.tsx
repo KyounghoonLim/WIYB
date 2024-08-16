@@ -1,3 +1,4 @@
+//@ts-nocheck
 'use client'
 
 import { useContext, useLayoutEffect, useMemo, useState } from 'react'
@@ -22,12 +23,12 @@ import {
 } from '@/src/constants/search.constant'
 
 export default function Search_Container({
-  search,
+  keyword,
   sort,
   engine,
   filters,
 }: {
-  search?: string
+  keyword?: string
   sort?: string
   engine?: string
   filters?: string
@@ -38,7 +39,10 @@ export default function Search_Container({
   const [category, setCategory] = useState<SearchCategoryType>(SEARCH_CATEGORY.EQUIP)
   const [isEdited, setIsEdited] = useState<boolean>(false)
 
-  const { data: searchResult, isLoading } = useMySWR([search, sort, engine, filters], searchApi)
+  const { data: searchResult, isLoading } = useMySWR(
+    { keyword: keyword, sort, engine, filters },
+    searchApi
+  )
 
   const searchListSwitch = useMemo(() => {
     if (!searchResult) return <></>
@@ -55,18 +59,18 @@ export default function Search_Container({
   }, [category, searchResult])
 
   /// search provider 초기화 ///
-  useLayoutEffect(() => setSearchKeyword(search), [search])
+  useLayoutEffect(() => setSearchKeyword(keyword || ''), [keyword])
   useLayoutEffect(() => setSearchSort(sort as SearchSortType), [sort])
   useLayoutEffect(() => setSearchEngine(engine as SearchEngineType), [engine])
   useLayoutEffect(() => setSearchFilters(filters?.split(',') || []), [filters])
 
   useLayoutEffect(() => {
     if (!searchKeyword && !isEdited) return
-    else if (!isEdited && search === searchKeyword) return
+    else if (!isEdited && keyword === searchKeyword) return
     else {
       setIsEdited(true)
     }
-  }, [search, searchKeyword, isEdited])
+  }, [keyword, searchKeyword, isEdited])
 
   return (
     <>

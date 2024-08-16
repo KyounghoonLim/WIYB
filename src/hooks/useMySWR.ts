@@ -17,7 +17,9 @@ export default function useMySWR(
     requestIndex && key,
     (key) => {
       if (typeof key === 'string') return fetcher(key)
-      else return fetcher(...Object.values(key))
+      else {
+        return fetcher(...Object.values(key))
+      }
     },
     {
       shouldRetryOnError: false,

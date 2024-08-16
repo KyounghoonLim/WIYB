@@ -28,7 +28,7 @@ export default function SearchForm() {
         value={searchKeyword}
         onChange={setSearchKeyword}
         placeholder="장비, 플레이어를 검색해보세요 🧐"
-        className="bg-@-bg-light h-9"
+        className="bg-@-bg-light h-9 placeholder:text-@-text-placeholder-secondary"
         maxLength={null}
       />
       <Button type="submit" className="hidden" />

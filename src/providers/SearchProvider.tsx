@@ -66,18 +66,22 @@ export default function SearchProvider({ children }) {
 
   const goToSearch = useCallback(
     (keyword: string) => {
-      const searchParams = [
-        `search=${keyword}`,
-        `sort=${searchSort}`,
-        Boolean(searchFilters.length) && `filters=${searchFilters.join(',')}`,
-        `engine=${searchEngine}`,
-      ].filter((ele) => ele)
+      if (keyword.length < 2) {
+        window.alert('검색은 두 글자 이상부터 가능합니다.')
+      } else {
+        const searchParams = [
+          keyword && `keyword=${keyword}`,
+          `sort=${searchSort}`,
+          Boolean(searchFilters.length) && `filters=${searchFilters.join(',')}`,
+          `engine=${searchEngine}`,
+        ].filter((ele) => ele)
 
-      throttling(() => {
-        setSearchKeyword(keyword)
-        setSearchHistory(keyword)
-        location.replace(PATH.SEARCH + '?' + searchParams.join('&'))
-      })
+        throttling(() => {
+          setSearchKeyword(keyword)
+          keyword && setSearchHistory(keyword)
+          location.replace(PATH.SEARCH + '?' + searchParams.join('&'))
+        })
+      }
     },
     [searchFilters, searchSort, searchEngine]
   )

@@ -29,6 +29,7 @@
       "black": "#111111",
       "subtitle": "#646464",
       "placeholder": "#C8C8C8",
+      "placeholder-secondary": "#969696",
       "label": "#969696",
       "comment": "#286EDC"
     },

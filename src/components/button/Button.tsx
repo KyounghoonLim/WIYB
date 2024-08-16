@@ -39,7 +39,7 @@ export default function Button({
       type={type}
       onClick={clickHandler}
       className={clsx(
-        'button-primary test',
+        'button-primary',
         className,
         disabled && 'cursor-not-allowed',
         isLoading && 'cursor-wait'
@@ -47,7 +47,7 @@ export default function Button({
       disabled={disabled}
     >
       {IconElement}
-      {TextElement}
+      <span className="flex-row-start gap-0">{TextElement}</span>
     </button>
   )
 }
