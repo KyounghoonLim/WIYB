@@ -24,7 +24,7 @@ export default function Island_PopularEquipments() {
           <div className="w-full">
             <h3 className="typograph-16">
               지금 가장 많이 보는 장비{' '}
-              <strong className="font-semibold">Top ${popularEquipments.length}</strong>
+              <strong className="font-semibold">Top {popularEquipments.length}</strong>
             </h3>
           </div>
           <ListPrimary
