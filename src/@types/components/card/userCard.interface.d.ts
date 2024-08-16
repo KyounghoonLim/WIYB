@@ -1,7 +1,8 @@
-import { User } from "../../user.interface";
+import { User } from '../../user.interface'
 
-export { UserCardProps };
+export { UserCardProps }
 
 interface UserCardProps {
-  user: User;
+  user: User
+  isLoading?: boolean
 }

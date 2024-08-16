@@ -1,3 +1,4 @@
+import { EquipmentDetail } from '@/src/@types/equipment.types'
 import { Review } from '@/src/@types/review.types'
 import Button from '@/src/components/button/Button'
 import Island from '@/src/components/island/Island'
@@ -13,12 +14,7 @@ export default function Island_EquipReviews({
   type,
   reviews,
   reviewCount,
-}: {
-  id: string
-  type: EquipmentType
-  reviews: Review[]
-  reviewCount: number
-}) {
+}: Pick<EquipmentDetail, 'id' | 'type' | 'reviews' | 'reviewCount'>) {
   return (
     <>
       {Boolean(reviews?.length) && (

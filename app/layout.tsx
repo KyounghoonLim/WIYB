@@ -7,11 +7,11 @@ import ThemeProvider from '../src/providers/ThemeProvider'
 import RequestTimeProvider from '@/src/providers/RequestKeyProvider'
 import SearchPortal from '@/src/components/search/SearchPortal'
 import OverlayPortal from '@/src/components/overlay/OverlayPortal'
-import SWRProvider from '@/src/providers/SWRProvider'
 import BottomSheetPortal from '@/src/components/bottomSheet/BottomSheetPortal'
 import UserProvider from '@/src/providers/UserProvider'
 import BottomSheetProvider from '@/src/providers/BottomSheetProvider'
 import SearchProvider from '@/src/providers/SearchProvider'
+import QueryProvider from '@/src/providers/QueryProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <RequestTimeProvider>
         <ThemeProvider>
-          <SWRProvider>
+          <QueryProvider>
             <UserProvider>
               <SearchProvider>
                 <BottomSheetProvider>
@@ -49,7 +49,7 @@ export default function RootLayout({
                 </BottomSheetProvider>
               </SearchProvider>
             </UserProvider>
-          </SWRProvider>
+          </QueryProvider>
         </ThemeProvider>
       </RequestTimeProvider>
     </html>

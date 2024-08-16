@@ -1,15 +1,16 @@
 'use client'
 
 import { AxiosError } from 'axios'
-import { createContext, useCallback, useRef, useState } from 'react'
-import { getCookie, removeCookie, setCookie } from '../utils/cookieUtils'
+import { createContext, useCallback, useRef } from 'react'
+import { setCookie } from '../utils/cookieUtils'
 import { COOKIE_KEYS } from '../constants/cookie.constant'
 import { PATH } from '../constants/path.constant'
 import useMyMap from '../hooks/useMyMap'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-export const SWRContext = createContext<{ recognizeRequestTime; defaultErrorHandler }>(null)
+export const queryContext = createContext<{ recognizeRequestTime; defaultErrorHandler }>(null)
 
-export default function SWRProvider({ children }) {
+export default function QueryProvider({ children }) {
   /// request time 기록 ///
   const { getItem, setItem } = useMyMap()
   const lastErrorHandledTime = useRef<number>(0)
@@ -34,8 +35,10 @@ export default function SWRProvider({ children }) {
   }, [])
 
   return (
-    <SWRContext.Provider value={{ recognizeRequestTime, defaultErrorHandler }}>
-      {children}
-    </SWRContext.Provider>
+    <QueryClientProvider client={new QueryClient()}>
+      <queryContext.Provider value={{ recognizeRequestTime, defaultErrorHandler }}>
+        {children}
+      </queryContext.Provider>
+    </QueryClientProvider>
   )
 }

@@ -1,24 +1,21 @@
 'use client'
 
-import { PATH } from '@/src/constants/path.constant'
 import { getEquipmentDetailApi, getEquipmentReviewsApi } from '@/src/services/equipmentApi'
-import { useRouter } from 'next/navigation'
 import React from 'react'
-import useMySWR from '@/src/hooks/useMySWR'
 import Review_InfoSection from './(components)/Review_InfoSection'
 import Review_ReviewsSection from './(components)/Review_ReviewsSection'
 import Review_Footer from './(components)/Review_Footer'
 import Review_Nav from './(components)/Review_Nav'
 import { EquipmentType } from '@/src/constants/equipment.constant'
+import useMyQuery from '@/src/hooks/useMyQuery'
 
 export default function EquipmentReviewPage({
   searchParams: { id, type },
 }: {
   searchParams: { id: string; type: EquipmentType }
 }) {
-  const { replace } = useRouter()
-  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi)
-  const { data: reviews } = useMySWR(id, getEquipmentReviewsApi)
+  const { data: equip } = useMyQuery([id, type], getEquipmentDetailApi)
+  const { data: reviews } = useMyQuery([id], getEquipmentReviewsApi)
 
   return (
     <main className="CONTENT-CONTAINER px-0">

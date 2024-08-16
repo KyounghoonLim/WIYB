@@ -43,7 +43,6 @@ export const navigationGuardMiddleware: MiddlewareModule = async (req) => {
   } else {
     /// Authorization 이 필요한 경우 ///
     const authFlag = isAuthorized(req.cookies)
-    console.log(isRequiredAuth(nextUrl), nextUrl.pathname)
     if (isRequiredAuth(nextUrl)) {
       if (authFlag) {
         return {

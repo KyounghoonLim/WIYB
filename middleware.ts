@@ -8,6 +8,8 @@ import { PATH } from './src/constants/path.constant'
 export async function middleware(request: NextRequest) {
   const { nextUrl } = request
 
+  console.log(nextUrl)
+
   if (nextUrl.pathname === '/') {
     nextUrl.pathname = PATH.MAIN
     return NextResponse.redirect(nextUrl)

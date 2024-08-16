@@ -1,10 +1,10 @@
 'use client'
 
 import { getPopularKeywordsApi } from '@/src/services/searchApi'
-import useMySWR from '../useMySWR'
+import useMyQuery from '../useMyQuery'
 
 export default function usePopularSearchKeywords() {
-  const { data } = useMySWR('getPopularSearchKeywords', getPopularKeywordsApi)
+  const { data } = useMyQuery(['getPopularSearchKeywords'], getPopularKeywordsApi)
 
   return { popularSearchKeywords: data }
 }

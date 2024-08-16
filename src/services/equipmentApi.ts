@@ -33,6 +33,6 @@ function setEquipmentReviewApi(
   })
 }
 
-function getPopularEquipmentApi(): Promise<Equipment> {
+function getPopularEquipmentApi(): Promise<Equipment[]> {
   return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS)
 }

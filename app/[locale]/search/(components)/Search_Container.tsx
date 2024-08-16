@@ -3,7 +3,6 @@
 
 import { useContext, useLayoutEffect, useMemo, useState } from 'react'
 import { searchContext } from '@/src/providers/SearchProvider'
-import useMySWR from '@/src/hooks/useMySWR'
 /// apis ///
 import { searchApi } from '@/src/services/searchApi'
 /// components ///
@@ -21,6 +20,7 @@ import {
   SearchEngineType,
   SearchSortType,
 } from '@/src/constants/search.constant'
+import useMyQuery from '@/src/hooks/useMyQuery'
 
 export default function Search_Container({
   keyword,
@@ -39,10 +39,7 @@ export default function Search_Container({
   const [category, setCategory] = useState<SearchCategoryType>(SEARCH_CATEGORY.EQUIP)
   const [isEdited, setIsEdited] = useState<boolean>(false)
 
-  const { data: searchResult, isLoading } = useMySWR(
-    { keyword: keyword, sort, engine, filters },
-    searchApi
-  )
+  const { data: searchResult, isLoading } = useMyQuery([keyword, sort, engine, filters], searchApi)
 
   const searchListSwitch = useMemo(() => {
     if (!searchResult) return <></>

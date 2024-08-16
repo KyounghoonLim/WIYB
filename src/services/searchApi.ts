@@ -30,8 +30,6 @@ function searchApi(
     sort,
   }
 
-  console.log(params)
-
   const pathname = SERVICE_PATH.SEARCH + (engine === SEARCH_ENGINE.V1 ? '' : '/v2')
 
   return myAxios.get(pathname, {

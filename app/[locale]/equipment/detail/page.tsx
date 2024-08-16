@@ -6,18 +6,15 @@ import Island_EquipGraph from './(components)/islands/Island_EquipGraph'
 import Island_EquipImage from './(components)/islands/Island_EquipImage'
 import Island_EquipSpec from './(components)/islands/Island_EquipSpec'
 import Island_EquipTitle from './(components)/islands/Island_EquipTitle'
-import { useRouter } from 'next/navigation'
-import { PATH } from '@/src/constants/path.constant'
 import Island_EquipReviews from './(components)/islands/Island_EquipReviews'
-import useMySWR from '@/src/hooks/useMySWR'
+import useMyQuery from '@/src/hooks/useMyQuery'
 
 export default function EquipmentDetailPage({
   searchParams: { id, type },
 }: {
   searchParams: { id: string; type: string }
 }) {
-  const { replace } = useRouter()
-  const { data: equip } = useMySWR([id, type], getEquipmentDetailApi)
+  const { data: equip } = useMyQuery([id, type], getEquipmentDetailApi)
 
   return (
     <main className="SCROLLABLE-CONTAINER gap-4">
