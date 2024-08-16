@@ -28,7 +28,9 @@ export default function Island_PopularEquipments() {
           </div>
           <ListPrimary
             items={popularEquipments}
-            Component={({ item, index }) => ListItem_Equipment({ item, index, listing: true })}
+            Component={({ item, index, isLast }) =>
+              ListItem_Equipment({ item, index, isLast, listing: true })
+            }
           />
           <Button text="장비 더 보러 가기" className="mt-2" />
         </Island>
