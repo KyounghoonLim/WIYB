@@ -9,7 +9,7 @@ import MainNav from './(components)/MainNav'
 
 export default function MainPage() {
   return (
-    <main className="SCROLLABLE-CONTAINER">
+    <main className="SCROLLABLE-CONTAINER gap-6">
       <MainNav />
       <Island_Profile />
       <Island_Search />

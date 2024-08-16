@@ -12,7 +12,7 @@ import clsx from 'clsx'
 /// 검색 섹션 ///
 export default function Island_Search() {
   return (
-    <Island className="bg-transparent px-0 pt-3">
+    <Island className="bg-transparent p-0">
       <Island_Search_Input />
     </Island>
   )

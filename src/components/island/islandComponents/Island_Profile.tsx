@@ -13,7 +13,7 @@ const CardUserPrimary = dynamic(() => import('comp/card/UserCardPrimary'), {
 /// 유저 프로필 섹션 ///
 export default function Island_Profile() {
   return (
-    <Island className="bg-transparent px-0 py-4">
+    <Island className="bg-transparent p-0">
       <CardUserPrimary />
     </Island>
   )
