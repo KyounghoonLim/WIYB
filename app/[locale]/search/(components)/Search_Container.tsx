@@ -72,7 +72,7 @@ export default function Search_Container({
   return (
     <>
       <SearchHeader />
-      <section className="w-full h-full flex flex-col px-4 pb-4 gap-6">
+      <section className="w-full h-full flex flex-col px-4 pb-2 gap-3">
         <Category
           value={category}
           items={Object.values(SEARCH_CATEGORY)}

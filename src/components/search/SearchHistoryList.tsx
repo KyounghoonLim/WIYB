@@ -12,7 +12,7 @@ export default function SearchHistoryList() {
   return (
     <>
       {Boolean(searchHistory.length) && (
-        <section className="w-full h-full flex flex-col px-2 py-6 pb-4">
+        <section className="w-full h-full flex flex-col pt-6 pb-2">
           <div className="w-full flex justify-between items-center">
             <h3 className="typograph-16">
               <strong className="font-semibold">최근 검색</strong>

@@ -13,6 +13,7 @@ import BottomSheetProvider from '@/src/providers/BottomSheetProvider'
 import SearchProvider from '@/src/providers/SearchProvider'
 import QueryProvider from '@/src/providers/QueryProvider'
 import AppSizeController from '@/src/controllers/AppSizeController'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -33,27 +34,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AppSizeController />
-      <RequestTimeProvider>
-        <ThemeProvider>
-          <QueryProvider>
-            <UserProvider>
-              <SearchProvider>
-                <BottomSheetProvider>
-                  <body className="CONTAINER bg-@-bg-light">
-                    <Nav />
-                    {children}
-                    <SearchPortal />
-                    <BottomSheetPortal />
-                    <OverlayPortal />
-                    <Footer />
-                  </body>
-                </BottomSheetProvider>
-              </SearchProvider>
-            </UserProvider>
-          </QueryProvider>
-        </ThemeProvider>
-      </RequestTimeProvider>
+      <Suspense>
+        <AppSizeController />
+        <RequestTimeProvider>
+          <ThemeProvider>
+            <QueryProvider>
+              <UserProvider>
+                <SearchProvider>
+                  <BottomSheetProvider>
+                    <body className="CONTAINER bg-@-bg-light">
+                      <Nav />
+                      {children}
+                      <SearchPortal />
+                      <BottomSheetPortal />
+                      <OverlayPortal />
+                      <Footer />
+                    </body>
+                  </BottomSheetProvider>
+                </SearchProvider>
+              </UserProvider>
+            </QueryProvider>
+          </ThemeProvider>
+        </RequestTimeProvider>
+      </Suspense>
     </html>
   )
 }

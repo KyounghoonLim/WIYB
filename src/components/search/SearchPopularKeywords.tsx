@@ -10,7 +10,7 @@ export default function SearchPopularKeywords() {
   return (
     <>
       {Boolean(popularSearchKeywords?.length) && (
-        <section className="w-full flex flex-col px-2 py-6 pb-4 gap-6">
+        <section className="w-full flex flex-col py-6 pb-4 gap-6">
           <h3 className="typograph-16">
             지금 <strong className="font-semibold">인기 검색어</strong>에요
           </h3>

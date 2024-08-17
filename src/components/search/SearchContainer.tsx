@@ -33,7 +33,7 @@ export default function SearchContainer() {
         {/* header section */}
         <SearchHeader />
         {/* recommand, history section */}
-        <section className="h-full flex-col-start items-stretch px-4 pb-4">
+        <section className="h-full flex-col-start items-stretch px-4 pb-2">
           <SearchPopularKeywords />
           <SearchHistoryList />
         </section>
