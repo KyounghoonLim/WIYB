@@ -13,37 +13,37 @@
     "90%": { "opacity": 1 },
     "100%": { "opacity": 0 }
   },
-  "slide-in-horizontal-ltr": {
-    "from": { "transform": "translateX(-100%)" },
-    "to": { "transform": "translateX(0)" }
+  "dropdown-in-ltr": {
+    "from": { "transform": "scaleX(-100%)" },
+    "to": { "transform": "scaleX(0)" }
   },
-  "slide-out-horizontal-ltr": {
-    "from": { "transform": "translateX(0)" },
-    "to": { "transform": "translateX(-100%)" }
+  "dropdown-out-ltr": {
+    "from": { "transform": "scaleX(0)" },
+    "to": { "transform": "scaleX(-100%)" }
   },
-  "slide-in-horizontal-rtl": {
-    "from": { "transform": "translateX(100%)" },
-    "to": { "transform": "translateX(0)" }
+  "dropdown-in-rtl": {
+    "from": { "transform": "scaleX(100%)" },
+    "to": { "transform": "scaleX(0)" }
   },
-  "slide-out-horizontal-rtl": {
-    "from": { "transform": "translateX(0)" },
-    "to": { "transform": "translateX(100%)" }
+  "dropdown-out-rtl": {
+    "from": { "transform": "scaleX(0)" },
+    "to": { "transform": "scaleX(100%)" }
   },
-  "slide-in-vertical-ltr": {
-    "from": { "transform": "translateY(-100%)" },
-    "to": { "transform": "translateY(0)" }
+  "dropdown-in-ttb": {
+    "from": { "transform": "scaleY(-100%)" },
+    "to": { "transform": "scaleY(0)" }
   },
-  "slide-out-vertical-ltr": {
-    "from": { "transform": "translateY(0)" },
-    "to": { "transform": "translateY(-100%)" }
+  "dropdown-out-ttb": {
+    "from": { "transform": "scaleY(0)" },
+    "to": { "transform": "scaleY(-100%)" }
   },
-  "slide-in-vertical-rtl": {
-    "from": { "transform": "translateY(100%)" },
-    "to": { "transform": "translateY(0)" }
+  "dropdown-in-btt": {
+    "from": { "transform": "scaleY(100%)" },
+    "to": { "transform": "scaleY(0)" }
   },
-  "slide-out-vertical-rtl": {
-    "from": { "transform": "translateY(0)" },
-    "to": { "transform": "translateY(100%)" }
+  "dropdown-out-btt": {
+    "from": { "transform": "scaleY(0)" },
+    "to": { "transform": "scaleY(100%)" }
   },
   "spin-arrow": {
     "from": { "transform": "rotate(0deg)" },

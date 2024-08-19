@@ -28,8 +28,8 @@ export default function BottomSheet_SearchOptions() {
         </span>
         <BottomSheet_SearchOptions_Engine />
         <BottomSheet_SearchOptions_Sort />
-        <BottomSheet_SearchOptions_BrandFilter />
         <BottomSheet_SearchOptions_EquipTypeFilter />
+        <BottomSheet_SearchOptions_BrandFilter />
         <BottomSheet_SearchOptions_Button />
       </div>
     </BottomSheetContainer>
