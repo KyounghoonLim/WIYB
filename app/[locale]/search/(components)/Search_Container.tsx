@@ -21,6 +21,7 @@ import {
   SearchSortType,
 } from '@/src/constants/search.constant'
 import useMyQuery from '@/src/hooks/useMyQuery'
+import ListPrimary from '@/src/components/list/ListPrimary'
 
 export default function Search_Container({
   keyword,
@@ -46,10 +47,12 @@ export default function Search_Container({
     else {
       switch (category) {
         case SEARCH_CATEGORY.EQUIP: {
-          return <ListWindow items={searchResult.equipments} Component={ListItem_Equipment} />
+          return (
+            <ListPrimary items={searchResult.equipments} Component={ListItem_Equipment} autoSize />
+          )
         }
         case SEARCH_CATEGORY.USER: {
-          return <ListWindow items={searchResult.users} Component={ListItem_User} />
+          return <ListPrimary items={searchResult.users} Component={ListItem_User} autoSize />
         }
       }
     }
@@ -72,7 +75,7 @@ export default function Search_Container({
   return (
     <>
       <SearchHeader />
-      <section className="w-full h-full flex flex-col px-4 pb-2 gap-3">
+      <section className="w-full h-full flex flex-col px-4 gap-3">
         <Category
           value={category}
           items={Object.values(SEARCH_CATEGORY)}
@@ -84,7 +87,7 @@ export default function Search_Container({
           ) : (
             <div className="h-full flex flex-col gap-3">
               {Boolean(searchResult?.[category]?.length) ? (
-                <div className="h-full">{searchListSwitch}</div>
+                <div className="h-full pb-2">{searchListSwitch}</div>
               ) : (
                 <span className="typograph-16">
                   <h3 className="font-bold inline-block">{searchKeyword}</h3>

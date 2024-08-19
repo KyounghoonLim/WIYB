@@ -5,6 +5,7 @@ export { ListProps, ListItemProps }
 interface ListProps<T = any> {
   items: T[]
   Component: FC<ListItemProps>
+  autoSize?: boolean
   className?: string
 }
 

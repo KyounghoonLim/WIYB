@@ -3,6 +3,7 @@
     "width": "100%",
     "display": "flex",
     "flexDirection": "column",
+    "@apply hide-scrollbar": true,
     "& .list-item": {
       "cursor": "pointer",
       "borderBottom": "1px",

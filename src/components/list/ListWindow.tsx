@@ -6,11 +6,11 @@ import useMyMap from '@/src/hooks/useMyMap'
 import clsx from 'clsx'
 import React, { createContext, useCallback } from 'react'
 import { VariableSizeList } from 'react-window'
-import AutoSizer from 'react-virtualized-auto-sizer'
+import ListWrapper from './ListWrapper'
 
 export const listContext = createContext<{ setItem }>(null)
 
-export default function ListWindow({ items, Component, className }: ListProps) {
+export default function ListWindow({ items, Component, autoSize = true, className }: ListProps) {
   const { listRef } = useList(items)
   const { getItem, setItem } = useMyMap()
 
@@ -27,7 +27,7 @@ export default function ListWindow({ items, Component, className }: ListProps) {
   )
 
   return (
-    <AutoSizer>
+    <ListWrapper autoSize={autoSize}>
       {({ width, height }) => (
         <VariableSizeList
           ref={listRef}
@@ -37,6 +37,7 @@ export default function ListWindow({ items, Component, className }: ListProps) {
           itemCount={items?.length}
           className={clsx('list no-overscroll hide-scrollbar', className)}
           initialScrollOffset={0}
+          overscanCount={10}
         >
           {({ index, style }) => (
             <li ref={listItemRef} style={style} data-index={index}>
@@ -47,6 +48,6 @@ export default function ListWindow({ items, Component, className }: ListProps) {
           )}
         </VariableSizeList>
       )}
-    </AutoSizer>
+    </ListWrapper>
   )
 }
