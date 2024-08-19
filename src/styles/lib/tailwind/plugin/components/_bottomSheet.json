@@ -13,6 +13,7 @@
     "maxHeight": "75vh",
     "display": "flex",
     "flexDirection": "column",
+    "gap": "8px",
     "padding": "16px 16px 0px",
     "position": "absolute",
     "bottom": "0",
