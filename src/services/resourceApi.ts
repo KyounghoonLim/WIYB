@@ -1,6 +1,6 @@
-import { Resource_Brand, Resource_EquipmentType } from '../@types/constant.types'
-import { SERVICE_PATH } from '../constants/path.constant'
-import myAxios from '../utils/axios/myAxios'
+import { Resource_Brand, Resource_EquipmentType } from 'types/resource.types'
+import { SERVICE_PATH } from 'constants/path.constant'
+import myAxios from 'utils/axios/myAxios'
 
 export { getBrandResourceApi, getEquipmentTypeResourceApi }
 

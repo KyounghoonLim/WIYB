@@ -1,4 +1,4 @@
-import { Union } from '../@types/union.types'
+import { Union } from 'types/union.types'
 
 export { SEARCH_CATEGORY, SEARCH_SORT, SEARCH_ENGINE }
 

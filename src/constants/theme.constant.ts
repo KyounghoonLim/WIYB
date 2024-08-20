@@ -1,8 +1,8 @@
-import { Union } from "../@types/union.types";
+import { Union } from 'types/union.types'
 
 export const THEME = {
-  DEFAULT: "#FAFAFA",
-  WHITE: "#FFFFFF",
-} as const;
+  DEFAULT: '#FAFAFA',
+  WHITE: '#FFFFFF',
+} as const
 
-export type ThemeType = Union<typeof THEME>;
+export type ThemeType = Union<typeof THEME>

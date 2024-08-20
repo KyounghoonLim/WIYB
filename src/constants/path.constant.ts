@@ -1,4 +1,4 @@
-import { Union } from 's/@types/union.types'
+import { Union } from 'types/union.types'
 
 export const PATH = {
   MAIN: '/main',

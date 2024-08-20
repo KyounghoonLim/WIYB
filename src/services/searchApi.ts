@@ -1,8 +1,8 @@
 import { dummy_popularSearchKeywords } from '@/@dummy'
 import { SearchResult } from 'types/search.types'
 import { SERVICE_PATH } from 'constants/path.constant'
-import { SEARCH_ENGINE, SearchEngineType, SearchSortType } from '../constants/search.constant'
-import myAxios from '../utils/axios/myAxios'
+import { SEARCH_ENGINE, SearchEngineType, SearchSortType } from 'constants/search.constant'
+import myAxios from 'utils/axios/myAxios'
 
 export { searchApi, getPopularKeywordsApi }
 

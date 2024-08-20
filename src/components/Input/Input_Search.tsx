@@ -1,6 +1,6 @@
 'use client'
 
-import { InputProps } from '@/@types/components/input/input.interface'
+import { InputProps } from 'types/components/input/input.interface'
 import Input_Primary from './Input_Primary'
 import SearchIcon from 'icons/icon_search.svg'
 

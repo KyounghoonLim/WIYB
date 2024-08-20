@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext, useLayoutEffect, useRef } from 'react'
-import { queryContext } from '../providers/QueryProvider'
+import { queryContext } from 'providers/QueryProvider'
 import { QueryKey, useQuery, UseQueryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
 

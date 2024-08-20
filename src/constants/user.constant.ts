@@ -1,8 +1,8 @@
-import { Union } from "../@types/union.types";
+import { Union } from 'types/union.types'
 
 export const ACCOUNT_TYPE = {
-  VERIFIED: "verified",
-  ANONYMOUS: "anonymous",
-} as const;
+  VERIFIED: 'verified',
+  ANONYMOUS: 'anonymous',
+} as const
 
-export type AccountType = Union<typeof ACCOUNT_TYPE>;
+export type AccountType = Union<typeof ACCOUNT_TYPE>

@@ -1,4 +1,4 @@
-import { Union } from '../@types/union.types'
+import { Union } from 'types/union.types'
 
 export const DATE_FORMAT = {
   EN: 'MM.DD.YYYY',

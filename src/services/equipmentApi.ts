@@ -1,8 +1,8 @@
 import { EQUIPMENT_TYPE, EquipmentType } from 'constants/equipment.constant'
-import { Equipment, EquipmentDetail, EquipmentEvaluationMetric } from '../@types/equipment.types'
-import { Review } from '../@types/review.types'
-import { SERVICE_PATH } from '../constants/path.constant'
-import myAxios from '../utils/axios/myAxios'
+import { Equipment, EquipmentDetail, EquipmentEvaluationMetric } from 'types/equipment.types'
+import { Review } from 'types/review.types'
+import { SERVICE_PATH } from 'constants/path.constant'
+import myAxios from 'utils/axios/myAxios'
 import { SearchRangeType } from 'constants/range.constant'
 import { dummy_popularEquipments } from '@/@dummy'
 

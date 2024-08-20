@@ -1,6 +1,6 @@
 'use client'
 
-import { PortalProps } from '@/@types/components/portal/portal.interface'
+import { PortalProps } from 'types/components/portal/portal.interface'
 import { useLayoutEffect, useState } from 'react'
 import reactDOM from 'react-dom'
 
