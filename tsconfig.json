@@ -3,7 +3,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -18,9 +18,25 @@
       }
     ],
     "paths": {
+      "types/*": ["./src/@types/*"],
+      "constants/*": ["./src/constants/*"],
+      "components/*": ["./src/components/*"],
+      "providers/*": ["./src/providers/*"],
+      "services/*": ["./src/services/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "utils/*": ["./src/utils/*"],
+      "icons/*": ["./public/icons/*"],
+      "images/*": ["./public/images/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "custom-next-env.d.ts",
+    "svgr.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["next-env.d.ts", "node_modules"]
 }

@@ -1,0 +1,29 @@
+{
+  ".input-primary": {
+    "width": "100%",
+    "height": "50px",
+    "padding": "0",
+    "borderRadius": "20px",
+    "display": "flex",
+    "alignItems": "center",
+    "color": "black",
+    "backgroundColor": "transparent",
+    "@apply typograph-14": true,
+    "&::placeholder": {
+      "@apply text-text-placeholder": true
+    },
+    "&:focus": {
+      "outline": "none",
+      "@apply caret-neutral-700": true
+    }
+  },
+  ".input-search-container": {
+    "width": "800px",
+    "height": "50px",
+    "padding": "0 24px",
+    "borderRadius": "25px",
+    "@apply bg-bg-light": true,
+    "@apply flex-row-start": true,
+    "@apply gap-3": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  ".APP-CONTAINER": {
+    "width": "100vw",
+    "minHeight": "-webkit-fill-available",
+    "position": "relative",
+    "overflowX": "hidden",
+    "overflowY": "auto",
+    "@apply h-dscreen": true,
+    "@apply flex-col-start": true
+  },
+  ".PAGE-CONTAINER": {
+    "width": "100vw",
+    "height": "auto",
+    "position": "relative",
+    "@apply flex-col-start": true
+  },
+  ".CONTENT-CONTAINER": {
+    "width": "100%",
+    "height": "100%",
+    "maxWidth": "1024px",
+    "margin": "0 auto",
+    "padding": "0px 16px",
+    "position": "relative",
+    "@apply flex-col-center": true
+  },
+  ".ISLAND-CONTAINER": {
+    "width": "100%",
+    "padding": "0 16px",
+    "borderRadius": "8px",
+    "backgroundColor": "white"
+  }
+}

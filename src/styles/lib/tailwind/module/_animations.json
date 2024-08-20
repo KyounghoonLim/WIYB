@@ -1,0 +1,20 @@
+{
+  "fade-in": "fade-in 0.5s ease-in-out forwards",
+  "fade-out": "fade-out 0.5s ease-in-out forwards",
+  "fade-in-out": "fade-in-out 2.5s ease-in-out forwards",
+  "dropdown-in-ltr": "dropdown-in-ltr 0.2s ease-in-out forwards",
+  "dropdown-out-ltr": "dropdown-out-ltr 0.2s ease-in-out forwards",
+  "dropdown-in-rtl": "dropdown-in-rtl 0.2s ease-in-out forwards",
+  "dropdown-out-rtl": "dropdown-out-rtl 0.2s ease-in-out forwards",
+  "dropdown-in-ttb": "dropdown-in-ttb 0.2s ease-in-out forwards",
+  "dropdown-out-ttb": "dropdown-out-ttb 0.2s ease-in-out forwards",
+  "dropdown-in-btt": "dropdown-in-btt 0.2s ease-in-out forwards",
+  "dropdown-out-btt": "dropdown-out-btt 0.2s ease-in-out forwards",
+  "spin-arrow": "spin-arrow 0.15s linear forwards",
+  "spin-arrow-reverse": "spin-arrow-reverse 0.15s linear forwards",
+  "drop-options": "drop-options 0.15s linear forwards",
+  "drop-options-reverse": "drop-options-reverse 0.15s linear forwards",
+  "bottomsheet-open": "bottomsheet-open 0.2s ease-in-out forwards",
+  "bottomsheet-close": "bottomsheet-close 0.2s ease-in-out forwards",
+  "shimmer": "shimmer 3s infinite"
+}

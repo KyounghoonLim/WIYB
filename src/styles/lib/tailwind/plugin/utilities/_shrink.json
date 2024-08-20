@@ -1,0 +1,12 @@
+{
+  ".no-shrink": {
+    "flexShrink": 0
+  },
+  ".no-grow": {
+    "flexGrow": 0
+  },
+  ".no-auto-size": {
+    "flexShrink": 0,
+    "flexGrow": 0
+  }
+}

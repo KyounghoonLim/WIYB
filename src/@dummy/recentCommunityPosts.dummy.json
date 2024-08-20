@@ -1,0 +1,121 @@
+[
+  {
+    "title": "다골 S200 이랑 X100 이랑 많이 차이 날까요?",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 3,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "이건 어떠니 저건 어떠니 고민고민하지마",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 1,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "이효리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "난 몰라 난 몰라 천 번 만 번 말해줘도 몰라몰라",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 0,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "골프 잘 치고 싶은데 어떻게 하면 되나요? 제가 LA 에 있었을 때 이야기인데, 골프를 참 잘 치는 선수가 있었어요. 저도 그 선수랑 자주 공 치러 다녔는데 저보다 늘 잘쳐서 질투가 났어요.",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 99,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "찬호박",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "솔직히 골프 치는 2030 특",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 12,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "ㅎㅇ",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 0,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "title": "다골 S200 이랑 X100 이랑 많이 차이 날까요?",
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 3,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": ["/images/dummies/image_profile_dummy.png"],
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  }
+]
