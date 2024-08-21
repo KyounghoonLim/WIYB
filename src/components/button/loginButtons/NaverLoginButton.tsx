@@ -1,9 +1,9 @@
 'use client'
 
-import { loginApi } from '@/src/services/authApi'
+import { loginApi } from 'services/authApi'
 import Button from '../Button_Primary'
-import NaverIcon from 'i/oauth/icon_naver.svg'
-import { AUTH_PROVIDER } from '@/src/constants/auth.constant'
+import NaverIcon from 'icons/oauth/icon_naver.svg'
+import { AUTH_PROVIDER } from 'constants/auth.constant'
 
 export default function NaverLoginButton() {
   return (

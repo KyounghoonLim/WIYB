@@ -1,9 +1,9 @@
 'use client'
 
-import { loginApi } from '@/src/services/authApi'
+import { loginApi } from 'services/authApi'
 import Button from '../Button_Primary'
-import KakaoIcon from 'i/oauth/icon_kakao.svg'
-import { AUTH_PROVIDER } from '@/src/constants/auth.constant'
+import KakaoIcon from 'icons/oauth/icon_kakao.svg'
+import { AUTH_PROVIDER } from 'constants/auth.constant'
 
 export default function KakaoLoginButton() {
   return (

@@ -1,9 +1,9 @@
 'use client'
 
-import { loginApi } from '@/src/services/authApi'
+import { loginApi } from 'services/authApi'
 import Button from '../Button_Primary'
-import GoogleIcon from 'i/oauth/icon_google.svg'
-import { AUTH_PROVIDER } from '@/src/constants/auth.constant'
+import GoogleIcon from 'icons/oauth/icon_google.svg'
+import { AUTH_PROVIDER } from 'constants/auth.constant'
 
 export default function GoogleLoginButton() {
   return (
