@@ -22,7 +22,7 @@ export default function MyLink({
     throttling(() => {
       return new Promise((resolve) => {
         const interval = setInterval(() => {
-          if (href === pathname) {
+          if (href === pathname || href === '#') {
             clearInterval(interval)
             resolve(true)
             location.reload()
