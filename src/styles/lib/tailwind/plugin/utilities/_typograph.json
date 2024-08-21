@@ -25,7 +25,7 @@
   },
   ".typograph-16": {
     "fontSize": "16px",
-    "lineHeight": "20px"
+    "lineHeight": "19.36px"
   },
   ".typograph-18": {
     "fontSize": "18px",
@@ -38,6 +38,10 @@
   ".typograph-24": {
     "fontSize": "24px",
     "lineHeight": "29.05px"
+  },
+  ".typograph-32": {
+    "fontSize": "32px",
+    "lineHeight": "38.73px"
   },
   ".typograph-48": {
     "fontSize": "48px",

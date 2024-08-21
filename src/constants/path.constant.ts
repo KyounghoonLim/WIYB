@@ -1,7 +1,7 @@
 import { Union } from 'types/union.types'
 
 export const PATH = {
-  MAIN: '/main',
+  MAIN: '/',
   /// auth ///
   LOGIN: '/login',
   SIGN: '/sign',
@@ -54,7 +54,7 @@ export const SERVICE_PATH = {
    */
   DELETE_USER: '/user',
   /// search ///
-  SEARCH: '/search',
+  SEARCH: '/search/product',
   POPULAR_SEARCH_KEYWORDS: '/search/popular/keyword',
   /// equipment ///
   EQUIPMENT_DETAIL: '/product/[id]/[type]',

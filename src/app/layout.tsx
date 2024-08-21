@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import '@/styles/global.css'
 import QueryProvider from '@/providers/QueryProvider'
+import SearchOptionProvider from 'providers/SearchOptionProvider'
+import SearchProvider from 'providers/SearchProvider'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -20,13 +23,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <QueryProvider>
-        <body className="APP-CONTAINER bg-bg-light">
-          <nav className="NAV" />
-          {children}
-          <footer className="FOOTER" />
-        </body>
-      </QueryProvider>
+      <Suspense>
+        <QueryProvider>
+          <SearchOptionProvider>
+            <SearchProvider>
+              <body className="APP-CONTAINER bg-bg-light">
+                <nav className="NAV" />
+                {children}
+                <div id="float" />
+                <footer className="FOOTER" />
+                <div id="overlay" />
+              </body>
+            </SearchProvider>
+          </SearchOptionProvider>
+        </QueryProvider>
+      </Suspense>
     </html>
   )
 }

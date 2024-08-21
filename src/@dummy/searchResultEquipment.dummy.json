@@ -1,0 +1,90 @@
+[
+  {
+    "id": "equip-1",
+    "brand": "타이틀리스트",
+    "type": "Driver",
+    "name": "TSR2 Driver",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 1234,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-2",
+    "brand": "캘러웨이",
+    "type": "Driver",
+    "name": "Paradym Ai Smoke Driver",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 312,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-3",
+    "brand": "타이틀리스트",
+    "type": "Driver",
+    "name": "T100 Iron",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 9,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-4",
+    "brand": "테일러메이드",
+    "type": "Driver",
+    "name": "P7MC Iron",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 12323121323,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-5",
+    "brand": "타이틀리스트",
+    "type": "Driver",
+    "name": "TSR3 Fairway Wood",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 0,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-1",
+    "brand": "titlelist",
+    "type": "Driver",
+    "name": "TSR2",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": -1,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-1",
+    "brand": "titlelist",
+    "type": "Driver",
+    "name": "TSR2",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 77,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  },
+  {
+    "id": "equip-1",
+    "brand": "titlelist",
+    "type": "Driver",
+    "name": "TSR2",
+    "releasedYear": "2024",
+    "viewCount": "123",
+    "reviewCount": 0.123,
+    "evaluatedCount": "4",
+    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
+  }
+]

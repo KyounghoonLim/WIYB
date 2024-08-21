@@ -6,7 +6,7 @@ import usePortal from './usePortal'
 export default function useThrottle(overlay?: boolean) {
   const [throttle, setThrottle] = useState<boolean>(false)
 
-  const { attach, detach } = usePortal('overlay-portal')
+  const { attach, detach } = usePortal('overlay')
 
   const throttling = useCallback(
     async (fn: () => any) => {
@@ -15,7 +15,7 @@ export default function useThrottle(overlay?: boolean) {
         try {
           overlay && attach(<div className="loading-overlay" />)
           setThrottle(true)
-          await fn()
+          return await fn()
         } finally {
           overlay && detach()
           setThrottle(false)

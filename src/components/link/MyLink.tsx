@@ -1,7 +1,8 @@
 'use client'
 
 import useThrottle from 'hooks/useThrottle'
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
+import { usePathname } from 'next/navigation'
 import React, { ReactNode, useCallback, useLayoutEffect, useRef } from 'react'
 
 export default function MyLink({
@@ -10,9 +11,10 @@ export default function MyLink({
   className,
 }: {
   children: ReactNode
-  href: string
+  href: LinkProps['href']
   className?: string
 }) {
+  const pathname = usePathname()
   const { throttling } = useThrottle(true)
   const unmountFlag = useRef<boolean>(false)
 
@@ -20,7 +22,11 @@ export default function MyLink({
     throttling(() => {
       return new Promise((resolve) => {
         const interval = setInterval(() => {
-          if (!unmountFlag.current) return
+          if (href === pathname) {
+            clearInterval(interval)
+            resolve(true)
+            location.reload()
+          } else if (!unmountFlag.current) return
           else {
             clearInterval(interval)
             resolve(true)
@@ -28,7 +34,7 @@ export default function MyLink({
         }, 100)
       })
     })
-  }, [])
+  }, [href, pathname])
 
   useLayoutEffect(() => {
     return () => {

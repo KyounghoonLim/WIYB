@@ -1,7 +1,7 @@
 'use client'
 
-import { ReactNode, useCallback } from 'react'
-import { createRoot } from 'react-dom/client'
+import { ReactNode, useCallback, useRef } from 'react'
+import { createRoot, Root } from 'react-dom/client'
 
 /**
  * jsx 가 아닌 함수 내에서 포탈을 사용
@@ -9,23 +9,45 @@ import { createRoot } from 'react-dom/client'
  * @returns
  */
 export default function usePortal(target: string) {
-  const attach = useCallback((children: ReactNode) => {
-    const container = document.getElementById(target)
+  const rootRef = useRef<Root>()
 
-    if (!container) return
-    else {
-      const portalRoot = createRoot(container)
-      portalRoot?.render(children)
+  const attach = useCallback((children: ReactNode) => {
+    try {
+      const root =
+        rootRef.current ||
+        (() => {
+          const container = document.getElementById(target)
+          const portalRoot = createRoot(container)
+          rootRef.current = portalRoot
+          return portalRoot
+        })()
+
+      if (!root) return
+      else {
+        root?.render(children)
+      }
+    } catch {
+      /// pass
     }
   }, [])
 
   const detach = useCallback(() => {
-    const container = document.getElementById(target)
+    try {
+      const root =
+        rootRef.current ||
+        (() => {
+          const container = document.getElementById(target)
+          const portalRoot = createRoot(container)
+          rootRef.current = portalRoot
+          return portalRoot
+        })()
 
-    if (!container) return
-    else {
-      const portalRoot = createRoot(container)
-      portalRoot?.unmount()
+      if (!root) return
+      else {
+        root?.unmount()
+      }
+    } catch {
+      /// pass
     }
   }, [])
 

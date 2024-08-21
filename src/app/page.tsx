@@ -20,7 +20,7 @@ export default function MainPage() {
           <Search_PopularItems />
         </article>
       </section>
-      <section className="w-full flex-row-center gap-3 mt-8">
+      <section className="w-full flex-row-center gap-3 pt-8">
         <Island_PopularEquipments />
         <Island_CommunityPosts />
       </section>

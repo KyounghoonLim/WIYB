@@ -5,6 +5,10 @@
   ".no-grow": {
     "flexGrow": 0
   },
+  ".auto-size": {
+    "flexShrink": 1,
+    "flexGrow": 1
+  },
   ".no-auto-size": {
     "flexShrink": 0,
     "flexGrow": 0

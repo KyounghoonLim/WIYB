@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react'
 
-export { BedgeProps }
+export { BadgeProps }
 
-interface BedgeProps {
+interface BadgeProps {
   text?: string
   icon?: FC<SVGProps<SVGElement>>
   children?: ReactNode

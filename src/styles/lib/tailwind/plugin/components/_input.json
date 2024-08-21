@@ -25,5 +25,40 @@
     "@apply bg-bg-light": true,
     "@apply flex-row-start": true,
     "@apply gap-3": true
+  },
+  ".input-checkbox-container": {
+    "width": "100%",
+    "height": "40px",
+    "@apply typograph-14": true,
+    "@apply flex-row-start": true,
+    "& > label": {
+      "width": "100%",
+      "height": "100%",
+      "gap": "8px",
+      "cursor": "pointer",
+      "@apply flex-row-start": true
+    },
+    "& > label > input[type='checkbox']": {
+      "display": "none"
+    },
+    "& > label::before": {
+      "content": "''",
+      "display": "block",
+      "width": "20px",
+      "height": "20px",
+      "border": "1px #F0F0F0 solid",
+      "borderRadius": "4px",
+      "backgroundColor": "white"
+    },
+    "& > label:has(input[type='checkbox']:checked)": {
+      "&::before": {
+        "backgroundColor": "#4BBC69",
+        "backgroundImage": "url('/icons/icon_checked.svg')",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "calc(100% - 4px) calc(100% - 4px)"
+      },
+      "fontWeight": "bold"
+    }
   }
 }

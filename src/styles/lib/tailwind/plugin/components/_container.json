@@ -1,12 +1,13 @@
 {
   ".APP-CONTAINER": {
     "width": "100vw",
-    "minHeight": "-webkit-fill-available",
+    "minHeight": "900px",
     "position": "relative",
     "overflowX": "hidden",
     "overflowY": "auto",
     "@apply h-dscreen": true,
-    "@apply flex-col-start": true
+    "@apply flex-col-start": true,
+    "@apply no-overscroll": true
   },
   ".PAGE-CONTAINER": {
     "width": "100vw",

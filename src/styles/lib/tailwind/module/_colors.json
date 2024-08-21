@@ -30,7 +30,7 @@
     "hover": "#469A5E",
     "disabled": "#969696"
   },
-  "bedge": {
+  "badge": {
     "primary": "#F5F5F5"
   }
 }

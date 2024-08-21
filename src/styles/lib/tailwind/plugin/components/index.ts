@@ -3,9 +3,12 @@ import nav from './_nav.json'
 import footer from './_footer.json'
 import input from './_input.json'
 import form from './_form.json'
-import bedge from './_bedge.json'
+import badge from './_badge.json'
 import list from './_list.json'
 import thumbnail from './_thumbnail.json'
+import float from './_float.json'
+import button from './_button.json'
+import overlay from './_overlay.json'
 
 const components = {
   ...container,
@@ -13,9 +16,12 @@ const components = {
   ...footer,
   ...input,
   ...form,
-  ...bedge,
+  ...badge,
   ...list,
   ...thumbnail,
+  ...float,
+  ...button,
+  ...overlay,
 }
 
 export default components

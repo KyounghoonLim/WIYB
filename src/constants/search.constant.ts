@@ -1,6 +1,6 @@
 import { Union } from 'types/union.types'
 
-export { SEARCH_CATEGORY, SEARCH_SORT, SEARCH_ENGINE }
+export { SEARCH_CATEGORY, SEARCH_SORT }
 
 const SEARCH_CATEGORY = {
   EQUIP: 'equipments',
@@ -16,10 +16,3 @@ const SEARCH_SORT = {
 } as const
 
 export type SearchSortType = Union<typeof SEARCH_SORT>
-
-const SEARCH_ENGINE = {
-  V1: 'v1',
-  V2: 'v2',
-} as const
-
-export type SearchEngineType = Union<typeof SEARCH_ENGINE>
