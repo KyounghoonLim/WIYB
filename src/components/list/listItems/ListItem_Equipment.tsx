@@ -23,10 +23,7 @@ export default function ListItem_Equipment({
   )
 
   return (
-    <MyLink
-      href={detailPageUrl}
-      className={clsx('list-item h-[70.4px]', isLast && 'list-item-last')}
-    >
+    <MyLink href={detailPageUrl} className={clsx('list-item h-[70.4px]')}>
       {listing && (
         <span className="w-6 typograph-24 text-neutral-900 italic font-medium">
           {index + 1 + '.'}

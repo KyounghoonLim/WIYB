@@ -38,12 +38,7 @@ export default function Button_Primary({
       ref={buttonRef}
       type={type}
       onClick={clickHandler}
-      className={clsx(
-        'button-primary',
-        className,
-        disabled && 'cursor-not-allowed',
-        isLoading && 'cursor-wait'
-      )}
+      className={clsx('button-primary', className, isLoading && 'cursor-wait')}
       disabled={disabled}
     >
       {IconElement}

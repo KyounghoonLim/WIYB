@@ -24,7 +24,7 @@ export default function ListItem_SearchResult_Equipment({
   )
 
   return (
-    <MyLink href={detailPageUrl} className={clsx('list-item h-20', isLast && 'list-item-last')}>
+    <MyLink href={detailPageUrl} className={clsx('list-item h-20')}>
       <Thumbnail_Primary src={equip?.imageUrls?.[0]} width={56} />
       <div className="w-full flex flex-col gap-1 auto-size">
         {equip ? (
@@ -44,7 +44,7 @@ export default function ListItem_SearchResult_Equipment({
         )}
       </div>
       {equip && (
-        <div className="w-auto max-w-32 flex flex-col items-end typograph-14 text-text-label-100">
+        <div className="w-auto max-w-32 flex flex-col items-end typograph-14 text-black">
           <span className="flex-row-center gap-1">
             <StarIcon />
             {4.5}

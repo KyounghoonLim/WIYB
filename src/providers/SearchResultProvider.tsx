@@ -18,6 +18,7 @@ import { SearchSortType } from 'constants/search.constant'
 
 export const searchResultContext = createContext<{
   searchResultContents: SearchResult['content']
+  isLoading: boolean
   isEndOfPage: boolean
   goToNextPage: () => void
 }>(null)
@@ -49,7 +50,8 @@ export default function SearchResultProvider({ children }) {
   const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false)
 
   const isSearchEnable = useMemo(() => {
-    if (!searchRequestSnapshot.current) return true
+    if (!searchKeyword) return false
+    else if (!searchRequestSnapshot.current) return true
     else {
       const { sort, filters } = searchRequestSnapshot.current
       const isOptionChanged = searchSort !== sort || searchFilters !== filters
@@ -61,7 +63,7 @@ export default function SearchResultProvider({ children }) {
         return !(searchOffset === 1 && searchContextId)
       }
     }
-  }, [searchSort, searchFilters, searchContextId, searchOffset])
+  }, [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset])
 
   const goToNextPage = useCallback(() => {
     setSearchOffset((temp) => temp + 1)
@@ -90,7 +92,7 @@ export default function SearchResultProvider({ children }) {
   /**
    * 검색어, 정렬방식, 필터, 컨텍스트 id, offset, size 가 변경되면 새로운 검색 요청이 감
    */
-  useMyQuery(
+  const { isPending: isLoading } = useMyQuery(
     [searchKeyword, searchSort, searchFilters.join(','), searchContextId, searchOffset, searchSize],
     searchApi,
     { enabled: isSearchEnable },
@@ -109,7 +111,9 @@ export default function SearchResultProvider({ children }) {
   }, [searchSort, searchFilters])
 
   return (
-    <searchResultContext.Provider value={{ searchResultContents, isEndOfPage, goToNextPage }}>
+    <searchResultContext.Provider
+      value={{ searchResultContents, isLoading, isEndOfPage, goToNextPage }}
+    >
       {children}
     </searchResultContext.Provider>
   )

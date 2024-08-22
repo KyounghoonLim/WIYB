@@ -13,10 +13,7 @@ export default function ListItem_Community<T = any>({
   isLast,
 }: ListItemProps<T>) {
   return (
-    <MyLink
-      href="#"
-      className={clsx('list-item justify-between h-[90px]', isLast && 'list-item-last')}
-    >
+    <MyLink href="#" className={clsx('list-item justify-between h-[90px]')}>
       <div className="w-full h-full flex flex-col gap-[6px]">
         {post ? (
           <>

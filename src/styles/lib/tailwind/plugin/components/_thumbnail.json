@@ -4,8 +4,10 @@
     "backgroundPosition": "center",
     "backgroundSize": "cover",
     "borderRadius": "4px",
-    "@apply bg-neutral-100": true,
-    "@apply no-auto-size": true
+    "@apply no-auto-size": true,
+    "&[data-exist='false']": {
+      "@apply bg-neutral-100": true
+    }
   },
   ".thumbnail-profile": {
     "@apply thumbnail-primary": true,

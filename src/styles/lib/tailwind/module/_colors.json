@@ -25,11 +25,13 @@
     "dimmed": "#F9F9F9"
   },
   "button": {
-    "primary": "#46AA5A",
+    "primary": {
+      "default": "#00871E",
+      "hover": "#01751b",
+      "disabled": "#969696"
+    },
     "secondary": "#FFFFFF",
-    "tertiary": "#5bc771",
-    "hover": "#469A5E",
-    "disabled": "#969696"
+    "tertiary": "#5bc771"
   },
   "badge": {
     "primary": "#F5F5F5"

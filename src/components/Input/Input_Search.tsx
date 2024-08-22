@@ -2,7 +2,7 @@
 
 import { InputProps } from 'types/components/input/input.interface'
 import Input_Primary from './Input_Primary'
-import SearchIcon from 'icons/icon_search.svg'
+import SearchIcon from 'icons/icon_search_primary.svg'
 
 export default function Input_Search({ ...inputProps }: InputProps) {
   return (

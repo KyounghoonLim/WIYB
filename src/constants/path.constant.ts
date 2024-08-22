@@ -10,7 +10,7 @@ export const PATH = {
   /// search ///
   SEARCH: '/search',
   /// equipment ///
-  EQUIPMENT_DETAIL: '/equipment/detail?id=[id]&type=[type]',
+  EQUIPMENT_DETAIL: '/equipment?id=[id]&type=[type]',
   EQUIPMENT_REVIEW: '/equipment/review?id=[id]&type=[type]',
   EQUIPMENT_REVIEW_FORM: '/equipment/review/form?id=[id]&type=[type]',
 } as const

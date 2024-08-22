@@ -16,6 +16,7 @@ export default function Thumbnail_Primary({
       alt=""
       loading="lazy"
       unoptimized
+      data-exist={src ? 'true' : 'false'}
     />
   )
 }
