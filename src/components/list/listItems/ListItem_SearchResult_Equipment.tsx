@@ -32,7 +32,7 @@ export default function ListItem_SearchResult_Equipment({
             <h3 className="max-w-[500px] typograph-12 text-text-label-100 truncate">
               {equip?.brand}
             </h3>
-            <h3 className="max-w-[500px] typograph-18 font-bold text-black truncate">
+            <h3 className="max-w-[500px] typograph-16 font-bold text-black truncate">
               {equip?.name}
             </h3>
           </>
@@ -44,7 +44,7 @@ export default function ListItem_SearchResult_Equipment({
         )}
       </div>
       {equip && (
-        <div className="w-auto max-w-32 flex flex-col items-end typograph-16 text-text-label-100">
+        <div className="w-auto max-w-32 flex flex-col items-end typograph-14 text-text-label-100">
           <span className="flex-row-center gap-1">
             <StarIcon />
             {4.5}

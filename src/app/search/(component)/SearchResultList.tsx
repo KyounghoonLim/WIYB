@@ -5,7 +5,7 @@ import ListItem_SearchResult_Equipment from 'components/list/listItems/ListItem_
 import useIntersection from 'hooks/useIntersection'
 import { searchResultContext } from 'providers/SearchResultProvider'
 import { useContext } from 'react'
-import NoResultIcon from 'icons/icon_no_result.svg'
+import SearchIcon from 'icons/icon_search.svg'
 
 export default function SearchResultList() {
   const { searchResultContents, isEndOfPage, goToNextPage } = useContext(searchResultContext)
@@ -22,8 +22,8 @@ export default function SearchResultList() {
           {!isEndOfPage && <div ref={intersectionRef} />}
         </>
       ) : (
-        <div className="w-full h-[300px] typograph-14 text-text-label-000 flex-col-center gap-4">
-          <NoResultIcon width={48} height={48} viewBox="0 0 24 24" className="fill-neutral-400" />
+        <div className="w-full h-[320px] typograph-16 text-neutral-light flex-col-center gap-3">
+          <SearchIcon className="fill-neutral-light" />
           검색 결과가 없습니다.
         </div>
       )}
