@@ -10,7 +10,14 @@ type SearchResult = {
 type SearchResultMetadata = {
   contextId: string
   offset: number
-  total: number
+  /**
+   * 총 페이지 수
+   */
+  totalOffset: number
+  /**
+   * 총 데이터 수
+   */
+  totalSize: number
   size: number
   isEmpty: boolean
   isLast: boolean
