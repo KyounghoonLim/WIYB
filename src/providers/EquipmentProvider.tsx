@@ -16,7 +16,9 @@ export default function EquipmentProvider({
   type: string
   children: ReactNode
 }) {
-  const { data: equipment } = useMyQuery([id, type], getEquipmentDetailApi)
+  const { data: equipment } = useMyQuery([id, type], getEquipmentDetailApi, {
+    enabled: Boolean(id) && Boolean(type),
+  })
 
   return <equipmentContext.Provider value={{ equipment }}>{children}</equipmentContext.Provider>
 }
