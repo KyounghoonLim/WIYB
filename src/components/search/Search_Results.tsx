@@ -21,7 +21,7 @@ export default function Search_Results() {
 
   return (
     <article className="w-[724px] h-auto flex-col-start gap-4">
-      {Boolean(contents.length) ? (
+      {Boolean(contents?.length) ? (
         <>
           <div className="w-full h-9 flex justify-between items-center">
             <span className="typograph-16 text-black">

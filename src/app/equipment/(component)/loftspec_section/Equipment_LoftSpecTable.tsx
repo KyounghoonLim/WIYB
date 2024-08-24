@@ -42,7 +42,7 @@ export default function Equipment_LoftSpecTable({ type }: { type: string }) {
               </tbody>
             </table>
           ) : (
-            <div className="w-full py-1 flex-row-center" style={{ height: 37 * keys.length }}>
+            <div className="w-full py-1 flex-row-center" style={{ height: 37 * keys?.length }}>
               <LoadingSpinner width={80} height={80} />
             </div>
           )}

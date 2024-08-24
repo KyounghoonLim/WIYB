@@ -61,7 +61,7 @@ export default function SearchOptionProvider({ children }) {
 
   const resetSearchOptions = useCallback(() => {
     setSearchSort(SEARCH_SORT.DESC_REVIEW)
-    setSearchFilters((temp) => (temp.length ? [] : temp))
+    setSearchFilters((temp) => (temp?.length ? [] : temp))
   }, [])
 
   useLayoutEffect(() => {

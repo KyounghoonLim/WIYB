@@ -35,12 +35,12 @@ export default function ReviewProvider({ children, id }: { children: ReactNode; 
   const [pageOfView] = useState<number>(3)
 
   const isEndOfPage = useMemo(() => {
-    return reviewPage * pageOfView >= reviews.length
+    return reviewPage * pageOfView >= reviews?.length
   }, [reviews, reviewPage, pageOfView])
 
   /// 소팅 관련 리뷰 데이터 메모이제이션 ///
   const [popularReviews, descReviews, ascReviews] = useMemo(() => {
-    if (!reviews.length) {
+    if (!reviews?.length) {
       return Array(3).fill([])
     } else {
       const popluarReviews = reviews

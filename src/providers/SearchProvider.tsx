@@ -17,7 +17,7 @@ export default function SearchProvider({ children }) {
   const searching = useCallback(
     (keyword?: string) => {
       keyword = keyword || searchKeyword
-      if (keyword.length < 2) {
+      if (keyword?.length < 2) {
         window.alert('검색은 두 글자 이상부터 가능합니다.')
       } else {
         setSearchKeyword(keyword)

@@ -19,7 +19,7 @@ export default function Select_Primary({
 
   const maximumLabelWidth = useMemo(() => {
     const longestLabel = options.reduce((prev, { label }) => {
-      return prev.length > label.length ? prev : label
+      return prev?.length > label?.length ? prev : label
     }, '')
     return measureTextWidth(longestLabel, '14px Inter')
   }, [options])
@@ -72,7 +72,7 @@ export default function Select_Primary({
       <div className="select-default-option" style={{ minWidth: maximumLabelWidth }}>
         {options.find((option) => value === option.value)?.label || placeholder}
       </div>
-      <div className="select-options-rail" style={{ height: options.length * 40 }}>
+      <div className="select-options-rail" style={{ height: options?.length * 40 }}>
         <div className="select-options-container">
           {options.map((option) => (
             <div
