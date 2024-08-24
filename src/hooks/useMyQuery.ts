@@ -12,13 +12,13 @@ export default function useMyQuery<T = any>(
   options?: Omit<UseQueryOptions<T>, 'queryKey' | 'queryFn'> & { throttling?: boolean },
   onSucceed?: (data: T) => any | Promise<any>,
   onFailed?: (error: AxiosError) => any | Promise<any>
-): { data: T; error: unknown; isPending: boolean } {
+): { data: T; error: unknown; isLoading: boolean } {
   const { recognizeRequestTime, defaultErrorHandler } = useContext(queryContext)
   const { throttling } = useThrottle(true)
 
   const requestIndex = useRef<number>(recognizeRequestTime())
 
-  const { data, error, isPending } = useQuery<T, AxiosError>({
+  const { data, error, isPending, isFetching } = useQuery<T, AxiosError>({
     queryKey: key,
     queryFn: async (key) => {
       if (!options?.throttling) return fetcher(...key.queryKey)
@@ -38,5 +38,5 @@ export default function useMyQuery<T = any>(
     error && (onFailed?.(error) || defaultErrorHandler(error, requestIndex.current))
   }, [error, onFailed, defaultErrorHandler])
 
-  return { data, error, isPending }
+  return { data, error, isLoading: isPending && isFetching }
 }

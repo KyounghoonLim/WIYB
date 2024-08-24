@@ -81,6 +81,7 @@ export default function SearchResultProvider({ children }) {
         offset: searchOffset,
         size: searchSize,
       }
+      console.log('success')
       setIsEndOfPage(metadata.isLast)
       setSearchContextId(metadata.contextId)
       setContents((temp) => {
@@ -95,13 +96,13 @@ export default function SearchResultProvider({ children }) {
   /**
    * 검색어, 정렬방식, 필터, 컨텍스트 id, offset, size 가 변경되면 새로운 검색 요청이 감
    */
-  const { isPending: isLoading } = useMyQuery(
+  const { data, isLoading } = useMyQuery(
     [searchKeyword, searchSort, searchFilters.join(','), searchContextId, searchOffset, searchSize],
     searchApi,
     { enabled: isSearchEnable },
     successHandler
   )
-
+  console.log(data, isLoading)
   /**
    * 검색 옵션이 변경되면 contextId, offset 을 초기화 함
    */
