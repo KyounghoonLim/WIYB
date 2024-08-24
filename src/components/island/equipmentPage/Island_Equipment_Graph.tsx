@@ -1,3 +1,5 @@
+'use client'
+
 import Graph from 'components/graph/Graph'
 import Island from 'components/island/Island'
 import React, { useContext } from 'react'

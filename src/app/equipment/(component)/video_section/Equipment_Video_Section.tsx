@@ -1,3 +1,5 @@
+'use client'
+
 import { useContext } from 'react'
 import Equipment_VideoList from './Equipment_VideoList'
 import { equipmentContext } from 'providers/EquipmentProvider'

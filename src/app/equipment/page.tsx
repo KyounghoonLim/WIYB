@@ -1,5 +1,3 @@
-'use client'
-
 import EquipmentProvider from 'providers/EquipmentProvider'
 import Equipment_Info_Section from './(component)/info_section/Equipment_Info_Section'
 import Equipment_LoftSpec_Section from './(component)/loftspec_section/Equipment_LoftSpec_Section'
@@ -13,6 +11,7 @@ export default function ProductPage({
 }: {
   searchParams: { id: string; type: string }
 }) {
+  console.log(id, type)
   return (
     <EquipmentProvider id={id} type={type}>
       <ReviewProvider id={id}>

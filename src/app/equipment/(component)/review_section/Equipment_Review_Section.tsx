@@ -1,3 +1,5 @@
+'use client'
+
 import { useContext } from 'react'
 import { reviewContext } from 'providers/ReviewProvider'
 import Button_Equipment_Review from 'components/button/equipmentPage/Button_Equipment_Review'
