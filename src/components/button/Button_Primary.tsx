@@ -42,7 +42,7 @@ export default function Button_Primary({
       disabled={disabled}
     >
       {IconElement}
-      <span className="flex-row-start gap-0">{TextElement}</span>
+      {text && <span className="flex-row-start gap-0">{TextElement}</span>}
     </button>
   )
 }

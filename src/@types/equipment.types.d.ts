@@ -55,7 +55,7 @@ export type RelatedVideo = {
   description: string
   channelId: string
   channelTitle: string
-  thumbnail: string
+  thumbnailUrl: string
   videoUrl: string
   publishedAt: Date
   tags: unknown

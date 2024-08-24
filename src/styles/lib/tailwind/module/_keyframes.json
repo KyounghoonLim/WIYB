@@ -13,37 +13,13 @@
     "90%": { "opacity": 1 },
     "100%": { "opacity": 0 }
   },
-  "dropdown-in-ltr": {
-    "from": { "transform": "scaleX(-100%)" },
-    "to": { "transform": "scaleX(0)" }
+  "select-open": {
+    "from": { "transform": "translateY(-100%)" },
+    "to": { "transform": "translateY(0)" }
   },
-  "dropdown-out-ltr": {
-    "from": { "transform": "scaleX(0)" },
-    "to": { "transform": "scaleX(-100%)" }
-  },
-  "dropdown-in-rtl": {
-    "from": { "transform": "scaleX(100%)" },
-    "to": { "transform": "scaleX(0)" }
-  },
-  "dropdown-out-rtl": {
-    "from": { "transform": "scaleX(0)" },
-    "to": { "transform": "scaleX(100%)" }
-  },
-  "dropdown-in-ttb": {
-    "from": { "transform": "scaleY(-100%)" },
-    "to": { "transform": "scaleY(0)" }
-  },
-  "dropdown-out-ttb": {
-    "from": { "transform": "scaleY(0)" },
-    "to": { "transform": "scaleY(-100%)" }
-  },
-  "dropdown-in-btt": {
-    "from": { "transform": "scaleY(100%)" },
-    "to": { "transform": "scaleY(0)" }
-  },
-  "dropdown-out-btt": {
-    "from": { "transform": "scaleY(0)" },
-    "to": { "transform": "scaleY(100%)" }
+  "select-close": {
+    "from": { "transform": "translateY(0)" },
+    "to": { "transform": "translateY(-100%)" }
   },
   "spin-arrow": {
     "from": { "transform": "rotate(0deg)" },
@@ -52,14 +28,6 @@
   "spin-arrow-reverse": {
     "from": { "transform": "rotate(180deg)" },
     "to": { "transform": "rotate(0deg)" }
-  },
-  "drop-options": {
-    "from": { "transform": "translateY(-110%)" },
-    "to": { "transform": "translateY(0)" }
-  },
-  "drop-options-reverse": {
-    "from": { "transform": "translateY(0)" },
-    "to": { "transform": "translateY(-110%)" }
   },
   "bottomsheet-open": {
     "from": { "transform": "translateY(100%)" },

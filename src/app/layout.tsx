@@ -4,6 +4,7 @@ import QueryProvider from '@/providers/QueryProvider'
 import SearchOptionProvider from 'providers/SearchOptionProvider'
 import SearchProvider from 'providers/SearchProvider'
 import { Suspense } from 'react'
+import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -15,6 +16,11 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
 }
+
+export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function RootLayout({
   children,

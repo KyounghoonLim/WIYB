@@ -9,7 +9,7 @@ const margin = 4 as const
 
 export const customLabelPlugin = {
   id: 'customLabelPlugin',
-  afterRender: (chart) => {
+  beforeDraw: (chart) => {
     const {
       ctx,
       scales: { r },
@@ -50,7 +50,6 @@ export const customLabelPlugin = {
         ctx.fillStyle = textColor[idx]
 
         const textY = y + (lineHeight + margin) * (1 - idx)
-        console.log(index, 'text y', textY)
         ctx.fillText(label, x, textY)
       })
     })

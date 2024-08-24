@@ -1,0 +1,52 @@
+{
+  "keys": {
+    "DRIVER": ["loftDegree", "volume"],
+    "WOOD": ["loftDegree", "numbers"],
+    "HYBRID": ["loftDegree", "numbers"],
+    "IRON": ["numbers", "produceType", "designType", "loftDegree", "loft7Degree", "loftPDegree"],
+    "WEDGE": ["loftDegree", "produceType", "bounce", "grind"],
+    "PUTTER": ["loftDegree", "weight", "neckShape"],
+    "SHAFT": [
+      "weight",
+      "strength",
+      "kickPoint",
+      "torque",
+      "texture",
+      "tipDiameter",
+      "buttDiameter",
+      "spin",
+      "launch"
+    ],
+    "GRIP": ["weight", "size", "coreSize", "feel", "material", "torque", "diameter"],
+    "BALL": ["piece", "spin", "launch", "feel", "dimple", "texture"]
+  },
+  "labels": {
+    "loftDegree": "로프트 각",
+    "volume": "부피",
+    "numbers": "번호",
+    "produceType": "장비 타입",
+    "designType": "디자인 타입",
+    "loft7Degree": "#7 로프트",
+    "loftPDegree": "#P 로프트",
+    "bounce": "바운스",
+    "grind": "그라인드",
+    "weight": "무게",
+    "neckShape": "넥 타입",
+    "strength": "스트렝스",
+    "kickPoint": "킥 포인트",
+    "torque": "토크",
+    "texture": "질감",
+    "tipDiameter": "팁 거리",
+    "buttDiameter": "버트 거리",
+    "spin": "스핀",
+    "launch": "런치",
+    "size": "사이즈",
+    "coreSize": "코어 사이즈",
+    "feel": "느낌",
+    "material": "재질",
+    "diameter": "지름",
+    "piece": "피스",
+    "dimple": "딤플",
+    "lieDegree": "라이 각"
+  }
+}

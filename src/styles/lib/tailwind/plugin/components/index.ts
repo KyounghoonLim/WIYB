@@ -9,6 +9,8 @@ import thumbnail from './_thumbnail.json'
 import float from './_float.json'
 import button from './_button.json'
 import overlay from './_overlay.json'
+import select from './_select.json'
+import table from './_table.json'
 
 const components = {
   ...container,
@@ -22,6 +24,8 @@ const components = {
   ...float,
   ...button,
   ...overlay,
+  ...select,
+  ...table,
 }
 
 export default components

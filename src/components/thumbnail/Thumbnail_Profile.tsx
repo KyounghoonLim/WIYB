@@ -10,6 +10,7 @@ export default function Thumbnail_Profile({ src, width = 64 }: Pick<ImageProps, 
       className={'thumbnail-profile'}
       alt=""
       unoptimized
+      data-exist={src ? 'true' : 'false'}
     />
   )
 }

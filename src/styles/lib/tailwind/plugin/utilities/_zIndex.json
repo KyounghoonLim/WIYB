@@ -2,6 +2,9 @@
   ".z-backdrop": {
     "zIndex": "-1"
   },
+  ".z-select": {
+    "zIndex": "2"
+  },
   ".z-nav": {
     "zIndex": "10"
   },

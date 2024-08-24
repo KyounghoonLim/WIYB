@@ -8,7 +8,7 @@
     "alignItems": "center",
     "color": "black",
     "backgroundColor": "transparent",
-    "@apply typograph-14": true,
+    "@apply typograph-16": true,
     "&::placeholder": {
       "@apply text-text-placeholder": true
     },

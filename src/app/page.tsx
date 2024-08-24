@@ -15,7 +15,7 @@ export default function MainPage() {
         <article className="CONTENT-CONTAINER w-full h-[174px] flex-col-center">
           <Logo_Main />
         </article>
-        <article className="CONTENT-CONTAINER justify-start w-full h-[130px] bg-white">
+        <article className="CONTENT-CONTAINER justify-start w-full h-[130px]">
           <Form_Search />
           <Search_PopularItems />
         </article>

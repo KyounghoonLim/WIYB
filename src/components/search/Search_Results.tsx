@@ -7,9 +7,12 @@ import { searchResultContext } from 'providers/SearchResultProvider'
 import { useContext } from 'react'
 import SearchIcon from 'icons/icon_search_secondary.svg'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
+import Island from 'components/island/Island'
+import Select_Primary from 'components/select/Select_Primary'
+import Search_Sorts from './Search_Sorts'
 
-export default function SearchResultList() {
-  const { searchResultContents, isLoading, isEndOfPage, goToNextPage } =
+export default function Search_Results() {
+  const { contents, metadata, isLoading, isEndOfPage, goToNextPage } =
     useContext(searchResultContext)
   const { intersectionRef } = useIntersection({
     onEnter: goToNextPage,
@@ -17,10 +20,19 @@ export default function SearchResultList() {
   })
 
   return (
-    <article className="w-[724px] h-auto flex-col-start px-4 rounded-lg bg-white">
-      {Boolean(searchResultContents.length) ? (
+    <article className="w-[724px] h-auto flex-col-start gap-4">
+      {Boolean(contents.length) ? (
         <>
-          <List_Primary items={searchResultContents} Component={ListItem_SearchResult_Equipment} />
+          <div className="w-full h-9 flex justify-between items-center">
+            <span className="typograph-16 text-black">
+              검색 결과&nbsp;
+              <h3 className="font-bold inline-block">{metadata.totalSize}</h3>개
+            </span>
+            <Search_Sorts />
+          </div>
+          <Island>
+            <List_Primary items={contents} Component={ListItem_SearchResult_Equipment} />
+          </Island>
           {!isEndOfPage && <div ref={intersectionRef} />}
         </>
       ) : isLoading ? (

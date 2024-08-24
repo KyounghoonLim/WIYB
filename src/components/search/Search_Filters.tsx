@@ -5,7 +5,7 @@ import Input_Checkbox from 'components/Input/Input_Checkbox'
 import { searchOptionContext } from 'providers/SearchOptionProvider'
 import { useCallback, useContext } from 'react'
 
-export default function Search_Options() {
+export default function Search_Filters() {
   const { equipTypeList, searchFilters, setSearchFilters, resetSearchOptions } =
     useContext(searchOptionContext)
 

@@ -1,12 +1,12 @@
 @import "./reset.css";
-@import "./fonts.css";
+/* @import "./fonts.css"; */
 @import "./safe-area.css";
 @import "./lib/tailwind/tailwind.css";
 @import "./lib/tostify.css";
 
 * {
   box-sizing: border-box;
-  font-family: "Inter", "monospace" !important;
+  /* font-family: "Inter", "monospace"; */
   white-space: pre-wrap;
 }
 

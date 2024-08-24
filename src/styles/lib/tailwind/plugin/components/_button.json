@@ -16,6 +16,7 @@
     },
     "&:disabled": {
       "cursor": "not-allowed",
+      "pointerEvents": "none",
       "@apply bg-button-primary-disabled": true
     }
   },

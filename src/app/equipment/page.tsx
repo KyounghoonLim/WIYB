@@ -1,9 +1,12 @@
 'use client'
 
-import Button_Equipment_GoToReview from 'components/button/equipmentPage/Button_Equipment_GoToReview'
-import Island_Equipment_Graph from 'components/island/equipmentPage/Island_Equipment_Graph'
-import Island_Equipment_Simple from 'components/island/equipmentPage/Island_Equipment_Simple'
 import EquipmentProvider from 'providers/EquipmentProvider'
+import Equipment_Info_Section from './(component)/info_section/Equipment_Info_Section'
+import Equipment_LoftSpec_Section from './(component)/loftspec_section/Equipment_LoftSpec_Section'
+import Equipment_Spec_Section from './(component)/spec_section/Equipment_Spec_Section'
+import Equipment_Video_Section from './(component)/video_section/Equipment_Video_Section'
+import ReviewProvider from 'providers/ReviewProvider'
+import Equipment_Review_Section from './(component)/review_section/Equipment_Review_Section'
 
 export default function ProductPage({
   searchParams: { id, type },
@@ -12,15 +15,20 @@ export default function ProductPage({
 }) {
   return (
     <EquipmentProvider id={id} type={type}>
-      <main className="PAGE-CONTAINER pt-16">
-        <section className="flex-row-center gap-4">
-          <article className="w-[596px] flex-col-start gap-4">
-            <Island_Equipment_Simple />
-            <Button_Equipment_GoToReview />
-          </article>
-          <Island_Equipment_Graph />
-        </section>
-      </main>
+      <ReviewProvider id={id}>
+        <main className="PAGE-CONTAINER pt-16 pb-4">
+          {/* 기본 정보, 평가 지표 */}
+          <Equipment_Info_Section />
+          {/* 상세 스펙 */}
+          <Equipment_Spec_Section type={type} />
+          {/* 상세 로프트 스펙 */}
+          <Equipment_LoftSpec_Section type={type} />
+          {/* 관련 영상 */}
+          <Equipment_Video_Section />
+          {/* 리뷰 */}
+          <Equipment_Review_Section />
+        </main>
+      </ReviewProvider>
     </EquipmentProvider>
   )
 }

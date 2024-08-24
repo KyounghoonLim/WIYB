@@ -44,7 +44,7 @@ export default function ListItem_SearchResult_Equipment({
         )}
       </div>
       {equip && (
-        <div className="w-auto max-w-32 flex flex-col items-end typograph-14 text-black">
+        <div className="w-[120px] flex flex-col items-end typograph-14 text-black">
           <span className="flex-row-center gap-1">
             <StarIcon />
             {4.5}

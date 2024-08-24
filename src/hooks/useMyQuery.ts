@@ -26,6 +26,7 @@ export default function useMyQuery<T = any>(
     },
     retry: false,
     retryOnMount: false,
+    refetchOnWindowFocus: false,
     ...options,
   })
 

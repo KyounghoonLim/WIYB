@@ -17,7 +17,8 @@ import { searchOptionContext } from './SearchOptionProvider'
 import { SearchSortType } from 'constants/search.constant'
 
 export const searchResultContext = createContext<{
-  searchResultContents: SearchResult['content']
+  contents: SearchResult['content']
+  metadata: SearchResult['metadata']
   isLoading: boolean
   isEndOfPage: boolean
   goToNextPage: () => void
@@ -46,7 +47,8 @@ export default function SearchResultProvider({ children }) {
   const [searchOffset, setSearchOffset] = useState<number>(1)
   const [searchSize, setSearchSize] = useState<number>(20)
 
-  const [searchResultContents, setSearchResultContents] = useState<SearchResult['content']>([])
+  const [contents, setContents] = useState<SearchResult['content']>([])
+  const [metadata, setMetadata] = useState<SearchResult['metadata']>(null)
   const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false)
 
   const isSearchEnable = useMemo(() => {
@@ -81,10 +83,11 @@ export default function SearchResultProvider({ children }) {
       }
       setIsEndOfPage(metadata.isLast)
       setSearchContextId(metadata.contextId)
-      setSearchResultContents((temp) => {
+      setContents((temp) => {
         if (metadata.offset === 1) return content
         else return [...temp, ...content]
       })
+      setMetadata(metadata)
     },
     [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset, searchSize]
   )
@@ -112,7 +115,7 @@ export default function SearchResultProvider({ children }) {
 
   return (
     <searchResultContext.Provider
-      value={{ searchResultContents, isLoading, isEndOfPage, goToNextPage }}
+      value={{ contents, metadata, isLoading, isEndOfPage, goToNextPage }}
     >
       {children}
     </searchResultContext.Provider>
