@@ -3,7 +3,15 @@
 import { isFileExist } from 'utils/fileUtils'
 import clsx from 'clsx'
 import Image from 'next/image'
-import React, { ChangeEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  ChangeEvent,
+  SyntheticEvent,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { ImageUploader_Multiple_Props } from 'types/components/uploader/uploader.interface'
 import RemoveIcon from 'icons/icon_remove.svg'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
@@ -20,21 +28,24 @@ export default function ImageUploader_Multiple({
 
   const [imageUrlList, setImageUrlList] = useState<string[]>([])
 
-  const isUploaded = useMemo(() => {
-    return fileList?.length > 1
-  }, [fileList])
-
   const changeHandler = useCallback(
     (e: ChangeEvent) => {
-      const _fileList = (e.target as HTMLInputElement).files
+      let _fileList = (e.target as HTMLInputElement).files
       if (!_fileList.length) return
-      else if (
-        _fileList.length > limitFileLength ||
-        fileList.length + _fileList.length > limitFileLength
-      ) {
-        window.alert('이미지는 최대 4개 까지 등록이 가능합니다.')
-      } else {
-        const preservedFileList = Array.from(_fileList)
+      else {
+        const preservedFileList = (() => {
+          const fileArray = Array.from(_fileList)
+          if (
+            _fileList.length > limitFileLength ||
+            fileList.length + _fileList.length > limitFileLength
+          ) {
+            window.alert('이미지는 최대 4개 까지 등록이 가능합니다.')
+            return fileArray.slice(4)
+          } else return fileArray
+        })()
+
+        console.log(_fileList, preservedFileList)
+
         const allowedFileList = preservedFileList.filter((file) => file.size <= limitFileSize)
         const uploadedFileList = [
           ...fileList,
@@ -52,6 +63,9 @@ export default function ImageUploader_Multiple({
           )
         }
 
+        /// 다음 이벤트를 위해 비워둠 ///
+        ;(e.target as HTMLInputElement).value = null
+
         if (!uploadedFileList.length) return
         else onUpload(uploadedFileList)
       }
@@ -60,9 +74,9 @@ export default function ImageUploader_Multiple({
   )
 
   const removeClickHandler = useCallback(
-    (file: File | string) => {
+    (e: SyntheticEvent, file: File | string) => {
+      e.stopPropagation()
       const newFileList = fileList.filter((_file) => _file !== file)
-      inputRef.current.value = null
       onUpload(newFileList)
     },
     [fileList]
@@ -107,15 +121,14 @@ export default function ImageUploader_Multiple({
           multiple
         />
       </label>
-      {isUploaded &&
-        fileList.map((file, idx) => (
-          <article key={(file as File)?.name || (file as string)} className="image-uploader-item">
-            <Thumbnail_Primary src={imageUrlList[idx]} width={56} height={56} />
-            <div className="image-uploader-item-remove" onClick={() => removeClickHandler(file)}>
-              <RemoveIcon className="fill-white" />
-            </div>
-          </article>
-        ))}
+      {fileList.map((file, idx) => (
+        <article key={(file as File)?.name || (file as string)} className="image-uploader-item">
+          <Thumbnail_Primary src={imageUrlList[idx]} width={56} height={56} />
+          <div className="image-uploader-item-remove" onClick={(e) => removeClickHandler(e, file)}>
+            <RemoveIcon className="fill-white" />
+          </div>
+        </article>
+      ))}
     </div>
   )
 }
