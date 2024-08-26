@@ -4,7 +4,7 @@ import { equipmentContext } from 'providers/EquipmentProvider'
 import { useContext, useMemo } from 'react'
 import Island from 'components/island/Island'
 import { dummy_loftSpec } from '@/@dummy'
-import { labels } from 'constants/equipment.detail.constant.json'
+import { labels } from 'constants/json/equipment.detail.constant.json'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
 
 export default function Equipment_LoftSpecTable({ type }: { type: string }) {

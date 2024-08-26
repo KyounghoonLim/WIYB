@@ -11,6 +11,9 @@ import button from './_button.json'
 import overlay from './_overlay.json'
 import select from './_select.json'
 import table from './_table.json'
+import modal from './_modal.json'
+import uploader from './_uploader.json'
+import textarea from './_textarea.json'
 
 const components = {
   ...container,
@@ -26,6 +29,9 @@ const components = {
   ...overlay,
   ...select,
   ...table,
+  ...modal,
+  ...uploader,
+  ...textarea,
 }
 
 export default components

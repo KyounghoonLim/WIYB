@@ -5,6 +5,7 @@ import SearchOptionProvider from 'providers/SearchOptionProvider'
 import SearchProvider from 'providers/SearchProvider'
 import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
+import ModalProvider from 'providers/ModalProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -33,13 +34,15 @@ export default function RootLayout({
         <QueryProvider>
           <SearchOptionProvider>
             <SearchProvider>
-              <body className="APP-CONTAINER bg-bg-light">
-                <nav className="NAV" />
-                {children}
-                <div id="float" />
-                <footer className="FOOTER" />
-                <div id="overlay" />
-              </body>
+              <ModalProvider>
+                <body className="APP-CONTAINER bg-bg-light">
+                  <nav className="NAV" />
+                  {children}
+                  <footer className="FOOTER" />
+                  <div id="modal" />
+                  <div id="overlay" />
+                </body>
+              </ModalProvider>
             </SearchProvider>
           </SearchOptionProvider>
         </QueryProvider>

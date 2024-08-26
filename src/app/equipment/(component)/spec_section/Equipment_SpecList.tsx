@@ -1,7 +1,7 @@
 'use client'
 
 import { equipmentContext } from 'providers/EquipmentProvider'
-import { keys, labels } from 'constants/equipment.detail.constant.json'
+import { keys, labels } from 'constants/json/equipment.detail.constant.json'
 import { useContext, useMemo } from 'react'
 import Island_Equipment_DetailInfo from 'components/island/equipmentPage/Island_Equipment_DetailInfo'
 

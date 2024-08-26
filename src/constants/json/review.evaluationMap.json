@@ -1,0 +1,178 @@
+{
+  "DRIVER": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "c",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    },
+    {
+      "key": "d",
+      "label": "타구음",
+      "description": "공이 장비에 맞았을 때 소리가 좋은가요?"
+    }
+  ],
+  "WOOD": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "c",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    },
+    {
+      "key": "d",
+      "label": "타구음",
+      "description": "공이 장비에 맞았을 때 소리가 좋은가요?"
+    }
+  ],
+  "HYBRID": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "c",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    },
+    {
+      "key": "d",
+      "label": "타구음",
+      "description": "공이 장비에 맞았을 때 소리가 좋은가요?"
+    }
+  ],
+  "IRON": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "비거리",
+      "description": "다른 장비 대비 거리가 많이 나가나요?"
+    },
+    {
+      "key": "c",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "d",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    },
+    {
+      "key": "e",
+      "label": "백스핀",
+      "description": "공이 장비에 맞았을 때 백스핀이 얼마나 생기나요?"
+    }
+  ],
+  "WEDGE": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "비거리",
+      "description": "다른 장비 대비 거리가 많이 나가나요?"
+    },
+    {
+      "key": "c",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "d",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    },
+    {
+      "key": "e",
+      "label": "백스핀",
+      "description": "공이 장비에 맞았을 때 백스핀이 얼마나 생기나요?"
+    }
+  ],
+  "PUTTER": [
+    {
+      "key": "a",
+      "label": "관용성",
+      "description": "정타에 잘 맞지 않아도 괜찮은 샷이 되나요?"
+    },
+    {
+      "key": "b",
+      "label": "정확도",
+      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
+    },
+    {
+      "key": "c",
+      "label": "거리감",
+      "description": "거리감을 쉽게 예측할 수 있나요?"
+    },
+    {
+      "key": "d",
+      "label": "타감",
+      "description": "공이 장비에 맞았을 때 느껴지는 타감이 좋은가요?"
+    }
+  ],
+  "SHAFT": [
+    {
+      "key": "a",
+      "label": "강성",
+      "description": "샤프트의 힘이 얼마나 강한가요?"
+    },
+    {
+      "key": "b",
+      "label": "무게",
+      "description": "샤프트의 무게는 무거운가요?"
+    },
+    {
+      "key": "c",
+      "label": "탄도",
+      "description": "타구 발사각은 높게 뜨는 편인가요?"
+    }
+  ],
+  "GRIP": [
+    {
+      "key": "a",
+      "label": "터치감",
+      "description": "그립의 감촉은 단단한 편인가요?"
+    },
+    {
+      "key": "b",
+      "label": "그립력",
+      "description": "잘 미끄러지지 않을 것 같은가요?"
+    },
+    {
+      "key": "c",
+      "label": "내구성",
+      "description": "오래 사용할 수 있을 것 같은가요?"
+    }
+  ]
+}

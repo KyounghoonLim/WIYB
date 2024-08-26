@@ -57,3 +57,11 @@ textarea:disabled {
 iframe {
   display: none;
 }
+
+#modal {
+  z-index: 50;
+}
+
+#overlay {
+  z-index: 100;
+}

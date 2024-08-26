@@ -11,7 +11,6 @@ export default function ProductPage({
 }: {
   searchParams: { id: string; type: string }
 }) {
-  console.log(id, type)
   return (
     <EquipmentProvider id={id} type={type}>
       <ReviewProvider id={id}>
