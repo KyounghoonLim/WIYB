@@ -23,6 +23,9 @@
     "@apply hide-scrollbar": true,
     "&:focus": {
       "outline": "none"
+    },
+    "&::placeholder": {
+      "@apply text-text-placeholder-000": true
     }
   }
 }

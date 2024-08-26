@@ -10,7 +10,7 @@
     "backgroundColor": "transparent",
     "@apply typograph-16": true,
     "&::placeholder": {
-      "@apply text-text-placeholder": true
+      "@apply text-text-placeholder-100": true
     },
     "&:focus": {
       "outline": "none",

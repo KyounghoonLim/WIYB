@@ -13,7 +13,7 @@ export default function Island_CommunityPosts() {
   })
 
   return (
-    <Island className="w-[484px] h-[424px]">
+    <Island className="w-[434px] h-[424px]">
       <section className="w-full h-16 flex justify-between items-center">
         <span>
           지금 인기있는 {}

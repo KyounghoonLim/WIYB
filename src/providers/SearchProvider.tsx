@@ -4,7 +4,6 @@ import { createContext, useCallback, useContext } from 'react'
 import { searchOptionContext } from './SearchOptionProvider'
 import useThrottle from 'hooks/useThrottle'
 import { PATH } from 'constants/path.constant'
-import { useRouter } from 'next/navigation'
 
 export const searchContext = createContext<{ searching: (keyword?: string) => void }>(null)
 

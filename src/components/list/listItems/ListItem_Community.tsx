@@ -18,20 +18,20 @@ export default function ListItem_Community<T = any>({
         {post ? (
           <>
             {/* title */}
-            <div className="max-w-[350px] flex-row-start typograph-14 text-nowrap gap-1">
+            <div className="max-w-[300px] flex-row-start typograph-14 text-nowrap gap-1">
               <h3 className="truncate">{post?.title}</h3>
               <p className="text-text-comment">{`[${post?.commentCount}]`}</p>
             </div>
             {/* detail */}
-            <div className="max-w-[350px] h-full flex flex-col justify-between typograph-12 text-text-label-000">
+            <div className="max-w-[300px] h-full flex flex-col justify-between typograph-12 text-text-label-000">
               <p>14시간 전</p>
               <p className="truncate">{post?.user?.nickname}</p>
             </div>
           </>
         ) : (
           <>
-            <div className="max-w-[350px] h-[14px] skeleton" />
-            <div className="max-w-[350px] h-full flex flex-col justify-between">
+            <div className="max-w-[300px] h-[14px] skeleton" />
+            <div className="max-w-[300px] h-full flex flex-col justify-between">
               <div className="h-[14px] skeleton" />
               <div className="h-[14px] skeleton" />
             </div>

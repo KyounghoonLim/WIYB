@@ -24,7 +24,7 @@ export default function MyLink({
 }) {
   const pathname = usePathname()
   const { throttling } = useThrottle(true)
-  const unmountFlag = useRef<boolean>(false)
+  const routeChangedRef = useRef<boolean>(false)
 
   const clickHandler = useCallback(() => {
     if (target !== '_self') return
@@ -32,11 +32,12 @@ export default function MyLink({
       throttling(() => {
         return new Promise((resolve) => {
           const interval = setInterval(() => {
+            console.log(routeChangedRef.current)
             if (href === pathname || href === '#') {
               clearInterval(interval)
               resolve(true)
               location.reload()
-            } else if (!unmountFlag.current) return
+            } else if (!routeChangedRef.current) return
             else {
               clearInterval(interval)
               resolve(true)
@@ -47,11 +48,20 @@ export default function MyLink({
     }
   }, [href, pathname, target])
 
+  /// unmount 되었을 때 throttle 해제 ///
   useLayoutEffect(() => {
     return () => {
-      unmountFlag.current = true
+      routeChangedRef.current = true
     }
   }, [])
+
+  /// unmount 되지 않았지만 route 가 변경 되었을 때 throttle 해제 ///
+  useLayoutEffect(() => {
+    if (pathname !== href) return
+    else {
+      routeChangedRef.current = true
+    }
+  }, [pathname])
 
   return (
     <Link target={target} href={href} onClick={clickHandler} className={className}>

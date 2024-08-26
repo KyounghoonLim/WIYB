@@ -14,8 +14,8 @@ export default function Form_Review() {
   const { modalData: equipment, setModalMetadata } = useContext(modalContext)
 
   const [evaluationMap, setEveluationMap] = useState<any>(
-    ReviewEvaluationMap['IRON']?.map((obj) => ({ ...obj, score: null }))
-    // ReviewEvaluationMap[equipment?.type]?.map((obj) => ({ ...obj, score: null }))
+    // ReviewEvaluationMap['IRON']?.map((obj) => ({ ...obj, score: null }))
+    ReviewEvaluationMap[equipment?.type]?.map((obj) => ({ ...obj, score: null }))
   )
   const [reviewFileList, setReviewFileList] = useState<Array<File | string>>([])
   const [reviewMessage, setReviewMessage] = useState<string>('')
@@ -33,8 +33,9 @@ export default function Form_Review() {
   }, [])
 
   useLayoutEffect(() => {
-    if (!evaluationMap?.some((ele) => ele.score) && !reviewFileList.length && !reviewMessage) return
-    else {
+    if (!evaluationMap?.some((ele) => ele.score) && !reviewFileList.length && !reviewMessage) {
+      setModalMetadata(null)
+    } else {
       setModalMetadata({
         close: {
           condition: false,

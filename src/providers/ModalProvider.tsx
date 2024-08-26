@@ -32,6 +32,8 @@ export default function ModalProvider({ children }) {
     else {
       if (window.confirm(modalMetadata.close.message || '정말로 나가시겠습니까?')) {
         setModalType(null)
+        setModalData(null)
+        setModalMetadata(null)
       }
     }
   }, [modalMetadata])

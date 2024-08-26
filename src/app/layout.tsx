@@ -6,6 +6,7 @@ import SearchProvider from 'providers/SearchProvider'
 import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import ModalProvider from 'providers/ModalProvider'
+import Nav from 'components/nav/Nav'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -36,7 +37,7 @@ export default function RootLayout({
             <SearchProvider>
               <ModalProvider>
                 <body className="APP-CONTAINER bg-bg-light">
-                  <nav className="NAV" />
+                  <Nav />
                   {children}
                   <footer className="FOOTER" />
                   <div id="modal" />

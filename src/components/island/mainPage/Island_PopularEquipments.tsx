@@ -19,7 +19,7 @@ export default function Island_PopularEquipments() {
   return (
     <>
       {popularEquipments && !error && (
-        <Island className="w-[452px] h-[424px]">
+        <Island className="w-[434px] h-[424px]">
           <section className="w-full h-16 flex justify-between items-center">
             <span>
               가장 인기있는 {}

@@ -10,9 +10,10 @@ export const PATH = {
   /// search ///
   SEARCH: '/search',
   /// equipment ///
+  EQUIPMENT_LIST: '/equipment/list',
   EQUIPMENT_DETAIL: '/equipment?id=[id]&type=[type]',
-  EQUIPMENT_REVIEW: '/equipment/review?id=[id]&type=[type]',
-  EQUIPMENT_REVIEW_FORM: '/equipment/review/form?id=[id]&type=[type]',
+  /// community ///
+  COMMUNITY: '/community',
 } as const
 
 export const AUTH_REQUIRED_PATH = Object.values(PATH).reduce((prev, curr) => {

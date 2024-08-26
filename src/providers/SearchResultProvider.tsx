@@ -80,7 +80,6 @@ export default function SearchResultProvider({ children }) {
         offset: searchOffset,
         size: searchSize,
       }
-      console.log('success')
       setIsEndOfPage(metadata.isLast)
       setSearchContextId(metadata.contextId)
       setContents((temp) => {
@@ -101,7 +100,7 @@ export default function SearchResultProvider({ children }) {
     { enabled: isSearchEnable },
     successHandler
   )
-  console.log(data, isLoading)
+
   /**
    * 검색 옵션이 변경되면 contextId, offset 을 초기화 함
    */
