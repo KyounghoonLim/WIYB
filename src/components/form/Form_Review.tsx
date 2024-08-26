@@ -14,8 +14,7 @@ export default function Form_Review() {
   const { modalData: equipment, setModalMetadata } = useContext(modalContext)
 
   const [evaluationMap, setEveluationMap] = useState<any>(
-    // ReviewEvaluationMap['IRON']?.map((obj) => ({ ...obj, score: null }))
-    ReviewEvaluationMap[equipment?.type]?.map((obj) => ({ ...obj, score: null }))
+    ReviewEvaluationMap[equipment?.type || 'IRON']?.map((obj) => ({ ...obj, score: null }))
   )
   const [reviewFileList, setReviewFileList] = useState<Array<File | string>>([])
   const [reviewMessage, setReviewMessage] = useState<string>('')
@@ -55,7 +54,14 @@ export default function Form_Review() {
             <div className="w-full h-full flex flex-col justify-between typograph-12 text-text-label-100">
               <div className="w-full flex flex-col gap-1">
                 <p>{equipment?.brand}</p>
-                <h4 className="typograph-20 font-bold text-black">{equipment?.name}</h4>
+                <div className="w-[248px]">
+                  <h4
+                    className="typograph-20 font-bold text-black truncate"
+                    title={equipment?.name}
+                  >
+                    {equipment?.name}
+                  </h4>
+                </div>
               </div>
               <p>{equipment?.type}</p>
             </div>

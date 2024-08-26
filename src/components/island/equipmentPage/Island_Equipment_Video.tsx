@@ -16,7 +16,7 @@ export default function Island_Equipment_Video({ video }: { video: RelatedVideo 
           className="aspect-video"
         />
         <div className="w-[240px] h-[65px] p-4">
-          <p className="typograph-14 leading-5 truncate-line">{video.title}</p>
+          <p className="typograph-14 !leading-5 truncate-line">{video.title}</p>
         </div>
       </MyLink>
     </Island>

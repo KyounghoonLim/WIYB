@@ -22,12 +22,14 @@ export default function Island_Equipment_Simple() {
           {equipment ? (
             <>
               <p>{equipment.brand}</p>
-              <h1
-                className="typograph-24 font-bold text-black truncate-line"
-                title={equipment.name}
-              >
-                {equipment.name}
-              </h1>
+              <div className="w-[388px]">
+                <h1
+                  className="typograph-24 font-bold text-black truncate-line"
+                  title={equipment.name}
+                >
+                  {equipment.name}
+                </h1>
+              </div>
               <p>{equipment.type}</p>
             </>
           ) : (
