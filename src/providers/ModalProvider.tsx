@@ -2,7 +2,14 @@
 
 import ModalSwitch from 'components/modal/ModalSwitch'
 import { ModalType } from 'constants/modal.constant'
-import { createContext, Dispatch, SetStateAction, useCallback, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useLayoutEffect,
+  useState,
+} from 'react'
 import { ModalMetadata } from 'types/modal.types'
 
 export const modalContext = createContext<{
@@ -37,6 +44,15 @@ export default function ModalProvider({ children }) {
       }
     }
   }, [modalMetadata])
+
+  /// 모달이 열려있을 때 스크롤 방지 ///
+  useLayoutEffect(() => {
+    if (!modalType) return
+    else {
+      document.body.classList.add('overflow-hidden')
+      return () => document.body.classList.remove('overflow-hidden')
+    }
+  }, [modalType])
 
   return (
     <modalContext.Provider
