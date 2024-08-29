@@ -70,7 +70,8 @@
       "diameter": "지름",
       "piece": "피스",
       "dimple": "딤플",
-      "lieDegree": "라이 각"
+      "lieAngle": "라이 각",
+      "model": "모델"
     }
   }
 }

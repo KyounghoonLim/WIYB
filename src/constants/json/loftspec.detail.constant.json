@@ -1,0 +1,5 @@
+{
+  "WOOD": ["numbers", "loftDegree", "lieAngle"],
+  "IRON": ["numbers", "loftDegree", "lieAngle"],
+  "WEDGE": ["model", "loftDegree", "bounce", "grind"]
+}

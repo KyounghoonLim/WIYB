@@ -9,6 +9,7 @@ import skeleton from './_skeleton.json'
 import width from './_width.json'
 import height from './_height.json'
 import shrink from './_shrink.json'
+import dim from './_dim.json'
 
 const utilities = {
   ...gradient,
@@ -22,6 +23,7 @@ const utilities = {
   ...width,
   ...height,
   ...shrink,
+  ...dim,
 }
 
 export default utilities

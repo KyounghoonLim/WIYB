@@ -24,7 +24,7 @@ export default function ListItem_SearchResult_Equipment({
   )
 
   return (
-    <MyLink href={detailPageUrl} className={clsx('list-item h-20')}>
+    <MyLink href={detailPageUrl} className="list-item h-20">
       <Thumbnail_Primary src={equip?.imageUrls?.[0]} width={56} />
       <div className="w-full flex flex-col gap-1 auto-size">
         {equip ? (

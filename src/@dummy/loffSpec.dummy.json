@@ -1,126 +1,135 @@
 {
-  "WOOD": {
-    "keys": ["numbers", "loftDegree", "lieDegree"],
-    "data": [
-      {
-        "numbers": "#3",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#5",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#7",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      }
-    ]
-  },
-  "IRON": {
-    "keys": ["numbers", "loftDegree", "lieDegree"],
-    "data": [
-      {
-        "numbers": "#2",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#3",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#4",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#5",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#6",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#7",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#8",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      },
-      {
-        "numbers": "#9",
-        "loftDegree": "22°",
-        "lieDegree": "61.5°"
-      }
-    ]
-  },
-  "WEDGE": {
-    "keys": ["numbers", "loftDegree", "bounce", "grind"],
-    "data": [
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      },
-      {
-        "numbers": "46.10",
-        "loftDegree": "22°",
-        "bounce": "61.5°",
-        "grind": "F"
-      }
-    ]
-  }
+  "WOOD": [
+    {
+      "numbers": "#3",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#5",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#7",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    }
+  ],
+  "IRON": [
+    {
+      "numbers": "#2",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#3",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#4",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#5",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#6",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#7",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#8",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    },
+    {
+      "numbers": "#9",
+      "loftDegree": 22,
+      "lieAngle": 61.5
+    }
+  ],
+  "WEDGE": [
+    {
+      "model": null,
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    },
+    {
+      "model": "46.10",
+      "loftDegree": 22,
+      "bounce": 61.5,
+      "grind": "F"
+    }
+  ]
 }
