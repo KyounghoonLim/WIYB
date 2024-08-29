@@ -9,8 +9,9 @@ export const PATH = {
   PROFILE: '/profile',
   /// search ///
   SEARCH: '/search',
+  /// popular ///
+  POPULAR: '/popular',
   /// equipment ///
-  EQUIPMENT_LIST: '/equipment/list',
   EQUIPMENT_DETAIL: '/equipment?id=[id]&type=[type]',
   /// community ///
   COMMUNITY: '/community',

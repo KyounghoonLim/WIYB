@@ -1,12 +1,14 @@
 'use client'
 
 import { equipmentContext } from 'providers/EquipmentProvider'
-import { keys, labels } from 'constants/json/equipment.detail.constant.json'
+import { keys } from 'constants/json/equipment.detail.constant.json'
 import { useContext, useMemo } from 'react'
 import Island_Equipment_DetailInfo from 'components/island/equipmentPage/Island_Equipment_DetailInfo'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function Equipment_SpecList({ type }: { type: string }) {
   const { equipment } = useContext(equipmentContext)
+  const { t } = useMyTranslate('equipment.detail')
 
   /**
    * 장비 종류에 따라 리스트 아이템이 달라지므로
@@ -15,7 +17,7 @@ export default function Equipment_SpecList({ type }: { type: string }) {
   const equipmentKeys = useMemo((): string[] => {
     if (!equipment) return Array(keys[type]?.length).fill(undefined)
     else return keys[equipment?.type]
-  }, [equipment])
+  }, [equipment, type])
 
   return (
     <>
@@ -23,8 +25,8 @@ export default function Equipment_SpecList({ type }: { type: string }) {
         {equipmentKeys.map((key, index) => (
           <Island_Equipment_DetailInfo
             key={key + '-' + index}
-            label={labels[key]}
-            value={equipment?.detail?.[key]}
+            label={key && t(key)}
+            value={equipment?.detail?.[key] || ' '}
           />
         ))}
       </div>

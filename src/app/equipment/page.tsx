@@ -1,10 +1,10 @@
 import EquipmentProvider from 'providers/EquipmentProvider'
-import Equipment_Info_Section from './(component)/info_section/Equipment_Info_Section'
-import Equipment_LoftSpec_Section from './(component)/loftspec_section/Equipment_LoftSpec_Section'
-import Equipment_Spec_Section from './(component)/spec_section/Equipment_Spec_Section'
-import Equipment_Video_Section from './(component)/video_section/Equipment_Video_Section'
+import Equipment_Info_Section from './(components)/info_section/Equipment_Info_Section'
+import Equipment_LoftSpec_Section from './(components)/loftspec_section/Equipment_LoftSpec_Section'
+import Equipment_Spec_Section from './(components)/spec_section/Equipment_Spec_Section'
+import Equipment_Video_Section from './(components)/video_section/Equipment_Video_Section'
 import ReviewProvider from 'providers/ReviewProvider'
-import Equipment_Review_Section from './(component)/review_section/Equipment_Review_Section'
+import Equipment_Review_Section from './(components)/review_section/Equipment_Review_Section'
 
 export default function ProductPage({
   searchParams: { id, type },

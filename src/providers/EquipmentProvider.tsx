@@ -1,11 +1,15 @@
 'use client'
 
 import useMyQuery from 'hooks/useMyQuery'
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useMemo } from 'react'
 import { getEquipmentDetailApi } from 'services/equipmentApi'
-import { EquipmentDetail } from 'types/equipment.types'
+import { EquipmentDetail, EquipmentEvaluationMetricAverage } from 'types/equipment.types'
+import { exceptNull } from 'utils/nullUtils'
 
-export const equipmentContext = createContext<{ equipment: EquipmentDetail }>(null)
+export const equipmentContext = createContext<{
+  equipment: EquipmentDetail
+  evaluationMetricAverage: EquipmentEvaluationMetricAverage
+}>(null)
 
 export default function EquipmentProvider({
   id,
@@ -20,5 +24,14 @@ export default function EquipmentProvider({
     enabled: Boolean(id) && Boolean(type),
   })
 
-  return <equipmentContext.Provider value={{ equipment }}>{children}</equipmentContext.Provider>
+  const evaluationMetricAverage = useMemo(
+    () => exceptNull(equipment?.evaluationMetricAverage),
+    [equipment]
+  )
+
+  return (
+    <equipmentContext.Provider value={{ equipment, evaluationMetricAverage }}>
+      {children}
+    </equipmentContext.Provider>
+  )
 }

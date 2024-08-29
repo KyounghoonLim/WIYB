@@ -12,9 +12,11 @@
     "width": "auto",
     "height": "37px",
     "minWidth": "100%",
+    "position": "relative",
     "@apply typograph-16": true,
     "@apply flex-row-start": true,
     " *": {
+      "backgroundColor": "white",
       "borderRight": "1px",
       "borderStyle": "solid",
       "@apply border-neutral-100": true
@@ -24,6 +26,9 @@
     "width": "120px",
     "height": "100%",
     "fontWeight": "bold",
+    "position": "sticky",
+    "top": 0,
+    "left": 0,
     "@apply flex-row-center": true
   },
   ".table-primary-cell": {

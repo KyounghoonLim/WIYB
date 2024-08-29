@@ -2,7 +2,7 @@ import Form_Search from 'components/form/Form_Search'
 import Logo_Main from 'components/logo/Logo_Main'
 import SearchResultProvider from 'providers/SearchResultProvider'
 import Search_Filters from 'components/search/Search_Filters'
-import Search_Results from 'components/search/Search_Results'
+import List_SearchResult from 'components/list/searchPage/List_SearchResult'
 
 export default function SearchPage({
   searchParams: { keyword, sort, filters, page },
@@ -23,7 +23,7 @@ export default function SearchPage({
         </section>
         <section className="w-full flex justify-center items-start gap-3 p-8">
           <Search_Filters />
-          <Search_Results />
+          <List_SearchResult />
         </section>
       </main>
     </SearchResultProvider>

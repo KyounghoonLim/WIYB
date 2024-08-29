@@ -5,9 +5,9 @@
     "type": "Driver",
     "name": "TSR2 Driver",
     "releasedYear": "2024",
-    "viewCount": "123",
+    "viewCount": 123,
     "reviewCount": 1234,
-    "evaluatedCount": "4",
+    "evaluatedCount": 4,
     "imageUrls": ["/images/dummies/image_equip_dummy.png"]
   },
   {
@@ -16,9 +16,9 @@
     "type": "Driver",
     "name": "Paradym Ai Smoke Driver",
     "releasedYear": "2024",
-    "viewCount": "123",
+    "viewCount": 123,
     "reviewCount": 312,
-    "evaluatedCount": "4",
+    "evaluatedCount": 4,
     "imageUrls": ["/images/dummies/image_equip_dummy.png"]
   },
   {
@@ -29,7 +29,7 @@
     "releasedYear": "2024",
     "viewCount": "123",
     "reviewCount": 9,
-    "evaluatedCount": "4",
+    "evaluatedCount": 4,
     "imageUrls": ["/images/dummies/image_equip_dummy.png"]
   },
   {
@@ -38,9 +38,9 @@
     "type": "Driver",
     "name": "P7MC Iron",
     "releasedYear": "2024",
-    "viewCount": "123",
+    "viewCount": 123,
     "reviewCount": 12323121323,
-    "evaluatedCount": "4",
+    "evaluatedCount": 4,
     "imageUrls": ["/images/dummies/image_equip_dummy.png"]
   },
   {
@@ -49,42 +49,9 @@
     "type": "Driver",
     "name": "TSR3 Fairway Wood",
     "releasedYear": "2024",
-    "viewCount": "123",
+    "viewCount": 123,
     "reviewCount": 0,
-    "evaluatedCount": "4",
-    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
-  },
-  {
-    "id": "equip-1",
-    "brand": "titlelist",
-    "type": "Driver",
-    "name": "TSR2",
-    "releasedYear": "2024",
-    "viewCount": "123",
-    "reviewCount": -1,
-    "evaluatedCount": "4",
-    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
-  },
-  {
-    "id": "equip-1",
-    "brand": "titlelist",
-    "type": "Driver",
-    "name": "TSR2",
-    "releasedYear": "2024",
-    "viewCount": "123",
-    "reviewCount": 77,
-    "evaluatedCount": "4",
-    "imageUrls": ["/images/dummies/image_equip_dummy.png"]
-  },
-  {
-    "id": "equip-1",
-    "brand": "titlelist",
-    "type": "Driver",
-    "name": "TSR2",
-    "releasedYear": "2024",
-    "viewCount": "123",
-    "reviewCount": 0.123,
-    "evaluatedCount": "4",
+    "evaluatedCount": 4,
     "imageUrls": ["/images/dummies/image_equip_dummy.png"]
   }
 ]

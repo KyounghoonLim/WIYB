@@ -3,16 +3,15 @@
 import { Chart } from 'chart.js'
 import useGraph from 'hooks/graph/useGraph'
 import { useCallback, useRef } from 'react'
-import { EquipmentEvaluationMetric } from 'types/equipment.types'
 
 export default function Graph({
-  evaluationMetric,
-  labels,
+  label,
+  data,
   width = 300,
   height = 300,
 }: {
-  evaluationMetric: EquipmentEvaluationMetric
-  labels: string[]
+  label: string[]
+  data: number[]
   width?: number
   height?: number
 }) {
@@ -22,7 +21,7 @@ export default function Graph({
 
   const getGraph = useCallback((element: HTMLCanvasElement) => {
     canvasRef.current = element
-    graphRef.current = initGraph(element, labels, evaluationMetric)
+    graphRef.current = initGraph(element, label, data)
   }, [])
 
   return <canvas ref={getGraph} width={width} height={height} />

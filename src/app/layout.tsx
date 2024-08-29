@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import ModalProvider from 'providers/ModalProvider'
 import Nav from 'components/nav/Nav'
+import LocaleProvider from 'providers/LocaleProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -30,23 +31,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <Suspense>
-        <QueryProvider>
-          <SearchOptionProvider>
-            <SearchProvider>
-              <ModalProvider>
-                <body className="APP-CONTAINER bg-bg-light">
-                  <Nav />
-                  {children}
-                  <footer className="FOOTER" />
-                  <div id="modal" />
-                  <div id="overlay" />
-                </body>
-              </ModalProvider>
-            </SearchProvider>
-          </SearchOptionProvider>
-        </QueryProvider>
+        <LocaleProvider>
+          <QueryProvider>
+            <SearchOptionProvider>
+              <SearchProvider>
+                <ModalProvider>
+                  <body className="APP-CONTAINER bg-bg-light">
+                    <Nav />
+                    {children}
+                    <footer className="FOOTER" />
+                    <div id="modal" />
+                    <div id="overlay" />
+                  </body>
+                </ModalProvider>
+              </SearchProvider>
+            </SearchOptionProvider>
+          </QueryProvider>
+        </LocaleProvider>
       </Suspense>
     </html>
   )

@@ -13,7 +13,7 @@ export default function Nav() {
           <MyLink href={PATH.MAIN} className="p-4">
             WIYB
           </MyLink>
-          <MyLink href={PATH.EQUIPMENT_LIST} className="p-4">
+          <MyLink href={PATH.POPULAR} className="p-4">
             장비
           </MyLink>
           <MyLink href={PATH.COMMUNITY} className="p-4">

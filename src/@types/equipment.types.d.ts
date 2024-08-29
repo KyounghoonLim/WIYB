@@ -13,7 +13,7 @@ export type Equipment = {
 }
 
 export type EquipmentDetail = Equipment & {
-  evaluationMetricAverage: EquipmentEvaluationMetric
+  evaluationMetricAverage: EquipmentEvaluationMetricAverage
   detail: {
     color: string
     /**
@@ -61,4 +61,21 @@ export type RelatedVideo = {
   tags: unknown
 }
 
-export type EquipmentEvaluationMetric = number[]
+export type EquipmentEvaluationMetricAverage = {
+  [key: EvaluationMetricKeys]: number
+}
+
+export type EvaluationMetricKeys =
+  | 'forgiveness'
+  | 'distance'
+  | 'accuracy'
+  | 'impactFeel'
+  | 'impactSound'
+  | 'backSpin'
+  | 'distanceControl'
+  | 'stiffness'
+  | 'weight'
+  | 'trajectory'
+  | 'touce'
+  | 'gripComfort'
+  | 'durability'

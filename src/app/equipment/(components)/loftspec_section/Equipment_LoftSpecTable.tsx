@@ -4,11 +4,12 @@ import { equipmentContext } from 'providers/EquipmentProvider'
 import { useContext, useMemo } from 'react'
 import Island from 'components/island/Island'
 import { dummy_loftSpec } from '@/@dummy'
-import { labels } from 'constants/json/equipment.detail.constant.json'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function Equipment_LoftSpecTable({ type }: { type: string }) {
   const { equipment } = useContext(equipmentContext)
+  const { t } = useMyTranslate('equipment.detail')
 
   const { keys, data } = useMemo(() => {
     const _type = Object.keys(dummy_loftSpec).includes(type) ? type : 'IRON'
@@ -27,7 +28,7 @@ export default function Equipment_LoftSpecTable({ type }: { type: string }) {
               <tbody>
                 {keys.map((key, keyIndex) => (
                   <tr key={key} className="table-primary-row">
-                    <td className="table-primary-head">{labels[key]}</td>
+                    <td className="table-primary-head">{t(key)}</td>
                     {data.map((spec, specIndex) => (
                       <td
                         key={key + '-' + specIndex}

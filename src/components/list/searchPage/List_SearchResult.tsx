@@ -8,10 +8,9 @@ import { useContext } from 'react'
 import SearchIcon from 'icons/icon_search_secondary.svg'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
 import Island from 'components/island/Island'
-import Select_Primary from 'components/select/Select_Primary'
-import Search_Sorts from './Search_Sorts'
+import Search_Sorts from 'components/search/Search_Sorts'
 
-export default function Search_Results() {
+export default function List_SearchResult() {
   const { contents, metadata, isLoading, isEndOfPage, goToNextPage } =
     useContext(searchResultContext)
   const { intersectionRef } = useIntersection({

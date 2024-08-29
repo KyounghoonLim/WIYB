@@ -4,35 +4,45 @@ import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
 import Form from './Form'
 import { SyntheticEvent, useCallback, useContext, useLayoutEffect, useState } from 'react'
 import Island from 'components/island/Island'
-import ReviewEvaluationMap from 'constants/json/review.evaluationMap.json'
+import evaluationKeys from 'constants/json/evaluation.keys.json'
 import ImageUploader_Multiple from 'components/uploader/ImageUploader_Multiple'
 import Textarea from 'components/textarea/Textarea'
 import { modalContext } from 'providers/ModalProvider'
 import Button_Primary from 'components/button/Button_Primary'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function Form_Review() {
   const { modalData: equipment, setModalMetadata } = useContext(modalContext)
 
-  const [evaluationMap, setEveluationMap] = useState<any>(
-    ReviewEvaluationMap[equipment?.type || 'IRON']?.map((obj) => ({ ...obj, score: null }))
+  const { t } = useMyTranslate('equipment.evaluation')
+
+  const [evaluationMap, setEveluationMap] = useState<Map<string, number>>(
+    evaluationKeys[equipment?.type]?.reduce((map, key) => {
+      return {
+        ...map,
+        [key]: null,
+      }
+    }, new Map())
   )
   const [reviewFileList, setReviewFileList] = useState<Array<File | string>>([])
   const [reviewMessage, setReviewMessage] = useState<string>('')
 
   const changeHandler = useCallback((key: string, score: number) => {
-    setEveluationMap((temp) => {
-      return temp.reduce((prev, curr, idx) => {
-        if (curr.key !== key) return [...prev, curr]
-        else {
-          const newItem = { ...curr, score }
-          return [...prev, newItem]
-        }
-      }, [])
-    })
+    setEveluationMap((temp) => ({ ...temp, [key]: score }))
   }, [])
 
+  console.log(
+    !Object.keys(evaluationMap).some((key) => evaluationMap[key]),
+    !reviewFileList.length,
+    !reviewMessage
+  )
+
   useLayoutEffect(() => {
-    if (!evaluationMap?.some((ele) => ele.score) && !reviewFileList.length && !reviewMessage) {
+    if (
+      !Object.keys(evaluationMap).some((key) => evaluationMap[key]) &&
+      !reviewFileList.length &&
+      !reviewMessage
+    ) {
       setModalMetadata(null)
     } else {
       setModalMetadata({
@@ -68,12 +78,12 @@ export default function Form_Review() {
           </Island>
           {/* 라디오 섹션 */}
           <Island className="w-[360px] h-auto flex-col-start gap-[10px] p-4">
-            {evaluationMap.map((obj) => (
+            {Object.keys(evaluationMap).map((key) => (
               <RadioGroup_Review
-                key={obj?.label}
-                title={obj?.label}
-                description={obj?.description}
-                onChange={(score) => changeHandler(obj?.key, score)}
+                key={key}
+                title={t('key.' + key)}
+                description={t('description.' + key)}
+                onChange={(score) => changeHandler(key, score)}
               />
             ))}
           </Island>
