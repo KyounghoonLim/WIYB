@@ -8,8 +8,9 @@ export type Equipment = {
   releasedYear: string
   viewCount: number
   reviewCount: number
-  evaluatedCount: number
   imageUrls: string[]
+  score?: number
+  isBookmarked?: boolean
 }
 
 export type EquipmentDetail = Equipment & {
@@ -44,6 +45,10 @@ export type EquipmentDetail = Equipment & {
     gripRound?: number
     ballPiece?: string
     ballCover?: string
+    /**
+     * loft spec table
+     */
+    loftSpec?: object[]
     [key: string]: any
   }
   reviews: Review[]

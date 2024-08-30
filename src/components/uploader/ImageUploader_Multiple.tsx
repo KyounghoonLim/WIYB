@@ -19,11 +19,12 @@ import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
 export default function ImageUploader_Multiple({
   fileList,
   onUpload,
+  maxLength = 5,
   id,
   className,
 }: ImageUploader_Multiple_Props) {
   const { current: limitFileSize } = useRef<number>(5 * 1024 * 1024)
-  const { current: limitFileLength } = useRef<number>(4)
+  const { current: limitFileLength } = useRef<number>(maxLength)
   const inputRef = useRef<HTMLInputElement>()
 
   const [imageUrlList, setImageUrlList] = useState<string[]>([])

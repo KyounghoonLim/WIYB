@@ -47,7 +47,7 @@ export default function ListItem_SearchResult_Equipment({
         <div className="w-[120px] flex flex-col items-end typograph-14 text-black">
           <span className="flex-row-center gap-1">
             <StarIcon />
-            {4.5}
+            {equip?.score}
           </span>
           <span className="flex-row-center text-nowrap">
             <h3 className="font-bold inline-block">{numberAddComma(equip.reviewCount, 9999)}</h3>

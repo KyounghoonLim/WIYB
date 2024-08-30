@@ -32,7 +32,6 @@ export default function MyLink({
       throttling(() => {
         return new Promise((resolve) => {
           const interval = setInterval(() => {
-            console.log(routeChangedRef.current)
             if (href === pathname || href === '#') {
               clearInterval(interval)
               resolve(true)

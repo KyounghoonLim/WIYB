@@ -6,5 +6,6 @@ export type Review = {
   imageUrls: string[]
   createdAt: Date | string
   updatedAt: Date | string
+  isLiked: boolean
   user: User
 }

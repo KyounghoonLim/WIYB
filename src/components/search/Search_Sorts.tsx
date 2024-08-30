@@ -1,10 +1,12 @@
 'use client'
 
-import Select_Primary from 'components/select/Select_Primary'
 import { SEARCH_SORT, SEARCH_SORT_LABEL, SearchSortType } from 'constants/search.constant'
+import dynamic from 'next/dynamic'
 import { searchOptionContext } from 'providers/SearchOptionProvider'
 import { useCallback, useContext, useMemo } from 'react'
 import { SelectOption } from 'types/components/select/select.interface'
+
+const Select_Primary = dynamic(() => import('components/select/Select_Primary'), { ssr: false })
 
 export default function Search_Sorts() {
   const { searchSort, setSearchSort } = useContext(searchOptionContext)

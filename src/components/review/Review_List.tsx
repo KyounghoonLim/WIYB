@@ -8,7 +8,7 @@ import { useContext } from 'react'
 
 export default function Review_List() {
   const { reviews, isEndOfPage, goToNextPage } = useContext(reviewContext)
-  console.log(isEndOfPage)
+
   return (
     <Island className="w-full h-auto p-0 overflow-hidden">
       <List_Primary items={reviews} Component={ListItem_Review} />

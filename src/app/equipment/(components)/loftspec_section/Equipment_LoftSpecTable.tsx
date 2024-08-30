@@ -17,24 +17,27 @@ export default function Equipment_LoftSpecTable({ type }: { type: string }) {
   const { keys, data } = useMemo(() => {
     return {
       keys: loftSpecKeys[type],
-      data: dummy_loftSpec[type],
+      data: equipment?.detail?.loftSpec || [],
     }
-  }, [type])
+  }, [type, equipment])
 
   /**
    * 값은 전부 숫자로 들어오므로
    * 각도를 나타내는 키의 경우 (°)를 붙여서 랜더링
    */
   const dataWithUnit = useCallback((key: string, value: number) => {
-    switch (key) {
-      case 'loftDegree':
-        return value + '°'
-      case 'lieAngle':
-        return value + '°'
-      case 'bounce':
-        return value + '°'
-      default:
-        return value
+    if (!value) return value
+    else {
+      switch (key) {
+        case 'loftDegree':
+          return value + '°'
+        case 'lieAngle':
+          return value + '°'
+        case 'bounce':
+          return value + '°'
+        default:
+          return value
+      }
     }
   }, [])
 

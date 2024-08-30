@@ -12,15 +12,19 @@ export default function Modal({
   children: ReactNode
   HeaderComponent?: FC
 }) {
-  const { closeModal } = useContext(modalContext)
+  const { modalMetadata, closeModal } = useContext(modalContext)
 
   const backgroundClickHandler = useCallback(
     (e: SyntheticEvent) => {
       e.stopPropagation()
-      if (!(e.target as HTMLElement)?.dataset?.['modalBackground']) return
+      if (
+        !(e.target as HTMLElement)?.dataset?.['modalBackground'] ||
+        modalMetadata?.close?.preventBackgroundTouch
+      )
+        return
       else closeModal()
     },
-    [closeModal]
+    [modalMetadata, closeModal]
   )
 
   return (

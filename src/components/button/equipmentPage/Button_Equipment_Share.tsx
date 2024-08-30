@@ -11,7 +11,7 @@ export default function Button_Equipment_Share() {
     <Button_Primary
       icon={() => ShareIcon({})}
       disabled={!Boolean(equipment)}
-      className="w-20 h-14 rounded-xl bg-white  hover:bg-[#F0F0F0] disabled:bg-neutral-200"
+      className="w-20 h-14 rounded-xl bg-white  hover:bg-[#F5F5F5] disabled:bg-neutral-200"
     />
   )
 }

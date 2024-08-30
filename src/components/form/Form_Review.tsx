@@ -2,7 +2,7 @@
 
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
 import Form from './Form'
-import { SyntheticEvent, useCallback, useContext, useLayoutEffect, useState } from 'react'
+import { SyntheticEvent, useCallback, useContext, useLayoutEffect, useMemo, useState } from 'react'
 import Island from 'components/island/Island'
 import evaluationKeys from 'constants/json/evaluation.keys.json'
 import ImageUploader_Multiple from 'components/uploader/ImageUploader_Multiple'
@@ -10,13 +10,17 @@ import Textarea from 'components/textarea/Textarea'
 import { modalContext } from 'providers/ModalProvider'
 import Button_Primary from 'components/button/Button_Primary'
 import useMyTranslate from 'hooks/useMyTranslate'
+import { uploadImageApi } from 'services/commonApi'
+import { postEquipmentReviewApi } from 'services/reviewApis'
+import { reviewContext } from 'providers/ReviewProvider'
 
 export default function Form_Review() {
-  const { modalData: equipment, setModalMetadata } = useContext(modalContext)
+  const { modalData: equipment, setModalMetadata, closeModal } = useContext(modalContext)
+  const {} = useContext(reviewContext)
 
   const { t } = useMyTranslate('equipment.evaluation')
 
-  const [evaluationMap, setEveluationMap] = useState<Map<string, number>>(
+  const [reviewEvaluationMap, setReviewEveluationMap] = useState<Map<string, number>>(
     evaluationKeys[equipment?.type]?.reduce((map, key) => {
       return {
         ...map,
@@ -27,35 +31,68 @@ export default function Form_Review() {
   const [reviewFileList, setReviewFileList] = useState<Array<File | string>>([])
   const [reviewMessage, setReviewMessage] = useState<string>('')
 
+  const { isChanged, isValid } = useMemo(() => {
+    const isChanged =
+      Object.values(reviewEvaluationMap).some((score) => score) ||
+      reviewFileList.length ||
+      reviewMessage
+    const isValid =
+      Object.values(reviewEvaluationMap).every((score) => score) && /// 모든 평가 항목에 점수가 매겨져 있는지
+      reviewMessage.length <= 300 && /// 리뷰 글이 300자 이하인지
+      reviewFileList.length <= 5 /// 이미지 파일이 5개 이하인지
+    return { isChanged, isValid }
+  }, [reviewEvaluationMap, reviewFileList, reviewMessage])
+
+  /**
+   * radio group 핸들러
+   */
   const changeHandler = useCallback((key: string, score: number) => {
-    setEveluationMap((temp) => ({ ...temp, [key]: score }))
+    setReviewEveluationMap((temp) => ({ ...temp, [key]: score }))
   }, [])
 
-  console.log(
-    !Object.keys(evaluationMap).some((key) => evaluationMap[key]),
-    !reviewFileList.length,
-    !reviewMessage
-  )
+  const submitHandler = useCallback(async () => {
+    if (!isValid || !equipment?.id) return
+    else {
+      try {
+        let imageUrlList
+        if (reviewFileList.length) {
+          const formData = new FormData()
+          reviewFileList.forEach((file) => {
+            formData.append('images', file)
+          })
+          const uploadResult = (await uploadImageApi(formData)).filter((url) => url)
+          uploadResult.length && (imageUrlList = uploadResult)
+        }
+        await postEquipmentReviewApi(equipment.id, reviewEvaluationMap, reviewMessage, imageUrlList)
 
+        window.alert('리뷰가 작성되었습니다.')
+        setModalMetadata(null)
+        closeModal()
+      } catch (err) {
+        window.alert('리뷰 작성에 실패했습니다.')
+      }
+    }
+  }, [equipment, isValid, reviewEvaluationMap, reviewFileList, reviewMessage])
+
+  /**
+   * 리뷰가 작성중일 때 모달 백그라운드 클릭으로 나가는 것 방지
+   */
   useLayoutEffect(() => {
-    if (
-      !Object.keys(evaluationMap).some((key) => evaluationMap[key]) &&
-      !reviewFileList.length &&
-      !reviewMessage
-    ) {
+    if (!isChanged) {
       setModalMetadata(null)
     } else {
       setModalMetadata({
         close: {
           condition: false,
           message: '정말로 나가시겠습니까?\n작성중인 내용은 삭제됩니다.',
+          preventBackgroundTouch: true,
         },
       })
     }
-  }, [evaluationMap, reviewFileList, reviewMessage])
+  }, [isChanged])
 
   return (
-    <Form onSubmit={null} className="gap-8">
+    <Form onSubmit={submitHandler} className="gap-8">
       <article className="flex gap-3">
         <section className="flex-col-start gap-3">
           {/* 장비 간단 정보 */}
@@ -78,7 +115,7 @@ export default function Form_Review() {
           </Island>
           {/* 라디오 섹션 */}
           <Island className="w-[360px] h-auto flex-col-start gap-[10px] p-4">
-            {Object.keys(evaluationMap).map((key) => (
+            {Object.keys(reviewEvaluationMap).map((key) => (
               <RadioGroup_Review
                 key={key}
                 title={t('key.' + key)}
@@ -98,6 +135,7 @@ export default function Form_Review() {
               value={reviewMessage}
               onChange={setReviewMessage}
               placeholder="이 장비에 대해 리뷰를 남겨주세요."
+              maxLength={300}
               className="h-full"
             />
           </Island>
@@ -107,6 +145,7 @@ export default function Form_Review() {
         type="submit"
         text="평가 점수/리뷰 작성하기"
         className="w-[576px] rounded-xl"
+        disabled={!isValid}
       />
     </Form>
   )
@@ -116,7 +155,7 @@ function RadioGroup_Review({ title, description = '', onChange }) {
   const changeHandler = useCallback(
     (e: SyntheticEvent) => {
       const { value } = e.target as HTMLInputElement
-      onChange?.(value)
+      onChange?.(Number(value))
     },
     [onChange]
   )
@@ -133,8 +172,9 @@ function RadioGroup_Review({ title, description = '', onChange }) {
       <div className="flex-row-start">
         {Array(5)
           .fill(undefined)
-          .map((_, index) => {
-            const id = title + '-' + index
+          .map((_, idx) => {
+            const id = title + '-' + idx
+            const index = idx + 1
             return (
               <label
                 className="w-[65.6px] h-[33px] flex-row-center gap-2 typograph-12 cursor-pointer"

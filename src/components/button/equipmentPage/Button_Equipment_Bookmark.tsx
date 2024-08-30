@@ -13,11 +13,11 @@ export default function Button_Equipment_Bookmark() {
   return (
     <Button_Primary
       icon={() =>
-        BookmarkIcon({ className: clsx(isBookmarked ? 'fill-[#FFD600]' : 'fill-neutral-300') })
+        BookmarkIcon({ className: clsx(isBookmarked ? 'fill-[#FFD600]' : 'fill-[#C8C8C8]') })
       }
       onClick={() => setIsBookmarked(!isBookmarked)}
       disabled={!Boolean(equipment)}
-      className="w-20 h-14 rounded-xl bg-white hover:bg-[#F0F0F0] disabled:bg-neutral-200"
+      className="w-20 h-14 rounded-xl bg-white hover:bg-[#F5F5F5] disabled:bg-neutral-200"
     />
   )
 }

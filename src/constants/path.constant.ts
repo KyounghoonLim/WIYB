@@ -9,10 +9,9 @@ export const PATH = {
   PROFILE: '/profile',
   /// search ///
   SEARCH: '/search',
-  /// popular ///
-  POPULAR: '/popular',
   /// equipment ///
   EQUIPMENT_DETAIL: '/equipment?id=[id]&type=[type]',
+  EQUIPMENT_POPULAR: '/equipment/popular',
   /// community ///
   COMMUNITY: '/community',
 } as const
@@ -60,8 +59,11 @@ export const SERVICE_PATH = {
   POPULAR_SEARCH_KEYWORDS: '/search/popular/keyword',
   /// equipment ///
   EQUIPMENT_DETAIL: '/product/[id]/[type]',
-  EQUIPMENT_REVIEW: '/product/[id]/review',
   POPULAR_EQUIPMENTS: '/product/most/view/simple',
+  BOOKMARK_EQUIPMENT: '/product/[id]/bookmark',
+  /// review ///
+  REVIEW: '/product/[equipmentId]/review',
+  LIKE_REVIEW: '/product/[equipmentId]/review/[reviewId]/like',
   /// common ///
   UPLOAD_IMAGE: '/image',
   /// constant ///

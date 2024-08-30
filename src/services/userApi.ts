@@ -13,8 +13,14 @@ function setUserProfileApi(nickname: string, gender: GenderType, birth: Date | s
   })
 }
 
-function getUserProfileApi(userId?: string): Promise<User> {
-  return myAxios.get(SERVICE_PATH.GET_USER + (userId ? `/${userId}` : ''))
+async function getUserProfileApi(userId?: string): Promise<User> {
+  try {
+    const user: User = await myAxios.get(SERVICE_PATH.GET_USER + (userId ? `/${userId}` : ''))
+    if (!user.id || !user.nickname || !user.gender || !user.birth) throw new Error()
+    else return user
+  } catch (err) {
+    throw err
+  }
 }
 
 function editUserProfileApi(

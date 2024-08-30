@@ -14,27 +14,25 @@ export const popularContext = createContext<{
 export default function PopluarProvider({ children }) {
   const [type, setType] = useState<EquipmentType>(null)
 
-  const { data: popularItemsByType } = useMyQuery([type], (type: EquipmentType) => {
-    if (!type) {
-      const top100 = Array(20).fill(dummy_searchResultEquipment).flat()
-      return top100
-    } else {
-      const top5 = dummy_searchResultEquipment
-      return Promise.resolve(
-        (popluarEquipmentKeys[type] as object[]).reduce((prev, curr: object) => {
-          return {
-            ...prev,
-            [curr['key']]: {
-              content: top5,
-              label: curr['label'],
-            },
-          }
-        }, {})
-      )
-    }
-  })
-
-  console.log(popularItemsByType)
+  // const { data: popularItemsByType } = useMyQuery([type], (type: EquipmentType) => {
+  //   if (!type) {
+  //     const top100 = Array(20).fill(dummy_searchResultEquipment).flat()
+  //     return top100
+  //   } else {
+  //     const top5 = dummy_searchResultEquipment
+  //     return Promise.resolve(
+  //       (popluarEquipmentKeys[type] as object[]).reduce((prev, curr: object) => {
+  //         return {
+  //           ...prev,
+  //           [curr['key']]: {
+  //             content: top5,
+  //             label: curr['label'],
+  //           },
+  //         }
+  //       }, {})
+  //     )
+  //   }
+  // })
 
   return <popularContext.Provider value={{ type, setType }}>{children}</popularContext.Provider>
 }

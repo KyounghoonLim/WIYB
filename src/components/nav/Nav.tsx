@@ -3,8 +3,10 @@
 import clsx from 'clsx'
 import MyLink from 'components/link/MyLink'
 import { PATH } from 'constants/path.constant'
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
-import { useContext } from 'react'
+
+const Button_User = dynamic(() => import('components/button/nav/Button_User'), { ssr: false })
 
 export default function Nav() {
   const pathname = usePathname()
@@ -17,8 +19,8 @@ export default function Nav() {
             WIYB
           </MyLink>
           <MyLink
-            href={PATH.POPULAR}
-            className={clsx('p-4', pathname === PATH.POPULAR && 'font-bold')}
+            href={PATH.EQUIPMENT_POPULAR}
+            className={clsx('p-4', pathname === PATH.EQUIPMENT_POPULAR && 'font-bold')}
           >
             장비
           </MyLink>
@@ -29,11 +31,9 @@ export default function Nav() {
             커뮤니티
           </MyLink>
         </section>
-        {/* <section className="flex-row-center typograph-16 font-normal">
-          <MyLink href={PATH.LOGIN} className="p-4">
-            로그인해주세요.
-          </MyLink>
-        </section> */}
+        <section className="flex-row-center typograph-16 font-normal">
+          {pathname !== PATH.LOGIN && pathname !== PATH.SIGN && <Button_User />}
+        </section>
       </div>
     </nav>
   )

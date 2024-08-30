@@ -19,10 +19,15 @@ export default function useHorizontalScroll() {
   }, [])
 
   const horizontalScrollRef = useCallback((ele: HTMLElement) => {
-    ref.current = ele
-    ele.addEventListener('mouseover', mouseoverHandler)
-    ele.addEventListener('mouseleave', mouseleaveHandler)
-    ele.addEventListener('wheel', wheelHandler)
+    if (!ele) return
+    else if (ele.parentElement.clientWidth >= ele.scrollWidth)
+      return // 가로 스크롤이 되지 않는 사이즈인 경우 이벤트 추가하지 않음
+    else {
+      ref.current = ele
+      ele?.addEventListener('mouseover', mouseoverHandler)
+      ele?.addEventListener('mouseleave', mouseleaveHandler)
+      ele?.addEventListener('wheel', wheelHandler)
+    }
   }, [])
 
   /// clean up ///

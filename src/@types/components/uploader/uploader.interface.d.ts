@@ -5,6 +5,7 @@ interface ImageUploader_Multiple_Props {
   onUpload:
     | React.Dispatch<Array<File | string>>
     | ((fileList: Array<File | string>) => any | Primise<any>)
+  maxLength?: number
   id?: string
   className?: string
 }

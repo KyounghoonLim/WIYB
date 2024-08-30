@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext } from 'react'
-import Input_Search from '../Input/Input_Search'
+import Input_Search from '../input/Input_Search'
 import Form from './Form'
 import { searchOptionContext } from 'providers/SearchOptionProvider'
 import { searchContext } from 'providers/SearchProvider'

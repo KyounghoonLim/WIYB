@@ -8,6 +8,7 @@ import {
   SetStateAction,
   useCallback,
   useLayoutEffect,
+  useRef,
   useState,
 } from 'react'
 import { ModalMetadata } from 'types/modal.types'
@@ -15,18 +16,23 @@ import { ModalMetadata } from 'types/modal.types'
 export const modalContext = createContext<{
   modalType: ModalType
   modalData: any
+  modalMetadata: ModalMetadata
   openModal: (type: ModalType, data?: any, metadata?: ModalMetadata) => void
   closeModal: () => void
   setModalMetadata: Dispatch<SetStateAction<ModalMetadata>>
 }>(null)
 
 export default function ModalProvider({ children }) {
+  const metadataRef = useRef<ModalMetadata>(null)
   /**
    * 현재 오픈된 모달
    */
   const [modalType, setModalType] = useState<ModalType>(null)
   const [modalData, setModalData] = useState<any>(null)
-  const [modalMetadata, setModalMetadata] = useState<ModalMetadata>(null)
+
+  const setModalMetadata = useCallback((metadata: ModalMetadata) => {
+    metadataRef.current = metadata
+  }, [])
 
   const openModal = useCallback((type: ModalType, data?: any, medatada?: ModalMetadata) => {
     setModalType(type)
@@ -35,15 +41,15 @@ export default function ModalProvider({ children }) {
   }, [])
 
   const closeModal = useCallback(() => {
-    if (!modalMetadata?.close || modalMetadata.close.condition) setModalType(null)
+    if (!metadataRef.current?.close || metadataRef.current?.close.condition) setModalType(null)
     else {
-      if (window.confirm(modalMetadata.close.message || '정말로 나가시겠습니까?')) {
+      if (window.confirm(metadataRef.current?.close.message || '정말로 나가시겠습니까?')) {
         setModalType(null)
         setModalData(null)
         setModalMetadata(null)
       }
     }
-  }, [modalMetadata])
+  }, [])
 
   /// 모달이 열려있을 때 스크롤 방지 ///
   useLayoutEffect(() => {
@@ -59,6 +65,7 @@ export default function ModalProvider({ children }) {
       value={{
         modalType,
         modalData,
+        modalMetadata: metadataRef.current,
         openModal,
         closeModal,
         setModalMetadata,

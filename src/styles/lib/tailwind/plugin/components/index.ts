@@ -14,6 +14,8 @@ import table from './_table.json'
 import modal from './_modal.json'
 import uploader from './_uploader.json'
 import textarea from './_textarea.json'
+import radio from './_radio.json'
+import label from './_label.json'
 
 const components = {
   ...container,
@@ -32,6 +34,8 @@ const components = {
   ...modal,
   ...uploader,
   ...textarea,
+  ...radio,
+  ...label,
 }
 
 export default components

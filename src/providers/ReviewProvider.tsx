@@ -1,18 +1,9 @@
 'use client'
 
-import { dummy_review } from '@/@dummy'
 import { REVIEW_SORT, ReviewSortType } from 'constants/review.constant'
 import useMyQuery from 'hooks/useMyQuery'
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
-import { getEquipmentReviewsApi } from 'services/equipmentApi'
+import { createContext, ReactNode, useCallback, useMemo, useState } from 'react'
+import { getEquipmentReviewsApi } from 'services/reviewApis'
 import { Review } from 'types/review.types'
 
 export const reviewContext = createContext<{
@@ -25,8 +16,7 @@ export const reviewContext = createContext<{
 
 export default function ReviewProvider({ children, id }: { children: ReactNode; id: string }) {
   /// 최초 리뷰 저장용 ///
-  //@ts-ignore
-  const [reviews, setReviews] = useState<Review[]>(dummy_review)
+  const [reviews, setReviews] = useState<Review[]>([])
   /// 리뷰 정렬 ///
   const [reviewSort, setReviewSort] = useState<ReviewSortType>(REVIEW_SORT.POPULAR)
   /// 리뷰 페이지네이션 ///
@@ -71,15 +61,14 @@ export default function ReviewProvider({ children, id }: { children: ReactNode; 
     }
   }, [popularReviews, descReviews, ascReviews, reviewSort, reviewPage, pageOfView])
 
-  const postReview = useCallback(() => {}, [])
-
   const goToNextPage = useCallback(() => setReviewPage((temp) => temp + 1), [])
 
   const changeSort = useCallback((value: ReviewSortType) => {
     setReviewPage(1)
     setReviewSort(value)
   }, [])
-  // useMyQuery([id], getEquipmentReviewsApi, { enabled: Boolean(reviews.length) }, setReviews)
+
+  useMyQuery([id], getEquipmentReviewsApi, { enabled: Boolean(reviews.length) }, setReviews)
 
   return (
     <reviewContext.Provider

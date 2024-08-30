@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import '@/styles/global.css'
 import QueryProvider from '@/providers/QueryProvider'
-import SearchOptionProvider from 'providers/SearchOptionProvider'
-import SearchProvider from 'providers/SearchProvider'
 import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import ModalProvider from 'providers/ModalProvider'
 import Nav from 'components/nav/Nav'
 import LocaleProvider from 'providers/LocaleProvider'
+import UserProvider from 'providers/UserProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -35,19 +34,17 @@ export default function RootLayout({
       <Suspense>
         <LocaleProvider>
           <QueryProvider>
-            <SearchOptionProvider>
-              <SearchProvider>
-                <ModalProvider>
-                  <body className="APP-CONTAINER bg-bg-light">
-                    <Nav />
-                    {children}
-                    <footer className="FOOTER" />
-                    <div id="modal" />
-                    <div id="overlay" />
-                  </body>
-                </ModalProvider>
-              </SearchProvider>
-            </SearchOptionProvider>
+            <UserProvider>
+              <ModalProvider>
+                <body className="APP-CONTAINER bg-bg-light">
+                  <Nav />
+                  {children}
+                  <footer className="FOOTER" />
+                  <div id="modal" />
+                  <div id="overlay" />
+                </body>
+              </ModalProvider>
+            </UserProvider>
           </QueryProvider>
         </LocaleProvider>
       </Suspense>

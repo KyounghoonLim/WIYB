@@ -1,13 +1,15 @@
 'use client'
 
-import Select_Primary from 'components/select/Select_Primary'
 import { REVIEW_SORT, REVIEW_SORT_LABEL, ReviewSortType } from 'constants/review.constant'
+import dynamic from 'next/dynamic'
 import { reviewContext } from 'providers/ReviewProvider'
 import { useCallback, useContext, useMemo } from 'react'
 import { SelectOption } from 'types/components/select/select.interface'
 
+const Select_Primary = dynamic(() => import('components/select/Select_Primary'), { ssr: false })
+
 export default function Review_Sorts() {
-  const { reviewSort, changeSort } = useContext(reviewContext)
+  const { reviews, reviewSort, changeSort } = useContext(reviewContext)
 
   const reviewSortOptions = useMemo((): SelectOption[] => {
     return Object.keys(REVIEW_SORT).map((key) => ({
@@ -20,5 +22,11 @@ export default function Review_Sorts() {
     changeSort(value as ReviewSortType)
   }, [])
 
-  return <Select_Primary options={reviewSortOptions} value={reviewSort} onChange={changeHandler} />
+  return (
+    <>
+      {Boolean(reviews.length) && (
+        <Select_Primary options={reviewSortOptions} value={reviewSort} onChange={changeHandler} />
+      )}
+    </>
+  )
 }

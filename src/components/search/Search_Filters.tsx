@@ -1,7 +1,7 @@
 'use client'
 
 import Button_Secondary from 'components/button/Button_Secondary'
-import Input_Checkbox from 'components/Input/Input_Checkbox'
+import Input_Checkbox from 'components/input/Input_Checkbox'
 import { searchOptionContext } from 'providers/SearchOptionProvider'
 import { useCallback, useContext } from 'react'
 

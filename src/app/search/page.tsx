@@ -3,6 +3,7 @@ import Logo_Main from 'components/logo/Logo_Main'
 import SearchResultProvider from 'providers/SearchResultProvider'
 import Search_Filters from 'components/search/Search_Filters'
 import List_SearchResult from 'components/list/searchPage/List_SearchResult'
+import SearchProvider from 'providers/SearchProvider'
 
 export default function SearchPage({
   searchParams: { keyword, sort, filters, page },
@@ -10,7 +11,7 @@ export default function SearchPage({
   searchParams: { keyword?: string; sort?: string; filters?: string; page?: number }
 }) {
   return (
-    <SearchResultProvider>
+    <SearchProvider>
       <main className="PAGE-CONTAINER">
         <section className="w-full h-fit bg-white">
           <article className="CONTENT-CONTAINER w-full h-[174px] flex-col-center">
@@ -26,6 +27,6 @@ export default function SearchPage({
           <List_SearchResult />
         </section>
       </main>
-    </SearchResultProvider>
+    </SearchProvider>
   )
 }
