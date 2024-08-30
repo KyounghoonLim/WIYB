@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react'
 import useSearchHistory from 'hooks/search/useSearchHistory'
-import { SEARCH_SORT, SearchSortType } from '../constants/search.constant'
+import { SEARCH_SORT, SearchSortType } from 'constants/search.constant'
 import useSearchResources from 'hooks/search/useSearchResources'
 import { Resource_Brand, Resource_EquipmentType } from 'types/resource.types'
 import { useSearchParams } from 'next/navigation'
@@ -48,7 +48,7 @@ export const searchOptionContext = createContext<{
   equipTypeList: Resource_EquipmentType[]
 }>(null)
 
-export default function SearchOptionProvider({ children }) {
+export default function SearchOption_Wrapper({ children }) {
   const searchParams = useSearchParams()
 
   const [searchKeyword, setSearchKeyword] = useState<string>('')

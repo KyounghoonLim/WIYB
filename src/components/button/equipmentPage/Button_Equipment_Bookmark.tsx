@@ -4,7 +4,7 @@ import { useContext, useState } from 'react'
 import Button_Primary from '../Button_Primary'
 import BookmarkIcon from 'icons/icon_bookmark.svg'
 import clsx from 'clsx'
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 
 export default function Button_Equipment_Bookmark() {
   const { equipment } = useContext(equipmentContext)

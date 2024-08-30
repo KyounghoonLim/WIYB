@@ -1,6 +1,6 @@
 'use client'
 
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import { useContext } from 'react'
 import Island from '../Island'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'

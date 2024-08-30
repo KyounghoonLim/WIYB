@@ -2,7 +2,7 @@
 
 import Island_Equipment_Video from 'components/island/equipmentPage/Island_Equipment_Video'
 import useHorizontalScroll from 'hooks/useHorizontalScroll'
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import { useContext } from 'react'
 
 export default function Equipment_VideoList() {

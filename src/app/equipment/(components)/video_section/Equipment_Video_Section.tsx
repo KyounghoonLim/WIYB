@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 import Equipment_VideoList from './Equipment_VideoList'
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 
 export default function Equipment_Video_Section() {
   const { equipment } = useContext(equipmentContext)

@@ -1,5 +1,10 @@
 import { User } from './user.interface'
 
+export type ReviewResult = {
+  content: Review[]
+  metadata: ReviewMetadata
+}
+
 export type Review = {
   id: string
   content: string
@@ -8,4 +13,20 @@ export type Review = {
   updatedAt: Date | string
   isLiked: boolean
   user: User
+}
+
+export type ReviewMetadata = {
+  contextId: string
+  offset: number
+  /**
+   * 총 페이지 수
+   */
+  totalOffset: number
+  /**
+   * 총 데이터 수
+   */
+  totalSize: number
+  size: number
+  isEmpty: boolean
+  isLast: boolean
 }

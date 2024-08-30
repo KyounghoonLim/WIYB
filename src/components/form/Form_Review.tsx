@@ -12,11 +12,14 @@ import Button_Primary from 'components/button/Button_Primary'
 import useMyTranslate from 'hooks/useMyTranslate'
 import { uploadImageApi } from 'services/commonApi'
 import { postEquipmentReviewApi } from 'services/reviewApis'
-import { reviewContext } from 'providers/ReviewProvider'
 
 export default function Form_Review() {
-  const { modalData: equipment, setModalMetadata, closeModal } = useContext(modalContext)
-  const {} = useContext(reviewContext)
+  const {
+    modalData: equipment,
+    modalMetadata,
+    setModalMetadata,
+    closeModal,
+  } = useContext(modalContext)
 
   const { t } = useMyTranslate('equipment.evaluation')
 
@@ -64,6 +67,7 @@ export default function Form_Review() {
           uploadResult.length && (imageUrlList = uploadResult)
         }
         await postEquipmentReviewApi(equipment.id, reviewEvaluationMap, reviewMessage, imageUrlList)
+        modalMetadata?.onSuccess?.()
 
         window.alert('리뷰가 작성되었습니다.')
         setModalMetadata(null)
@@ -72,7 +76,7 @@ export default function Form_Review() {
         window.alert('리뷰 작성에 실패했습니다.')
       }
     }
-  }, [equipment, isValid, reviewEvaluationMap, reviewFileList, reviewMessage])
+  }, [equipment, isValid, reviewEvaluationMap, reviewFileList, reviewMessage, modalMetadata])
 
   /**
    * 리뷰가 작성중일 때 모달 백그라운드 클릭으로 나가는 것 방지

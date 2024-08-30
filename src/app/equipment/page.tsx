@@ -1,9 +1,9 @@
-import EquipmentProvider from 'providers/EquipmentProvider'
+import EquipmentProvider from 'providers/equipment/EquipmentProvider'
 import Equipment_Info_Section from './(components)/info_section/Equipment_Info_Section'
 import Equipment_LoftSpec_Section from './(components)/loftspec_section/Equipment_LoftSpec_Section'
 import Equipment_Spec_Section from './(components)/spec_section/Equipment_Spec_Section'
 import Equipment_Video_Section from './(components)/video_section/Equipment_Video_Section'
-import ReviewProvider from 'providers/ReviewProvider'
+import ReviewProvider from 'providers/review/ReviewProvider'
 import Equipment_Review_Section from './(components)/review_section/Equipment_Review_Section'
 
 export default function ProductPage({

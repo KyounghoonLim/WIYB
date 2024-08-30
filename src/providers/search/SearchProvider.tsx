@@ -1,10 +1,10 @@
 'use client'
 
-import { createContext, memo, useCallback, useContext } from 'react'
-import SearchOptionProvider, { searchOptionContext } from './SearchOptionProvider'
+import { createContext, useCallback, useContext } from 'react'
+import SearchOption_Wrapper, { searchOptionContext } from './SearchOption.wrapper'
 import useThrottle from 'hooks/useThrottle'
 import { PATH } from 'constants/path.constant'
-import SearchResultProvider from './SearchResultProvider'
+import SearchResult_Wrapper from './SearchResult.wrapper'
 
 export const searchContext = createContext<{ searching: (keyword?: string) => void }>(null)
 
@@ -13,11 +13,11 @@ export const searchContext = createContext<{ searching: (keyword?: string) => vo
  */
 export default function SearchProvider({ children }) {
   return (
-    <SearchOptionProvider>
-      <SearchResultProvider>
+    <SearchOption_Wrapper>
+      <SearchResult_Wrapper>
         <SearchProviderChild>{children}</SearchProviderChild>
-      </SearchResultProvider>
-    </SearchOptionProvider>
+      </SearchResult_Wrapper>
+    </SearchOption_Wrapper>
   )
 }
 

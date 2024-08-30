@@ -3,12 +3,12 @@
 import List_Primary from 'components/list/List_Primary'
 import ListItem_SearchResult_Equipment from 'components/list/listItems/ListItem_SearchResult_Equipment'
 import useIntersection from 'hooks/useIntersection'
-import { searchResultContext } from 'providers/SearchResultProvider'
 import { useContext } from 'react'
 import SearchIcon from 'icons/icon_search_secondary.svg'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
 import Island from 'components/island/Island'
 import Search_Sorts from 'components/search/Search_Sorts'
+import { searchResultContext } from 'providers/search/SearchResult.wrapper'
 
 export default function List_SearchResult() {
   const { contents, metadata, isLoading, isEndOfPage, goToNextPage } =

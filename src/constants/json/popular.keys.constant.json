@@ -1,68 +1,8 @@
 {
-  "DRIVER": [
-    {
-      "key": "distance",
-      "label": "비거리"
-    },
-    {
-      "key": "forgiveness",
-      "label": "관용성"
-    }
-  ],
-  "WOOD": [
-    {
-      "key": "distance",
-      "label": "비거리"
-    },
-    {
-      "key": "forgiveness",
-      "label": "관용성"
-    }
-  ],
-  "HYBRID": [
-    {
-      "key": "distance",
-      "label": "비거리"
-    },
-    {
-      "key": "forgiveness",
-      "label": "관용성"
-    }
-  ],
-  "IRON": [
-    {
-      "key": "distance",
-      "label": "비거리",
-      "description": "다른 장비 대비 거리가 많이 나가나요?"
-    },
-    {
-      "key": "accuracy",
-      "label": "정확도",
-      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
-    }
-  ],
-  "WEDGE": [
-    {
-      "key": "accuracy",
-      "label": "정확도",
-      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
-    },
-    {
-      "key": "backSpin",
-      "label": "백스핀",
-      "description": "공이 장비에 맞았을 때 백스핀이 얼마나 생기나요?"
-    }
-  ],
-  "PUTTER": [
-    {
-      "key": "accuracy",
-      "label": "정확도",
-      "description": "타구 방향이 원하는 곳으로 잘 가나요?"
-    },
-    {
-      "key": "distanceControl",
-      "label": "거리감",
-      "description": "거리감을 쉽게 예측할 수 있나요?"
-    }
-  ]
+  "DRIVER": ["distance", "forgiveness"],
+  "WOOD": ["distance", "forgiveness"],
+  "HYBRID": ["distance", "forgiveness"],
+  "IRON": ["distance", "accuracy"],
+  "WEDGE": ["accuracy", "backSpin"],
+  "PUTTER": ["accuracy", "distanceControl"]
 }

@@ -1,12 +1,26 @@
 import { SERVICE_PATH } from 'constants/path.constant'
+import { ReviewSortType } from 'constants/review.constant'
 import { EquipmentEvaluationMetricAverage } from 'types/equipment.types'
-import { Review } from 'types/review.types'
+import { Review, ReviewResult } from 'types/review.types'
 import myAxios from 'utils/axios/myAxios'
 
 export { getEquipmentReviewsApi, postEquipmentReviewApi, likeReviewApi }
 
-function getEquipmentReviewsApi(equipmentId: string): Promise<Review[]> {
-  return myAxios.get(SERVICE_PATH.REVIEW.replace('[equipmentId]', equipmentId))
+function getEquipmentReviewsApi(
+  equipmentId: string,
+  contextId?: string,
+  offset?: number,
+  size?: number,
+  sort?: ReviewSortType
+): Promise<ReviewResult> {
+  return myAxios.get(SERVICE_PATH.REVIEW.replace('[equipmentId]', equipmentId), {
+    params: {
+      contextId,
+      offset,
+      size,
+      sort,
+    },
+  })
 }
 
 function postEquipmentReviewApi(

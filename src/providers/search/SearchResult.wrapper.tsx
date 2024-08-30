@@ -12,7 +12,7 @@ import {
 } from 'react'
 import { searchApi } from 'services/searchApi'
 import { SearchResult } from 'types/search.types'
-import { searchOptionContext } from './SearchOptionProvider'
+import { searchOptionContext } from './SearchOption.wrapper'
 import { SearchSortType } from 'constants/search.constant'
 
 export const searchResultContext = createContext<{
@@ -32,7 +32,7 @@ type SearchReqeusetSnapshot = {
   size: number
 }
 
-export default function SearchResultProvider({ children }) {
+export default function SearchResult_Wrapper({ children }) {
   const { searchKeyword, searchSort, searchFilters } = useContext(searchOptionContext)
 
   /**

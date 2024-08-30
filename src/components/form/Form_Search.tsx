@@ -3,8 +3,8 @@
 import { useContext } from 'react'
 import Input_Search from '../input/Input_Search'
 import Form from './Form'
-import { searchOptionContext } from 'providers/SearchOptionProvider'
-import { searchContext } from 'providers/SearchProvider'
+import { searchOptionContext } from 'providers/search/SearchOption.wrapper'
+import { searchContext } from 'providers/search/SearchProvider'
 
 export default function Form_Search() {
   const { searchKeyword, setSearchKeyword } = useContext(searchOptionContext)

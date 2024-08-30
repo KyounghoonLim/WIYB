@@ -25,7 +25,6 @@ export default function UserProvider({ children }) {
   )
 
   const successHandler = useCallback((user: User) => {
-    console.log('success')
     setCookie(COOKIE_KEYS.USER, JSON.stringify(user))
     setUser(user)
   }, [])

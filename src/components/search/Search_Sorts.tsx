@@ -1,8 +1,9 @@
 'use client'
 
-import { SEARCH_SORT, SEARCH_SORT_LABEL, SearchSortType } from 'constants/search.constant'
+import { SEARCH_SORT, SearchSortType } from 'constants/search.constant'
+import useMyTranslate from 'hooks/useMyTranslate'
 import dynamic from 'next/dynamic'
-import { searchOptionContext } from 'providers/SearchOptionProvider'
+import { searchOptionContext } from 'providers/search/SearchOption.wrapper'
 import { useCallback, useContext, useMemo } from 'react'
 import { SelectOption } from 'types/components/select/select.interface'
 
@@ -10,11 +11,12 @@ const Select_Primary = dynamic(() => import('components/select/Select_Primary'),
 
 export default function Search_Sorts() {
   const { searchSort, setSearchSort } = useContext(searchOptionContext)
+  const { t } = useMyTranslate('search.sort')
 
   const searchSortOptions = useMemo((): SelectOption[] => {
     return Object.keys(SEARCH_SORT).map((key) => ({
       value: SEARCH_SORT[key],
-      label: SEARCH_SORT_LABEL[key],
+      label: t(key),
     }))
   }, [])
 

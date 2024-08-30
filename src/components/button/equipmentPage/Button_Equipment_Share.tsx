@@ -1,6 +1,6 @@
 'use client'
 
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import Button_Primary from '../Button_Primary'
 import ShareIcon from 'icons/icon_share.svg'
 import { useContext } from 'react'

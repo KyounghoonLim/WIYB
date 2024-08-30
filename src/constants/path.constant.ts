@@ -1,5 +1,6 @@
-import { Union } from 'types/union.types'
-
+/**
+ * web application paths
+ */
 export const PATH = {
   MAIN: '/',
   /// auth ///
@@ -10,19 +11,23 @@ export const PATH = {
   /// search ///
   SEARCH: '/search',
   /// equipment ///
-  EQUIPMENT_DETAIL: '/equipment?id=[id]&type=[type]',
+  EQUIPMENT_DETAIL: '/equipment',
   EQUIPMENT_POPULAR: '/equipment/popular',
   /// community ///
   COMMUNITY: '/community',
 } as const
 
-export const AUTH_REQUIRED_PATH = Object.values(PATH).reduce((prev, curr) => {
-  if (curr === PATH.LOGIN || curr === PATH.SIGN) return prev
-  else return [...prev, curr]
-}, [])
+export const PATH_PARAMS = {
+  EQUIPMENT_DETAIL: '?id=[id]&type=[type]',
+} as const
 
-export type PathType = Union<typeof PATH>
+export const AUTORITY_PATH = {
+  ALL: [PATH.MAIN, PATH.SEARCH, PATH.EQUIPMENT_DETAIL, PATH.EQUIPMENT_POPULAR, PATH.COMMUNITY],
+  GUEST: [PATH.LOGIN, PATH.SIGN],
+  USER: [PATH.PROFILE],
+} as const
 
+/// api paths ///
 export const SERVICE_PATH = {
   /// auth ///
   /**
@@ -58,7 +63,7 @@ export const SERVICE_PATH = {
   SEARCH: '/search/product',
   POPULAR_SEARCH_KEYWORDS: '/search/popular/keyword',
   /// equipment ///
-  EQUIPMENT_DETAIL: '/product/[id]/[type]',
+  GET_EQUIPMENT: '/product/[id]/[type]',
   POPULAR_EQUIPMENTS: '/product/most/view/simple',
   BOOKMARK_EQUIPMENT: '/product/[id]/bookmark',
   /// review ///

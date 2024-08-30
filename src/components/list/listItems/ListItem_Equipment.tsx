@@ -2,11 +2,10 @@
 
 import { ListItemProps } from 'types/components/list/list.interface'
 import { Equipment } from 'types/equipment.types'
-import { PATH } from 'constants/path.constant'
+import { PATH, PATH_PARAMS } from 'constants/path.constant'
 import React, { useMemo } from 'react'
 import MyLink from 'components/link/MyLink'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
-import clsx from 'clsx'
 
 export default function ListItem_Equipment({
   item: equip,
@@ -17,7 +16,8 @@ export default function ListItem_Equipment({
   const detailPageUrl = useMemo(
     () =>
       equip?.id
-        ? PATH.EQUIPMENT_DETAIL.replace('[id]', equip?.id).replace('[type]', equip?.type)
+        ? PATH.EQUIPMENT_DETAIL +
+          PATH_PARAMS.EQUIPMENT_DETAIL.replace('[id]', equip?.id).replace('[type]', equip?.type)
         : '#',
     [equip]
   )

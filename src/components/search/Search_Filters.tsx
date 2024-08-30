@@ -2,7 +2,7 @@
 
 import Button_Secondary from 'components/button/Button_Secondary'
 import Input_Checkbox from 'components/input/Input_Checkbox'
-import { searchOptionContext } from 'providers/SearchOptionProvider'
+import { searchOptionContext } from 'providers/search/SearchOption.wrapper'
 import { useCallback, useContext } from 'react'
 
 export default function Search_Filters() {

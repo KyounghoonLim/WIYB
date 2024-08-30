@@ -3,7 +3,7 @@
 import Button_Primary from '../Button_Primary'
 import ReviewIcon from 'icons/icon_review.svg'
 import { useCallback, useContext } from 'react'
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import clsx from 'clsx'
 import { modalContext } from 'providers/ModalProvider'
 import { MODAL_TYPE } from 'constants/modal.constant'
@@ -13,7 +13,9 @@ export default function Button_Equipment_Review({ className }: { className?: str
   const { openModal } = useContext(modalContext)
 
   const clickHandler = useCallback(() => {
-    openModal(MODAL_TYPE.REVIEW, equipment)
+    openModal(MODAL_TYPE.REVIEW, equipment, {
+      onSuccess: () => setTimeout(() => location.reload(), 0),
+    })
   }, [equipment])
 
   return (

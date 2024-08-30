@@ -9,7 +9,7 @@ export { getEquipmentDetailApi, getPopularEquipmentApi, bookmarkEquipmentApi }
 
 function getEquipmentDetailApi(productId: string, productType: string): Promise<EquipmentDetail> {
   return myAxios.get(
-    SERVICE_PATH.EQUIPMENT_DETAIL.replace('[id]', productId).replace('[type]', productType)
+    SERVICE_PATH.GET_EQUIPMENT.replace('[id]', productId).replace('[type]', productType)
   )
 }
 
@@ -22,8 +22,8 @@ function getPopularEquipmentApi(
   range && (params['range'] = range)
 
   //@ts-ignore
-  return Promise.resolve(dummy_popularEquipments)
-  // return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS, params)
+  // return Promise.resolve(dummy_popularEquipments)
+  return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS, params)
 }
 
 function bookmarkEquipmentApi(equipmentId: string, isBookmarked?: boolean): Promise<void> {

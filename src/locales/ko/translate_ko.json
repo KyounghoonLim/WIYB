@@ -73,5 +73,19 @@
       "lieAngle": "라이 각",
       "model": "모델"
     }
+  },
+  "review": {
+    "sort": {
+      "DESC": "최신순",
+      "ASC": "오래된 순",
+      "POPULAR": "좋아요 많은 순"
+    }
+  },
+  "search": {
+    "sort": {
+      "DESC": "최신순",
+      "ASC": "오래된 순",
+      "DESC_REVIEW": "리뷰순"
+    }
   }
 }

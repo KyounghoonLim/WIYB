@@ -3,15 +3,15 @@
 import Island from 'components/island/Island'
 import List_Primary from 'components/list/List_Primary'
 import ListItem_Review from 'components/list/listItems/ListItem_Review'
-import { reviewContext } from 'providers/ReviewProvider'
+import { reviewContext } from 'providers/review/ReviewProvider'
 import { useContext } from 'react'
 
 export default function Review_List() {
-  const { reviews, isEndOfPage, goToNextPage } = useContext(reviewContext)
+  const { contents, isEndOfPage, goToNextPage } = useContext(reviewContext)
 
   return (
     <Island className="w-full h-auto p-0 overflow-hidden">
-      <List_Primary items={reviews} Component={ListItem_Review} />
+      <List_Primary items={contents} Component={ListItem_Review} />
       {!isEndOfPage && (
         <button
           className="w-full h-[50px] typograph-14 border-t-[1px] border-neutral-100 border-solid hover:bg-neutral-100"

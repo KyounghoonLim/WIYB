@@ -1,9 +1,8 @@
 'use client'
 
-import { equipmentContext } from 'providers/EquipmentProvider'
+import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import { useCallback, useContext, useMemo } from 'react'
 import Island from 'components/island/Island'
-import { dummy_loftSpec } from '@/@dummy'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
 import useMyTranslate from 'hooks/useMyTranslate'
 import loftSpecKeys from 'constants/json/loftspec.detail.constant.json'

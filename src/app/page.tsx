@@ -3,7 +3,7 @@ import Logo_Main from '@/components/logo/Logo_Main'
 import Search_PopularItems from '@/components/search/Search_PopularItems'
 import Island_CommunityPosts from 'components/island/mainPage/Island_CommunityPosts'
 import dynamic from 'next/dynamic'
-import SearchProvider from 'providers/SearchProvider'
+import SearchProvider from 'providers/search/SearchProvider'
 
 const Island_PopularEquipments = dynamic(
   () => import('components/island/mainPage/Island_PopularEquipments')

@@ -8,7 +8,7 @@ export default function List_Primary({ items, Component, autoSize, className }: 
     <ListWrapper autoSize={autoSize}>
       {({ width, height }) => (
         <ul className={clsx('list overflow-auto', className)} style={{ width, height }}>
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <li key={index}>
               <Component {...{ item, index, isLast: items.length - 1 === index }} />
             </li>

@@ -2,7 +2,7 @@
 
 import { ListItemProps } from 'types/components/list/list.interface'
 import { Equipment } from 'types/equipment.types'
-import { PATH } from 'constants/path.constant'
+import { PATH, PATH_PARAMS } from 'constants/path.constant'
 import React, { useMemo } from 'react'
 import MyLink from 'components/link/MyLink'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
@@ -14,17 +14,24 @@ export default function ListItem_SearchResult_Equipment({
   item: equip,
   index,
   isLast,
+  listing,
 }: ListItemProps<Equipment>) {
   const detailPageUrl = useMemo(
     () =>
       equip?.id
-        ? PATH.EQUIPMENT_DETAIL.replace('[id]', equip?.id).replace('[type]', equip?.type)
+        ? PATH.EQUIPMENT_DETAIL +
+          PATH_PARAMS.EQUIPMENT_DETAIL.replace('[id]', equip?.id).replace('[type]', equip?.type)
         : '#',
     [equip]
   )
 
   return (
     <MyLink href={detailPageUrl} className="list-item h-20">
+      {listing && (
+        <span className="w-6 typograph-24 text-neutral-900 italic font-medium">
+          {index + 1 + '.'}
+        </span>
+      )}
       <Thumbnail_Primary src={equip?.imageUrls?.[0]} width={56} />
       <div className="w-full flex flex-col gap-1 auto-size">
         {equip ? (

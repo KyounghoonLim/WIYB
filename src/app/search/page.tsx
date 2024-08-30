@@ -1,9 +1,8 @@
 import Form_Search from 'components/form/Form_Search'
 import Logo_Main from 'components/logo/Logo_Main'
-import SearchResultProvider from 'providers/SearchResultProvider'
 import Search_Filters from 'components/search/Search_Filters'
 import List_SearchResult from 'components/list/searchPage/List_SearchResult'
-import SearchProvider from 'providers/SearchProvider'
+import SearchProvider from 'providers/search/SearchProvider'
 
 export default function SearchPage({
   searchParams: { keyword, sort, filters, page },

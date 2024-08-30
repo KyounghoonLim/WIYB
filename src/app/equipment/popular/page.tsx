@@ -1,9 +1,9 @@
 import Form_Search from 'components/form/Form_Search'
 import Search_PopularItems from 'components/search/Search_PopularItems'
-import { EQUIPMENT_TYPE } from 'constants/equipment.constant'
-import PopluarProvider from 'providers/PopluarProvider'
+import PopluarProvider from 'providers/equipment/PopluarProvider'
 import Popluar_Categories from './(components)/Popluar_Categories'
-import SearchProvider from 'providers/SearchProvider'
+import SearchProvider from 'providers/search/SearchProvider'
+import Popular_Equipment_Section from './(components)/Popular_Equipment_Section'
 
 export default function PopularPage() {
   return (
@@ -19,7 +19,9 @@ export default function PopularPage() {
               <Popluar_Categories />
             </article>
           </section>
-          <section className="w-full flex justify-center items-start gap-3 p-8">popular</section>
+          <section className="w-full flex justify-center items-start gap-3 p-8">
+            <Popular_Equipment_Section />
+          </section>
         </main>
       </PopluarProvider>
     </SearchProvider>
