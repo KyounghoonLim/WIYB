@@ -21,9 +21,8 @@ function getPopularEquipmentApi(
   type && (params['type'] = type)
   range && (params['range'] = range)
 
-  //@ts-ignore
-  // return Promise.resolve(dummy_popularEquipments)
-  return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS, params)
+  console.log(type, range, params)
+  return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS, { params })
 }
 
 function bookmarkEquipmentApi(equipmentId: string, isBookmarked?: boolean): Promise<void> {

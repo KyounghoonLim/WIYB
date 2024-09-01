@@ -16,12 +16,14 @@ export default function MyLink({
   href,
   target = '_self',
   className,
+  title,
 }: {
   children: ReactNode
   href: LinkProps['href']
   target?: HTMLAttributeAnchorTarget
+  title?: string
   className?: string
-}) {
+} & LinkProps) {
   const pathname = usePathname()
   const { throttling } = useThrottle(true)
   const routeChangedRef = useRef<boolean>(false)
@@ -63,7 +65,7 @@ export default function MyLink({
   }, [pathname])
 
   return (
-    <Link target={target} href={href} onClick={clickHandler} className={className}>
+    <Link target={target} href={href} onClick={clickHandler} className={className} title={title}>
       {children}
     </Link>
   )

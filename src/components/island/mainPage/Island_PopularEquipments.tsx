@@ -10,7 +10,7 @@ import Button_SeeMore from 'components/button/Button_SeeMore'
 export default function Island_PopularEquipments() {
   const { data: popularEquipments, error } = useMyQuery(
     ['popularEquipments'],
-    getPopularEquipmentApi,
+    () => getPopularEquipmentApi(),
     {
       initialData: Array(5).fill(undefined),
     }

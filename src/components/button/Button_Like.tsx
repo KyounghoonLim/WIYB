@@ -7,28 +7,24 @@ import clsx from 'clsx'
 import { useCallback } from 'react'
 
 export default function Button_Like({
-  like,
+  isLiked,
   className,
   onClick,
 }: {
-  like: boolean
+  isLiked: boolean
   className?: string
-  onClick?: (value: Boolean) => any
+  onClick?: () => any
 }) {
-  const clickHandler = useCallback(() => {
-    onClick?.(like)
-  }, [like])
-
   return (
     <button
       className={clsx(
         'flex-row-center gap-1 typograph-14',
-        like ? 'font-bold text-[#FE4545]' : 'text-text-label-100',
+        isLiked ? 'font-bold text-[#FE4545]' : 'text-text-label-100',
         className
       )}
-      onClick={clickHandler}
+      onClick={onClick}
     >
-      {like ? <LikeIcon className="no-auto-size" /> : <DisLikeIcon className="no-auto-size" />}
+      {isLiked ? <LikeIcon className="no-auto-size" /> : <DisLikeIcon className="no-auto-size" />}
       좋아요
     </button>
   )

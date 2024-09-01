@@ -3,10 +3,10 @@
 import clsx from 'clsx'
 import { EQUIPMENT_TYPE, EquipmentType } from 'constants/equipment.constant'
 import useMyTranslate from 'hooks/useMyTranslate'
-import { popularContext } from 'providers/equipment/PopluarProvider'
+import { popularContext } from 'providers/equipment/PopularProvider'
 import { useContext } from 'react'
 
-export default function Popluar_Categories() {
+export default function Popular_Categories() {
   const { type, setType } = useContext(popularContext)
   const { t } = useMyTranslate('equipment.type')
   return (
