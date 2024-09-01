@@ -44,7 +44,7 @@ export default function Popular_Equipment_Section() {
             /// 장비 타입의 인기순 분류가 있는 경우 (드라이버, 우드, 하이브리드, 아이언, 웨지, 퍼터) ///
             <>
               {Object.keys(popularEquipments).map((key, idx) => (
-                <div key={key} className={clsx('w-full flex-col-start', idx && 'w-[394px]')}>
+                <div key={key} className={clsx('w-full flex-col-start', idx && '!w-[394px]')}>
                   {/* 각 분류의 라벨링 */}
                   <span className="w-full h-14 flex-row-start typograph-16">
                     {t('type.' + type)}&nbsp;

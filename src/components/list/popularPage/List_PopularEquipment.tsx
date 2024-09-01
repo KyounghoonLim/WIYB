@@ -7,7 +7,7 @@ import Island from 'components/island/Island'
 
 export default function List_PopularEquipment({ equipments }: { equipments: Equipment[] }) {
   return (
-    <Island className="w-full p-4">
+    <Island className="w-full p-4 rounded-none">
       <List_Primary
         items={equipments}
         Component={({ item, index }) =>
