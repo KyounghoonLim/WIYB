@@ -7,16 +7,23 @@ import { equipmentContext } from 'providers/equipment/EquipmentProvider'
 import clsx from 'clsx'
 import { modalContext } from 'providers/ModalProvider'
 import { MODAL_TYPE } from 'constants/modal.constant'
+import { userContext } from 'providers/UserProvider'
 
 export default function Button_Equipment_Review({ className }: { className?: string }) {
+  const { userRequiredAction } = useContext(userContext)
   const { equipment } = useContext(equipmentContext)
   const { openModal } = useContext(modalContext)
 
   const clickHandler = useCallback(() => {
-    openModal(MODAL_TYPE.REVIEW, equipment, {
-      onSuccess: () => setTimeout(() => location.reload(), 0),
-    })
-  }, [equipment])
+    if (!equipment) return
+    else {
+      userRequiredAction(() => {
+        openModal(MODAL_TYPE.REVIEW, equipment, {
+          onSuccess: () => setTimeout(() => location.reload(), 0),
+        })
+      })
+    }
+  }, [equipment, userRequiredAction, openModal])
 
   return (
     <Button_Primary
