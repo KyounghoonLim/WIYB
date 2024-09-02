@@ -5,6 +5,7 @@ import { PATH } from 'constants/path.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { usePathname } from 'next/navigation'
 import { createContext, Dispatch, SetStateAction, useCallback, useState } from 'react'
+import { logoutApi } from 'services/authApi'
 import { getUserProfileApi } from 'services/userApi'
 import { User } from 'types/user.interface'
 import { getCookie, removeCookie, setCookie } from 'utils/cookieUtils'
@@ -13,6 +14,7 @@ export const userContext = createContext<{
   user: User
   setUser: Dispatch<SetStateAction<User>>
   userRequiredAction: (cb?: () => any | Promise<any>) => void
+  manualLogout: () => Promise<void>
 }>(null)
 
 export default function UserProvider({ children }) {
@@ -36,6 +38,20 @@ export default function UserProvider({ children }) {
     [user]
   )
 
+  const manualLogout = useCallback(async () => {
+    if (window.confirm('로그아웃 하시겠습니까?')) {
+      try {
+        await logoutApi()
+      } catch {
+        removeCookie(COOKIE_KEYS.USER)
+        removeCookie(COOKIE_KEYS.ACCESS_TOKEN)
+        removeCookie(COOKIE_KEYS.REFRESH_TOKEN)
+      } finally {
+        setUser(null)
+      }
+    }
+  }, [])
+
   /// fetch success handler ///
   const successHandler = useCallback((user: User) => {
     setCookie(COOKIE_KEYS.USER, JSON.stringify(user))
@@ -51,10 +67,18 @@ export default function UserProvider({ children }) {
     }
   }, [pathname])
 
-  useMyQuery(['getUser'], () => getUserProfileApi(), undefined, successHandler, failHandler)
+  useMyQuery(
+    ['getUser'],
+    () => getUserProfileApi(),
+    {
+      refetchOnWindowFocus: true,
+    },
+    successHandler,
+    failHandler
+  )
 
   return (
-    <userContext.Provider value={{ user, setUser, userRequiredAction }}>
+    <userContext.Provider value={{ user, setUser, userRequiredAction, manualLogout }}>
       {children}
     </userContext.Provider>
   )

@@ -2,21 +2,17 @@
 
 import List_Primary from 'components/list/List_Primary'
 import ListItem_SearchResult_Equipment from 'components/list/listItems/ListItem_SearchResult_Equipment'
-import useIntersection from 'hooks/useIntersection'
 import { useContext } from 'react'
 import SearchIcon from 'icons/icon_search_secondary.svg'
 import LoadingSpinner from 'components/loading/LoadingSpinner'
 import Island from 'components/island/Island'
 import Search_Sorts from 'components/search/Search_Sorts'
 import { searchResultContext } from 'providers/search/SearchResult.wrapper'
+import Paginator from 'components/paginator/Paginator'
 
-export default function List_SearchResult() {
-  const { contents, metadata, isLoading, isEndOfPage, goToNextPage } =
+export default function List_SearchResult_Pagination() {
+  const { contents, metadata, isLoading, isEndOfPage, searchOffset, setSearchOffset } =
     useContext(searchResultContext)
-  const { intersectionRef } = useIntersection({
-    onEnter: goToNextPage,
-    condition: !isEndOfPage,
-  })
 
   return (
     <article className="w-[724px] h-auto flex-col-start gap-4">
@@ -29,13 +25,18 @@ export default function List_SearchResult() {
             </span>
             <Search_Sorts />
           </div>
-          <Island>
-            <List_Primary items={contents} Component={ListItem_SearchResult_Equipment} />
-          </Island>
-          {!isEndOfPage && <div ref={intersectionRef} />}
+          <Paginator
+            page={searchOffset}
+            onChange={setSearchOffset}
+            totalPage={metadata?.totalOffset}
+          >
+            <Island>
+              <List_Primary items={contents} Component={ListItem_SearchResult_Equipment} />
+            </Island>
+          </Paginator>
         </>
       ) : isLoading ? (
-        <div className="w-full h-[320px] flex-col-center">
+        <div className="w-full h-[500px] flex-col-center">
           <LoadingSpinner />
         </div>
       ) : (

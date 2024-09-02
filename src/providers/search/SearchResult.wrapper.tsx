@@ -3,6 +3,9 @@
 import useMyQuery from 'hooks/useMyQuery'
 import {
   createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
   useCallback,
   useContext,
   useLayoutEffect,
@@ -20,6 +23,8 @@ export const searchResultContext = createContext<{
   metadata: SearchResult['metadata']
   isLoading: boolean
   isEndOfPage: boolean
+  searchOffset: number
+  setSearchOffset: Dispatch<SetStateAction<number>>
   goToNextPage: () => void
 }>(null)
 
@@ -32,7 +37,13 @@ type SearchReqeusetSnapshot = {
   size: number
 }
 
-export default function SearchResult_Wrapper({ children }) {
+export default function SearchResult_Wrapper({
+  children,
+  useInfinityScroll,
+}: {
+  children: ReactNode
+  useInfinityScroll?: boolean
+}) {
   const { searchKeyword, searchSort, searchFilters } = useContext(searchOptionContext)
 
   /**
@@ -50,8 +61,14 @@ export default function SearchResult_Wrapper({ children }) {
   const [metadata, setMetadata] = useState<SearchResult['metadata']>(null)
   const [isEndOfPage, setIsEndOfPage] = useState<boolean>(false)
 
+  /**
+   * 서치 옵션의 변화에 따라 중복 요청 등을 방지 하기 위함
+   * 인피니티 스크롤을 사용하지 않는 경우 느슨하게 함
+   * (이전에 가져온 페이지를 다시 가져올 경우가 있음)
+   */
   const isSearchEnable = useMemo(() => {
     if (!searchKeyword) return false
+    else if (!useInfinityScroll) return true
     else if (!searchRequestSnapshot.current) return true
     else {
       const { sort, filters } = searchRequestSnapshot.current
@@ -64,7 +81,7 @@ export default function SearchResult_Wrapper({ children }) {
         return !(searchOffset === 1 && searchContextId)
       }
     }
-  }, [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset])
+  }, [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset, useInfinityScroll])
 
   const goToNextPage = useCallback(() => {
     setSearchOffset((temp) => temp + 1)
@@ -83,18 +100,27 @@ export default function SearchResult_Wrapper({ children }) {
       setIsEndOfPage(metadata.isLast)
       setSearchContextId(metadata.contextId)
       setContents((temp) => {
-        if (metadata.offset === 1) return content
+        if (!useInfinityScroll) return content
+        else if (metadata.offset === 1) return content
         else return [...temp, ...content]
       })
       setMetadata(metadata)
     },
-    [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset, searchSize]
+    [
+      searchKeyword,
+      searchSort,
+      searchFilters,
+      searchContextId,
+      searchOffset,
+      searchSize,
+      useInfinityScroll,
+    ]
   )
 
   /**
    * 검색어, 정렬방식, 필터, 컨텍스트 id, offset, size 가 변경되면 새로운 검색 요청이 감
    */
-  const { data, isLoading } = useMyQuery(
+  const { isLoading } = useMyQuery(
     [searchKeyword, searchSort, searchFilters.join(','), searchContextId, searchOffset, searchSize],
     searchApi,
     { enabled: isSearchEnable },
@@ -112,9 +138,28 @@ export default function SearchResult_Wrapper({ children }) {
     setSearchOffset(1)
   }, [searchSort, searchFilters])
 
+  /**
+   * 검색 페이지가 변경될 때 스크롤을 상단으로 올림
+   * Pagination only
+   */
+  useLayoutEffect(() => {
+    if (useInfinityScroll) return
+    else {
+      document.scrollingElement.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [searchOffset, useInfinityScroll])
+
   return (
     <searchResultContext.Provider
-      value={{ contents, metadata, isLoading, isEndOfPage, goToNextPage }}
+      value={{
+        contents,
+        metadata,
+        isLoading,
+        isEndOfPage,
+        searchOffset,
+        setSearchOffset,
+        goToNextPage,
+      }}
     >
       {children}
     </searchResultContext.Provider>

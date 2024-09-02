@@ -2,7 +2,16 @@
 
 import { REVIEW_SORT, ReviewSortType } from 'constants/review.constant'
 import useMyQuery from 'hooks/useMyQuery'
-import { createContext, useCallback, useMemo, useReducer, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useCallback,
+  useMemo,
+  useReducer,
+  useState,
+} from 'react'
 import { getEquipmentReviewsApi } from 'services/reviewApis'
 import { ReviewResult } from 'types/review.types'
 
@@ -13,10 +22,20 @@ export const reviewContext = createContext<{
   changeSort: (sortOption: ReviewSortType) => void
   isLoading: boolean
   isEndOfPage: boolean
+  reviewOffset: number
+  setReviewOffset: Dispatch<SetStateAction<number>>
   goToNextPage: () => void
 }>(null)
 
-export default function ReviewProvider({ children, id }) {
+export default function ReviewProvider({
+  children,
+  id,
+  useInfinityScroll,
+}: {
+  children: ReactNode
+  id: string
+  useInfinityScroll?: boolean
+}) {
   const [reviewContextId, setReviewContextId] = useState<string>(null)
   const [reviewOffset, setReviewOffset] = useState<number>(1)
   const [reviewSize, setReviewSize] = useState<number>(20)
@@ -41,15 +60,19 @@ export default function ReviewProvider({ children, id }) {
     setReviewOffset(1)
   }, [])
 
-  const successHandler = useCallback(({ metadata, content }: ReviewResult) => {
-    setIsEndOfPage(metadata.isLast)
-    setReviewContextId(metadata.contextId)
-    setContents((temp) => {
-      if (metadata.offset === 1) return content
-      else return [...temp, ...content]
-    })
-    setMetadata(metadata)
-  }, [])
+  const successHandler = useCallback(
+    ({ metadata, content }: ReviewResult) => {
+      setIsEndOfPage(metadata.isLast)
+      setReviewContextId(metadata.contextId)
+      setContents((temp) => {
+        if (!useInfinityScroll) return content
+        else if (metadata.offset === 1) return content
+        else return [...temp, ...content]
+      })
+      setMetadata(metadata)
+    },
+    [useInfinityScroll]
+  )
 
   const { isLoading } = useMyQuery(
     [id, reviewContextId, reviewOffset, reviewSize, reviewSort],
@@ -67,6 +90,8 @@ export default function ReviewProvider({ children, id }) {
         changeSort,
         isLoading,
         isEndOfPage,
+        reviewOffset,
+        setReviewOffset,
         goToNextPage,
       }}
     >

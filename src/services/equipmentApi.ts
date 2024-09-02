@@ -21,7 +21,6 @@ function getPopularEquipmentApi(
   type && (params['type'] = type)
   range && (params['range'] = range)
 
-  console.log(type, range, params)
   return myAxios.get(SERVICE_PATH.POPULAR_EQUIPMENTS, { params })
 }
 

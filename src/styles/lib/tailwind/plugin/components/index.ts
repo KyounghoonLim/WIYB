@@ -16,6 +16,8 @@ import uploader from './_uploader.json'
 import textarea from './_textarea.json'
 import radio from './_radio.json'
 import label from './_label.json'
+import paginator from './_paginator.json'
+import dropdown from './_dropdown.json'
 
 const components = {
   ...container,
@@ -36,6 +38,8 @@ const components = {
   ...textarea,
   ...radio,
   ...label,
+  ...paginator,
+  ...dropdown,
 }
 
 export default components
