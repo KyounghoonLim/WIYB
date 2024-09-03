@@ -42,6 +42,7 @@ export default function Form_Sign() {
             placeholder="2-10자 까지 가능합니다."
             value={nickname}
             onChange={setNickname}
+            maxLength={10}
           />
         </div>
       </label>
@@ -57,7 +58,12 @@ export default function Form_Sign() {
       </label>
       <label htmlFor="sign-birth" className="label">
         생년월일
-        <Input_Date id="sign-birth" value={birth} onChange={setBirth} />
+        <Input_Date
+          id="sign-birth"
+          value={birth}
+          onChange={setBirth}
+          maxDate={new Date(Date.now() - 86400000).toISOString().split('T')[0]}
+        />
       </label>
       <Button
         type="submit"

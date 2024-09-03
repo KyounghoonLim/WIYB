@@ -1,10 +1,10 @@
 'use client'
 
 import { COOKIE_KEYS } from 'constants/cookie.constant'
-import { PATH } from 'constants/path.constant'
+import { AUTHORITY_PATH, PATH } from 'constants/path.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { usePathname } from 'next/navigation'
-import { createContext, Dispatch, SetStateAction, useCallback, useState } from 'react'
+import { createContext, Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
 import { logoutApi } from 'services/authApi'
 import { getUserProfileApi } from 'services/userApi'
 import { User } from 'types/user.interface'
@@ -20,12 +20,12 @@ export const userContext = createContext<{
 export default function UserProvider({ children }) {
   const pathname = usePathname()
 
-  const [user, setUser] = useState<User>(
-    (() => {
-      const userCookie = getCookie(COOKIE_KEYS.USER)
-      return userCookie ? JSON.parse(userCookie) : null
-    })()
-  )
+  const [user, setUser] = useState<User>(null)
+
+  const userFetchEnabled = useMemo(() => {
+    //@ts-ignore
+    return !AUTHORITY_PATH.GUEST.includes(pathname)
+  }, [pathname])
 
   const userRequiredAction = useCallback(
     (cb?: () => any | Promise<any>) => {
@@ -43,7 +43,6 @@ export default function UserProvider({ children }) {
       try {
         await logoutApi()
       } catch {
-        removeCookie(COOKIE_KEYS.USER)
         removeCookie(COOKIE_KEYS.ACCESS_TOKEN)
         removeCookie(COOKIE_KEYS.REFRESH_TOKEN)
       } finally {
@@ -54,7 +53,6 @@ export default function UserProvider({ children }) {
 
   /// fetch success handler ///
   const successHandler = useCallback((user: User) => {
-    setCookie(COOKIE_KEYS.USER, JSON.stringify(user))
     setUser(user)
   }, [])
 
@@ -62,7 +60,6 @@ export default function UserProvider({ children }) {
   const failHandler = useCallback(() => {
     if (pathname === PATH.SIGN) return
     else {
-      removeCookie(COOKIE_KEYS.USER)
       setUser(null)
     }
   }, [pathname])
@@ -70,9 +67,7 @@ export default function UserProvider({ children }) {
   useMyQuery(
     ['getUser'],
     () => getUserProfileApi(),
-    {
-      refetchOnWindowFocus: true,
-    },
+    { enabled: userFetchEnabled },
     successHandler,
     failHandler
   )

@@ -18,7 +18,7 @@
       "content": "''",
       "width": "100px",
       "height": "100px",
-      "backgroundImage": "url('/images/image_loading_spinner.webp')",
+      "backgroundImage": "url('/images/image_loading_spinner_colored.webp')",
       "backgroundPosition": "center",
       "backgroundSize": "contain"
     }

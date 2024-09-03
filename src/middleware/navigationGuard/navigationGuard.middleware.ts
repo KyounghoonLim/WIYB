@@ -1,15 +1,21 @@
+import { COOKIE_KEYS } from 'constants/cookie.constant'
 import { getIsAuthorized } from './navigationGuard.util'
-import { AUTORITY_PATH, PATH } from 'constants/path.constant'
+import { AUTHORITY_PATH, PATH } from 'constants/path.constant'
 import { NextResponse } from 'next/server'
 
 export function navigationGuard(req) {
   const { nextUrl } = req
+  /**
+   * authority 검증
+   * 여기에서 검증 하는 요소는 회원가입이 된 유저인지 판단함
+   * (즉, 토큰이 없거나 GUEST 인 경우 false)
+   */
   const isAuthorized = getIsAuthorized(req.cookies)
 
   const { pathname } = nextUrl
   if (isAuthorized) {
     //@ts-ignore
-    const isAllowed = [...AUTORITY_PATH.ALL, ...AUTORITY_PATH.USER].includes(pathname)
+    const isAllowed = [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.USER].includes(pathname)
     if (isAllowed) return NextResponse.next()
     else {
       nextUrl.pathname = PATH.MAIN
@@ -17,10 +23,24 @@ export function navigationGuard(req) {
     }
   } else {
     //@ts-ignore
-    const isAllowed = [...AUTORITY_PATH.ALL, ...AUTORITY_PATH.GUEST].includes(pathname)
+    const isAllowed = (() => {
+      switch (pathname) {
+        /**
+         * 회원가입 페이지로 요청이 왔을 때 엑세스 토큰이 없으면 로그인 페이지로 보냄
+         * 앞서 authority 검증이 되었으므로, 여기에서 토큰이 있으면 GUEST 임
+         * */
+        case PATH.SIGN: {
+          if (req.cookies.get(COOKIE_KEYS.ACCESS_TOKEN)) return true
+          else return false
+        }
+        default:
+          return [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.GUEST].includes(pathname)
+      }
+    })()
 
-    if (isAllowed) return NextResponse.next()
-    else {
+    if (isAllowed) {
+      return NextResponse.next()
+    } else {
       nextUrl.pathname = PATH.LOGIN
       return NextResponse.redirect(nextUrl)
     }

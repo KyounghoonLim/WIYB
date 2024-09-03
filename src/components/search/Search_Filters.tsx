@@ -6,7 +6,7 @@ import { searchOptionContext } from 'providers/search/SearchOption.wrapper'
 import { useCallback, useContext } from 'react'
 
 export default function Search_Filters() {
-  const { equipTypeList, searchFilters, setSearchFilters, resetSearchOptions } =
+  const { equipmentTypeResource, searchFilters, setSearchFilters, resetSearchOptions } =
     useContext(searchOptionContext)
 
   const changeHandler = useCallback((value: string) => {
@@ -25,7 +25,7 @@ export default function Search_Filters() {
 
   return (
     <>
-      {Boolean(equipTypeList?.length) ? (
+      {Boolean(equipmentTypeResource?.length) ? (
         <article className="float-search-options">
           <div className="w-full h-14 flex justify-between items-center border-b-[1px] border-b-neutral-100 border-solid px-4">
             <h3 className="typograph-16 font-bold">검색 필터</h3>
@@ -34,7 +34,7 @@ export default function Search_Filters() {
           <div className="w-full h-auto flex-col-start px-4 pb-4">
             <h3 className="typograph-16 font-bold w-full h-14 flex-row-start">종류</h3>
             <div className="w-full h-full flex-col-start">
-              {equipTypeList.map((equipType) => (
+              {equipmentTypeResource.map((equipType) => (
                 <Input_Checkbox
                   key={equipType.name}
                   name={equipType.name}

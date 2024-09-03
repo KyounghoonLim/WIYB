@@ -8,17 +8,19 @@ import { useCallback, useContext } from 'react'
 export default function Button_Equipment_Share() {
   const { equipment } = useContext(equipmentContext)
 
-  const clickHandler = useCallback(() => {
+  const clickHandler = useCallback(async () => {
     if (!navigator.canShare({ url: location.href })) {
       window.alert('웹 공유하기 기능을 제공하지 않는 브라우저입니다.')
     } else {
       try {
-        navigator?.share({
+        await navigator?.share({
           url: location.href,
         })
       } catch (err) {
-        console.error(err)
-        window.alert('공유하기가 실패했습니다.')
+        if (err.name !== 'AbortError') {
+          window.alert('공유하기가 실패했습니다.')
+        }
+        console.log(err)
       }
     }
   }, [])

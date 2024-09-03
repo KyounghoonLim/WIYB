@@ -9,7 +9,7 @@ export default function useThrottle(overlay?: boolean) {
   const { attach, detach } = usePortal('overlay')
 
   const throttling = useCallback(
-    async (fn: () => any) => {
+    async (fn: () => any | Promise<any>) => {
       if (throttle) return
       else {
         try {

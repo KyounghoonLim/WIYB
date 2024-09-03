@@ -8,11 +8,10 @@ export default function Input_Date({
   id,
   value,
   placeholder,
-  errorMessage,
+  maxDate = new Date(Date.now()).toISOString().split('T')[0],
   className,
 }: InputDateProps) {
   const inputRef = useRef<HTMLInputElement>()
-  const { current: maxDate } = useRef<string>(new Date(Date.now()).toISOString().split('T')[0])
   const { current: dateFormat } = useRef('YYYY.MM.DD')
 
   const changeHandler = useCallback(

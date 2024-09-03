@@ -5,6 +5,7 @@ export const PATH = {
   MAIN: '/',
   /// auth ///
   LOGIN: '/login',
+  LOGIN_FAILURE: '/login/failure',
   SIGN: '/sign',
   /// user ///
   PROFILE: '/profile',
@@ -21,9 +22,9 @@ export const PATH_PARAMS = {
   EQUIPMENT_DETAIL: '?id=[id]&type=[type]',
 } as const
 
-export const AUTORITY_PATH = {
+export const AUTHORITY_PATH = {
   ALL: [PATH.MAIN, PATH.SEARCH, PATH.EQUIPMENT_DETAIL, PATH.EQUIPMENT_POPULAR, PATH.COMMUNITY],
-  GUEST: [PATH.LOGIN, PATH.SIGN],
+  GUEST: [PATH.LOGIN, PATH.LOGIN_FAILURE, PATH.SIGN],
   USER: [PATH.PROFILE],
 } as const
 

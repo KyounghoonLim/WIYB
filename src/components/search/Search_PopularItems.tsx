@@ -3,13 +3,13 @@
 import useMyQuery from 'hooks/useMyQuery'
 import Badge from '../badge/Badge'
 import MyLink from '../link/MyLink'
-import { getPopularKeywordsApi } from 'services/searchApi'
+import { getPopularSearchKeywordsApi } from 'services/searchApi'
 import { PATH } from 'constants/path.constant'
 
 export default function Search_PopularItems() {
   const { data: popularSearchKeywords, error } = useMyQuery(
     ['popularSearchKeywords'],
-    getPopularKeywordsApi
+    getPopularSearchKeywordsApi
   )
 
   return (

@@ -5,14 +5,15 @@ import React, {
   Dispatch,
   SetStateAction,
   useCallback,
+  useContext,
   useLayoutEffect,
   useState,
 } from 'react'
 import useSearchHistory from 'hooks/search/useSearchHistory'
 import { SEARCH_SORT, SearchSortType } from 'constants/search.constant'
-import useSearchResources from 'hooks/search/useSearchResources'
 import { Resource_Brand, Resource_EquipmentType } from 'types/resource.types'
 import { useSearchParams } from 'next/navigation'
+import { resourceContext } from 'providers/resource/resourceProvider'
 
 export const searchOptionContext = createContext<{
   /**
@@ -44,12 +45,12 @@ export const searchOptionContext = createContext<{
   /**
    * 검색어 필터 리소스
    */
-  brandList: Resource_Brand[]
-  equipTypeList: Resource_EquipmentType[]
+  brandResource: Resource_Brand[]
+  equipmentTypeResource: Resource_EquipmentType[]
 }>(null)
 
 export default function SearchOption_Wrapper({ children }) {
-  const searchParams = useSearchParams()
+  const { brandResource, equipmentTypeResource } = useContext(resourceContext)
 
   const [searchKeyword, setSearchKeyword] = useState<string>('')
   const [searchFilters, setSearchFilters] = useState<string[]>([])
@@ -57,7 +58,8 @@ export default function SearchOption_Wrapper({ children }) {
 
   const { searchHistory, setSearchHistory, removeSearchHistory, removeAllSearchHistory } =
     useSearchHistory()
-  const { brandList, equipTypeList } = useSearchResources()
+
+  const searchParams = useSearchParams()
 
   const resetSearchOptions = useCallback(() => {
     setSearchSort(SEARCH_SORT.DESC_REVIEW)
@@ -82,8 +84,8 @@ export default function SearchOption_Wrapper({ children }) {
         setSearchHistory,
         removeSearchHistory,
         removeAllSearchHistory,
-        brandList,
-        equipTypeList,
+        brandResource,
+        equipmentTypeResource,
       }}
     >
       {children}

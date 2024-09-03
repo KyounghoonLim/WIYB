@@ -7,6 +7,7 @@ import ModalProvider from 'providers/ModalProvider'
 import Nav from 'components/nav/Nav'
 import LocaleProvider from 'providers/LocaleProvider'
 import UserProvider from 'providers/UserProvider'
+import ResourceProvider from 'providers/resource/resourceProvider'
 
 export const metadata: Metadata = {
   title: 'WIYB',
@@ -34,17 +35,19 @@ export default function RootLayout({
       <Suspense>
         <LocaleProvider>
           <QueryProvider>
-            <UserProvider>
-              <ModalProvider>
-                <body className="APP-CONTAINER bg-bg-light">
-                  <Nav />
-                  {children}
-                  <footer className="FOOTER" />
-                  <div id="modal" />
-                  <div id="overlay" />
-                </body>
-              </ModalProvider>
-            </UserProvider>
+            <ResourceProvider>
+              <UserProvider>
+                <ModalProvider>
+                  <body className="APP-CONTAINER bg-bg-light">
+                    <Nav />
+                    {children}
+                    <footer className="FOOTER" />
+                    <div id="modal" />
+                    <div id="overlay" />
+                  </body>
+                </ModalProvider>
+              </UserProvider>
+            </ResourceProvider>
           </QueryProvider>
         </LocaleProvider>
       </Suspense>

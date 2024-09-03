@@ -26,3 +26,10 @@ export function getIsAuthorized(cookie: RequestCookies) {
     else return true
   }
 }
+
+export function getTokenRole(cookie: RequestCookies) {
+  const accessToken = cookie.get(COOKIE_KEYS.ACCESS_TOKEN)?.value
+  const accDecoded = jwtDecode(accessToken)
+  const accRole = accDecoded['role'] || undefined
+  return accRole
+}

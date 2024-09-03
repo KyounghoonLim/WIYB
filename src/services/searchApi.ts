@@ -4,7 +4,7 @@ import { SERVICE_PATH } from 'constants/path.constant'
 import { SearchSortType } from 'constants/search.constant'
 import myAxios from 'utils/axios/myAxios'
 
-export { searchApi, getPopularKeywordsApi }
+export { searchApi, getPopularSearchKeywordsApi }
 
 /**
  *
@@ -39,6 +39,6 @@ function searchApi(
   })
 }
 
-function getPopularKeywordsApi(): Promise<PopularKeyword[]> {
+function getPopularSearchKeywordsApi(): Promise<PopularKeyword[]> {
   return myAxios.get(SERVICE_PATH.POPULAR_SEARCH_KEYWORDS)
 }
