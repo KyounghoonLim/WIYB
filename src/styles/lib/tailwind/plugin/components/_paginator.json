@@ -6,37 +6,29 @@
     "@apply flex-col-start": true
   },
   ".paginator-indicator": {
-    "width": "100%",
+    "width": "auto",
     "height": "50px",
     "position": "relative",
     "gap": "16px",
-    "padding": "0px 16px",
     "@apply flex-row-center": true,
     " .paginator-indicator-item": {
       "width": "24px",
       "textAlign": "center",
       "cursor": "pointer",
-      "@apply typograph-18": true,
-      "@apply text-neutral-700": true,
+      "@apply typograph-16": true,
+      "@apply text-neutral-900": true,
       "&:hover": {
-        "@apply text-neutral-600": true
+        "@apply text-neutral-700": true
       },
       "&[data-selected='true']": {
         "fontWeight": "bold"
       }
     },
     " .paginator-indicator-arrow": {
-      "position": "absolute",
       "cursor": "pointer",
-      "@apply fill-neutral-700": true,
+      "@apply fill-neutral-900": true,
       "&:hover": {
-        "@apply fill-neutral-600": true
-      },
-      "&[data-direction='prev']": {
-        "left": 16
-      },
-      "&[data-direction='next']": {
-        "right": 16
+        "@apply fill-neutral-700": true
       }
     }
   }

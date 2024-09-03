@@ -15,7 +15,7 @@ export default function PopularPage() {
               <Form_Search />
               <Search_PopularItems />
             </article>
-            <article className="CONTENT-CONTAINER flex-row-start w-[800px] h-[65px] p-0">
+            <article className="CONTENT-CONTAINER flex-row justify-start items-start w-[800px] h-[65px] p-0">
               <Popular_Categories />
             </article>
           </section>

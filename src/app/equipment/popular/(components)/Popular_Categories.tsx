@@ -13,7 +13,7 @@ export default function Popular_Categories() {
     <>
       {/* 전체 */}
       <button
-        className={clsx('typograph-14 auto-size', !type && 'font-bold')}
+        className={clsx('h-[41px] typograph-14 auto-size', !type && 'font-bold')}
         onClick={() => setType(null)}
       >
         전체
@@ -22,7 +22,7 @@ export default function Popular_Categories() {
       {Object.keys(EQUIPMENT_TYPE).map((equipType: EquipmentType) => (
         <button
           key={equipType}
-          className={clsx('typograph-14 auto-size', equipType === type && 'font-bold')}
+          className={clsx('h-[41px] typograph-14 auto-size', equipType === type && 'font-bold')}
           onClick={() => setType(equipType)}
         >
           {t(equipType)}
