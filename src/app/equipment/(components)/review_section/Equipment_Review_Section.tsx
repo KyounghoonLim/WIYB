@@ -4,8 +4,7 @@ import { useContext } from 'react'
 import { reviewContext } from 'providers/review/ReviewProvider'
 import Button_Equipment_Review from 'components/button/equipmentPage/Button_Equipment_Review'
 import Review_Sorts from 'components/review/Review_Sort'
-import Review_List_Scroll from 'components/review/Review_List_Scroll'
-import Review_List_Pagination from 'components/review/Review_List_Pagination'
+import List_Reviews_Pagination from 'components/list/equipmentPage/List_Reviews_Pagination'
 
 export default function Equipment_Review_Section() {
   const { contents } = useContext(reviewContext)
@@ -24,8 +23,7 @@ export default function Equipment_Review_Section() {
           <Review_Sorts />
         </div>
         {Boolean(contents?.length) ? (
-          // <Review_List_Scroll />
-          <Review_List_Pagination />
+          <List_Reviews_Pagination />
         ) : (
           <div className="w-full h-36 flex-col-center text-text-label-000 pb-10">
             <p>작성된 리뷰가 없습니다.</p>

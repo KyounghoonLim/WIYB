@@ -1,0 +1,357 @@
+[
+  {
+    "id": "1234567890",
+    "category": "FREE",
+    "title": "다골 S200 이랑 X100 이랑 많이 차이 날까요?",
+    "viewCount": 25,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 4,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "키 173\n몸무게 85\n30대 후반의 남성입니다.\n\n현재 사용하고 있는 채는 혼마의 HZ-T1 이고, 아버지가 쓰시던  스틸 R 샤프트 채 입니다.\n\n바꾸고 싶은 채 리스트는 타이틀리스트 T200 / 브릿지스톤 V300 / PXG GEN6P / 테일러메이드 P790 입니다.\n\n구력은 만 1년 되었고, 필드는 머리 올리기 위해 한번 경험해 보았고 주로 스크린을 자주 치는 편이며 \n화이트티/ 챔피언 난이도 기준 평균 80중반~90중반 정도 치고 있습니다.\n(필드 경험 1회 108타 기록, 스크린 라베는 76)\n\n7아이언 볼스피드는 40중반,  거리는 130~140\n드라이버 볼스피드는 60초반, 거리는 210~230 입니다.\n\n초보임에도 불구하고 요즘 아이언을 바꾸고 싶은 충동이 너무 많이 드는데, \n이유는 비거리가 조금 더 나왔으면 하고 정타를 맞췄을 때 캐리가 조금 들쑥날쑥한 것 같습니다.(주관적)\n\n혹시 추천 해 주시고 싶은 채가 있거나, 저에게 필요한 조언이 있으시다면 많은 의견 주시면\n골린이에게 큰 도움이 될 것 같습니다!\n(현재 실력으로는 아이언 교체가 의미 없다 / 바꾸려면 샤프트는 어떤걸 써라 / 브랜드는 써보니 어디가 좋더라 등등등)",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "대박 드라이버! 타감도 좋고 비거리도 잘나옵니다.특히 어드레스시 부담감이 없고 맘껏 스윙을 할 수 있게 해주는 챕니다. 타감도 아주 좋네요.기존에 쇠소리가 아닌 기분좋은 타구음이 납니다."
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "대박 드라이버! 타감도 좋고 비거리도 잘나옵니다.특히 어드레스시 부담감이 없고 맘껏 스윙을 할 수 있게 해주는 챕니다. 타감도 아주 좋네요.기존에 쇠소리가 아닌 기분좋은 타구음이 납니다."
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "대박 드라이버! 타감도 좋고 비거리도 잘나옵니다.특히 어드레스시 부담감이 없고 맘껏 스윙을 할 수 있게 해주는 챕니다. 타감도 아주 좋네요.기존에 쇠소리가 아닌 기분좋은 타구음이 납니다."
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "대박 드라이버! 타감도 좋고 비거리도 잘나옵니다.특히 어드레스시 부담감이 없고 맘껏 스윙을 할 수 있게 해주는 챕니다. 타감도 아주 좋네요.기존에 쇠소리가 아닌 기분좋은 타구음이 납니다."
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567891",
+    "category": "FREE",
+    "title": "이건 어떠니 저건 어떠니 고민고민하지마",
+    "viewCount": 103,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 2,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "걸 걸 헤이 유고걸?\n\n베비베비베비 밷 걸~",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "뻘글 ㄴㄴ"
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "신고합니다."
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "이효리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567892",
+    "title": "난 몰라 난 몰라 천 번 만 번 말해줘도 몰라몰라",
+    "viewCount": 9999,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 3,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "책임져 책임져 날 책임져~\n난 이제 니 여자야~",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "뻘글 ㄴㄴ"
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "신고합니다."
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "아 얘 또 이러네."
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567893",
+    "category": "FREE",
+    "title": "골프 잘 치고 싶은데 어떻게 하면 되나요? 제가 LA 에 있었을 때 이야기인데, 골프를 참 잘 치는 선수가 있었어요. 저도 그 선수랑 자주 공 치러 다녔는데 저보다 늘 잘쳐서 질투가 났어요.",
+    "viewCount": 100,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 2,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "(너무 길어서 짤림)",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "콜드 펌킨 형님;;"
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "와 너무 길어서 짤린거 첨 보네 ㅋㅋㅋㅋㅋ."
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "찬호박",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567894",
+    "category": "FREE",
+    "title": "솔직히 골프 치는 2030 특",
+    "viewCount": 1234,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 2,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "잘생기고 멋짐",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "ㅇㅈ"
+      },
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "40..이상은요..?"
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567895",
+    "category": "FREE",
+    "title": "ㅎㅇ",
+    "viewCount": 32,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 1,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "ㅂㅇ",
+    "comments": [
+      {
+        "user": {
+          "id": "1",
+          "nickname": "제나토리",
+          "gender": "Male",
+          "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+          "imageUrl": "/images/dummies/image_profile_dummy.png",
+          "handy": 70,
+          "height": 180,
+          "weight": 70
+        },
+        "content": "?"
+      }
+    ],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  },
+  {
+    "id": "1234567896",
+    "category": "FREE",
+    "title": "다골 S200 이랑 X100 이랑 많이 차이 날까요?",
+    "viewCount": 0,
+    "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+    "commentCount": 0,
+    "images": ["/images/dummies/image_post_dummy.png"],
+    "content": "",
+    "comments": [],
+    "user": {
+      "id": "1",
+      "nickname": "제나토리",
+      "gender": "Male",
+      "birth": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
+      "imageUrl": "/images/dummies/image_profile_dummy.png",
+      "handy": 70,
+      "height": 180,
+      "weight": 70
+    }
+  }
+]

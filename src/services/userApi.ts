@@ -1,5 +1,5 @@
 import { GenderType } from 'types/gender.types'
-import { User } from 'types/user.interface'
+import { User } from 'types/user.types'
 import { SERVICE_PATH } from 'constants/path.constant'
 import myAxios from 'utils/axios/myAxios'
 

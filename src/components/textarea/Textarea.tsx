@@ -12,6 +12,7 @@ export default function Textarea({
   disabled,
   maxLength,
   className,
+  containerClassName,
   onChange,
   onFocus,
   onBlur,
@@ -42,7 +43,7 @@ export default function Textarea({
   }, [value, onBlur])
 
   return (
-    <div className={clsx('textarea-container')}>
+    <div className={clsx('textarea-container', containerClassName)}>
       <textarea
         //@ts-ignore
         ref={textareaRef}

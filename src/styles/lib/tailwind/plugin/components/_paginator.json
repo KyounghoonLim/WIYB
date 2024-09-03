@@ -2,12 +2,11 @@
   ".paginator": {
     "width": "100%",
     "height": "auto",
-    "gap": "16px",
     "@apply flex-col-start": true
   },
   ".paginator-indicator": {
     "width": "auto",
-    "height": "50px",
+    "height": "72px",
     "position": "relative",
     "gap": "16px",
     "@apply flex-row-center": true,

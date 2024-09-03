@@ -1,7 +1,8 @@
-import { InputProps } from "../input/input.interface";
+import { InputProps } from '../input/input.interface'
 
-export { TextareaProps };
+export { TextareaProps }
 
 interface TextareaProps extends InputProps {
-  type?: never;
+  type?: never
+  containerClassName?: string
 }

@@ -20,13 +20,13 @@ export default function Nav() {
           </MyLink>
           <MyLink
             href={PATH.EQUIPMENT_POPULAR}
-            className={clsx('p-4', pathname === PATH.EQUIPMENT_POPULAR && 'font-bold')}
+            className={clsx('p-4', pathname.includes(PATH.EQUIPMENT_POPULAR) && 'font-bold')}
           >
             장비
           </MyLink>
           <MyLink
             href={PATH.COMMUNITY}
-            className={clsx('p-4', pathname === PATH.COMMUNITY && 'font-bold')}
+            className={clsx('p-4', pathname.includes(PATH.COMMUNITY) && 'font-bold')}
           >
             커뮤니티
           </MyLink>

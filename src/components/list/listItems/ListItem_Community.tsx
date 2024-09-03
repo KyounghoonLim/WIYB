@@ -6,14 +6,22 @@ import React from 'react'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
 import clsx from 'clsx'
 import MyLink from 'components/link/MyLink'
+import { PATH, PATH_PARAMS } from 'constants/path.constant'
+import { CommunityPost } from 'types/community.types'
 
-export default function ListItem_Community<T = any>({
+export default function ListItem_Community({
   item: post,
   index,
   isLast,
-}: ListItemProps<T>) {
+}: ListItemProps<CommunityPost>) {
+  console.log(post)
   return (
-    <MyLink href="#" className={clsx('list-item justify-between h-[90px]')}>
+    <MyLink
+      href={
+        post ? PATH.COMMUNITY_POST + PATH_PARAMS.COMMUNITY_POST.replace('[postId]', post.id) : '#'
+      }
+      className={clsx('list-item justify-between h-[90px]')}
+    >
       <div className="w-full h-full flex flex-col gap-[6px]">
         {post ? (
           <>

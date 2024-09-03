@@ -6,7 +6,7 @@ import ListItem_Review from 'components/list/listItems/ListItem_Review'
 import { reviewContext } from 'providers/review/ReviewProvider'
 import { useContext } from 'react'
 
-export default function Review_List_Scroll() {
+export default function List_Reviews_Scroll() {
   const { contents, isEndOfPage, goToNextPage } = useContext(reviewContext)
 
   return (

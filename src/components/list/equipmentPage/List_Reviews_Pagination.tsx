@@ -7,7 +7,7 @@ import Paginator from 'components/paginator/Paginator'
 import { reviewContext } from 'providers/review/ReviewProvider'
 import { useContext } from 'react'
 
-export default function Review_List_Pagination() {
+export default function List_Reviews_Pagination() {
   const { contents, metadata, reviewOffset, setReviewOffset } = useContext(reviewContext)
 
   return (

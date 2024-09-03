@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { createContext, Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
 import { logoutApi } from 'services/authApi'
 import { getUserProfileApi } from 'services/userApi'
-import { User } from 'types/user.interface'
+import { User } from 'types/user.types'
 import { getCookie, removeCookie, setCookie } from 'utils/cookieUtils'
 
 export const userContext = createContext<{
