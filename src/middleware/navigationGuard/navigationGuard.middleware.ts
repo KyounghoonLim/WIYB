@@ -14,7 +14,7 @@ export function navigationGuard(req) {
 
   const { pathname } = nextUrl
   const matchedPathname = getMatchedPathname(pathname)
-  console.log(matchedPathname)
+
   if (isAuthorized) {
     //@ts-ignore
     const isAllowed = [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.USER].includes(matchedPathname)

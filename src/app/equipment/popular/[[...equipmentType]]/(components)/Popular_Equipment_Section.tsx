@@ -9,7 +9,7 @@ import useMyTranslate from 'hooks/useMyTranslate'
 import clsx from 'clsx'
 
 export default function Popular_Equipment_Section() {
-  const { type, popularEquipments, isLoading } = useContext(popularContext)
+  const { category, popularEquipments, isLoading } = useContext(popularContext)
   const { t } = useMyTranslate('equipment')
 
   return (
@@ -19,16 +19,16 @@ export default function Popular_Equipment_Section() {
           {/* 장비 타입별 랜더링 되는 키(관용성, 비거리 ...)가 존재하는지 판별
             없으면 해당 장비 타입의 전체 순위만 보여줌
           */}
-          {!popularKeys[type] ? (
+          {!popularKeys[category] ? (
             /// 장비 타입의 인기순 분류가 없는 경우 (전체, 샤프트, 그립, 공) ///
             popularEquipments?.['total']?.length ? (
               /// 조회된 결과가 있는 경우 ///
               <>
                 <div className="w-full flex-col-start">
                   <span className="w-full h-14 flex-row-start typograph-16">
-                    {!type ? '전체 장비' : t('type.' + type)}&nbsp;
+                    {!category ? '전체 장비' : t('type.' + category)}&nbsp;
                     <h3 className="font-bold">
-                      {!type ? 'Top 100' : `Top ${popularEquipments['total']?.length}`}
+                      {!category ? 'Top 100' : `Top ${popularEquipments['total']?.length}`}
                     </h3>
                   </span>
                   <List_PopularEquipment equipments={popularEquipments['total']} />
@@ -47,7 +47,7 @@ export default function Popular_Equipment_Section() {
                 <div key={key} className={clsx('w-full flex-col-start', idx && '!w-[394px]')}>
                   {/* 각 분류의 라벨링 */}
                   <span className="w-full h-14 flex-row-start typograph-16">
-                    {t('type.' + type)}&nbsp;
+                    {t('type.' + category)}&nbsp;
                     <h3 className="font-bold">
                       {Boolean(idx) && t('evaluation.key.' + key)} Top{' '}
                       {popularEquipments[key].length}
