@@ -1,6 +1,5 @@
 'use client'
 
-import { dummy_searchResultEquipment } from '@/@dummy'
 import { EquipmentType } from 'constants/equipment.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { createContext, Dispatch, SetStateAction, useCallback, useState } from 'react'
@@ -9,18 +8,18 @@ import { Equipment } from 'types/equipment.types'
 import { getPopularEquipmentApi } from 'services/equipmentApi'
 
 export const popularContext = createContext<{
-  type: EquipmentType
-  setType: Dispatch<SetStateAction<EquipmentType>>
+  category: EquipmentType
+  setCategory: Dispatch<SetStateAction<EquipmentType>>
   popularEquipments: { [key: string]: Equipment[] }
   isLoading: boolean
 }>(null)
 
-export default function PopularProvider({ children }) {
-  const [type, setType] = useState<EquipmentType>(null)
+export default function PopularProvider({ equipmentType, children }) {
+  const [category, setCategory] = useState<EquipmentType>(equipmentType)
 
-  const popularEquipmentFetcher = useCallback(async (type: EquipmentType) => {
+  const popularEquipmentFetcher = useCallback(async (category: EquipmentType) => {
     /// 전체 조회인 경우 더미 제공 ///
-    if (!type) {
+    if (!category) {
       const items = Array(20)
         .fill(await getPopularEquipmentApi())
         .flat() as Equipment[]
@@ -28,19 +27,19 @@ export default function PopularProvider({ children }) {
     }
     /// 타입이 있는 경우 해당 타입으로 조회 ///
     else {
-      const items = await getPopularEquipmentApi(type)
-      if (!popularKeys[type]) return { total: items }
+      const items = await getPopularEquipmentApi(category)
+      if (!popularKeys[category]) return { total: items }
       else
-        return ['total', ...popularKeys[type]].reduce((prev, key) => {
+        return ['total', ...popularKeys[category]].reduce((prev, key) => {
           return { ...prev, [key]: items }
         }, {})
     }
   }, [])
 
-  const { data: popularEquipments, isLoading } = useMyQuery([type], popularEquipmentFetcher)
+  const { data: popularEquipments, isLoading } = useMyQuery([category], popularEquipmentFetcher)
 
   return (
-    <popularContext.Provider value={{ type, setType, popularEquipments, isLoading }}>
+    <popularContext.Provider value={{ category, setCategory, popularEquipments, isLoading }}>
       {children}
     </popularContext.Provider>
   )

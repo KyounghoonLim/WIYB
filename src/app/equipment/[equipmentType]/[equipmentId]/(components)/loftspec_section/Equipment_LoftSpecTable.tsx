@@ -8,17 +8,17 @@ import useMyTranslate from 'hooks/useMyTranslate'
 import loftSpecKeys from 'constants/json/loftspec.detail.constant.json'
 import useHorizontalScroll from 'hooks/useHorizontalScroll'
 
-export default function Equipment_LoftSpecTable({ type }: { type: string }) {
+export default function Equipment_LoftSpecTable({ equipmentType }: { equipmentType: string }) {
   const { equipment } = useContext(equipmentContext)
   const { t } = useMyTranslate('equipment.detail')
   const { horizontalScrollRef } = useHorizontalScroll()
 
   const { keys, data } = useMemo(() => {
     return {
-      keys: loftSpecKeys[type],
+      keys: loftSpecKeys[equipmentType],
       data: equipment?.detail?.loftSpec || [],
     }
-  }, [type, equipment])
+  }, [equipmentType, equipment])
 
   /**
    * 값은 전부 숫자로 들어오므로

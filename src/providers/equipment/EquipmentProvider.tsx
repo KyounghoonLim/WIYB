@@ -12,16 +12,16 @@ export const equipmentContext = createContext<{
 }>(null)
 
 export default function EquipmentProvider({
-  id,
-  type,
+  equipmentType,
+  equipmentId,
   children,
 }: {
-  id: string
-  type: string
+  equipmentType: string
+  equipmentId: string
   children: ReactNode
 }) {
-  const { data: equipment } = useMyQuery([id, type], getEquipmentDetailApi, {
-    enabled: Boolean(id) && Boolean(type),
+  const { data: equipment } = useMyQuery([equipmentId, equipmentType], getEquipmentDetailApi, {
+    enabled: Boolean(equipmentId) && Boolean(equipmentType),
   })
 
   const evaluationMetricAverage = useMemo(

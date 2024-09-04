@@ -1,20 +1,20 @@
 'use client'
 
-import { COMMUNITY_CATEGORY, CommunityCategoryType } from 'constants/community.constant'
+import { CommunityType } from 'constants/community.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { createContext, Dispatch, SetStateAction, useState } from 'react'
 import { getCommunityPosts } from 'services/communityApi'
 import { CommunityPost } from 'types/community.types'
 
 export const communityContext = createContext<{
-  category: CommunityCategoryType
-  setCategory: Dispatch<SetStateAction<CommunityCategoryType>>
+  category: CommunityType
+  setCategory: Dispatch<SetStateAction<CommunityType>>
   posts: CommunityPost[]
   isLoading: boolean
 }>(null)
 
-export default function CommunityProvider({ children }) {
-  const [category, setCategory] = useState<CommunityCategoryType>(COMMUNITY_CATEGORY.ALL)
+export default function CommunityProvider({ children, communityType }) {
+  const [category, setCategory] = useState<CommunityType>(communityType)
 
   const { data: posts, isLoading } = useMyQuery([category], getCommunityPosts)
 

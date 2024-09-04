@@ -1,7 +1,7 @@
 [
   {
     "id": "1234567890",
-    "category": "FREE",
+    "category": "INFO",
     "title": "다골 S200 이랑 X100 이랑 많이 차이 날까요?",
     "viewCount": 25,
     "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
@@ -131,6 +131,7 @@
   },
   {
     "id": "1234567892",
+    "category": "INFO",
     "title": "난 몰라 난 몰라 천 번 만 번 말해줘도 몰라몰라",
     "viewCount": 9999,
     "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
@@ -195,7 +196,7 @@
   },
   {
     "id": "1234567893",
-    "category": "FREE",
+    "category": "QNA",
     "title": "골프 잘 치고 싶은데 어떻게 하면 되나요? 제가 LA 에 있었을 때 이야기인데, 골프를 참 잘 치는 선수가 있었어요. 저도 그 선수랑 자주 공 치러 다녔는데 저보다 늘 잘쳐서 질투가 났어요.",
     "viewCount": 100,
     "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
@@ -297,7 +298,7 @@
   },
   {
     "id": "1234567895",
-    "category": "FREE",
+    "category": "TIP",
     "title": "ㅎㅇ",
     "viewCount": 32,
     "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",

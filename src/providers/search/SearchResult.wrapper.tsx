@@ -63,12 +63,9 @@ export default function SearchResult_Wrapper({
 
   /**
    * 서치 옵션의 변화에 따라 중복 요청 등을 방지 하기 위함
-   * 인피니티 스크롤을 사용하지 않는 경우 느슨하게 함
-   * (이전에 가져온 페이지를 다시 가져올 경우가 있음)
    */
   const isSearchEnable = useMemo(() => {
     if (!searchKeyword) return false
-    else if (!useInfinityScroll) return true
     else if (!searchRequestSnapshot.current) return true
     else {
       const { sort, filters } = searchRequestSnapshot.current
@@ -78,7 +75,14 @@ export default function SearchResult_Wrapper({
         return !(searchOffset > 1 || searchContextId)
       } else {
         /// 최초 검색을 통해 결과를 가져왔을 때, contextId 의 변화로 중복 요청이 가는 것을 방지
-        return !(searchOffset === 1 && searchContextId)
+        if (useInfinityScroll) return !(searchOffset === 1 && searchContextId)
+        /// 페이지네이터를 사용하는 경우 offset 이 이전 offset 으로도 다시 갈 수 있기 때문에 로직 변경 ///
+        else {
+          const { keyword, offset, contextId } = searchRequestSnapshot.current
+          if (offset === searchOffset && contextId === searchContextId && keyword !== searchKeyword)
+            return false
+          else return true
+        }
       }
     }
   }, [searchKeyword, searchSort, searchFilters, searchContextId, searchOffset, useInfinityScroll])

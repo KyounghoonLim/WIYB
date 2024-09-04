@@ -1,6 +1,6 @@
 import { Union } from 'types/union.types'
 
-export const COMMUNITY_CATEGORY = {
+export const COMMUNITY_TYPE = {
   ALL: 'ALL',
   FREE: 'FREE',
   INFO: 'INFO',
@@ -8,4 +8,4 @@ export const COMMUNITY_CATEGORY = {
   TIP: 'TIP',
 } as const
 
-export type CommunityCategoryType = Union<typeof COMMUNITY_CATEGORY>
+export type CommunityType = Union<typeof COMMUNITY_TYPE>

@@ -17,7 +17,10 @@ export default function ListItem_Equipment({
     () =>
       equip?.id
         ? PATH.EQUIPMENT_DETAIL +
-          PATH_PARAMS.EQUIPMENT_DETAIL.replace('[id]', equip?.id).replace('[type]', equip?.type)
+          PATH_PARAMS.EQUIPMENT_DETAIL.replace('[equipmentType]', equip.type).replace(
+            '[equipmentId]',
+            equip.id
+          )
         : '#',
     [equip]
   )

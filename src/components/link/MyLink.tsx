@@ -17,15 +17,18 @@ export default function MyLink({
   target = '_self',
   className,
   title,
+  useLoadingOverlay = true,
+  replace,
 }: {
   children: ReactNode
   href: LinkProps['href']
   target?: HTMLAttributeAnchorTarget
-  title?: string
   className?: string
+  title?: string
+  useLoadingOverlay?: boolean
 } & LinkProps) {
   const pathname = usePathname()
-  const { throttling } = useThrottle(true)
+  const { throttling } = useThrottle(useLoadingOverlay)
   const routeChangedRef = useRef<boolean>(false)
 
   const clickHandler = useCallback(() => {
@@ -65,7 +68,14 @@ export default function MyLink({
   }, [pathname])
 
   return (
-    <Link target={target} href={href} onClick={clickHandler} className={className} title={title}>
+    <Link
+      target={target}
+      href={typeof href === 'string' ? href.toLowerCase() : href}
+      onClick={clickHandler}
+      className={className}
+      title={title}
+      replace={replace}
+    >
       {children}
     </Link>
   )

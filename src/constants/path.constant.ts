@@ -16,24 +16,17 @@ export const PATH = {
   EQUIPMENT_POPULAR: '/equipment/popular',
   /// community ///
   COMMUNITY: '/community',
-  COMMUNITY_POST: '/community/post',
 } as const
 
 export const PATH_PARAMS = {
-  EQUIPMENT_DETAIL: '?id=[id]&type=[type]',
-  COMMUNITY: '?category=[category]',
-  COMMUNITY_POST: '?postId=[postId]',
+  EQUIPMENT_DETAIL: '/[equipmentType]/[equipmentId]',
+  EQUIPMENT_POPULAR: '/[equipmentType]',
+  COMMUNITY: '/[communityType]',
+  COMMUNITY_POST: '/[postId]',
 } as const
 
 export const AUTHORITY_PATH = {
-  ALL: [
-    PATH.MAIN,
-    PATH.SEARCH,
-    PATH.EQUIPMENT_DETAIL,
-    PATH.EQUIPMENT_POPULAR,
-    PATH.COMMUNITY,
-    PATH.COMMUNITY_POST,
-  ],
+  ALL: [PATH.MAIN, PATH.SEARCH, PATH.EQUIPMENT_DETAIL, PATH.EQUIPMENT_POPULAR, PATH.COMMUNITY],
   GUEST: [PATH.LOGIN, PATH.LOGIN_FAILURE, PATH.SIGN],
   USER: [PATH.PROFILE],
 } as const

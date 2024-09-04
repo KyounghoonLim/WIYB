@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import MyLink from 'components/link/MyLink'
-import { PATH } from 'constants/path.constant'
+import { PATH, PATH_PARAMS } from 'constants/path.constant'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 
@@ -25,7 +25,7 @@ export default function Nav() {
             장비
           </MyLink>
           <MyLink
-            href={PATH.COMMUNITY}
+            href={PATH.COMMUNITY + PATH_PARAMS.COMMUNITY.replace('[communityType]', 'all')}
             className={clsx('p-4', pathname.includes(PATH.COMMUNITY) && 'font-bold')}
           >
             커뮤니티

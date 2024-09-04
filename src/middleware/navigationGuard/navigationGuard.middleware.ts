@@ -1,5 +1,5 @@
 import { COOKIE_KEYS } from 'constants/cookie.constant'
-import { getIsAuthorized } from './navigationGuard.util'
+import { getIsAuthorized, getMatchedPathname } from './navigationGuard.util'
 import { AUTHORITY_PATH, PATH } from 'constants/path.constant'
 import { NextResponse } from 'next/server'
 
@@ -13,9 +13,11 @@ export function navigationGuard(req) {
   const isAuthorized = getIsAuthorized(req.cookies)
 
   const { pathname } = nextUrl
+  const matchedPathname = getMatchedPathname(pathname)
+  console.log(matchedPathname)
   if (isAuthorized) {
     //@ts-ignore
-    const isAllowed = [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.USER].includes(pathname)
+    const isAllowed = [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.USER].includes(matchedPathname)
     if (isAllowed) return NextResponse.next()
     else {
       nextUrl.pathname = PATH.MAIN
@@ -24,7 +26,7 @@ export function navigationGuard(req) {
   } else {
     //@ts-ignore
     const isAllowed = (() => {
-      switch (pathname) {
+      switch (matchedPathname) {
         /**
          * 회원가입 페이지로 요청이 왔을 때 엑세스 토큰이 없으면 로그인 페이지로 보냄
          * 앞서 authority 검증이 되었으므로, 여기에서 토큰이 있으면 GUEST 임
@@ -34,7 +36,8 @@ export function navigationGuard(req) {
           else return false
         }
         default:
-          return [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.GUEST].includes(pathname)
+          //@ts-ignore
+          return [...AUTHORITY_PATH.ALL, ...AUTHORITY_PATH.GUEST].includes(matchedPathname)
       }
     })()
 

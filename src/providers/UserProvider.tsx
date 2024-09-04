@@ -2,13 +2,15 @@
 
 import { COOKIE_KEYS } from 'constants/cookie.constant'
 import { AUTHORITY_PATH, PATH } from 'constants/path.constant'
+import { STORAGE_KEY, STORAGE_TYPE } from 'constants/storage.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { usePathname } from 'next/navigation'
 import { createContext, Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
 import { logoutApi } from 'services/authApi'
 import { getUserProfileApi } from 'services/userApi'
 import { User } from 'types/user.types'
-import { getCookie, removeCookie, setCookie } from 'utils/cookieUtils'
+import { removeCookie } from 'utils/cookieUtils'
+import { removeStorageItem, setStorageItem } from 'utils/storageUtils'
 
 export const userContext = createContext<{
   user: User
@@ -32,6 +34,7 @@ export default function UserProvider({ children }) {
       if (user) {
         cb?.()
       } else if (window.confirm('로그인이 필요합니다.\n로그인 페이지로 이동하시겠습니까?')) {
+        setStorageItem(STORAGE_TYPE.SESSION, STORAGE_KEY.LOGIN.SUCCESS_FALLBACK, location.pathname)
         location.href = PATH.LOGIN
       }
     },
@@ -54,6 +57,7 @@ export default function UserProvider({ children }) {
   /// fetch success handler ///
   const successHandler = useCallback((user: User) => {
     setUser(user)
+    removeStorageItem(STORAGE_TYPE.SESSION, STORAGE_KEY.LOGIN.SUCCESS_FALLBACK)
   }, [])
 
   /// fetch failure handler ///

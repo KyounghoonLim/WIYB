@@ -14,11 +14,7 @@ import { numberAddComma } from 'utils/numberUtils'
 import List_Community_Comments from 'components/list/communityPage/List_Community_Comments'
 import Form_Comment from 'components/form/Form_Comment'
 
-export default function CommunityPostPage({
-  searchParams: { postId },
-}: {
-  searchParams: { postId: string }
-}) {
+export default function CommunityPostPage({ params: { postId } }) {
   const { data: post, isLoading } = useMyQuery([postId], getPostDetail)
   const { t } = useMyTranslate('community.category')
 

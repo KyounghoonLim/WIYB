@@ -6,7 +6,7 @@ import { useContext, useMemo } from 'react'
 import Island_Equipment_DetailInfo from 'components/island/equipmentPage/Island_Equipment_DetailInfo'
 import useMyTranslate from 'hooks/useMyTranslate'
 
-export default function Equipment_SpecList({ type }: { type: string }) {
+export default function Equipment_SpecList({ equipmentType }: { equipmentType: string }) {
   const { equipment } = useContext(equipmentContext)
   const { t } = useMyTranslate('equipment.detail')
 
@@ -15,9 +15,9 @@ export default function Equipment_SpecList({ type }: { type: string }) {
    * 종류별로 정의된 keys 를 통해 정보를 가져옴
    */
   const equipmentKeys = useMemo((): string[] => {
-    if (!equipment) return Array(keys[type]?.length).fill(undefined)
+    if (!equipment) return Array(keys[equipmentType]?.length).fill(undefined)
     else return keys[equipment?.type]
-  }, [equipment, type])
+  }, [equipment, equipmentType])
 
   return (
     <>

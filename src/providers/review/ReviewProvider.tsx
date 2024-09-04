@@ -28,12 +28,12 @@ export const reviewContext = createContext<{
 }>(null)
 
 export default function ReviewProvider({
+  equipmentId,
   children,
-  id,
   useInfinityScroll,
 }: {
+  equipmentId: string
   children: ReactNode
-  id: string
   useInfinityScroll?: boolean
 }) {
   const [reviewContextId, setReviewContextId] = useState<string>(null)
@@ -75,7 +75,7 @@ export default function ReviewProvider({
   )
 
   const { isLoading } = useMyQuery(
-    [id, reviewContextId, reviewOffset, reviewSize, reviewSort],
+    [equipmentId, reviewContextId, reviewOffset, reviewSize, reviewSort],
     getEquipmentReviewsApi,
     { enabled: isFetchEnable },
     successHandler

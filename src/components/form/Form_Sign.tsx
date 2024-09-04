@@ -11,7 +11,7 @@ import { setUserProfileApi } from 'services/userApi'
 import React, { useCallback, useMemo, useState } from 'react'
 import Input_Date from 'components/input/Input_Date'
 
-export default function Form_Sign() {
+export default function Form_Sign({ fallback }: { fallback: string }) {
   const [nickname, setNickname] = useState<string>('')
   const [gender, setGender] = useState<GenderType>(GENDER.FEMALE)
   const [birth, setBirth] = useState<Date | string>()
@@ -25,12 +25,12 @@ export default function Form_Sign() {
 
   const submitHandler = useCallback(async () => {
     try {
-      const user = await setUserProfileApi(nickname, gender, birth)
-      location.replace(PATH.MAIN)
+      await setUserProfileApi(nickname, gender, birth)
+      location.replace(fallback)
     } catch {
       window.alert('회원가입에 실패했습니다.')
     }
-  }, [nickname, gender, birth])
+  }, [nickname, gender, birth, fallback])
 
   return (
     <Form onSubmit={submitHandler} className="w-[800px] my-4 gap-8">
