@@ -34,11 +34,14 @@ export default function ModalProvider({ children }) {
     metadataRef.current = metadata
   }, [])
 
-  const openModal = useCallback((type: ModalType, data?: any, medatada?: ModalMetadata) => {
-    setModalType(type)
-    setModalData(data)
-    setModalMetadata(medatada)
-  }, [])
+  const openModal = useCallback(
+    (type: ModalType, data?: any, medatada?: ModalMetadata) => {
+      setModalType(type)
+      setModalData(data)
+      setModalMetadata(medatada)
+    },
+    [setModalMetadata]
+  )
 
   const closeModal = useCallback(() => {
     if (!metadataRef.current?.close || metadataRef.current?.close.condition) setModalType(null)
@@ -49,7 +52,7 @@ export default function ModalProvider({ children }) {
         setModalMetadata(null)
       }
     }
-  }, [])
+  }, [setModalMetadata])
 
   /// 모달이 열려있을 때 스크롤 방지 ///
   useLayoutEffect(() => {

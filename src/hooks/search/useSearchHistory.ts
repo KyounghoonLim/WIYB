@@ -17,7 +17,7 @@ export default function useSearchHistory() {
     } catch {
       return []
     }
-  }, [flag])
+  }, [])
 
   const setSearchHistory = useCallback(
     (searchKeyword: string) => {

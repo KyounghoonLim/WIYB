@@ -1,9 +1,11 @@
 import Form_Search from 'components/form/Form_Search'
 import Search_PopularItems from 'components/search/Search_PopularItems'
-import PopularProvider from 'providers/equipment/PopularProvider'
 import Popular_Categories from './(components)/Popular_Categories'
 import SearchProvider from 'providers/search/SearchProvider'
 import Popular_Equipment_Section from './(components)/Popular_Equipment_Section'
+import dynamic from 'next/dynamic'
+
+const PopularProvider = dynamic(() => import('providers/equipment/PopularProvider'), { ssr: false })
 
 export default function PopularPage({ params: { equipmentType } }) {
   return (

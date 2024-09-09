@@ -76,7 +76,16 @@ export default function Form_Review() {
         window.alert('리뷰 작성에 실패했습니다.')
       }
     }
-  }, [equipment, isValid, reviewEvaluationMap, reviewFileList, reviewMessage, modalMetadata])
+  }, [
+    equipment,
+    isValid,
+    reviewEvaluationMap,
+    reviewFileList,
+    reviewMessage,
+    modalMetadata,
+    setModalMetadata,
+    closeModal,
+  ])
 
   /**
    * 리뷰가 작성중일 때 모달 백그라운드 클릭으로 나가는 것 방지
@@ -93,7 +102,7 @@ export default function Form_Review() {
         },
       })
     }
-  }, [isChanged])
+  }, [isChanged, setModalMetadata])
 
   return (
     <Form onSubmit={submitHandler} className="gap-8">

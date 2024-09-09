@@ -9,12 +9,15 @@ export default function Search_Filters() {
   const { equipmentTypeResource, searchFilters, setSearchFilters, resetSearchOptions } =
     useContext(searchOptionContext)
 
-  const changeHandler = useCallback((value: string) => {
-    setSearchFilters((temp) => {
-      if (temp.includes(value)) return temp.filter((val) => val !== value)
-      else return [...temp, value]
-    })
-  }, [])
+  const changeHandler = useCallback(
+    (value: string) => {
+      setSearchFilters((temp) => {
+        if (temp.includes(value)) return temp.filter((val) => val !== value)
+        else return [...temp, value]
+      })
+    },
+    [setSearchFilters]
+  )
 
   const isChecked = useCallback(
     (value: string) => {

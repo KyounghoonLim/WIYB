@@ -13,7 +13,7 @@ export default function Portal({ target, children }: PortalProps) {
         document.getElementsByTagName(target)[0] ||
         document.getElementsByName(target)[0]) as HTMLElement
     )
-  }, [])
+  }, [target])
 
   return portalTarget ? reactDOM.createPortal(children, portalTarget) : null
 }

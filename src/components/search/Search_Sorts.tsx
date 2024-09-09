@@ -18,11 +18,14 @@ export default function Search_Sorts() {
       value: SEARCH_SORT[key],
       label: t(key),
     }))
-  }, [])
+  }, [t])
 
-  const changeHandler = useCallback((value: string) => {
-    setSearchSort(value as SearchSortType)
-  }, [])
+  const changeHandler = useCallback(
+    (value: string) => {
+      setSearchSort(value as SearchSortType)
+    },
+    [setSearchSort]
+  )
 
   return <Select_Primary options={searchSortOptions} value={searchSort} onChange={changeHandler} />
 }

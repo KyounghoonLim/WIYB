@@ -46,7 +46,7 @@ function SearchProviderChild({ children }) {
         })
       }
     },
-    [searchKeyword, searchFilters, searchSort]
+    [searchKeyword, searchFilters, setSearchHistory, setSearchKeyword, throttling]
   )
 
   return <searchContext.Provider value={{ searching }}>{children}</searchContext.Provider>

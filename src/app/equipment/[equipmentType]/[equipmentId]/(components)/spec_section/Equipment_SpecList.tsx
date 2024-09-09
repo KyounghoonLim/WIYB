@@ -1,7 +1,7 @@
 'use client'
 
 import { equipmentContext } from 'providers/equipment/EquipmentProvider'
-import { keys } from 'constants/json/equipment.detail.constant.json'
+import equipmentDetailKeys from 'constants/json/equipment.detail.constant.json'
 import { useContext, useMemo } from 'react'
 import Island_Equipment_DetailInfo from 'components/island/equipmentPage/Island_Equipment_DetailInfo'
 import useMyTranslate from 'hooks/useMyTranslate'
@@ -15,8 +15,8 @@ export default function Equipment_SpecList({ equipmentType }: { equipmentType: s
    * 종류별로 정의된 keys 를 통해 정보를 가져옴
    */
   const equipmentKeys = useMemo((): string[] => {
-    if (!equipment) return Array(keys[equipmentType]?.length).fill(undefined)
-    else return keys[equipment?.type]
+    if (!equipment) return Array(equipmentDetailKeys[equipmentType]?.length).fill(undefined)
+    else return equipmentDetailKeys[equipment?.type]
   }, [equipment, equipmentType])
 
   return (

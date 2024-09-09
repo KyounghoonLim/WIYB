@@ -28,7 +28,7 @@ export default function useDropdown(options: DropdownOption[]) {
         ele.addEventListener('click', clickHandler)
       }
     },
-    [isOpen, isShow]
+    [isOpen, isShow, clickHandler]
   )
 
   /// clean up ///
@@ -37,7 +37,7 @@ export default function useDropdown(options: DropdownOption[]) {
       ref.current?.classList.remove('dropdown-container')
       ref.current?.removeEventListener('click', clickHandler)
     }
-  }, [])
+  }, [clickHandler])
 
   useLayoutEffect(() => {
     if (!isOpen) return
@@ -70,7 +70,7 @@ function Dropdown({ options, closeDropdown }: DropdownProps) {
       const option = options[(e.target as HTMLElement).dataset.index]
       option?.onClick?.()
     },
-    [options]
+    [options, closeDropdown]
   )
 
   return (

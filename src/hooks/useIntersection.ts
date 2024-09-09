@@ -64,7 +64,7 @@ export default function useIntersection({
         }
       }, options)
     }
-  }, [onEnter, onLeave, isEntered, throttle, condition])
+  }, [onEnter, onLeave, isEntered, throttle, condition, delay, options])
 
   useLayoutEffect(() => {
     if (!intersectionRef.current) return
@@ -75,7 +75,7 @@ export default function useIntersection({
         observer.disconnect()
       }
     }
-  }, [intersectionRef.current, observer])
+  }, [observer])
 
   return { intersectionRef, observer }
 }

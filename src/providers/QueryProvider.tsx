@@ -19,17 +19,20 @@ export default function QueryProvider({ children }: { children: ReactNode }) {
   const recognizeRequestTime = useCallback(() => {
     setItem(currRequestIndex.current, Date.now())
     return currRequestIndex.current++
-  }, [])
+  }, [setItem])
 
   const isTooClose = useCallback(
     (requestIndex: number) => getItem(requestIndex) - lastErrorHandledTime.current < 100,
-    []
+    [getItem]
   )
 
-  const defaultErrorHandler = useCallback((err: AxiosError, requestIndex: number) => {
-    console.log('is too close latest handled error?', isTooClose(requestIndex))
-    return
-  }, [])
+  const defaultErrorHandler = useCallback(
+    (err: AxiosError, requestIndex: number) => {
+      console.log('is too close latest handled error?', isTooClose(requestIndex))
+      return
+    },
+    [isTooClose]
+  )
 
   return (
     <QueryClientProvider client={new QueryClient()}>

@@ -22,7 +22,7 @@ export default function useThrottle(overlay?: boolean) {
         }
       }
     },
-    [throttle, overlay]
+    [throttle, overlay, attach, detach]
   )
 
   return { throttle, throttling }

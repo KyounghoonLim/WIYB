@@ -1,23 +1,21 @@
 {
-  "keys": {
-    "DRIVER": ["loftDegree", "volume"],
-    "WOOD": ["loftDegree", "numbers"],
-    "HYBRID": ["loftDegree", "numbers"],
-    "IRON": ["numbers", "produceType", "designType", "loftDegree", "loft7Degree", "loftPDegree"],
-    "WEDGE": ["loftDegree", "produceType", "bounce", "grind"],
-    "PUTTER": ["loftDegree", "weight", "neckShape"],
-    "SHAFT": [
-      "weight",
-      "strength",
-      "kickPoint",
-      "torque",
-      "texture",
-      "tipDiameter",
-      "buttDiameter",
-      "spin",
-      "launch"
-    ],
-    "GRIP": ["weight", "size", "coreSize", "feel", "material", "torque", "diameter"],
-    "BALL": ["piece", "spin", "launch", "feel", "dimple", "texture"]
-  }
+  "DRIVER": ["loftDegree", "volume"],
+  "WOOD": ["loftDegree", "numbers"],
+  "HYBRID": ["loftDegree", "numbers"],
+  "IRON": ["numbers", "produceType", "designType", "loftDegree", "loft7Degree", "loftPDegree"],
+  "WEDGE": ["loftDegree", "produceType", "bounce", "grind"],
+  "PUTTER": ["loftDegree", "weight", "neckShape"],
+  "SHAFT": [
+    "weight",
+    "strength",
+    "kickPoint",
+    "torque",
+    "texture",
+    "tipDiameter",
+    "buttDiameter",
+    "spin",
+    "launch"
+  ],
+  "GRIP": ["weight", "size", "coreSize", "feel", "material", "torque", "diameter"],
+  "BALL": ["piece", "spin", "launch", "feel", "dimple", "texture"]
 }

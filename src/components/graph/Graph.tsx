@@ -19,10 +19,13 @@ export default function Graph({
   const graphRef = useRef<Chart>()
   const { initGraph } = useGraph()
 
-  const getGraph = useCallback((element: HTMLCanvasElement) => {
-    canvasRef.current = element
-    graphRef.current = initGraph(element, label, data)
-  }, [])
+  const getGraph = useCallback(
+    (element: HTMLCanvasElement) => {
+      canvasRef.current = element
+      graphRef.current = initGraph(element, label, data)
+    },
+    [data, label, initGraph]
+  )
 
   return <canvas ref={getGraph} width={width} height={height} />
 }

@@ -50,7 +50,7 @@ export default function MyLink({
         })
       })
     }
-  }, [href, pathname, target])
+  }, [href, pathname, target, throttling])
 
   /// unmount 되었을 때 throttle 해제 ///
   useLayoutEffect(() => {
@@ -65,7 +65,7 @@ export default function MyLink({
     else {
       routeChangedRef.current = true
     }
-  }, [pathname])
+  }, [pathname, href])
 
   return (
     <Link

@@ -71,7 +71,7 @@ export default function ImageUploader_Multiple({
         else onUpload(uploadedFileList)
       }
     },
-    [fileList, onUpload]
+    [fileList, onUpload, limitFileLength, limitFileSize]
   )
 
   const removeClickHandler = useCallback(
@@ -80,7 +80,7 @@ export default function ImageUploader_Multiple({
       const newFileList = fileList.filter((_file) => _file !== file)
       onUpload(newFileList)
     },
-    [fileList]
+    [fileList, onUpload]
   )
 
   useLayoutEffect(() => {

@@ -11,25 +11,28 @@ import { createRoot, Root } from 'react-dom/client'
 export default function usePortal(target: string) {
   const rootRef = useRef<Root>()
 
-  const attach = useCallback((children: ReactNode) => {
-    try {
-      const root =
-        rootRef.current ||
-        (() => {
-          const container = document.getElementById(target)
-          const portalRoot = createRoot(container)
-          rootRef.current = portalRoot
-          return portalRoot
-        })()
+  const attach = useCallback(
+    (children: ReactNode) => {
+      try {
+        const root =
+          rootRef.current ||
+          (() => {
+            const container = document.getElementById(target)
+            const portalRoot = createRoot(container)
+            rootRef.current = portalRoot
+            return portalRoot
+          })()
 
-      if (!root) return
-      else {
-        root?.render(children)
+        if (!root) return
+        else {
+          root?.render(children)
+        }
+      } catch {
+        /// pass
       }
-    } catch {
-      /// pass
-    }
-  }, [])
+    },
+    [target]
+  )
 
   const detach = useCallback(() => {
     try {
@@ -49,7 +52,7 @@ export default function usePortal(target: string) {
     } catch {
       /// pass
     }
-  }, [])
+  }, [target])
 
   return { attach, detach }
 }

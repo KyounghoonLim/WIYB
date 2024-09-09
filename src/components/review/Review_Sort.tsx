@@ -18,11 +18,14 @@ export default function Review_Sorts() {
       value: REVIEW_SORT[key],
       label: t(key),
     }))
-  }, [])
+  }, [t])
 
-  const changeHandler = useCallback((value: string) => {
-    changeSort(value as ReviewSortType)
-  }, [])
+  const changeHandler = useCallback(
+    (value: string) => {
+      changeSort(value as ReviewSortType)
+    },
+    [changeSort]
+  )
 
   return (
     <>
