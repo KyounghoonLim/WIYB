@@ -56,11 +56,6 @@ export function getMatchedPathname(path: string) {
         (PATH.EQUIPMENT_DETAIL + PATH_PARAMS.EQUIPMENT_DETAIL).split('/').length ===
         path.split('/').length
 
-      console.log(
-        (PATH.EQUIPMENT_DETAIL + PATH_PARAMS.EQUIPMENT_DETAIL).split('/').length,
-        path.split('/').length
-      )
-
       return condition ? PATH.EQUIPMENT_DETAIL : path
     }
     /// param 이 없는 경우도 존재 ///

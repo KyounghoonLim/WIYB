@@ -45,8 +45,6 @@ export default function ImageUploader_Multiple({
           } else return fileArray
         })()
 
-        console.log(_fileList, preservedFileList)
-
         const allowedFileList = preservedFileList.filter((file) => file.size <= limitFileSize)
         const uploadedFileList = [
           ...fileList,

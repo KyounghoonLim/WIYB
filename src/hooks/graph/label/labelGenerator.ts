@@ -1,5 +1,4 @@
 export function labelGenerator(labels: string | string[]) {
-  console.log(labels, typeof labels)
   if (typeof labels === 'string') return labels
   else {
     return labels.map((label, idx) => {

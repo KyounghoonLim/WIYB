@@ -1,10 +1,13 @@
 'use client'
 
 import { createContext, useCallback, useContext } from 'react'
-import SearchOption_Wrapper, { searchOptionContext } from './SearchOption.wrapper'
+import { searchOptionContext } from './SearchOption.wrapper'
 import useThrottle from 'hooks/useThrottle'
 import { PATH } from 'constants/path.constant'
 import SearchResult_Wrapper from './SearchResult.wrapper'
+import dynamic from 'next/dynamic'
+
+const SearchOption_Wrapper = dynamic(() => import('./SearchOption.wrapper'))
 
 export const searchContext = createContext<{ searching: (keyword?: string) => void }>(null)
 
