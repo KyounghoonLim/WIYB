@@ -3,9 +3,13 @@
 import { EquipmentType } from 'constants/equipment.constant'
 import useMyQuery from 'hooks/useMyQuery'
 import { createContext, Dispatch, SetStateAction, useCallback, useState } from 'react'
-import popularKeys from 'constants/json/popular.keys.constant.json'
+import equipmentMetricKeys from 'constants/json/popular.keys.constant.json'
 import { Equipment } from 'types/equipment.types'
-import { getPopularEquipmentApi } from 'services/equipmentApi'
+import {
+  getPopularEquipment_Top100_Api,
+  getPopularEquipment_Top5_Api,
+  getPopularEquipment_Metric_Api,
+} from 'services/equipmentApi'
 
 export const popularContext = createContext<{
   category: EquipmentType
@@ -20,19 +24,27 @@ export default function PopularProvider({ equipmentType, children }) {
   const popularEquipmentFetcher = useCallback(async (category: EquipmentType) => {
     /// 전체 조회인 경우 더미 제공 ///
     if (!category) {
-      const items = Array(20)
-        .fill(await getPopularEquipmentApi())
-        .flat() as Equipment[]
-      return { total: items }
+      const all = await getPopularEquipment_Top100_Api()
+      return { all }
     }
     /// 타입이 있는 경우 해당 타입으로 조회 ///
     else {
-      const items = await getPopularEquipmentApi(category)
-      if (!popularKeys[category]) return { total: items }
-      else
-        return ['total', ...popularKeys[category]].reduce((prev, key) => {
-          return { ...prev, [key]: items }
-        }, {})
+      const all = await getPopularEquipment_Top5_Api(category)
+      if (!equipmentMetricKeys[category]) return { all }
+      else {
+        const itemsByMetric = await Promise.all(
+          equipmentMetricKeys[category].map(async (metric) => ({
+            [metric]: await getPopularEquipment_Metric_Api(category, metric),
+          }))
+        )
+
+        return itemsByMetric.reduce(
+          (prev, curr) => {
+            return { ...prev, ...curr }
+          },
+          { all }
+        )
+      }
     }
   }, [])
 

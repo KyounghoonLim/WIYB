@@ -1,8 +1,7 @@
-import type { Metadata, Viewport } from 'next'
 import '@/styles/global.css'
+import type { Metadata, Viewport } from 'next'
 import QueryProvider from '@/providers/QueryProvider'
 import { Suspense } from 'react'
-import { Inter } from 'next/font/google'
 import ModalProvider from 'providers/ModalProvider'
 import Nav from 'components/nav/Nav'
 import LocaleProvider from 'providers/LocaleProvider'
@@ -19,11 +18,6 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
 }
-
-export const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export default function RootLayout({
   children,

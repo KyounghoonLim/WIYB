@@ -19,7 +19,7 @@ export default function Button_Community_Post({ className }: { className?: strin
     <Button_Primary
       icon={() => ReviewIcon({ className: 'fill-white' })}
       text="커뮤니티 글 작성하기"
-      className={clsx('w-[212px] h-[44px] rounded-lg', className)}
+      className={clsx('w-[212px] h-[44px] rounded-lg text-nowrap', className)}
       onClick={clickHandler}
     />
   )

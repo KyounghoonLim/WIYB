@@ -3,14 +3,14 @@
 import List_Primary from '@/components/list/List_Primary'
 import Island from '../Island'
 import ListItem_Equipment from '@/components/list/listItems/ListItem_Equipment'
-import { getPopularEquipmentApi } from 'services/equipmentApi'
+import { getPopularEquipment_Top5_Api } from 'services/equipmentApi'
 import useMyQuery from 'hooks/useMyQuery'
 import Button_SeeMore from 'components/button/Button_SeeMore'
 
 export default function Island_PopularEquipments() {
   const { data: popularEquipments, error } = useMyQuery(
     ['popularEquipments'],
-    () => getPopularEquipmentApi(),
+    () => getPopularEquipment_Top5_Api(),
     {
       initialData: Array(5).fill(undefined),
     }

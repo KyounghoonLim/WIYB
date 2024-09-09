@@ -68,7 +68,9 @@ export const SERVICE_PATH = {
   POPULAR_SEARCH_KEYWORDS: '/search/popular/keyword',
   /// equipment ///
   GET_EQUIPMENT: '/product/[id]/[type]',
-  POPULAR_EQUIPMENTS: '/product/most/view/simple',
+  POPULAR_EQUIPMENTS_TOP5: '/product/popular/simple',
+  POPULAR_EQUIPMENTS_TOP100: '/product/popular/all',
+  POPULAR_EQUIPMENTS_METRIC: '/product/popular/metric',
   BOOKMARK_EQUIPMENT: '/product/[id]/bookmark',
   /// review ///
   REVIEW: '/product/[equipmentId]/review',

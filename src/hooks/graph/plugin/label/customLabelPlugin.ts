@@ -26,7 +26,7 @@ export const customLabelPlugin = {
       const isBottom = bottomPosIndex.includes(index)
 
       const angle = r.getIndexAngle(index)
-      const x = r.xCenter + r.drawingArea * 1.4 * Math.sin(angle) // 위치 조정
+      const x = r.xCenter + r.drawingArea * 1.35 * Math.sin(angle) // 위치 조정
       const y = r.yCenter - r.drawingArea * (isBottom ? 1.2 : index ? 1.3 : 1.4) * Math.cos(angle) // 위치 조정
 
       labels.forEach((label, idx) => {

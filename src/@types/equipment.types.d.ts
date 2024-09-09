@@ -67,10 +67,10 @@ export type RelatedVideo = {
 }
 
 export type EquipmentEvaluationMetricAverage = {
-  [key: EvaluationMetricKeys]: number
+  [key: EvaluationMetricKeyType]: number
 }
 
-export type EvaluationMetricKeys =
+export type EvaluationMetricKeyType =
   | 'forgiveness'
   | 'distance'
   | 'accuracy'

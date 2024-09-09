@@ -21,17 +21,17 @@ export default function Popular_Equipment_Section() {
           */}
           {!popularKeys[category] ? (
             /// 장비 타입의 인기순 분류가 없는 경우 (전체, 샤프트, 그립, 공) ///
-            popularEquipments?.['total']?.length ? (
+            popularEquipments?.['all']?.length ? (
               /// 조회된 결과가 있는 경우 ///
               <>
                 <div className="w-full flex-col-start">
                   <span className="w-full h-14 flex-row-start typograph-16">
                     {!category ? '전체 장비' : t('type.' + category)}&nbsp;
                     <h3 className="font-bold">
-                      {!category ? 'Top 100' : `Top ${popularEquipments['total']?.length}`}
+                      {!category ? 'Top 100' : `Top ${popularEquipments['all']?.length}`}
                     </h3>
                   </span>
-                  <List_PopularEquipment equipments={popularEquipments['total']} />
+                  <List_PopularEquipment equipments={popularEquipments['all']} />
                 </div>
               </>
             ) : (
