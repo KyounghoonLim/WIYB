@@ -27,9 +27,7 @@ export default function Popular_Equipment_Section() {
                 <div className="w-full flex-col-start">
                   <span className="w-full h-14 flex-row-start typograph-16">
                     {!category ? '전체 장비' : t('type.' + category)}&nbsp;
-                    <h3 className="font-bold">
-                      {!category ? 'Top 100' : `Top ${popularEquipments['all']?.length}`}
-                    </h3>
+                    <h3 className="font-bold">{`Top ${popularEquipments['all']?.length}`}</h3>
                   </span>
                   <List_PopularEquipment equipments={popularEquipments['all']} />
                 </div>
