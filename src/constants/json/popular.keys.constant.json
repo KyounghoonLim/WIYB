@@ -3,6 +3,6 @@
   "WOOD": ["distance", "forgiveness"],
   "HYBRID": ["distance", "forgiveness"],
   "IRON": ["distance", "accuracy"],
-  "WEDGE": ["accuracy", "backSpin"],
+  "WEDGE": ["accuracy", "backspin"],
   "PUTTER": ["accuracy", "distanceControl"]
 }

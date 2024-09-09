@@ -2,8 +2,8 @@
   "DRIVER": ["forgiveness", "distance", "accuracy", "impactFeel", "impactSound"],
   "WOOD": ["forgiveness", "distance", "accuracy", "impactFeel", "impactSound"],
   "HYBRID": ["forgiveness", "distance", "accuracy", "impactFeel", "impactSound"],
-  "IRON": ["forgiveness", "distance", "accuracy", "impactFeel", "backSpin"],
-  "WEDGE": ["forgiveness", "distance", "accuracy", "impactFeel", "backSpin"],
+  "IRON": ["forgiveness", "distance", "accuracy", "impactFeel", "backspin"],
+  "WEDGE": ["forgiveness", "distance", "accuracy", "impactFeel", "backspin"],
   "PUTTER": ["forgiveness", "accuracy", "distanceControl", "impactFeel"],
   "SHAFT": ["stiffness", "weight", "trajectory"],
   "GRIP": ["touch", "gripComfort", "durability"]

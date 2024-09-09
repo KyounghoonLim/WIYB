@@ -45,7 +45,7 @@ export default function Island_Equipment_Simple() {
             <>
               <span className="w-full flex-row-start gap-1 font-bold">
                 <StarIcon />
-                {equipment.score || 0}
+                {equipment.averageScore || 0}
               </span>
               <span className="w-full flex-row-start text-nowrap text-text-label-100">
                 <h3 className="font-bold inline-block text-black">

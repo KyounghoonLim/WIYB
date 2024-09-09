@@ -9,7 +9,7 @@ export type Equipment = {
   viewCount: number
   reviewCount: number
   imageUrls: string[]
-  score?: number
+  averageScore?: number
   isBookmarked?: boolean
 }
 
@@ -76,7 +76,7 @@ export type EvaluationMetricKeys =
   | 'accuracy'
   | 'impactFeel'
   | 'impactSound'
-  | 'backSpin'
+  | 'backspin'
   | 'distanceControl'
   | 'stiffness'
   | 'weight'
