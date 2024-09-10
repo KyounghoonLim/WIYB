@@ -8,6 +8,7 @@ import MyLink from 'components/link/MyLink'
 import Thumbnail_Primary from 'components/thumbnail/Thumbnail_Primary'
 import StarIcon from 'icons/icon_star.svg'
 import { numberAddComma } from 'utils/numberUtils'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function ListItem_SearchResult_Equipment({
   item: equip,
@@ -16,6 +17,8 @@ export default function ListItem_SearchResult_Equipment({
   listing,
 }: ListItemProps<Equipment>) {
   const listingRef = useRef<HTMLParagraphElement>(null)
+
+  const { t } = useMyTranslate('equipment.type')
 
   const detailPageUrl = useMemo(
     () =>
@@ -58,7 +61,11 @@ export default function ListItem_SearchResult_Equipment({
       <div ref={fullSizeRef} className="flex flex-col gap-1 auto-size">
         {equip ? (
           <>
-            <h3 className="typograph-12 text-text-label-100 truncate">{equip?.brand}</h3>
+            <span className="flex-row-start gap-[6px] typograph-12 text-text-label-100 truncate">
+              <p>{equip?.brand}</p>
+              <hr className="w-[1px] h-2 bg-[#646464]" />
+              <p>{t(equip?.type)}</p>
+            </span>
             <h3 className="typograph-16 font-bold text-black truncate">{equip?.name}</h3>
           </>
         ) : (
