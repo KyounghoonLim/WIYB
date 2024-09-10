@@ -85,7 +85,11 @@
     "viewCount": 103,
     "createdAt": "Tue, 20 Aug 2024 10:34:41 GMT",
     "commentCount": 2,
-    "images": ["/images/dummies/image_post_dummy.png"],
+    "images": [
+      "/images/dummies/image_post_dummy.png",
+      "/images/dummies/image_post_dummy.png",
+      "/images/dummies/image_post_dummy.png"
+    ],
     "content": "걸 걸 헤이 유고걸?\n\n베비베비베비 밷 걸~",
     "comments": [
       {

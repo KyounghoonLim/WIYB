@@ -14,7 +14,7 @@ export default function ListItem_Community_Comment({ item: comment }: { item: Co
             <Thumbnail_Profile src={comment.user.imageUrl} width={32} className="mr-1" />
             <p>{comment.user.nickname}</p>
             <Badge_Handy handy={comment.user.handy} />
-            <Badge_BodySpec weight={comment.user.weight} height={comment.user.handy} />
+            <Badge_BodySpec weight={comment.user.weight} height={comment.user.height} />
           </div>
           <div className="w-full py-3 typograph-16 leading-[22px]">{comment.content}</div>
         </div>

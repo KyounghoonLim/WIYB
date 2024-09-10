@@ -22,3 +22,11 @@ export const DATE_INPUT_DIRECTION = {
 } as const
 
 export type DateInputDirectionType = Union<typeof DATE_INPUT_DIRECTION>
+
+export const DATE_TO_SECOND_CONSTANT = {
+  Y: 31536000,
+  M: 2628000,
+  D: 86400,
+  h: 3600,
+  m: 60,
+} as const

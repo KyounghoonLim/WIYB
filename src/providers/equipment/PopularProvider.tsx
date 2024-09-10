@@ -29,12 +29,12 @@ export default function PopularProvider({ equipmentType, children }) {
     }
     /// 타입이 있는 경우 해당 타입으로 조회 ///
     else {
-      const all = await getPopularEquipment_Top5_Api(category)
+      const all = await (await getPopularEquipment_Top5_Api(category)).slice(0, 5)
       if (!equipmentMetricKeys[category]) return { all }
       else {
         const itemsByMetric = await Promise.all(
           equipmentMetricKeys[category].map(async (metric) => ({
-            [metric]: await getPopularEquipment_Metric_Api(category, metric),
+            [metric]: (await getPopularEquipment_Metric_Api(category, metric)).slice(0, 5),
           }))
         )
 

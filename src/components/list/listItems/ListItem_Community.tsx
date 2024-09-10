@@ -6,8 +6,10 @@ import clsx from 'clsx'
 import MyLink from 'components/link/MyLink'
 import { PATH, PATH_PARAMS } from 'constants/path.constant'
 import { CommunityPost } from 'types/community.types'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function ListItem_Community({ item: post }: ListItemProps<CommunityPost>) {
+  const { rt } = useMyTranslate()
   return (
     <MyLink
       href={
@@ -29,7 +31,7 @@ export default function ListItem_Community({ item: post }: ListItemProps<Communi
             </div>
             {/* detail */}
             <div className="max-w-[300px] h-full flex flex-col justify-between typograph-12 text-text-label-000">
-              <p>14시간 전</p>
+              <p>{rt(post.createdAt)}</p>
               <p className="truncate">{post?.user?.nickname}</p>
             </div>
           </>

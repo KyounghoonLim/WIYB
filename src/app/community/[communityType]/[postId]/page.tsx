@@ -13,10 +13,11 @@ import ViewsIcon from 'icons/icon_views.svg'
 import { numberAddComma } from 'utils/numberUtils'
 import List_Community_Comments from 'components/list/communityPage/List_Community_Comments'
 import Form_Comment from 'components/form/Form_Comment'
+import Image from 'next/image'
 
 export default function CommunityPostPage({ params: { postId } }) {
   const { data: post, isLoading } = useMyQuery([postId], getPostDetail)
-  const { t } = useMyTranslate('community.category')
+  const { t, rt } = useMyTranslate()
 
   return (
     <section className="w-[800px] pt-6 pb-[72px]">
@@ -28,7 +29,7 @@ export default function CommunityPostPage({ params: { postId } }) {
         ) : post ? (
           <>
             <div className="w-full h-[51px] flex-row-start typograph-16 gap-3">
-              <div className="font-bold">{t(post.category)}</div>
+              <div className="font-bold">{t('community.category.' + post.category)}</div>
               <div className="w-[1px] h-[19px] bg-[#F0F0F0]" />
               <div className="max-w-[600px] flex-row-start gap-1 truncate">
                 {post.title}
@@ -39,20 +40,30 @@ export default function CommunityPostPage({ params: { postId } }) {
               <Thumbnail_Profile src={post.user.imageUrl} width={32} className="mr-1" />
               <p>{post.user.nickname}</p>
               <Badge_Handy handy={post.user.handy} />
-              <Badge_BodySpec weight={post.user.weight} height={post.user.handy} />
+              <Badge_BodySpec weight={post.user.weight} height={post.user.height} />
             </div>
             <div className="w-full h-[50px] flex justify-between items-center typograph-13 text-text-label-100 border-b border-[#F0F0F0] border-solid">
               <div className="flex-row-start gap-[6px]">
                 <ClockIcon />
-                {post.createdAt}
+                {rt(post.createdAt)}
               </div>
               <div className="flex-row-start gap-[6px]">
                 <ViewsIcon />
                 {numberAddComma(post.viewCount)}
               </div>
             </div>
-            <div className="w-full min-h-[300px] px-2 py-8 typograph-16 leading-6 border-b border-[#F0F0F0] border-solid">
-              {post.content}
+            <div className="w-full min-h-[300px] flex flex-col gap-4 px-2 py-8 typograph-16 leading-6 border-b border-[#F0F0F0] border-solid">
+              {post.images.map((imageUrl) => (
+                <Image
+                  key={imageUrl}
+                  src={imageUrl}
+                  className="!static max-w-[75%]"
+                  alt={imageUrl}
+                  unoptimized
+                  fill
+                />
+              ))}
+              <p className="min-h-[100px]">{post.content}</p>
             </div>
             <div className="w-full flex-col-start">
               <div className="w-full h-14 flex-row-start typograph-16">

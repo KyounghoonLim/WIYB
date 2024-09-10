@@ -5,8 +5,8 @@ import Badge from './Badge'
 export default function Badge_Handy({ handy }: { handy?: number }) {
   return (
     <Badge
-      text={handy ? `${handy}${handy > 0 ? '+' : ''}` : '핸디 정보가 없습니다.'}
-      className="px-3 rounded-[14px]"
+      text={'핸디' + '<strong>' + (handy ? `${handy}${handy > 0 ? '+' : ''}` : '???') + '</strong>'}
+      className="px-3 rounded-[14px] gap-1"
     />
   )
 }

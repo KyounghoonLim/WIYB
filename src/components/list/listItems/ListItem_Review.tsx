@@ -12,10 +12,14 @@ import Button_Like from 'components/button/Button_Like'
 import { userContext } from 'providers/UserProvider'
 import { likeReviewApi } from 'services/reviewApis'
 import { equipmentContext } from 'providers/equipment/EquipmentProvider'
+import useMyTranslate from 'hooks/useMyTranslate'
 
 export default function ListItem_Review({ item: review }: ListItemProps<Review>) {
   const { userRequiredAction } = useContext(userContext)
   const { equipment } = useContext(equipmentContext)
+
+  const { rt } = useMyTranslate()
+
   const [isLiked, setIsLiked] = useState<boolean>(false)
 
   const user = useMemo(() => {
@@ -62,7 +66,7 @@ export default function ListItem_Review({ item: review }: ListItemProps<Review>)
       </div>
       {review ? (
         <>
-          <p className="typograph-16">{review?.content}</p>
+          <p className="typograph-16 leading-[22px] min-h-[44px]">{review?.content}</p>
         </>
       ) : (
         <>
@@ -87,7 +91,7 @@ export default function ListItem_Review({ item: review }: ListItemProps<Review>)
       )}
       {review && (
         <div className="w-full flex justify-between items-center">
-          <span className="typograph-14 text-text-label-100">3 시간 전</span>
+          <span className="typograph-14 text-text-label-100">{rt(review.createdAt)}</span>
           <Button_Like isLiked={isLiked} onClick={clickHandler} />
         </div>
       )}

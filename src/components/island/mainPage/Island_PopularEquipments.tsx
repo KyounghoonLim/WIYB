@@ -24,7 +24,9 @@ export default function Island_PopularEquipments() {
           <section className="w-full h-16 flex justify-between items-center">
             <span>
               가장 인기있는 {}
-              <h3 className="typograph-16 inline-block font-bold">장비 Top 5</h3>
+              <h3 className="typograph-16 inline-block font-bold">
+                장비 Top {Math.min(5, popularEquipments?.length || 0)}
+              </h3>
             </span>
             <Button_SeeMore href={PATH.EQUIPMENT_POPULAR} />
           </section>

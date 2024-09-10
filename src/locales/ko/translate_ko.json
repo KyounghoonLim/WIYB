@@ -96,5 +96,6 @@
       "QNA": "질문/답변 게시판",
       "TIP": "팁/레슨 게시판"
     }
-  }
+  },
+  "relativeTime": "{{val, relativetime}}"
 }
