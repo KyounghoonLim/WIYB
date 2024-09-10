@@ -75,6 +75,7 @@ export default function MyLink({
       className={className}
       title={title}
       replace={replace}
+      scroll={false}
     >
       {children}
     </Link>
