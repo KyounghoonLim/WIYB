@@ -6,7 +6,7 @@ import { searchOptionContext } from 'providers/search/SearchOption.wrapper'
 import { useCallback, useContext } from 'react'
 
 export default function Search_Filters() {
-  const { equipmentTypeResource, searchFilters, setSearchFilters, resetSearchOptions } =
+  const { equipmentTypeResource, searchFilters, setSearchFilters, resetSearchFilters } =
     useContext(searchOptionContext)
 
   const changeHandler = useCallback(
@@ -32,7 +32,7 @@ export default function Search_Filters() {
         <article className="float-search-options">
           <div className="w-full h-14 flex justify-between items-center border-b-[1px] border-b-neutral-100 border-solid px-4">
             <h3 className="typograph-16 font-bold">검색 필터</h3>
-            <Button_Secondary text="초기화" onClick={resetSearchOptions} />
+            <Button_Secondary text="초기화" onClick={resetSearchFilters} />
           </div>
           <div className="w-full h-auto flex-col-start px-4 pb-4">
             <h3 className="typograph-16 font-bold w-full h-14 flex-row-start">종류</h3>

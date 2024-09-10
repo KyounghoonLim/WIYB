@@ -17,11 +17,15 @@ import { resourceContext } from 'providers/resource/resourceProvider'
 
 export const searchOptionContext = createContext<{
   /**
-   * 검색 컴포넌트 언마운트 시 검색 옵션 초기화
+   * 검색 필터 초기화
    */
-  resetSearchOptions: () => void
+  resetSearchFilters: () => void
   /**
    * 검색어 키워드
+   *
+   * searchParams 로 초기화 됨.
+   *
+   * 검색 키워드 캐싱 용도 (form 과 1:1 동기화 되지 않음. 초기화만 도움)
    */
   searchKeyword: string
   setSearchKeyword: Dispatch<SetStateAction<string>>
@@ -52,28 +56,23 @@ export const searchOptionContext = createContext<{
 export default function SearchOption_Wrapper({ children }) {
   const { brandResource, equipmentTypeResource } = useContext(resourceContext)
 
-  const [searchKeyword, setSearchKeyword] = useState<string>('')
+  const searchParams = useSearchParams()
+
+  const [searchKeyword, setSearchKeyword] = useState<string>(searchParams?.get('keyword') || '')
   const [searchFilters, setSearchFilters] = useState<string[]>([])
   const [searchSort, setSearchSort] = useState<SearchSortType>(SEARCH_SORT.DESC_REVIEW)
 
   const { searchHistory, setSearchHistory, removeSearchHistory, removeAllSearchHistory } =
     useSearchHistory()
 
-  const searchParams = useSearchParams()
-
-  const resetSearchOptions = useCallback(() => {
-    setSearchSort(SEARCH_SORT.DESC_REVIEW)
-    setSearchFilters((temp) => (temp?.length ? [] : temp))
+  const resetSearchFilters = useCallback(() => {
+    setSearchFilters([])
   }, [])
-
-  useLayoutEffect(() => {
-    setSearchKeyword(searchParams.get('keyword') || '')
-  }, [searchParams])
 
   return (
     <searchOptionContext.Provider
       value={{
-        resetSearchOptions,
+        resetSearchFilters,
         searchKeyword,
         setSearchKeyword,
         searchFilters,

@@ -9,7 +9,12 @@ import dynamic from 'next/dynamic'
 
 const SearchOption_Wrapper = dynamic(() => import('./SearchOption.wrapper'))
 
-export const searchContext = createContext<{ searching: (keyword?: string) => void }>(null)
+export const searchContext = createContext<{
+  /**
+   * 검색 페이지 이동용
+   */
+  goToSearch: (keyword: string) => void
+}>(null)
 
 /**
  * wrapper
@@ -25,14 +30,11 @@ export default function SearchProvider({ children }) {
 }
 
 function SearchProviderChild({ children }) {
-  const { searchKeyword, searchSort, searchFilters, setSearchKeyword, setSearchHistory } =
-    useContext(searchOptionContext)
+  const { setSearchKeyword, setSearchHistory } = useContext(searchOptionContext)
   const { throttling } = useThrottle()
 
-  /// sort 는 잠시 제외 ///
-  const searching = useCallback(
-    (keyword?: string) => {
-      keyword = keyword || searchKeyword
+  const goToSearch = useCallback(
+    (keyword: string) => {
       if (keyword?.length < 2) {
         window.alert('검색은 두 글자 이상부터 가능합니다.')
       } else {
@@ -40,7 +42,7 @@ function SearchProviderChild({ children }) {
         const searchParams = [
           keyword && `keyword=${keyword}`,
           // `sort=${searchSort}`,
-          Boolean(searchFilters.length) && `filters=${searchFilters.join(',')}`,
+          // Boolean(searchFilters.length) && `filters=${searchFilters.join(',')}`,
         ].filter((ele) => ele)
 
         throttling(() => {
@@ -49,8 +51,8 @@ function SearchProviderChild({ children }) {
         })
       }
     },
-    [searchKeyword, searchFilters, setSearchHistory, setSearchKeyword, throttling]
+    [setSearchHistory, setSearchKeyword, throttling]
   )
 
-  return <searchContext.Provider value={{ searching }}>{children}</searchContext.Provider>
+  return <searchContext.Provider value={{ goToSearch }}>{children}</searchContext.Provider>
 }

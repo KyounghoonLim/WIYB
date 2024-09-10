@@ -51,7 +51,7 @@ export default function CommunityPostPage({ params: { postId } }) {
                 {numberAddComma(post.viewCount)}
               </div>
             </div>
-            <div className="w-full px-2 py-8 typograph-16 leading-6 border-b border-[#F0F0F0] border-solid">
+            <div className="w-full min-h-[300px] px-2 py-8 typograph-16 leading-6 border-b border-[#F0F0F0] border-solid">
               {post.content}
             </div>
             <div className="w-full flex-col-start">
