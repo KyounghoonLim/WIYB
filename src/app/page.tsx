@@ -1,7 +1,7 @@
 import Form_Search from '@/components/form/Form_Search'
 import Logo_Main from '@/components/logo/Logo_Main'
-import Search_PopularItems from '@/components/search/Search_PopularItems'
 import Island_CommunityPosts from 'components/island/mainPage/Island_CommunityPosts'
+import Search_PopularKeywords from 'components/search/Search_PopularKeywords'
 import dynamic from 'next/dynamic'
 import SearchProvider from 'providers/search/SearchProvider'
 
@@ -19,7 +19,7 @@ export default function MainPage() {
           </article>
           <article className="CONTENT-CONTAINER justify-start w-full h-[130px]">
             <Form_Search />
-            <Search_PopularItems />
+            <Search_PopularKeywords />
           </article>
         </section>
         <section className="w-full flex-row-center gap-3 pt-8">
