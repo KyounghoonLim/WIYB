@@ -22,7 +22,7 @@ export default function List_Community_Pagination() {
 
   return (
     <Paginator page={1} onChange={null} totalPage={1}>
-      <Island className="w-full h-auto p-4 overflow-hidden">
+      <Island className="w-full h-auto overflow-hidden">
         <List_Primary items={posts} Component={ListItem_Community} />
       </Island>
     </Paginator>

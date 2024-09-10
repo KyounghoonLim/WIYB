@@ -109,7 +109,7 @@ export default function Form_Review() {
       <article className="flex gap-3">
         <section className="flex-col-start gap-3">
           {/* 장비 간단 정보 */}
-          <Island className="w-[360px] h-[102px] flex-row-start gap-4 p-4 rounded-lg">
+          <Island className="w-[360px] h-[102px] flex-row-start gap-4">
             <Thumbnail_Primary src={equipment?.imageUrls?.[0]} width={64} />
             <div className="w-full h-full flex flex-col justify-between typograph-12 text-text-label-100">
               <div className="w-full flex flex-col gap-1">
@@ -127,7 +127,7 @@ export default function Form_Review() {
             </div>
           </Island>
           {/* 라디오 섹션 */}
-          <Island className="w-[360px] h-auto flex-col-start gap-[10px] p-4">
+          <Island className="w-[360px] h-auto flex-col-start gap-[10px]">
             {Object.keys(reviewEvaluationMap).map((key) => (
               <RadioGroup_Review
                 key={key}
@@ -139,7 +139,7 @@ export default function Form_Review() {
           </Island>
         </section>
         <section>
-          <Island className="w-[508px] h-full flex-col-start gap-[10px] p-4">
+          <Island className="w-[508px] h-full flex-col-start gap-[10px]">
             <span className="w-full typograph-16">
               <h4 className="font-bold inline-block">사진</h4>을 추가해보세요!
             </span>

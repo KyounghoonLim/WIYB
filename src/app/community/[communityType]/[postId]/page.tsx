@@ -20,7 +20,7 @@ export default function CommunityPostPage({ params: { postId } }) {
 
   return (
     <section className="w-[800px] pt-6 pb-[72px]">
-      <Island className="rounded-none">
+      <Island>
         {isLoading ? (
           <div className="w-full h-[500px] flex-col-center">
             <LoadingSpinner />

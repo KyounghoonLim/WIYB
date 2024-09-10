@@ -11,7 +11,7 @@ export default function Island_Equipment_DetailInfo({
   value: string
 }) {
   return (
-    <Island className="w-auto min-w-[140px] h-[102px] p-4 flex flex-col justify-between typograph-16">
+    <Island className="w-auto min-w-[140px] h-[102px] flex flex-col justify-between typograph-16">
       {label && value ? (
         <>
           <h3>{label}</h3>
