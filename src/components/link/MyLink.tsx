@@ -31,6 +31,11 @@ export default function MyLink({
   const { throttling } = useThrottle(useLoadingOverlay)
   const routeChangedRef = useRef<boolean>(false)
 
+  const scrollToTop = useCallback(() => {
+    console.log('scroll to top')
+    document.scrollingElement.scrollTo({ top: 0 })
+  }, [])
+
   const clickHandler = useCallback(() => {
     if (target !== '_self') return
     else {
@@ -41,10 +46,12 @@ export default function MyLink({
               clearInterval(interval)
               resolve(true)
               location.reload()
+              scrollToTop()
             } else if (!routeChangedRef.current) return
             else {
               clearInterval(interval)
               resolve(true)
+              scrollToTop()
             }
           }, 100)
         })

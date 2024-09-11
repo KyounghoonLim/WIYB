@@ -8,6 +8,7 @@ import {
   ReactNode,
   SetStateAction,
   useCallback,
+  useLayoutEffect,
   useMemo,
   useReducer,
   useState,
@@ -30,11 +31,9 @@ export const reviewContext = createContext<{
 export default function ReviewProvider({
   equipmentId,
   children,
-  useInfinityScroll,
 }: {
   equipmentId: string
   children: ReactNode
-  useInfinityScroll?: boolean
 }) {
   const [reviewContextId, setReviewContextId] = useState<string>(null)
   const [reviewOffset, setReviewOffset] = useState<number>(1)
@@ -60,24 +59,18 @@ export default function ReviewProvider({
     setReviewOffset(1)
   }, [])
 
-  const successHandler = useCallback(
-    ({ metadata, content }: ReviewResult) => {
-      setIsEndOfPage(metadata.isLast)
-      setReviewContextId(metadata.contextId)
-      setContents((temp) => {
-        if (!useInfinityScroll) return content
-        else if (metadata.offset === 1) return content
-        else return [...temp, ...content]
-      })
-      setMetadata(metadata)
-    },
-    [useInfinityScroll]
-  )
+  const successHandler = useCallback(({ metadata, content }: ReviewResult) => {
+    setIsEndOfPage(metadata.isLast)
+    setReviewContextId(metadata.contextId)
+    console.log(content[0]?.isLiked)
+    setContents(content)
+    setMetadata(metadata)
+  }, [])
 
   const { isLoading } = useMyQuery(
     [equipmentId, reviewContextId, reviewOffset, reviewSize, reviewSort],
     getEquipmentReviewsApi,
-    { enabled: isFetchEnable },
+    { enabled: isFetchEnable, gcTime: 0 },
     successHandler
   )
 
