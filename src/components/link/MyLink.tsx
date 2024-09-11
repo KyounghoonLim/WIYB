@@ -32,7 +32,6 @@ export default function MyLink({
   const routeChangedRef = useRef<boolean>(false)
 
   const scrollToTop = useCallback(() => {
-    console.log('scroll to top')
     document.scrollingElement.scrollTo({ top: 0 })
   }, [])
 
@@ -57,7 +56,7 @@ export default function MyLink({
         })
       })
     }
-  }, [href, pathname, target, throttling])
+  }, [href, pathname, target, throttling, scrollToTop])
 
   /// unmount 되었을 때 throttle 해제 ///
   useLayoutEffect(() => {

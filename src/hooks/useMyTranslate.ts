@@ -12,11 +12,14 @@ export default function useMyTranslate(keyPrefix?: string) {
     [_t]
   )
 
-  const rt = useCallback((val: Date | string | number) => {
-    return _t('relativeTime', {
-      val,
-    })
-  }, [])
+  const rt = useCallback(
+    (val: Date | string | number) => {
+      return _t('relativeTime', {
+        val,
+      })
+    },
+    [_t]
+  )
 
   return { t, rt }
 }
