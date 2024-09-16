@@ -4,10 +4,10 @@ import Community_Categories from './(components)/Community_Categories'
 import SearchProvider from 'providers/search/SearchProvider'
 import Search_PopularKeywords from 'components/search/Search_PopularKeywords'
 
-export default function CommunityLayout({ children, params: { communityType } }) {
+export default function CommunityLayout({ children, params: { communityCategory } }) {
   return (
     <SearchProvider>
-      <CommunityProvider communityType={communityType?.toUpperCase()}>
+      <CommunityProvider communityCategory={communityCategory}>
         <main className="PAGE-CONTAINER pb-12">
           <section className="w-full h-fit bg-white">
             <article className="CONTENT-CONTAINER justify-start w-full h-[178px] pt-12">

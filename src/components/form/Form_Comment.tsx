@@ -6,8 +6,15 @@ import { useCallback, useContext, useState } from 'react'
 import { userContext } from 'providers/UserProvider'
 import Button_Primary from 'components/button/Button_Primary'
 import ReviewIcon from 'icons/icon_review.svg'
+import { postCommunityCommentApi } from 'services/communityApi'
 
-export default function Form_Comment() {
+export default function Form_Comment({
+  postId,
+  commentId,
+}: {
+  postId: string
+  commentId?: string
+}) {
   const { user, userRequiredAction } = useContext(userContext)
   const [comment, setComment] = useState<string>('')
 
@@ -15,11 +22,17 @@ export default function Form_Comment() {
     if (!comment) {
       window.alert('댓글을 입력해주세요.')
     } else {
-      userRequiredAction(() => {
-        window.alert('개발중입니다!')
+      userRequiredAction(async () => {
+        try {
+          await postCommunityCommentApi(postId, comment, commentId)
+          window.alert('댓글을 작성했습니다.')
+          location.reload()
+        } catch {
+          window.alert('댓글 작성에 실패했습니다.')
+        }
       })
     }
-  }, [comment, userRequiredAction])
+  }, [postId, comment, userRequiredAction])
 
   return (
     <Form onSubmit={submitHandler} className="p-4 gap-3">

@@ -62,7 +62,6 @@ export default function ReviewProvider({
   const successHandler = useCallback(({ metadata, content }: ReviewResult) => {
     setIsEndOfPage(metadata.isLast)
     setReviewContextId(metadata.contextId)
-    console.log(content[0]?.isLiked)
     setContents(content)
     setMetadata(metadata)
   }, [])

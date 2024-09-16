@@ -6,6 +6,8 @@ interface SelectProps {
   placeholder?: string
   onChange?: (value: string) => any | Promise<any>
   className?: string
+  width?: number
+  disabled?: boolean
 }
 
 type SelectOption = {

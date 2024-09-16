@@ -4,13 +4,18 @@ import useMyQuery from 'hooks/useMyQuery'
 import Island from '../Island'
 import Button_SeeMore from 'components/button/Button_SeeMore'
 import List_Primary from 'components/list/List_Primary'
-import { getRecentPosts } from 'services/communityApi'
+import { getRecentPostsApi } from 'services/communityApi'
 import ListItem_Community from 'components/list/listItems/ListItem_Community'
 import { PATH, PATH_PARAMS } from 'constants/path.constant'
 
 export default function Island_CommunityPosts() {
-  const { data: posts } = useMyQuery(['recentCommunityPosts'], getRecentPosts, {
-    initialData: Array(5).fill(undefined),
+  const {
+    data: { content: posts },
+  } = useMyQuery(['recentCommunityPosts'], getRecentPostsApi, {
+    initialData: {
+      metadata: null,
+      content: Array(5).fill(undefined),
+    },
   })
 
   return (
@@ -21,16 +26,22 @@ export default function Island_CommunityPosts() {
           <h3 className="typograph-16 inline-block font-bold">커뮤니티 글</h3>
         </span>
         <Button_SeeMore
-          href={PATH.COMMUNITY + PATH_PARAMS.COMMUNITY.replace('[communityType]', 'all')}
+          href={PATH.COMMUNITY + PATH_PARAMS.COMMUNITY.replace('[communityCategory]', 'all')}
         />
       </section>
       <section>
-        <List_Primary
-          items={posts.slice(0, 4)}
-          Component={({ item, index, isLast }) =>
-            ListItem_Community({ item, index, isLast, listing: true })
-          }
-        />
+        {Boolean(posts.length) ? (
+          <List_Primary
+            items={posts.slice(0, 4)}
+            Component={({ item, index, isLast }) =>
+              ListItem_Community({ item, index, isLast, listing: true })
+            }
+          />
+        ) : (
+          <div className="w-full h-[320px] flex-col-center text-text-label-100">
+            게시글이 없습니다.
+          </div>
+        )}
       </section>
     </Island>
   )

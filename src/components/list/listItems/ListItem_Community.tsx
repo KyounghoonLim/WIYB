@@ -15,7 +15,7 @@ export default function ListItem_Community({ item: post }: ListItemProps<Communi
       href={
         post
           ? PATH.COMMUNITY +
-            PATH_PARAMS.COMMUNITY.replace('[communityType]', post.category) +
+            PATH_PARAMS.COMMUNITY.replace('[communityCategory]', post.category) +
             PATH_PARAMS.COMMUNITY_POST.replace('[postId]', post.id)
           : '#'
       }
@@ -32,7 +32,7 @@ export default function ListItem_Community({ item: post }: ListItemProps<Communi
             {/* detail */}
             <div className="max-w-[300px] h-full flex flex-col justify-between typograph-12 text-text-label-000">
               <p>{rt(post.createdAt)}</p>
-              <p className="truncate">{post?.user?.nickname}</p>
+              <p className="truncate">{post?.author?.nickname}</p>
             </div>
           </>
         ) : (
@@ -45,7 +45,7 @@ export default function ListItem_Community({ item: post }: ListItemProps<Communi
           </>
         )}
       </div>
-      <Thumbnail_Primary src={post?.images?.[0]} width={64} className="rounded-sm" />
+      <Thumbnail_Primary src={post?.imageUrls?.[0]} width={64} className="rounded-sm" />
     </MyLink>
   )
 }

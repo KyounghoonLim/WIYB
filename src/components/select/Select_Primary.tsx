@@ -12,32 +12,48 @@ export default function Select_Primary({
   placeholder,
   onChange,
   className,
+  width,
+  disabled,
 }: SelectProps) {
   const selectContainer = useRef<HTMLDivElement>()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [isShow, setIsShow] = useState<boolean>(false)
 
   const maximumLabelWidth = useMemo(() => {
-    const longestLabel = options.reduce((prev, { label }) => {
-      return prev?.length > label?.length ? prev : label
-    }, '')
-    return measureTextWidth(longestLabel, '14px Inter')
-  }, [options])
+    if (width) return width
+    else {
+      const longestLabel = options.reduce((prev, { label }) => {
+        return prev?.length > label?.length ? prev : label
+      }, '')
+      return measureTextWidth(longestLabel, '14px Inter')
+    }
+  }, [options, width])
 
-  const containerClickHandler = useCallback((e: SyntheticEvent) => {
-    e.stopPropagation()
-    setIsOpen((temp) => !temp)
-    setIsShow(true)
-  }, [])
+  const containerClickHandler = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation()
+
+      if (disabled) return
+      else {
+        setIsOpen((temp) => !temp)
+        setIsShow(true)
+      }
+    },
+    [disabled]
+  )
 
   const optionClickHandler = useCallback(
     (e: SyntheticEvent) => {
       e.stopPropagation()
-      const value = (e.target as HTMLElement).dataset.value
-      onChange?.(value)
-      setIsOpen(false)
+
+      if (disabled) return
+      else {
+        const value = (e.target as HTMLElement).dataset.value
+        onChange?.(value)
+        setIsOpen(false)
+      }
     },
-    [onChange]
+    [onChange, disabled]
   )
 
   const isSelected = useCallback(
@@ -68,6 +84,7 @@ export default function Select_Primary({
       onClick={containerClickHandler}
       data-open={isOpen}
       data-show={isShow}
+      data-disabled={disabled}
     >
       <div className="select-default-option" style={{ minWidth: maximumLabelWidth }}>
         {options.find((option) => value === option.value)?.label || placeholder}
@@ -86,7 +103,7 @@ export default function Select_Primary({
           ))}
         </div>
       </div>
-      <ArrowIcon className="select-arrow" />
+      <ArrowIcon className="select-arrow" data-disabled={disabled} />
     </article>
   )
 }

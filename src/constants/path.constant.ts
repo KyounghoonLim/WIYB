@@ -16,19 +16,20 @@ export const PATH = {
   EQUIPMENT_POPULAR: '/equipment/popular',
   /// community ///
   COMMUNITY: '/community',
+  COMMUNITY_FORM: '/community/form',
 } as const
 
 export const PATH_PARAMS = {
   EQUIPMENT_DETAIL: '/[equipmentType]/[equipmentId]',
   EQUIPMENT_POPULAR: '/[equipmentType]',
-  COMMUNITY: '/[communityType]',
+  COMMUNITY: '/[communityCategory]',
   COMMUNITY_POST: '/[postId]',
 } as const
 
 export const AUTHORITY_PATH = {
   ALL: [PATH.MAIN, PATH.SEARCH, PATH.EQUIPMENT_DETAIL, PATH.EQUIPMENT_POPULAR, PATH.COMMUNITY],
   GUEST: [PATH.LOGIN, PATH.LOGIN_FAILURE, PATH.SIGN],
-  USER: [PATH.PROFILE],
+  USER: [PATH.PROFILE, PATH.COMMUNITY_FORM],
 } as const
 
 /// api paths ///
@@ -75,6 +76,15 @@ export const SERVICE_PATH = {
   /// review ///
   REVIEW: '/product/[equipmentId]/review',
   LIKE_REVIEW: '/product/[equipmentId]/review/[reviewId]/like',
+  /// community ///
+  GET_COMMUNITY_POSTS: '/community/post',
+  GET_COMMUNITY_POST_DETAIL: '/community/post/[postId]',
+  POST_COMMUNITY_POST: '/community/post',
+  UPDATE_COMMUNITY_POST: '/community/post/[postId]',
+  DELETE_COMMUNITY_POST: '/community/post/[postId]',
+  POST_COMMUNITY_COMMENT: '/community/post/[postId]/comment',
+  UPDATE_COMMUNITY_COMMENT: '/community/post/[postId]/comment/[commentId]',
+  REMOVE_COMMUNITY_COMMENT: '/community/post/[postId]/comment/[commentId]',
   /// common ///
   UPLOAD_IMAGE: '/image',
   /// constant ///

@@ -25,7 +25,7 @@ export default function Nav() {
             장비
           </MyLink>
           <MyLink
-            href={PATH.COMMUNITY + PATH_PARAMS.COMMUNITY.replace('[communityType]', 'all')}
+            href={PATH.COMMUNITY + PATH_PARAMS.COMMUNITY.replace('[communityCategory]', 'all')}
             className={clsx('p-4', pathname.includes(PATH.COMMUNITY) && 'font-bold')}
           >
             커뮤니티

@@ -22,14 +22,7 @@ export default function Equipment_Review_Section() {
           </div>
           <Review_Sorts />
         </div>
-        {Boolean(contents?.length) ? (
-          <List_Reviews_Pagination />
-        ) : (
-          <div className="w-full h-36 flex-col-center text-text-label-000 pb-10">
-            <p>작성된 리뷰가 없습니다.</p>
-            <p>첫 리뷰를 작성해보세요!</p>
-          </div>
-        )}
+        <List_Reviews_Pagination />
       </article>
     </section>
   )

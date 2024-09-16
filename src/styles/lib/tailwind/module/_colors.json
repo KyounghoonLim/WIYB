@@ -21,7 +21,9 @@
       "000": "#C8C8C8",
       "100": "#969696"
     },
-    "comment": "#286EDC"
+    "comment": "#286EDC",
+    "link": "#2059F5",
+    "warn": "#C72240"
   },
   "bg": {
     "light": "#FAFAFA",
