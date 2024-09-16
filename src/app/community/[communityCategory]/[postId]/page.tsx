@@ -128,7 +128,12 @@ export default function CommunityPostPage({ params: { postId } }) {
             </div>
           </>
         ) : (
-          <></>
+          <div className="w-full h-[500px] flex-col-center gap-20 typograph-20 text-text-label-000">
+            존재하지 않는 게시글입니다.
+            <button className="typograph-16" onClick={() => history.back()}>
+              이전페이지로 돌아가기
+            </button>
+          </div>
         )}
       </Island>
     </section>
