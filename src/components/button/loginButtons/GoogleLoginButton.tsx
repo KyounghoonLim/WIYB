@@ -17,7 +17,7 @@ export default function GoogleLoginButton() {
           getStorageItem(STORAGE_TYPE.SESSION, STORAGE_KEY.LOGIN.SUCCESS_FALLBACK)
         )
       }
-      className="button-login font-normal"
+      className="button-login font-normal shadow-[0px_0px_10px_1px_#00000005]"
       text="구글로 <strong>WIYB</strong> 이용하기"
     />
   )

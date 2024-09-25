@@ -14,12 +14,12 @@ export default function Button_User() {
   const pathname = usePathname()
 
   const { dropdownRef, Dropdown } = useDropdown([
-    {
-      label: '내 프로필',
-      onClick: () => {
-        window.alert('개발중입니다!')
-      },
-    },
+    // {
+    //   label: '내 프로필',
+    //   onClick: () => {
+    //     window.alert('개발중입니다!')
+    //   },
+    // },
     {
       label: '로그아웃',
       onClick: manualLogout,

@@ -33,7 +33,11 @@ export default function Form_Sign({ fallback }: { fallback: string }) {
   }, [nickname, gender, birth, fallback])
 
   return (
-    <Form onSubmit={submitHandler} className="w-[800px] my-4 gap-8">
+    <Form onSubmit={submitHandler} className="w-[550px] my-10 gap-5">
+      <p className="text-text-label-000 text-center py-6">
+        마무리 단계에요.
+        <br /> 추가정보를 입력하고 회원가입을 완료하세요 😎
+      </p>
       <label htmlFor="sign-nickname" className="label">
         닉네임
         <div className="w-full px-4 bg-white rounded-2xl">
@@ -43,6 +47,7 @@ export default function Form_Sign({ fallback }: { fallback: string }) {
             value={nickname}
             onChange={setNickname}
             maxLength={10}
+            className="typograph-14 h-12"
           />
         </div>
       </label>
@@ -54,6 +59,9 @@ export default function Form_Sign({ fallback }: { fallback: string }) {
           value={gender}
           name="sign-gender"
           onChange={setGender}
+          className="typograph-14 h-12"
+          itemClassName="!typograph-14"
+          indicatorClassName="!typograph-14"
         />
       </label>
       <label htmlFor="sign-birth" className="label">
@@ -63,12 +71,13 @@ export default function Form_Sign({ fallback }: { fallback: string }) {
           value={birth}
           onChange={setBirth}
           maxDate={new Date(Date.now() - 86400000).toISOString().split('T')[0]}
+          className="typograph-14 h-12"
         />
       </label>
       <Button
         type="submit"
         text="회원가입 완료하기"
-        className="button-primary mt-8"
+        className="button-primary mt-16"
         disabled={!nickname || !gender || !birth}
       />
     </Form>

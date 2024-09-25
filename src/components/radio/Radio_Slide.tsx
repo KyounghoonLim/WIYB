@@ -11,6 +11,8 @@ export default function RadioSlide<T = string>({
   onChange,
   id,
   className,
+  itemClassName,
+  indicatorClassName,
 }: RadioProps<T>) {
   const eachWidth = useMemo(() => {
     return `calc(100% / ${options?.length})`
@@ -41,7 +43,7 @@ export default function RadioSlide<T = string>({
             key={optionId}
             htmlFor={optionId}
             style={{ width: eachWidth }}
-            className="radio-item"
+            className={clsx('radio-item', itemClassName)}
             title={label}
           >
             {label}
@@ -59,7 +61,7 @@ export default function RadioSlide<T = string>({
       <span
         id={id + '-' + 'indicator'}
         style={{ width: eachWidth, transform: `translateX(${indicatorPos})` }}
-        className="radio-indicator"
+        className={clsx('radio-indicator', indicatorClassName)}
       >
         {selectedOption.label}
       </span>
